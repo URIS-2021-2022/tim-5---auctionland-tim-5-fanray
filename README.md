@@ -11,6 +11,6 @@ cd Putanja/Do/Mjesta/Projekta
 ```
 git clone https://github.com/URIS-2021-2022/tim-5---auctionland-tim-5-fanray.git
 ```
-
-### Način rada
-Kada ste kreirali glavni lokalni repozitorijum na vašem računaru, i kada ste isti otvorili u Visual Studio razvojnom okruženju, neophodno je da od glavne (u ovom slučaju to je **main**) grane kreirate svoju. Postupak ažuriranja projekta, kreiranje grane i objavljivanje vašeg rada (_pull-checkout-push_) je objašnjeno u tutorijalu koji je bio namjenjen za SonarCloud predispitnu obavezu.
+4. Uz pomoć Visual Studio razvojnog okruženja (preporučena verzija je 2019) kreirajte projekat (jedan servis - jedan projekat) tako što ćete izabrati šablon **ASP.NET Core Web API** i klonirani repozitorijum kao lokaciju.
+*Ukoliko već postoji na vašem računaru kopija repozitorijuma dovoljno je samo kreirati novi projekat na zahtjevanoj lokaciji*
+5. Prije implementacije servisa, od glavne (u ovom slučaju **main**) grane kreirajte svoju. Tipične operacije za korišćenje Git okruženja (*pull-checkout-commit-push*) su detaljno objašnjene u tutorijalu koji je bio namjenjen za SonarCloud projekat.
