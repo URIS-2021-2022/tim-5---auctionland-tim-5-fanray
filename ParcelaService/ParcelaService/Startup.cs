@@ -1,15 +1,16 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using ParcelaService.Data;
+using ParcelaService.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
 namespace ParcelaService
 {
@@ -22,13 +23,49 @@ namespace ParcelaService
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IKatastarskaOpstinaRepository, KatastarskaOpstinaRepository>();
+            services.AddScoped<IKulturaRepository, KulturaRepository>();
+            services.AddScoped<IKlasaRepository, KlasaRepository>();
+            services.AddScoped<IObradivostRepository, ObradivostRepository>();
+            services.AddScoped<IZasticenaZonaRepository, ZasticenaZonaRepository>();
+            services.AddScoped<IOblikSvojineRepository, OblikSvojineRepository>();
+            services.AddScoped<IOdvodnjavanjeRepository, OdvodnjavanjeRepository>();
+            services.AddScoped<IParcelaRepository, ParcelaRepository>();
+            services.AddScoped<IDeoParceleRepository, DeoParceleRepository>();
+
             services.AddControllers();
+
+            services.AddDbContext<KatastarskaOpstinaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
+            services.AddDbContext<KulturaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
+            services.AddDbContext<KlasaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
+            services.AddDbContext<ObradivostContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
+            services.AddDbContext<ZasticenaZonaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
+            services.AddDbContext<OblikSvojineContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
+            services.AddDbContext<OdvodnjavanjeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
+            services.AddDbContext<ParcelaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
+            services.AddDbContext<DeoParceleContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    ValidAudience = Configuration["Jwt:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                };
+            });
+
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "ParcelaService", Version = "v1" }));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -37,6 +74,10 @@ namespace ParcelaService
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(setupAction => setupAction.SwaggerEndpoint("/swagger/v1/swagger.json", "ParcelaService API"));
 
             app.UseRouting();
 
