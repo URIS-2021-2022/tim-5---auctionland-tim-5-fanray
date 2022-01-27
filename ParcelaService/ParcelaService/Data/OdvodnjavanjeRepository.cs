@@ -7,21 +7,21 @@ namespace ParcelaService.Data
 {
     public class OdvodnjavanjeRepository : IOdvodnjavanjeRepository
     {
-        private readonly OdvodnjavanjeContext Context;
+        private readonly ParcelaContext Context;
 
-        public OdvodnjavanjeRepository(OdvodnjavanjeContext context)
+        public OdvodnjavanjeRepository(ParcelaContext context)
         {
             this.Context = context;
         }
 
         public List<Odvodnjavanje> GetOdvodnjavanjeList()
         {
-            return Context.OdvodnjavanjeSet.ToList();
+            return Context.Odvodnjavanje.ToList();
         }
 
         public Odvodnjavanje GetOdvodnjavanjeById(Guid odvodnjavanjeId)
         {
-            return Context.OdvodnjavanjeSet.FirstOrDefault(e => e.OdvodnjavanjeID == odvodnjavanjeId);
+            return Context.Odvodnjavanje.FirstOrDefault(e => e.OdvodnjavanjeID == odvodnjavanjeId);
         }
     }
 }

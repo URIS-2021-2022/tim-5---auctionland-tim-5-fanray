@@ -20,12 +20,12 @@ namespace ParcelaService.Data
 
         public List<Parcela> GetParcelaList()
         {
-            return Context.ParcelaSet.ToList();
+            return Context.Parcela.ToList();
         }
 
         public Parcela GetParcelaById(Guid parcelaId)
         {
-            return Context.ParcelaSet.FirstOrDefault(e => e.ParcelaID == parcelaId);
+            return Context.Parcela.FirstOrDefault(e => e.ParcelaID == parcelaId);
         }
 
         public ParcelaConfirmationDto CreateParcela(ParcelaCreateDto parcelaDto)
@@ -59,7 +59,7 @@ namespace ParcelaService.Data
 
         public ParcelaConfirmationDto UpdateParcela(ParcelaUpdateDto parcelaDto)
         {
-            Parcela parcela = Context.ParcelaSet.FirstOrDefault(e => e.ParcelaID == parcelaDto.ParcelaID);
+            Parcela parcela = Context.Parcela.FirstOrDefault(e => e.ParcelaID == parcelaDto.ParcelaID);
 
             if (parcela == null)
             {

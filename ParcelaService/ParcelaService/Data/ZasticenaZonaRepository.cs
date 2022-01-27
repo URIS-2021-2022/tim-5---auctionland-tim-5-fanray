@@ -7,21 +7,21 @@ namespace ParcelaService.Data
 {
     public class ZasticenaZonaRepository : IZasticenaZonaRepository
     {
-        private readonly ZasticenaZonaContext Context;
+        private readonly ParcelaContext Context;
 
-        public ZasticenaZonaRepository(ZasticenaZonaContext context)
+        public ZasticenaZonaRepository(ParcelaContext context)
         {
             this.Context = context;
         }
 
         public List<ZasticenaZona> GetZasticenaZonaList()
         {
-            return Context.ZasticenaZonaSet.ToList();
+            return Context.ZasticenaZona.ToList();
         }
 
         public ZasticenaZona GetZasticenaZonaById(Guid zasticenaZonaId)
         {
-            return Context.ZasticenaZonaSet.FirstOrDefault(e => e.ZasticenaZonaID == zasticenaZonaId);
+            return Context.ZasticenaZona.FirstOrDefault(e => e.ZasticenaZonaID == zasticenaZonaId);
         }
     }
 }

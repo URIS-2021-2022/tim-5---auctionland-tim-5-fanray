@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\tim-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\ParcelaService.csproj": {}
+    "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\im-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\ParcelaService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\tim-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\ParcelaService.csproj": {
+    "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\im-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\ParcelaService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\tim-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\ParcelaService.csproj",
+        "projectUniqueName": "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\im-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\ParcelaService.csproj",
         "projectName": "ParcelaService",
-        "projectPath": "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\tim-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\ParcelaService.csproj",
+        "projectPath": "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\im-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\ParcelaService.csproj",
         "packagesPath": "C:\\Users\\BRCKALO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\tim-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\obj\\",
+        "outputPath": "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\im-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\BRCKALO\\AppData\\Roaming\\NuGet\\NuGet.Config",

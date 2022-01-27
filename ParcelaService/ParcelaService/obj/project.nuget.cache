@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KBv3VTbPFbf+HBiaLtun0Mytq+7uavdrYXka9tcxJgRM3UV41kc3DuPk6/52G5i1vXW0bjgb68urnJ28Z0kiEw==",
+  "dgSpecHash": "kqdcALhhNq8IsKsyGLCoJkru37KQMy072jb2sze9EZbfBl1bKiZ+ZHdYDsWh6hIRdCEnOK0dCzrdD+WM6cywdA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\tim-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\ParcelaService.csproj",
+  "projectFilePath": "C:\\Users\\BRCKALO\\Desktop\\IV GODINA\\Upravljanje razvojem informacionih sistema\\Projekat\\im-5---auctionland-tim-5-fanray\\ParcelaService\\ParcelaService\\ParcelaService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BRCKALO\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\BRCKALO\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

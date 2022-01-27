@@ -9,17 +9,22 @@ namespace ParcelaService.Data
 {
     public class DeoParceleRepository : IDeoParceleRepository
     {
-        private readonly DeoParceleContext Context;
+        private readonly ParcelaContext Context;
         private readonly IMapper Mapper;
+
+        public DeoParceleRepository(ParcelaContext context)
+        {
+            this.Context = context;
+        }
 
         public List<DeoParcele> GetDeoParceleList(Guid parcelaId)
         {
-            return Context.DeoParceleSet.Where(e => e.ParcelaID == parcelaId).ToList();
+            return Context.DeoParcele.Where(e => e.ParcelaID == parcelaId).ToList();
         }
 
         public DeoParcele GetDeoParcelaById(Guid deoParceleId)
         {
-            return Context.DeoParceleSet.FirstOrDefault(e => e.DeoParceleID == deoParceleId);
+            return Context.DeoParcele.FirstOrDefault(e => e.DeoParceleID == deoParceleId);
         }
 
         public DeoParceleConfirmationDto CreateDeoParcele(DeoParceleCreateDto deoParceleDto)
@@ -39,7 +44,7 @@ namespace ParcelaService.Data
 
         public DeoParceleConfirmationDto UpdateDeoParcele(DeoParceleUpdateDto deoParceleDto)
         {
-            DeoParcele deoParcele = Context.DeoParceleSet.FirstOrDefault(e => e.DeoParceleID == deoParceleDto.DeoParceleID);
+            DeoParcele deoParcele = Context.DeoParcele.FirstOrDefault(e => e.DeoParceleID == deoParceleDto.DeoParceleID);
 
             if (deoParcele == null)
             {
