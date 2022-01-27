@@ -40,7 +40,7 @@ namespace ParcelaService.Controllers
         }
 
         [HttpGet("{parcelaId}")]
-        public ActionResult<Parcela> GetParcelaById(Guid parcelaId)
+        public ActionResult<ParcelaDto> GetParcelaById(Guid parcelaId)
         {
             Parcela parcela = ParcelaRepository.GetParcelaById(parcelaId);
 
@@ -57,7 +57,8 @@ namespace ParcelaService.Controllers
         {
             try
             {
-                ParcelaConfirmationDto confirmation = ParcelaRepository.CreateParcela(parcelaDto);
+                Parcela parcela = Mapper.Map<Parcela>(parcelaDto);
+                ParcelaConfirmationDto confirmation = ParcelaRepository.CreateParcela(parcela);
 
                 string location = LinkGenerator.GetPathByAction("GetParcelaById", "Parcela", new { parcelaId = confirmation.ParcelaID });
 
@@ -65,7 +66,7 @@ namespace ParcelaService.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Create Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -85,11 +86,13 @@ namespace ParcelaService.Controllers
 
                 Mapper.Map(parcela, oldParcela);
 
-                return Ok(Mapper.Map<ParcelaConfirmationDto>(oldParcela));
+                ParcelaConfirmationDto confirmation = ParcelaRepository.UpdateParcela(parcela);
+
+                return Ok(Mapper.Map<ParcelaConfirmationDto>(confirmation));
             }
             catch (Exception ex) 
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Update Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -105,13 +108,13 @@ namespace ParcelaService.Controllers
                     return NotFound();
                 }
 
-                ParcelaRepository.DeleteParcela(parcelaId);
+                ParcelaConfirmationDto confirmation = ParcelaRepository.DeleteParcela(parcelaId);
 
-                return Ok(Mapper.Map<ParcelaConfirmationDto>(parcela));
+                return Ok(Mapper.Map<ParcelaConfirmationDto>(confirmation));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Delete Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 

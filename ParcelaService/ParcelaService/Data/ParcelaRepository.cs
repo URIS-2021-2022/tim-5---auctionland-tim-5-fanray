@@ -28,64 +28,45 @@ namespace ParcelaService.Data
             return Context.Parcela.FirstOrDefault(e => e.ParcelaID == parcelaId);
         }
 
-        public ParcelaConfirmationDto CreateParcela(ParcelaCreateDto parcelaDto)
+        public ParcelaConfirmationDto CreateParcela(Parcela parcela)
         {
-            Parcela parcela = new Parcela()
-            {
-                ParcelaID = Guid.NewGuid(),
-                KorisnikParceleID = parcelaDto.KorisnikParceleID,
-                Povrsina = parcelaDto.Povrsina,
-                BrojParcele = parcelaDto.BrojParcele,
-                KatastarskaOpstinaID = parcelaDto.KatastarskaOpstinaID,
-                BrojListaNepokretnosti = parcelaDto.BrojListaNepokretnosti,
-                KulturaID = parcelaDto.KulturaID,
-                KlasaID = parcelaDto.KlasaID,
-                ObradivostID = parcelaDto.ObradivostID,
-                ZasticenaZonaID = parcelaDto.ZasticenaZonaID,
-                OblikSvojineID = parcelaDto.OblikSvojineID,
-                OdvodnjavanjeID = parcelaDto.OdvodnjavanjeID,
-                KulturaStvarnoStanje = parcelaDto.KulturaStvarnoStanje,
-                KlasaStvarnoStanje = parcelaDto.KlasaStvarnoStanje,
-                ObradivostStvarnoStanje = parcelaDto.ObradivostStvarnoStanje,
-                ZasticenaZonaStvarnoStanje = parcelaDto.ZasticenaZonaStvarnoStanje,
-                OdvodnjavanjeStvarnoStanje = parcelaDto.OdvodnjavanjeStvarnoStanje
-            };
+            parcela.ParcelaID = Guid.NewGuid();
 
-            Context.Add(parcela);
+            Context.Parcela.Add(parcela);
             Context.SaveChanges();
 
             return Mapper.Map<ParcelaConfirmationDto>(parcela);
         }
 
-        public ParcelaConfirmationDto UpdateParcela(ParcelaUpdateDto parcelaDto)
+        public ParcelaConfirmationDto UpdateParcela(Parcela parcela)
         {
-            Parcela parcela = Context.Parcela.FirstOrDefault(e => e.ParcelaID == parcelaDto.ParcelaID);
+            Parcela p = Context.Parcela.FirstOrDefault(e => e.ParcelaID == parcela.ParcelaID);
 
-            if (parcela == null)
+            if (p == null)
             {
                 throw new EntryPointNotFoundException();
             }
 
-            parcela.KorisnikParceleID = parcelaDto.KorisnikParceleID;
-            parcela.Povrsina = parcelaDto.Povrsina;
-            parcela.BrojParcele = parcelaDto.BrojParcele;
-            parcela.KatastarskaOpstinaID = parcelaDto.KatastarskaOpstinaID;
-            parcela.BrojListaNepokretnosti = parcelaDto.BrojListaNepokretnosti;
-            parcela.KulturaID = parcelaDto.KulturaID;
-            parcela.KlasaID = parcelaDto.KlasaID;
-            parcela.ObradivostID = parcelaDto.ObradivostID;
-            parcela.ZasticenaZonaID = parcelaDto.ZasticenaZonaID;
-            parcela.OblikSvojineID = parcelaDto.OblikSvojineID;
-            parcela.OdvodnjavanjeID = parcelaDto.OdvodnjavanjeID;
-            parcela.KulturaStvarnoStanje = parcelaDto.KulturaStvarnoStanje;
-            parcela.KlasaStvarnoStanje = parcelaDto.KlasaStvarnoStanje;
-            parcela.ObradivostStvarnoStanje = parcelaDto.ObradivostStvarnoStanje;
-            parcela.ZasticenaZonaStvarnoStanje = parcelaDto.ZasticenaZonaStvarnoStanje;
-            parcela.OdvodnjavanjeStvarnoStanje = parcelaDto.OdvodnjavanjeStvarnoStanje;
+            p.KorisnikParceleID = parcela.KorisnikParceleID;
+            p.Povrsina = parcela.Povrsina;
+            p.BrojParcele = parcela.BrojParcele;
+            p.KatastarskaOpstinaID = parcela.KatastarskaOpstinaID;
+            p.BrojListaNepokretnosti = parcela.BrojListaNepokretnosti;
+            p.KulturaID = parcela.KulturaID;
+            p.KlasaID = parcela.KlasaID;
+            p.ObradivostID = parcela.ObradivostID;
+            p.ZasticenaZonaID = parcela.ZasticenaZonaID;
+            p.OblikSvojineID = parcela.OblikSvojineID;
+            p.OdvodnjavanjeID = parcela.OdvodnjavanjeID;
+            p.KulturaStvarnoStanje = parcela.KulturaStvarnoStanje;
+            p.KlasaStvarnoStanje = parcela.KlasaStvarnoStanje;
+            p.ObradivostStvarnoStanje = parcela.ObradivostStvarnoStanje;
+            p.ZasticenaZonaStvarnoStanje = parcela.ZasticenaZonaStvarnoStanje;
+            p.OdvodnjavanjeStvarnoStanje = parcela.OdvodnjavanjeStvarnoStanje;
 
             Context.SaveChanges();
 
-            return Mapper.Map<ParcelaConfirmationDto>(parcela);
+            return Mapper.Map<ParcelaConfirmationDto>(p);
         }
 
         public ParcelaConfirmationDto DeleteParcela(Guid parcelaId)
@@ -97,7 +78,7 @@ namespace ParcelaService.Data
                 throw new ArgumentNullException();
             }
 
-            Context.Remove(parcela);
+            Context.Parcela.Remove(parcela);
             Context.SaveChanges();
 
             return Mapper.Map<ParcelaConfirmationDto>(parcela);

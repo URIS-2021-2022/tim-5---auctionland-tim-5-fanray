@@ -12,9 +12,10 @@ namespace ParcelaService.Data
         private readonly ParcelaContext Context;
         private readonly IMapper Mapper;
 
-        public DeoParceleRepository(ParcelaContext context)
+        public DeoParceleRepository(ParcelaContext context, IMapper mapper)
         {
             this.Context = context;
+            this.Mapper = mapper;
         }
 
         public List<DeoParcele> GetDeoParceleList(Guid parcelaId)
@@ -27,36 +28,31 @@ namespace ParcelaService.Data
             return Context.DeoParcele.FirstOrDefault(e => e.DeoParceleID == deoParceleId);
         }
 
-        public DeoParceleConfirmationDto CreateDeoParcele(DeoParceleCreateDto deoParceleDto)
+        public DeoParceleConfirmationDto CreateDeoParcele(DeoParcele deoParcele)
         {
-            DeoParcele deoParcele = new DeoParcele()
-            {
-                DeoParceleID = Guid.NewGuid(),
-                ParcelaID = deoParceleDto.ParcelaID,
-                NazivDelaParcele = deoParceleDto.NazivDelaParcele
-            };
+            deoParcele.DeoParceleID = Guid.NewGuid();
 
-            Context.Add(deoParcele);
+            Context.DeoParcele.Add(deoParcele);
             Context.SaveChanges();
 
             return Mapper.Map<DeoParceleConfirmationDto>(deoParcele);
         }
 
-        public DeoParceleConfirmationDto UpdateDeoParcele(DeoParceleUpdateDto deoParceleDto)
+        public DeoParceleConfirmationDto UpdateDeoParcele(DeoParcele deoParcele)
         {
-            DeoParcele deoParcele = Context.DeoParcele.FirstOrDefault(e => e.DeoParceleID == deoParceleDto.DeoParceleID);
+            DeoParcele dp = Context.DeoParcele.FirstOrDefault(e => e.DeoParceleID == deoParcele.DeoParceleID);
 
-            if (deoParcele == null)
+            if (dp == null)
             {
                 throw new EntryPointNotFoundException();
             }
 
-            deoParcele.ParcelaID = deoParceleDto.ParcelaID;
-            deoParcele.NazivDelaParcele = deoParceleDto.NazivDelaParcele;
+            dp.ParcelaID = deoParcele.ParcelaID;
+            dp.NazivDelaParcele = deoParcele.NazivDelaParcele;
 
             Context.SaveChanges();
 
-            return Mapper.Map<DeoParceleConfirmationDto>(deoParcele);
+            return Mapper.Map<DeoParceleConfirmationDto>(dp);
         }
 
         public DeoParceleConfirmationDto DeleteDeoParcele(Guid deoParceleId)
@@ -68,7 +64,7 @@ namespace ParcelaService.Data
                 throw new ArgumentNullException();
             }
 
-            Context.Remove(deoParceleId);
+            Context.DeoParcele.Remove(deoParcele);
             Context.SaveChanges();
 
             return Mapper.Map<DeoParceleConfirmationDto>(deoParcele);
