@@ -4,11 +4,11 @@ using ParcelaService.Models;
 
 namespace ParcelaService.Profiles
 {
-    public class ParcelaProfile : Profile
+    public class KlasaProfile : Profile
     {
-        public ParcelaProfile()
+        public KlasaProfile()
         {
-            CreateMap<Parcela, ParcelaDto>();
+            CreateMap<Klasa, KlasaDto>();
         }
     }
 }

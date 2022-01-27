@@ -1,14 +1,13 @@
 ﻿using AutoMapper;
 using ParcelaService.Entities;
 using ParcelaService.Models;
-
 namespace ParcelaService.Profiles
 {
-    public class ParcelaProfile : Profile
+    public class DeoParceleUpdateProfile : Profile
     {
-        public ParcelaProfile()
+        public DeoParceleUpdateProfile()
         {
-            CreateMap<Parcela, ParcelaDto>();
+            CreateMap<DeoParceleUpdateDto, DeoParcele>();
         }
     }
 }

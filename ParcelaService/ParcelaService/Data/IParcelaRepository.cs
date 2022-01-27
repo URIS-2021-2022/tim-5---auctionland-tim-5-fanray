@@ -9,8 +9,8 @@ namespace ParcelaService.Data
     {
         List<Parcela> GetParcelaList();
         Parcela GetParcelaById(Guid parcelaId);
-        ParcelaConfirmationDto CreateParcela(ParcelaCreateDto parcelaDto);
-        ParcelaConfirmationDto UpdateParcela(ParcelaUpdateDto parcelaDto);
+        ParcelaConfirmationDto CreateParcela(Parcela parcela);
+        ParcelaConfirmationDto UpdateParcela(Parcela parcela);
         ParcelaConfirmationDto DeleteParcela(Guid parcelaId);
     }
 }
