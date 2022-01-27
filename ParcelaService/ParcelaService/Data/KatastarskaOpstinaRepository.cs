@@ -7,21 +7,21 @@ namespace ParcelaService.Data
 {
     public class KatastarskaOpstinaRepository : IKatastarskaOpstinaRepository
     {
-        private readonly KatastarskaOpstinaContext Context;
+        private readonly ParcelaContext Context;
 
-        public KatastarskaOpstinaRepository(KatastarskaOpstinaContext context)
+        public KatastarskaOpstinaRepository(ParcelaContext context)
         {
             this.Context = context;
         }
 
         public List<KatastarskaOpstina> GetKatastarskaOpstinaList()
         {
-            return Context.KatastarskaOpstinaSet.ToList();
+            return Context.KatastarskaOpstina.ToList();
         }
 
         public KatastarskaOpstina GetKatastarskaOpstinaById(Guid katastarskaOpstinaId)
         {
-            return Context.KatastarskaOpstinaSet.FirstOrDefault(e => e.KatastarskaOpstinaID == katastarskaOpstinaId);
+            return Context.KatastarskaOpstina.FirstOrDefault(e => e.KatastarskaOpstinaID == katastarskaOpstinaId);
         }
     }
 }

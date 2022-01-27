@@ -7,21 +7,21 @@ namespace ParcelaService.Data
 {
     public class KulturaRepository : IKulturaRepository
     {
-        private readonly KulturaContext Context;
+        private readonly ParcelaContext Context;
 
-        public KulturaRepository(KulturaContext context)
+        public KulturaRepository(ParcelaContext context)
         {
             this.Context = context;
         }
 
         public List<Kultura> GetKulturaList()
         {
-            return Context.KulturaSet.ToList();
+            return Context.Kultura.ToList();
         }
 
         public Kultura GetKulturaById(Guid kulturaId)
         {
-            return Context.KulturaSet.FirstOrDefault(e => e.KulturaID == kulturaId);
+            return Context.Kultura.FirstOrDefault(e => e.KulturaID == kulturaId);
         }
     }
 }

@@ -37,15 +37,7 @@ namespace ParcelaService
 
             services.AddControllers();
 
-            services.AddDbContext<KatastarskaOpstinaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
-            services.AddDbContext<KulturaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
-            services.AddDbContext<KlasaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
-            services.AddDbContext<ObradivostContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
-            services.AddDbContext<ZasticenaZonaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
-            services.AddDbContext<OblikSvojineContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
-            services.AddDbContext<OdvodnjavanjeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
             services.AddDbContext<ParcelaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
-            services.AddDbContext<DeoParceleContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

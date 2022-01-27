@@ -7,21 +7,21 @@ namespace ParcelaService.Data
 {
     public class OblikSvojineRepository : IOblikSvojineRepository
     {
-        private readonly OblikSvojineContext Context;
+        private readonly ParcelaContext Context;
 
-        public OblikSvojineRepository(OblikSvojineContext context)
+        public OblikSvojineRepository(ParcelaContext context)
         {
             this.Context = context;
         }
 
         public List<OblikSvojine> GetOblikSvojineList()
         {
-            return Context.OblikSvojineSet.ToList();
+            return Context.OblikSvojine.ToList();
         }
 
         public OblikSvojine GetOblikSvojineById(Guid oblikSvojineId)
         {
-            return Context.OblikSvojineSet.FirstOrDefault(e => e.OblikSvojineID == oblikSvojineId);
+            return Context.OblikSvojine.FirstOrDefault(e => e.OblikSvojineID == oblikSvojineId);
         }
     }
 }

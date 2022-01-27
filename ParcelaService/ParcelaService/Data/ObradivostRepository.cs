@@ -7,21 +7,21 @@ namespace ParcelaService.Data
 {
     public class ObradivostRepository : IObradivostRepository
     {
-        private readonly ObradivostContext Context;
+        private readonly ParcelaContext Context;
 
-        public ObradivostRepository(ObradivostContext context)
+        public ObradivostRepository(ParcelaContext context)
         {
             this.Context = context;
         }
 
         public List<Obradivost> GetObradivostList()
         {
-            return Context.ObradivostSet.ToList();
+            return Context.Obradivost.ToList();
         }
 
         public Obradivost GetObradivostById(Guid obradivostId)
         {
-            return Context.ObradivostSet.FirstOrDefault(e => e.ObradivostID == obradivostId);
+            return Context.Obradivost.FirstOrDefault(e => e.ObradivostID == obradivostId);
         }
     }
 }
