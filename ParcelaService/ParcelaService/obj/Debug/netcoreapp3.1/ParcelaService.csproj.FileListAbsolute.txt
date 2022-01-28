@@ -141,3 +141,4 @@ C:\Users\BRCKALO\Desktop\IV GODINA\Upravljanje razvojem informacionih sistema\Pr
 C:\Users\BRCKALO\Desktop\IV GODINA\Upravljanje razvojem informacionih sistema\Projekat\im-5---auctionland-tim-5-fanray\ParcelaService\ParcelaService\obj\Debug\netcoreapp3.1\ParcelaService.pdb
 C:\Users\BRCKALO\Desktop\IV GODINA\Upravljanje razvojem informacionih sistema\Projekat\im-5---auctionland-tim-5-fanray\ParcelaService\ParcelaService\obj\Debug\netcoreapp3.1\ParcelaService.genruntimeconfig.cache
 C:\Users\BRCKALO\Desktop\IV GODINA\Upravljanje razvojem informacionih sistema\Projekat\im-5---auctionland-tim-5-fanray\ParcelaService\ParcelaService\bin\Debug\netcoreapp3.1\ParcelaService.postman_collection.json
+C:\Users\BRCKALO\Desktop\IV GODINA\Upravljanje razvojem informacionih sistema\Projekat\tim-5---auctionland-tim-5-fanray\ParcelaService\ParcelaService\bin\Debug\netcoreapp3.1\ParcelaService.postman_collection.json

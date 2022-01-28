@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using ParcelaService.Data;
@@ -12,9 +13,10 @@ namespace ParcelaService.Controllers
 {
     [ApiController]
     [Route("api/v1/zona")]
+    [Produces("application/json")]
     public class ZasticenaZonaController : ControllerBase
     {
-        private IZasticenaZonaRepository ZasticenaZonaRepository;
+        private readonly IZasticenaZonaRepository ZasticenaZonaRepository;
         private readonly IMapper Mapper;
 
         public ZasticenaZonaController(IZasticenaZonaRepository zasticenaZonaRepository, IMapper mapper)
@@ -23,7 +25,15 @@ namespace ParcelaService.Controllers
             this.Mapper = mapper;
         }
 
+        /// <summary>
+        /// Vraca listu svih zasticenih zona
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200">Vraca listu svih zasticenih zona</response>
+        /// <response code="204">Nema zasticenih zona</response>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<List<ZasticenaZonaDto>> GetZasticenaZonaList()
         {
             List<ZasticenaZona> zasticenaZonaList = ZasticenaZonaRepository.GetZasticenaZonaList();
@@ -36,7 +46,16 @@ namespace ParcelaService.Controllers
             return Ok(Mapper.Map<List<ZasticenaZonaDto>>(zasticenaZonaList));
         }
 
+        /// <summary>
+        /// Vraca zasticenu zonu sa trazenim ID-em
+        /// </summary>
+        /// <param name="zonaId">Sifra zasticene zone</param>
+        /// <returns></returns>
+        /// <response code="200">Vraca trazenu zasticenu zonu</response>
+        /// <response code="404">Zasticena zona nije pronadjena</response>
         [HttpGet("{zonaId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<ZasticenaZonaDto> GetZasticenaZonaById(Guid zonaId)
         {
             ZasticenaZona zasticenaZona = ZasticenaZonaRepository.GetZasticenaZonaById(zonaId);
