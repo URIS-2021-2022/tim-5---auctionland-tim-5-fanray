@@ -14,7 +14,7 @@ namespace ParcelaService.Controllers
     [Route("api/v1/obradivost")]
     public class ObradivostController : ControllerBase
     {
-        private IObradivostRepository ObradivostRepository;
+        private readonly IObradivostRepository ObradivostRepository;
         private readonly IMapper Mapper;
 
         public ObradivostController(IObradivostRepository obradivostRepository, IMapper mapper)

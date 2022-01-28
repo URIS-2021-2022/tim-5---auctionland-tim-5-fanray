@@ -14,7 +14,7 @@ namespace ParcelaService.Controllers
     [Route("api/v1/katastar")]
     public class KatastarskaOpstinaController : ControllerBase
     {
-        private IKatastarskaOpstinaRepository KatastarskaOpstinaRepository;
+        private readonly IKatastarskaOpstinaRepository KatastarskaOpstinaRepository;
         private readonly IMapper Mapper;
 
         public KatastarskaOpstinaController(IKatastarskaOpstinaRepository katastarskaOpstinaRepository, IMapper mapper)

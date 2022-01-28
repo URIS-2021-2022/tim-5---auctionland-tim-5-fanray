@@ -4,6 +4,6 @@ namespace ParcelaService.Models
 {
     public class ParcelaConfirmationDto
     {
-        public Guid ParcelaID;
+        public Guid ParcelaID { get; set; }
     }
 }

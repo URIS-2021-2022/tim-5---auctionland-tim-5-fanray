@@ -15,7 +15,7 @@ namespace ParcelaService.Controllers
     [Route("api/v1/parcela")]
     public class ParcelaController : ControllerBase
     {
-        private IParcelaRepository ParcelaRepository;
+        private readonly IParcelaRepository ParcelaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
 

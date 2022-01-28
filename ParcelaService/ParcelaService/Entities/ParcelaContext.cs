@@ -28,9 +28,9 @@ namespace ParcelaService.Entities
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString("ParcelaDB"));
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            builder.Entity<KatastarskaOpstina>()
+            modelBuilder.Entity<KatastarskaOpstina>()
                 .HasData(
                     new KatastarskaOpstina
                     {
@@ -89,7 +89,7 @@ namespace ParcelaService.Entities
                     }
             );
 
-            builder.Entity<Kultura>()
+            modelBuilder.Entity<Kultura>()
                 .HasData(
                     new Kultura
                     {
@@ -133,7 +133,7 @@ namespace ParcelaService.Entities
                     }
             );
 
-            builder.Entity<Klasa>()
+            modelBuilder.Entity<Klasa>()
                 .HasData(
                     new Klasa
                     {
@@ -177,7 +177,7 @@ namespace ParcelaService.Entities
                     }
             );
 
-            builder.Entity<Obradivost>()
+            modelBuilder.Entity<Obradivost>()
                 .HasData(
                     new Obradivost
                     {
@@ -191,7 +191,7 @@ namespace ParcelaService.Entities
                     }
             );
 
-            builder.Entity<ZasticenaZona>()
+            modelBuilder.Entity<ZasticenaZona>()
                 .HasData(
                     new ZasticenaZona
                     {
@@ -215,7 +215,7 @@ namespace ParcelaService.Entities
                     }
             );
 
-            builder.Entity<OblikSvojine>()
+            modelBuilder.Entity<OblikSvojine>()
                 .HasData(
                     new OblikSvojine
                     {
@@ -254,7 +254,7 @@ namespace ParcelaService.Entities
                     }
             );
 
-            builder.Entity<Odvodnjavanje>()
+            modelBuilder.Entity<Odvodnjavanje>()
                 .HasData(
                     new Odvodnjavanje
                     {
@@ -268,7 +268,7 @@ namespace ParcelaService.Entities
                     }
             );
 
-            builder.Entity<Parcela>()
+            modelBuilder.Entity<Parcela>()
                 .HasData(
                     new Parcela
                     {
@@ -292,7 +292,7 @@ namespace ParcelaService.Entities
                     }
             );
 
-            builder.Entity<DeoParcele>()
+            modelBuilder.Entity<DeoParcele>()
                 .HasData(
                     new DeoParcele
                     {

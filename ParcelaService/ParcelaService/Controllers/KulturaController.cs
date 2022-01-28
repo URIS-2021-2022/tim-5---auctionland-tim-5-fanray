@@ -14,7 +14,7 @@ namespace ParcelaService.Controllers
     [Route("api/v1/kultura")]
     public class KulturaController : ControllerBase
     {
-        private IKulturaRepository KulturaRepository;
+        private readonly IKulturaRepository KulturaRepository;
         private readonly IMapper Mapper;
 
         public KulturaController(IKulturaRepository kulturaRepository, IMapper mapper)

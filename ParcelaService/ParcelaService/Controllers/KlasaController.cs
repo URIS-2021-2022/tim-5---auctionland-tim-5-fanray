@@ -14,7 +14,7 @@ namespace ParcelaService.Controllers
     [Route("api/v1/klasa")]
     public class KlasaController : ControllerBase
     {
-        private IKlasaRepository KlasaRepository;
+        private readonly IKlasaRepository KlasaRepository;
         private readonly IMapper Mapper;
 
         public KlasaController(IKlasaRepository klasaRepository, IMapper mapper)

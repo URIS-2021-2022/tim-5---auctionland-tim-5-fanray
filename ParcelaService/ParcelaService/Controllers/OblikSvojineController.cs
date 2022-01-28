@@ -14,7 +14,7 @@ namespace ParcelaService.Controllers
     [Route("api/v1/svojina")]
     public class OblikSvojineController : ControllerBase
     {
-        private IOblikSvojineRepository OblikSvojineRepository;
+        private readonly IOblikSvojineRepository OblikSvojineRepository;
         private readonly IMapper Mapper;
 
         public OblikSvojineController(IOblikSvojineRepository oblikSvojineRepository, IMapper mapper)

@@ -15,7 +15,7 @@ namespace ParcelaService.Controllers
     [Route("api/v1/deo-parcele")]
     public class DeoParceleController : ControllerBase
     {
-        private IDeoParceleRepository DeoParceleRepository;
+        private readonly IDeoParceleRepository DeoParceleRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
 

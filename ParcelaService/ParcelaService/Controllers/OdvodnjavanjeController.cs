@@ -14,7 +14,7 @@ namespace ParcelaService.Controllers
     [Route("api/v1/odvodnjavanje")]
     public class OdvodnjavanjeController : ControllerBase
     {
-        private IOdvodnjavanjeRepository OdvodnjavanjeRepository;
+        private readonly IOdvodnjavanjeRepository OdvodnjavanjeRepository;
         private readonly IMapper Mapper;
 
         public OdvodnjavanjeController(IOdvodnjavanjeRepository odvodnjavanjeRepository, IMapper mapper)

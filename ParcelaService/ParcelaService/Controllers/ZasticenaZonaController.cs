@@ -14,7 +14,7 @@ namespace ParcelaService.Controllers
     [Route("api/v1/zona")]
     public class ZasticenaZonaController : ControllerBase
     {
-        private IZasticenaZonaRepository ZasticenaZonaRepository;
+        private readonly IZasticenaZonaRepository ZasticenaZonaRepository;
         private readonly IMapper Mapper;
 
         public ZasticenaZonaController(IZasticenaZonaRepository zasticenaZonaRepository, IMapper mapper)
