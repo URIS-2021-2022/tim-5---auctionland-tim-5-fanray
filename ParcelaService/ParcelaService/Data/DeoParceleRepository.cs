@@ -61,7 +61,7 @@ namespace ParcelaService.Data
 
             if (deoParcele == null)
             {
-                throw new ArgumentNullException("deoParcele", "Entity DeoParcele does not exist");
+                throw new ArgumentNullException("deoParcele");
             }
 
             Context.DeoParcele.Remove(deoParcele);

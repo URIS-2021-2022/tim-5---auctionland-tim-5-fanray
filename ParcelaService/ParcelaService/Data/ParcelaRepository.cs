@@ -75,7 +75,7 @@ namespace ParcelaService.Data
 
             if (parcela == null)
             {
-                throw new ArgumentNullException("parcela", "Entity Parcela does not exist");
+                throw new ArgumentNullException("parcela");
             }
 
             Context.Parcela.Remove(parcela);
