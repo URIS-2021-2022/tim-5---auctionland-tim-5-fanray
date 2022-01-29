@@ -14,6 +14,7 @@ namespace ParcelaService.Controllers
     [ApiController]
     [Route("api/v1/klasa")]
     [Produces("application/json")]
+    [Authorize]
     public class KlasaController : ControllerBase
     {
         private readonly IKlasaRepository KlasaRepository;

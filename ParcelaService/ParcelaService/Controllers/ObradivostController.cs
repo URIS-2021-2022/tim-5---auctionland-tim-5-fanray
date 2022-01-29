@@ -14,6 +14,7 @@ namespace ParcelaService.Controllers
     [ApiController]
     [Route("api/v1/obradivost")]
     [Produces("application/json")]
+    [Authorize]
     public class ObradivostController : ControllerBase
     {
         private readonly IObradivostRepository ObradivostRepository;

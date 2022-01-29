@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ParcelaService.Data;
 using ParcelaService.Entities;
+using ParcelaService.Helpers;
 using System;
 using System.Text;
 
@@ -34,6 +35,8 @@ namespace ParcelaService
             services.AddScoped<IOdvodnjavanjeRepository, OdvodnjavanjeRepository>();
             services.AddScoped<IParcelaRepository, ParcelaRepository>();
             services.AddScoped<IDeoParceleRepository, DeoParceleRepository>();
+            services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
+            services.AddScoped<IAuthHelper, AuthHelper>();
 
             services.AddControllers();
 
@@ -50,7 +53,7 @@ namespace ParcelaService
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = Configuration["Jwt:Issuer"],
-                    ValidAudience = Configuration["Jwt:Issuer"],
+                    ValidAudience = Configuration["Jwt:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
             });
@@ -73,6 +76,7 @@ namespace ParcelaService
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

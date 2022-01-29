@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace ParcelaService.Models
 {
     public class ZasticenaZonaDto
