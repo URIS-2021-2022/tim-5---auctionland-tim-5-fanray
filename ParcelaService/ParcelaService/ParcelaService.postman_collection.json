@@ -465,8 +465,45 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "[Auth] Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"korisnickoIme\": \"brckalo\",\r\n    \"lozinka\": \"parcela123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/login",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDM0OTQxODMsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzQ1IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNDUifQ.KDHRQiYdbxqyB9tuI3kCJVxe2FHIF5IO4aJoGGI6VBo",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",

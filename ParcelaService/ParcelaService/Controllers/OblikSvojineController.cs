@@ -14,6 +14,7 @@ namespace ParcelaService.Controllers
     [ApiController]
     [Route("api/v1/svojina")]
     [Produces("application/json")]
+    [Authorize]
     public class OblikSvojineController : ControllerBase
     {
         private readonly IOblikSvojineRepository OblikSvojineRepository;

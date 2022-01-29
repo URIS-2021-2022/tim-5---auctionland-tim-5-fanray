@@ -14,6 +14,7 @@ namespace ParcelaService.Controllers
     [ApiController]
     [Route("api/v1/katastar")]
     [Produces("application/json")]
+    [Authorize]
     public class KatastarskaOpstinaController : ControllerBase
     {
         private readonly IKatastarskaOpstinaRepository KatastarskaOpstinaRepository;

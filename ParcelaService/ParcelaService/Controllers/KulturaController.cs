@@ -14,6 +14,7 @@ namespace ParcelaService.Controllers
     [ApiController]
     [Route("api/v1/kultura")]
     [Produces("application/json")]
+    [Authorize]
     public class KulturaController : ControllerBase
     {
         private readonly IKulturaRepository KulturaRepository;
