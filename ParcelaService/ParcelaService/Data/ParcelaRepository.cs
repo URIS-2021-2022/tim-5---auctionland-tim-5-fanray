@@ -75,7 +75,7 @@ namespace ParcelaService.Data
 
             if (parcela == null)
             {
-                throw new ArgumentNullException("parcela");
+                throw new ArgumentNullException("parcelaId");
             }
 
             Context.Parcela.Remove(parcela);

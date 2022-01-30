@@ -26,12 +26,15 @@ namespace ParcelaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivDelaParcele")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("ParcelaID")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("DeoParceleID");
+
+                    b.HasIndex("ParcelaID");
 
                     b.ToTable("DeoParcele");
 
@@ -51,6 +54,7 @@ namespace ParcelaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivKatastarskeOpstine")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("KatastarskaOpstinaID");
@@ -122,6 +126,7 @@ namespace ParcelaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivKlase")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("KlasaID");
@@ -178,6 +183,7 @@ namespace ParcelaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivKulture")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("KulturaID");
@@ -234,6 +240,7 @@ namespace ParcelaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivOblikaSvojine")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OblikSvojineID");
@@ -285,6 +292,7 @@ namespace ParcelaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivObradivosti")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ObradivostID");
@@ -311,6 +319,7 @@ namespace ParcelaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivOdvodnjavanja")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OdvodnjavanjeID");
@@ -342,34 +351,34 @@ namespace ParcelaService.Migrations
                     b.Property<string>("BrojParcele")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("KatastarskaOpstinaID")
+                    b.Property<Guid?>("KatastarskaOpstinaID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("KlasaID")
+                    b.Property<Guid?>("KlasaID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("KlasaStvarnoStanje")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("KorisnikParceleID")
+                    b.Property<Guid?>("KorisnikParceleID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("KulturaID")
+                    b.Property<Guid?>("KulturaID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("KulturaStvarnoStanje")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("OblikSvojineID")
+                    b.Property<Guid?>("OblikSvojineID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ObradivostID")
+                    b.Property<Guid?>("ObradivostID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ObradivostStvarnoStanje")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("OdvodnjavanjeID")
+                    b.Property<Guid?>("OdvodnjavanjeID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("OdvodnjavanjeStvarnoStanje")
@@ -378,13 +387,27 @@ namespace ParcelaService.Migrations
                     b.Property<int>("Povrsina")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("ZasticenaZonaID")
+                    b.Property<Guid?>("ZasticenaZonaID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ZasticenaZonaStvarnoStanje")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ParcelaID");
+
+                    b.HasIndex("KatastarskaOpstinaID");
+
+                    b.HasIndex("KlasaID");
+
+                    b.HasIndex("KulturaID");
+
+                    b.HasIndex("OblikSvojineID");
+
+                    b.HasIndex("ObradivostID");
+
+                    b.HasIndex("OdvodnjavanjeID");
+
+                    b.HasIndex("ZasticenaZonaID");
 
                     b.ToTable("Parcela");
 
@@ -418,6 +441,7 @@ namespace ParcelaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivZasticeneZone")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ZasticenaZonaID");
@@ -445,6 +469,46 @@ namespace ParcelaService.Migrations
                             ZasticenaZonaID = new Guid("25fb6ccc-6713-44e3-8234-44d680fc1b5f"),
                             NazivZasticeneZone = "4"
                         });
+                });
+
+            modelBuilder.Entity("ParcelaService.Entities.DeoParcele", b =>
+                {
+                    b.HasOne("ParcelaService.Entities.Parcela", "Parcela")
+                        .WithMany("DeoParceleList")
+                        .HasForeignKey("ParcelaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ParcelaService.Entities.Parcela", b =>
+                {
+                    b.HasOne("ParcelaService.Entities.KatastarskaOpstina", "KatastarskaOpstina")
+                        .WithMany("ParcelaList")
+                        .HasForeignKey("KatastarskaOpstinaID");
+
+                    b.HasOne("ParcelaService.Entities.Klasa", "Klasa")
+                        .WithMany("ParcelaList")
+                        .HasForeignKey("KlasaID");
+
+                    b.HasOne("ParcelaService.Entities.Kultura", "Kultura")
+                        .WithMany("ParcelaList")
+                        .HasForeignKey("KulturaID");
+
+                    b.HasOne("ParcelaService.Entities.OblikSvojine", "OblikSvojine")
+                        .WithMany("ParcelaList")
+                        .HasForeignKey("OblikSvojineID");
+
+                    b.HasOne("ParcelaService.Entities.Obradivost", "Obradivost")
+                        .WithMany("ParcelaList")
+                        .HasForeignKey("ObradivostID");
+
+                    b.HasOne("ParcelaService.Entities.Odvodnjavanje", "Odvodnjavanje")
+                        .WithMany("ParcelaList")
+                        .HasForeignKey("OdvodnjavanjeID");
+
+                    b.HasOne("ParcelaService.Entities.ZasticenaZona", "ZasticenaZona")
+                        .WithMany("ParcelaList")
+                        .HasForeignKey("ZasticenaZonaID");
                 });
 #pragma warning restore 612, 618
         }
