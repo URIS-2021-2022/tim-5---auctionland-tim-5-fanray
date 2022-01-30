@@ -61,7 +61,7 @@ namespace ParcelaService.Data
 
             if (deoParcele == null)
             {
-                throw new ArgumentNullException("deoParcele");
+                throw new ArgumentNullException("deoParceleId");
             }
 
             Context.DeoParcele.Remove(deoParcele);

@@ -4,7 +4,7 @@ namespace ParcelaService.Helpers
 {
     public interface IAuthHelper
     {
-        public bool AuthenticatePrincipal(Principal principal);
-        public string GenerateJwt(Principal principal);
+        bool AuthenticatePrincipal(Principal principal);
+        string GenerateJwt(Principal principal);
     }
 }
