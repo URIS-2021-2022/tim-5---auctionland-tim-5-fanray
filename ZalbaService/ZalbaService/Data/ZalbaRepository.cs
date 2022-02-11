@@ -1,6 +1,6 @@
-/*using AutoMapper;
+using AutoMapper;
 using ZalbaService.Entities;
-//using ZalbaService.Models;
+using ZalbaService.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace ZalbaService.Data
     public class ZalbaRepository : IZalbaRepository
     {
        private readonly ZalbaContext Context;
-        private readonly IMapper Mapper;
+       private readonly IMapper Mapper;
 
         public ZalbaRepository(ZalbaContext context, IMapper mapper)
         {
@@ -28,7 +28,7 @@ namespace ZalbaService.Data
             return Context.Zalba.FirstOrDefault(e => e.ZalbaID == zalbaId);
         }
 
-        public ZalbaConfirmationDto CreateParcela(Zalba zalba)
+        public ZalbaConfirmationDto CreateZalba(Zalba zalba)
         {
             zalba.ZalbaID = Guid.NewGuid();
 
@@ -38,50 +38,43 @@ namespace ZalbaService.Data
             return Mapper.Map<ZalbaConfirmationDto>(zalba);
         }
 
-        public ZalbaConfirmationDto UpdateZalba(Zalba parcela)
+        public ZalbaConfirmationDto UpdateZalba(Zalba zalba)
         {
-            Zalba p = Context.Zalba.FirstOrDefault(e => e.ZalbaID == parcela.ZalbaID);
+            Zalba z = Context.Zalba.FirstOrDefault(e => e.ZalbaID == zalba.ZalbaID);
 
-            if (p == null)
+            if (z == null)
             {
                 throw new EntryPointNotFoundException();
             }
 
-            p.KorisnikParceleID = parcela.KorisnikParceleID;
-            p.Povrsina = parcela.Povrsina;
-            p.BrojParcele = parcela.BrojParcele;
-            p.KatastarskaOpstinaID = parcela.KatastarskaOpstinaID;
-            p.BrojListaNepokretnosti = parcela.BrojListaNepokretnosti;
-            p.KulturaID = parcela.KulturaID;
-            p.KlasaID = parcela.KlasaID;
-            p.ObradivostID = parcela.ObradivostID;
-            p.ZasticenaZonaID = parcela.ZasticenaZonaID;
-            p.OblikSvojineID = parcela.OblikSvojineID;
-            p.OdvodnjavanjeID = parcela.OdvodnjavanjeID;
-            p.KulturaStvarnoStanje = parcela.KulturaStvarnoStanje;
-            p.KlasaStvarnoStanje = parcela.KlasaStvarnoStanje;
-            p.ObradivostStvarnoStanje = parcela.ObradivostStvarnoStanje;
-            p.ZasticenaZonaStvarnoStanje = parcela.ZasticenaZonaStvarnoStanje;
-            p.OdvodnjavanjeStvarnoStanje = parcela.OdvodnjavanjeStvarnoStanje;
+            z.Datum_Podnosenja_Zalbe = zalba.Datum_Podnosenja_Zalbe;
+            z.Razlog_Podnosenja_Zalbe = zalba.Razlog_Podnosenja_Zalbe;
+            z.Obrazlozenje = zalba.Obrazlozenje;
+            z.Datum_Resenja = zalba.Datum_Resenja;
+            z.Broj_Resenja = zalba.Broj_Resenja;
+            z.Broj_Nadmetanja = zalba.Broj_Nadmetanja;
+            z.RadnjaNaOsnovuZalbeID = zalba.RadnjaNaOsnovuZalbeID;
+            z.StatusZalbeID = zalba.StatusZalbeID;
+            z.TipZalbeID = zalba.TipZalbeID;
 
             Context.SaveChanges();
 
-            return Mapper.Map<ParcelaConfirmationDto>(p);
+            return Mapper.Map<ZalbaConfirmationDto>(z);
         }
-
-        public ParcelaConfirmationDto DeleteParcela(Guid parcelaId)
+      
+        public ZalbaConfirmationDto DeleteZalba(Guid zalbaId)
         {
-            Parcela parcela = GetParcelaById(parcelaId);
+            Zalba zalba = GetZalbaById(zalbaId);
 
-            if (parcela == null)
+            if (zalba == null)
             {
-                throw new ArgumentNullException("parcelaId");
+                throw new ArgumentNullException("zalbaId");
             }
 
-            Context.Parcela.Remove(parcela);
+            Context.Zalba.Remove(zalba);
             Context.SaveChanges();
 
-            return Mapper.Map<ParcelaConfirmationDto>(parcela);
+            return Mapper.Map<ZalbaConfirmationDto>(zalba);
         }
     }
-}*/
+}
