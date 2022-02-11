@@ -12,6 +12,6 @@ namespace ZalbaService.Entities
         [Required]
         public string NazivStatusaZalbe { get; set; }
 
-        //public List<Zalba> ZalbaList { get; set; }
+        public List<Zalba> ZalbaList { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 using ZalbaService.Entities;
-//using ZalbaService.Models;
+using ZalbaService.Models;
 using System;
 using System.Collections.Generic;
 
@@ -9,8 +9,8 @@ namespace ZalbaService.Data
     {
         List<Zalba> GetZalbaList();
         Zalba GetZalbaById(Guid zalbaId);
-        /*ZalbaConfirmationDto CreateZalba(Zalba zalba);
+        ZalbaConfirmationDto CreateZalba(Zalba zalba);
         ZalbaConfirmationDto UpdateZalba(Zalba zalba);
-        ZalbaConfirmationDto DeleteZalba(Guid zalbaId);*/
+        ZalbaConfirmationDto DeleteZalba(Guid zalbaId);
     }
 }
