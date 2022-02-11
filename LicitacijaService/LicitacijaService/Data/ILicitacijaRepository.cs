@@ -13,9 +13,9 @@ namespace LicitacijaService.Data
 
         Licitacija getLicitacijaById(Guid licitacijaID);
 
-       LicitacijaConfirmationDto CreateLicitacija(LicitacijaCreateDto licitacijaDto);
+       LicitacijaConfirmationDto CreateLicitacija(Licitacija licitacija);
 
-        LicitacijaConfirmationDto UpdateLicitacija(LicitacijaUpdateDto licitacijaDto);
+        LicitacijaConfirmationDto UpdateLicitacija(Licitacija licitacija);
 
         LicitacijaConfirmationDto DeleteLicitacija(Guid licitacijaId);
     }

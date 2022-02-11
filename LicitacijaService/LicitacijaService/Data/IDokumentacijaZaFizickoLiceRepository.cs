@@ -9,6 +9,6 @@ namespace LicitacijaService.Data
     public interface IDokumentacijaZaFizickoLiceRepository
     {
         List<DokumentacijaZaFizickoLice> GetDokumentacijaZaFizickoLiceList();
-        DokumentacijaZaFizickoLice GetDokumentacijaZaPravnoLiceById(Guid dokumentacijaFlId);
+        DokumentacijaZaFizickoLice GetDokumentacijaZaFizickoLiceById(Guid dokumentacijaFlId);
     }
 }

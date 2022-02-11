@@ -19,21 +19,11 @@ namespace LicitacijaService.Data
             this.Mapper = mapper;
         }
 
-        public LicitacijaConfirmationDto CreateLicitacija(LicitacijaCreateDto licitacijaDto)
+        public LicitacijaConfirmationDto CreateLicitacija(Licitacija licitacija)
         {
-            Licitacija licitacija = new Licitacija()
-            {
-                LicitacijaID = Guid.NewGuid(),
-                DokumentacijaID = licitacijaDto.DokumentacijaID,
-                Broj = licitacijaDto.Broj,
-                Godina = licitacijaDto.Godina,
-                Datum = licitacijaDto.Datum,
-                Ogranicenje = licitacijaDto.Ogranicenje,
-                KorakCene = licitacijaDto.KorakCene,
-                RokZaPrijavu = licitacijaDto.RokZaPrijavu
-            };
+            licitacija.LicitacijaID = Guid.NewGuid();
 
-            Context.Add(licitacija);
+            Context.Licitacija.Add(licitacija);
             Context.SaveChanges();
 
             return Mapper.Map<LicitacijaConfirmationDto>(licitacija);
@@ -45,7 +35,7 @@ namespace LicitacijaService.Data
 
             if (licitacija == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("licitacijaId");
             }
 
             Context.Remove(licitacija);
@@ -64,26 +54,26 @@ namespace LicitacijaService.Data
             return Context.Licitacija.ToList();
         }
 
-        public LicitacijaConfirmationDto UpdateLicitacija(LicitacijaUpdateDto licitacijaDto)
+        public LicitacijaConfirmationDto UpdateLicitacija(Licitacija licitacija)
         {
-            Licitacija licitacija = Context.Licitacija.FirstOrDefault(e => e.LicitacijaID == licitacijaDto.LicitacijaID);
+            Licitacija l = Context.Licitacija.FirstOrDefault(e => e.LicitacijaID == licitacija.LicitacijaID);
 
-            if (licitacija == null)
+            if (l == null)
             {
                 throw new EntryPointNotFoundException();
             }
 
-            licitacija.DokumentacijaID = licitacijaDto.DokumentacijaID;
-            licitacija.Broj = licitacijaDto.Broj;
-            licitacija.Godina = licitacijaDto.Godina;
-            licitacija.Datum = licitacijaDto.Datum;
-            licitacija.Ogranicenje = licitacijaDto.Ogranicenje;
-            licitacija.KorakCene = licitacijaDto.KorakCene;
-            licitacija.RokZaPrijavu = licitacijaDto.RokZaPrijavu;
+            l.DokumentacijaID = licitacija.DokumentacijaID;
+            l.Broj = licitacija.Broj;
+            l.Godina = licitacija.Godina;
+            l.Datum = licitacija.Datum;
+            l.Ogranicenje = licitacija.Ogranicenje;
+            l.KorakCene = licitacija.KorakCene;
+            l.RokZaPrijavu = licitacija.RokZaPrijavu;
 
             Context.SaveChanges();
 
-            return Mapper.Map<LicitacijaConfirmationDto>(licitacija);
+            return Mapper.Map<LicitacijaConfirmationDto>(l);
         }
     }
 }

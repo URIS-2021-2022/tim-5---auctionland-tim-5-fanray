@@ -30,9 +30,9 @@ namespace LicitacijaService.Entities
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString("LicitacijaDB"));
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            builder.Entity<Dokumentacija>()
+            modelBuilder.Entity<Dokumentacija>()
                 .HasData(
                     new Dokumentacija
                     {
@@ -56,7 +56,7 @@ namespace LicitacijaService.Entities
                     }
             );
 
-            builder.Entity<DokumentacijaZaFizickoLice>()
+            modelBuilder.Entity<DokumentacijaZaFizickoLice>()
                 .HasData(
                     new DokumentacijaZaFizickoLice
                     {
@@ -70,7 +70,7 @@ namespace LicitacijaService.Entities
                     }
             );
 
-            builder.Entity<DokumentacijaZaPravnoLice>()
+            modelBuilder.Entity<DokumentacijaZaPravnoLice>()
                 .HasData(
                     new DokumentacijaZaPravnoLice
                     {
@@ -84,7 +84,7 @@ namespace LicitacijaService.Entities
                     }
             );
 
-            builder.Entity<Licitacija>()
+            modelBuilder.Entity<Licitacija>()
                 .HasData(
                     new Licitacija
                     {

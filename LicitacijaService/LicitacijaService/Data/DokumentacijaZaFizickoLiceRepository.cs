@@ -21,7 +21,7 @@ namespace LicitacijaService.Data
             return Context.DokumentacijaZaFizickoLice.ToList();
         }
 
-        public DokumentacijaZaFizickoLice GetDokumentacijaZaPravnoLiceById(Guid dokumentacijaFlId)
+        public DokumentacijaZaFizickoLice GetDokumentacijaZaFizickoLiceById(Guid dokumentacijaFlId)
         {
             return Context.DokumentacijaZaFizickoLice.FirstOrDefault(e => e.DokumentacijaFlID == dokumentacijaFlId);
         }

@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace LicitacijaService.Models
 {
-    public class LicitacijaConfirmationDto
+    public class DokumentacijaZaPravnoLiceDto
     {
-        public Guid LicitacijaID { get; set; }
+        public Guid DokumentacijaPlID { get; set; }
+        public Guid DokumentacijaID { get; set; }
     }
 }
