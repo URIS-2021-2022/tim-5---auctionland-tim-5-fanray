@@ -13,9 +13,11 @@ namespace LicitacijaService.Controllers
 {
     [ApiController]
     [Route("api/v1/licitacija")]
+    [Produces("application/json")]
+    [Authorize]
     public class LicitacijaController : ControllerBase
     {
-        private ILicitacijaRepository LicitacijaRepository;
+        private readonly ILicitacijaRepository LicitacijaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
 
@@ -27,6 +29,8 @@ namespace LicitacijaService.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<List<LicitacijaDto>> GetLicitacijaList()
         {
             List<Licitacija> licitacijaList = LicitacijaRepository.getLicitacijaList();
@@ -40,6 +44,8 @@ namespace LicitacijaService.Controllers
         }
 
         [HttpGet("{licitacijaId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Licitacija> GetLicitacijaById(Guid licitacijaId)
         {
             Licitacija licitacija = LicitacijaRepository.getLicitacijaById(licitacijaId);
@@ -57,7 +63,8 @@ namespace LicitacijaService.Controllers
         {
             try
             {
-               LicitacijaConfirmationDto confirmation = LicitacijaRepository.CreateLicitacija(licitacijaDto);
+              Licitacija licitacija = Mapper.Map<Licitacija>(licitacijaDto);
+              LicitacijaConfirmationDto confirmation = LicitacijaRepository.CreateLicitacija(licitacija);
 
                 string location = LinkGenerator.GetPathByAction("GetLicitacijaById", "Licitacija", new { licitacijaId = confirmation.LicitacijaID });
 
@@ -65,7 +72,7 @@ namespace LicitacijaService.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Create Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -89,7 +96,7 @@ namespace LicitacijaService.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Update Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
