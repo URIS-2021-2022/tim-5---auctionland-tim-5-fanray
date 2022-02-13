@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdresaService", "AdresaService\AdresaService.csproj", "{2799E4EB-B27A-4DA3-975D-13F0308309A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2799E4EB-B27A-4DA3-975D-13F0308309A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2799E4EB-B27A-4DA3-975D-13F0308309A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2799E4EB-B27A-4DA3-975D-13F0308309A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2799E4EB-B27A-4DA3-975D-13F0308309A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AEF87E50-07D1-4757-814C-D1C787C92EF2}
+	EndGlobalSection
+EndGlobal
