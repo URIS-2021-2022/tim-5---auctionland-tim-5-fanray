@@ -15,7 +15,7 @@ namespace LicnostService.Entities
         public Clan Clan { get; set; }
 
         [ForeignKey("Predsednik")]
-        public Guid? PedsednikID { get; set; }
+        public Guid? PredsednikID { get; set; }
         public Predsednik Predsednik { get; set; }
     }
 }

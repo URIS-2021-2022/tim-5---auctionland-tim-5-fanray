@@ -11,5 +11,7 @@ namespace LicitacijaService.Entities
 
         [Required]
         public string NazivDokumentacije { get; set; }
+
+        public List<Licitacija> LicitacijaList { get; set; }
     }
 }
