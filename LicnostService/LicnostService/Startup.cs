@@ -64,7 +64,7 @@ namespace LicnostService
 
             app.UseSwagger();
 
-            app.UseSwaggerUI(setupAction => setupAction.SwaggerEndpoint("/swagger/v1/swagger.json", "ParcelaService API"));
+            app.UseSwaggerUI(setupAction => setupAction.SwaggerEndpoint("/swagger/v1/swagger.json", "LicnostService API"));
 
             app.UseRouting();
 
