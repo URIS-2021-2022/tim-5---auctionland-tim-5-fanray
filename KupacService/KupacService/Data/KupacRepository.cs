@@ -30,7 +30,17 @@ namespace KupacService.Data
 
         public KupacConfirmationDto DeleteKupac(Guid kupacId)
         {
-            throw new NotImplementedException();
+            Kupac kupac = GetKupacById(kupacId);
+
+            if (kupac == null)
+            {
+                throw new ArgumentNullException("kupacId");
+            }
+
+            Context.Kupac.Remove(kupac);
+            Context.SaveChanges();
+
+            return Mapper.Map<KupacConfirmationDto>(kupac);
         }
 
         public Kupac GetKupacById(Guid kupacId)
@@ -54,7 +64,6 @@ namespace KupacService.Data
 
             k.PrioritetId = kupac.PrioritetId;
             k.OstvarenaPovrsina = kupac.OstvarenaPovrsina;
-            k.UplataId = kupac.UplataId;
             k.OvlascenoLiceId = kupac.OvlascenoLiceId;
             k.ImaZabranu = kupac.ImaZabranu;
             k.DatumPocetkaZabrane = kupac.DatumPocetkaZabrane;

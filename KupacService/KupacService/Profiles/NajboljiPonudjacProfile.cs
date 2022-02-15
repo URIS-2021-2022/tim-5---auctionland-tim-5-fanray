@@ -13,6 +13,9 @@ namespace KupacService.Profiles
         public NajboljiPonudjacProfile()
         {
             CreateMap<Najbolji_Ponudjac, NajboljiPonudjacDto>();
+            CreateMap<Najbolji_Ponudjac, NajboljiPonudjacConfirmationDto>();
+            CreateMap<NajboljiPonudjacCreateDto, Najbolji_Ponudjac>();
+            CreateMap<NajboljiPonudjacUpdateDto, Najbolji_Ponudjac>();
         }
     }
 }

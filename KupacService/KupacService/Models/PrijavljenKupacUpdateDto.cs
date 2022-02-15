@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KupacService.Entities
+namespace KupacService.Models
 {
-    public class Prijavljen_Kupac
+    public class PrijavljenKupacUpdateDto
     {
-        [Key]
         public Guid PrijavljenKupacId { get; set; }
         public Guid? KupacId { get; set; }
     }
