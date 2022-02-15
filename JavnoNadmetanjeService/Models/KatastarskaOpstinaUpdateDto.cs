@@ -7,6 +7,8 @@ namespace JavnoNadmetanjeService.Models
 {
     public class KatastarskaOpstinaUpdateDto
     {
+        public Guid KatastarskaOpstinaId { get; set; }
+
         public string NazivKatastarskeOpstine { get; set; }
     }
 }

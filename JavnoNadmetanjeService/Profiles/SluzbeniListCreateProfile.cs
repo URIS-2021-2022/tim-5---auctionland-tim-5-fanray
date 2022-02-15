@@ -12,7 +12,7 @@ namespace JavnoNadmetanjeService.Profiles
     {
         public SluzbeniListCreateProfile()
         {
-            CreateMap<SluzbeniList, SluzbeniListCreateDto>();
+            CreateMap<SluzbeniListCreateDto, SluzbeniList>();
         }
     }
 }

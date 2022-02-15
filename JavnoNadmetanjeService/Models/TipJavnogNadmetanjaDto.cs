@@ -7,7 +7,7 @@ namespace JavnoNadmetanjeService.Models
 {
     public class TipJavnogNadmetanjaDto
     {
-        public Guid TipJavnogNadmetanjaDtoId { get; set; }
+        public Guid TipJavnogNadmetanjaId { get; set; }
 
         public string NazivTipaJavnogNadmetanja { get; set; }
     }

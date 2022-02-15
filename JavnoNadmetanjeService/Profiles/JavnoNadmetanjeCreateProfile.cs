@@ -12,7 +12,7 @@ namespace JavnoNadmetanjeService.Profiles
     {
         public JavnoNadmetanjeCreateProfile()
         {
-            CreateMap<JavnoNadmetanje, JavnoNadmetanjeCreateDto>();
+            CreateMap<JavnoNadmetanjeCreateDto, JavnoNadmetanje>();
         }
     }
 }

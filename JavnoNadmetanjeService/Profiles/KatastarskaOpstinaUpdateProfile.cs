@@ -12,7 +12,7 @@ namespace JavnoNadmetanjeService.Profiles
     {
         public KatastarskaOpstinaUpdateProfile()
         {
-            CreateMap<KatastarskaOpstina, KatastarskaOpstinaUpdateDto>();
+            CreateMap<KatastarskaOpstinaUpdateDto, KatastarskaOpstina>();
         }
     }
 }
