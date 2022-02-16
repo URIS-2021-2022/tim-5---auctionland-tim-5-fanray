@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using ParcelaService.Data;
 using ParcelaService.Entities;
 using ParcelaService.Helpers;
+using ParcelaService.Services;
 using System;
 using System.Text;
 
@@ -26,6 +27,8 @@ namespace ParcelaService
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
             services.AddScoped<IKatastarskaOpstinaRepository, KatastarskaOpstinaRepository>();
             services.AddScoped<IKulturaRepository, KulturaRepository>();
             services.AddScoped<IKlasaRepository, KlasaRepository>();
@@ -37,6 +40,7 @@ namespace ParcelaService
             services.AddScoped<IDeoParceleRepository, DeoParceleRepository>();
             services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();
 
