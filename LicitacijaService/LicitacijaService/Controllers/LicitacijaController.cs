@@ -59,6 +59,9 @@ namespace LicitacijaService.Controllers
         }
 
         [HttpPost]
+        [Consumes("application/json")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<LicitacijaConfirmationDto> CreateLicitacija([FromBody] LicitacijaCreateDto licitacijaDto)
         {
             try

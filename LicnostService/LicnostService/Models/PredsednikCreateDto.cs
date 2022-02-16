@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace LicnostService.Models
 {
-    public class PredsednikDto
+    public class PredsednikCreateDto
     {
-        public Guid PredsednikID { get; set; }
         public Guid LicnostID { get; set; }
     }
 }
