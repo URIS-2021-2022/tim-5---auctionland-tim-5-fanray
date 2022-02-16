@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "b1135246-3fd2-498b-be2f-5d3eb3298735",
+		"name": "UgovorOZakupuService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TipGarancijeGetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/tipGarancije",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"tipGarancije"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TipGarancijeGetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/tipGarancije/d2e52d2e-8c27-49e1-b4e0-4a873a6ca75e",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"tipGarancije",
+						"d2e52d2e-8c27-49e1-b4e0-4a873a6ca75e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UgovorGetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/ugovor",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"ugovor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UgovorGetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/ugovor/0ec914e2-a7a2-4935-ad30-5912fc86fd19",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"ugovor",
+						"0ec914e2-a7a2-4935-ad30-5912fc86fd19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RokGetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/rok",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"rok"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RokGetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/rok/34562293-3bb6-4ef3-922f-f9d7d3c57864",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"rok",
+						"34562293-3bb6-4ef3-922f-f9d7d3c57864"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DokumentGetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/dokument",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"dokument"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DokumentGetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/dokument/4a807a16-a73f-4f02-944a-0db26fd2fa5e",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"dokument",
+						"4a807a16-a73f-4f02-944a-0db26fd2fa5e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UgovorPost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"korisnikID\": \"87e332ef-478d-4e75-a1fd-a6eee61a98e4\",\r\n  \"kupacID\": \"ee0d7da2-a336-4a45-b70a-a540e6f9f0a9\",\r\n  \"javnoNadmetanjeID\": \"d5fc96d3-10c3-46f2-b12c-542bf0577c66\",\r\n  \"licnostID\": \"f1ef17ec-310f-4cc9-9120-de03262470c4\",\r\n  \"rokID\": \"28de10a1-1df6-41a1-a397-1d15067e95ce\",\r\n  \"dokumentID\": \"acbfa1a7-1c09-4a98-9119-b11a9bb34b75\",\r\n  \"tipGarancijeID\": \"d93136b7-a0f5-4af1-931e-a87507d613e4\",\r\n  \"zavodniBroj\": \"UGO-12/11\",\r\n  \"mestoPotpisivanja\": \"Novi Sad\",\r\n  \"datumZavodjenja\": \"2022-02-16T19:43:22.079Z\",\r\n  \"rokZaVracanjeZem\": \"2022-02-16T19:43:22.079Z\",\r\n  \"datumPotpisa\": \"2022-02-16T19:43:22.079Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/ugovor",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"ugovor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UgovorPut",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"korisnikID\": \"87e332ef-478d-4e75-a1fd-a6eee61a98e4\",\r\n  \"ugovorID\": \"19ae79be-10cb-4e96-b672-68bccea7cbdb\",\r\n  \"kupacID\": \"ee0d7da2-a336-4a45-b70a-a540e6f9f0a9\",\r\n  \"javnoNadmetanjeID\": \"d5fc96d3-10c3-46f2-b12c-542bf0577c66\",\r\n  \"licnostID\": \"f1ef17ec-310f-4cc9-9120-de03262470c4\",\r\n  \"rokID\": \"28de10a1-1df6-41a1-a397-1d15067e95ce\",\r\n  \"dokumentID\": \"acbfa1a7-1c09-4a98-9119-b11a9bb34b75\",\r\n  \"tipGarancijeID\": \"d93136b7-a0f5-4af1-931e-a87507d613e4\",\r\n  \"zavodniBroj\": \"UGO-12/11\",\r\n  \"mestoPotpisivanja\": \"Beograd\",\r\n  \"datumZavodjenja\": \"2022-02-16T19:43:22.079Z\",\r\n  \"rokZaVracanjeZem\": \"2022-02-16T19:43:22.079Z\",\r\n  \"datumPotpisa\": \"2022-02-16T19:43:22.079Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/ugovor",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"ugovor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UgovorDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/ugovor/2771bdd8-ca2a-4791-8620-e6555c447342",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"ugovor",
+						"2771bdd8-ca2a-4791-8620-e6555c447342"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwNDUzNDIsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.BRBlerfR1F3BAhRgs68qK_wSsEH3cjgemQGB2vLqkCg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "https://localhost:44351/api/v1",
+			"type": "string"
+		}
+	]
+}
