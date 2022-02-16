@@ -18,6 +18,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UplataService.Data;
 using UplataService.Entities;
+using UplataService.Helpers;
+using UplataService.Services;
 
 namespace UplataService
 {
@@ -33,8 +35,14 @@ namespace UplataService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
 
             services.AddScoped<IUplataRepository, UplataRepository>();
+            services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
+            services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddSingleton<ILoggerService, LoggerService>();
+
+
             services.AddControllers();
 
             services.AddDbContext<UplataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UplataDB")));
@@ -78,6 +86,8 @@ namespace UplataService
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
