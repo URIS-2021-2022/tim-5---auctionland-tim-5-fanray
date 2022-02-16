@@ -143,13 +143,40 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{api_url}}/korisnik/b2f73821-daa9-49d5-a0f3-64f6474a2827",
+					"raw": "{{api_url}}/korisnik/d9b35c6d-9b01-45d2-8535-6b8d042eb060",
 					"host": [
 						"{{api_url}}"
 					],
 					"path": [
 						"korisnik",
-						"b2f73821-daa9-49d5-a0f3-64f6474a2827"
+						"d9b35c6d-9b01-45d2-8535-6b8d042eb060"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AuthPost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"korisnickoIme\": \"ivanilic\",\r\n  \"lozinka\": \"korisnik123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/login",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
 					]
 				}
 			},
@@ -161,7 +188,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwNDQ1NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUzIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTMifQ.5Vpu_pq3Ky0zYpN_P0Z25i109J1bB-1KJeZDj4F06Ww",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwNTA5NjAsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUzIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTMifQ.L38Q6tS0C1jw30RXQ_KxipV4BgJQQAmEwmsvFl5d9gY",
 				"type": "string"
 			}
 		]

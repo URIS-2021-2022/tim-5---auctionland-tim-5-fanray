@@ -214,6 +214,33 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "AuthPost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"korisnickoIme\": \"tamaraR\",\r\n  \"lozinka\": \"ugovor123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/login",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -221,7 +248,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwNDUzNDIsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.BRBlerfR1F3BAhRgs68qK_wSsEH3cjgemQGB2vLqkCg",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwNTEwNDQsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.jrdJ6hRZcWg1HPhjXbLN16g86zkufMT04mECJOdt-78",
 				"type": "string"
 			}
 		]
