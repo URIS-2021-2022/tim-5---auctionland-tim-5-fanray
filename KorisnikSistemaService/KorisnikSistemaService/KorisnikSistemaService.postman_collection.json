@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "c2ff1e69-2548-45b9-b50f-979e68ed4a1b",
+		"name": "KorisnikSistemaService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "KorisnikGetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/korisnik",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"korisnik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KorisnikGetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/korisnik/34f11383-cb12-481d-9ff7-2fd458dc7e2b",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"korisnik",
+						"34f11383-cb12-481d-9ff7-2fd458dc7e2b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KorisnikPost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tipKorisnikaID\": \"3d9d9ecb-e306-402a-9aa8-8e0c526bf890\",\r\n  \"ime\": \"Jovana\",\r\n  \"prezime\": \"Karamarkovic\",\r\n  \"korisnickoIme\": \"jovanaK\",\r\n  \"lozinka\": \"jovana123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/korisnik",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"korisnik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TipKorisnikaGetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/tipKorisnika",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"tipKorisnika"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TipKorisnikaGetByAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/tipKorisnika/acfbe150-40cb-4f3e-9c38-2ad33bf1b0f0",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"tipKorisnika",
+						"acfbe150-40cb-4f3e-9c38-2ad33bf1b0f0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KorisnikPut",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"korisnikID\": \"b643a476-5164-4e45-983b-ed0c363b7ef4\",\r\n  \"tipKorisnikaID\": \"912de663-6320-4521-a7d7-3a7086f42b2c\",\r\n  \"ime\": \"Tanja\",\r\n  \"prezime\": \"Savic\",\r\n  \"korisnickoIme\": \"tanjaS\",\r\n  \"lozinka\": \"tanja123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/korisnik",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"korisnik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KorisnikDelete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDQ3ODkwODgsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUzIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTMifQ.K6SvJnQlSqPHbqxwwucwCEhMuqyXKsx1SZVCa2Eb6yQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/korisnik/d9b35c6d-9b01-45d2-8535-6b8d042eb060",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"korisnik",
+						"d9b35c6d-9b01-45d2-8535-6b8d042eb060"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AuthPost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"korisnickoIme\": \"ivanilic\",\r\n  \"lozinka\": \"korisnik123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/login",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwNTA5NjAsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUzIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTMifQ.L38Q6tS0C1jw30RXQ_KxipV4BgJQQAmEwmsvFl5d9gY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "https://localhost:44353/api/v1",
+			"type": "string"
+		}
+	]
+}
