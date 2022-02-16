@@ -39,7 +39,7 @@ namespace AdresaService.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public ActionResult<List<AdresaDto>> GetParcelaList()
+        public ActionResult<List<AdresaDto>> GetAdresaList()
         {
             List<Adresa> adresaList = AdresaRepository.GetAdresaList();
 
