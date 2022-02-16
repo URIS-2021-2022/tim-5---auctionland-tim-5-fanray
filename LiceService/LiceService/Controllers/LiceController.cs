@@ -98,7 +98,7 @@ namespace LiceService.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Update Error");
             }
         }
-        [HttpDelete("liceId}")]
+        [HttpDelete("{liceId}")]
         public ActionResult<LiceConfirmationDto> DeleteLice(Guid liceId)
         {
             try
@@ -123,7 +123,7 @@ namespace LiceService.Controllers
         [AllowAnonymous]
         public IActionResult GetExamRegistrationOptions()
         {
-            Response.Headers.Add("Allow", "GET, POST, PUT, DELETE");
+            Response.Headers.Add("Allow", "GET");
 
             return Ok();
         }

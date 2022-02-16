@@ -15,7 +15,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:44339"
+      "applicationUrl": "https://localhost:44353"
     },
     "LiceService": {
       "commandName": "Project",
