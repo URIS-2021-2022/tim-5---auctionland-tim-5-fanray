@@ -69,13 +69,12 @@ namespace KupacService.Entities
                         KupacId = Guid.Parse("a35d8ec7-4cea-42ec-859e-5c012476ced0"),
                         PrioritetId = Guid.Parse("608ed376-c4bb-4bdd-84cb-f34147ca96df"),
                         OstvarenaPovrsina  = "200m2",
-                        UplataId = Guid.Parse("803d807c-d57a-46b1-b75c-278478569357"),
                         OvlascenoLiceId = Guid.Parse("148805f4-3093-4fd3-aea1-f253038b3c8f"),
                         ImaZabranu = true,
                         DatumPocetkaZabrane = DateTime.Parse("2020-11-15T09:00:00"),
                         DatumTrajanjaZabrane = "1 godinu",
-                        DatumPrestankaZabrane = DateTime.Parse("2021-11-15T09:00:00"),
-                        JavnaNadmetanjaId = Guid.Parse("f037d6db-12f6-4756-aebe-24d303d4a03f")
+                        DatumPrestankaZabrane = DateTime.Parse("2021-11-15T09:00:00")
+                        
                     }
             );
         }

@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KupacService.Entities
+namespace KupacService.Models
 {
-    public class Najbolji_Ponudjac
+    public class NajboljiPonudjacConfirmationDto
     {
-        [Key]
         public Guid NajboljiPonudjacId { get; set; }
-        public Guid? KupacId { get; set; }
     }
 }
