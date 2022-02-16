@@ -16,6 +16,7 @@ namespace KupacService.Profiles
             CreateMap<Prijavljen_Kupac, PrijavljenKupacConfirmationDto>();
             CreateMap<PrijavljenKupacCreateDto, Prijavljen_Kupac>();
             CreateMap<PrijavljenKupacUpdateDto, Prijavljen_Kupac>();
+
         }
     }
 }

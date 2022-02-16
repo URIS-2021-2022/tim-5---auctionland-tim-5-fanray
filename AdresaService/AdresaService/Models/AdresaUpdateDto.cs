@@ -16,5 +16,7 @@ namespace AdresaService.Models
         public string Mesto { get; set; }
 
         public int PostanskiBroj { get; set; }
+
+        public Guid DrzavaID { get; set; }
     }
 }

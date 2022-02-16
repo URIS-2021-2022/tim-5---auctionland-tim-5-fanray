@@ -80,6 +80,7 @@ namespace AdresaService
             app.UseAuthentication(); // Ovo je nedostajalo
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
