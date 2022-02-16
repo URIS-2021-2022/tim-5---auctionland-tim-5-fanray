@@ -7,6 +7,6 @@ namespace JavnoNadmetanjeService.Models
 {
     public class TipJavnogNadmetanjaConfirmationDto
     {
-        public Guid TipJavnogNadmetanjaDtoId { get; set; }
+        public Guid TipJavnogNadmetanjaId { get; set; }
     }
 }

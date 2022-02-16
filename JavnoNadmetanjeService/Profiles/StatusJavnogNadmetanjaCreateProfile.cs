@@ -12,7 +12,7 @@ namespace JavnoNadmetanjeService.Profiles
     {
         public StatusJavnogNadmetanjaCreateProfile()
         {
-            CreateMap<StatusJavnogNadmetanja, StatusJavnogNadmetanjaCreateDto>();
+            CreateMap<StatusJavnogNadmetanjaCreateDto, StatusJavnogNadmetanja>();
         }
     }
 }

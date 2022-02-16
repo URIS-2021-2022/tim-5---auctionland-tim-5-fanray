@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xUuCHrZzUbyf0gbEGTJHQNvz5v7mK1PVcpeg0p8lK0Pw1BEHXyhypaJWIhdMAhFokei3672LOU750vBw0mPDHg==",
+  "dgSpecHash": "YuFSBydhPFNdgyKEC6yaVP35Un/Y7kJk5X5fnqBfDRv8d5SYMOhY4b2lMne0bqYJxQ5mu9R7X+3esMYcU5NdsA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nikola\\source\\uris-auctionland\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\JavnoNadmetanjeService.csproj",
+  "projectFilePath": "C:\\Users\\Nikola\\source\\aucitionland-novo\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\JavnoNadmetanjeService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nikola\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Nikola\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

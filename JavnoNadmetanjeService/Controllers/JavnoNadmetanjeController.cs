@@ -9,6 +9,7 @@ using JavnoNadmetanjeService.Data;
 using JavnoNadmetanjeService.Models;
 using JavnoNadmetanjeService.Entities;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JavnoNadmetanjeService.Controllers
 {
@@ -50,14 +51,14 @@ namespace JavnoNadmetanjeService.Controllers
         /// <summary>
         /// Vraca javno nadmetanje sa trazenim ID-em
         /// </summary>
-        /// <param name="parcelaId">Sifra javnog nadmetanja</param>
+        /// <param name="javnoNadmetanjeId">Sifra javnog nadmetanja</param>
         /// <returns></returns>
         /// <response code="200">Vraca trazeno javno nadmetanje</response>
         /// <response code="404">Javno nadmetanje nije pronadjeno</response>
         [HttpGet("{javnoNadmetanjeId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<JavnoNadmetanje> GetJavnoNadmetanje(Guid javnoNadmetanjeId)
+        public ActionResult<JavnoNadmetanjeDto> GetJavnoNadmetanjeById(Guid javnoNadmetanjeId)
         {
             JavnoNadmetanje javnoNadmetanje = javnoNadmetanjeRepository.GetJavnoNadmetanjeById(javnoNadmetanjeId);
             if (javnoNadmetanje == null)
@@ -97,10 +98,10 @@ namespace JavnoNadmetanjeService.Controllers
         /// <summary>
         /// Brisanje javnog nadmetanja sa trazenim ID-em
         /// </summary>
-        /// <param name="parcelaId">Sifra javnog nadmetanja</param>
+        /// <param name="javnoNadmetanjeId">Sifra javnog nadmetanja</param>
         /// <returns></returns>
         /// <response code="200">Vraca izbrisano javno nadmetanje</response>
-        /// <response code="404">Javno nadmetanje nije pronadjena</response>
+        /// <response code="404">Javno nadmetanje nije pronadjeno</response>
         /// <response code="500">Doslo je do greske na serveru prilikom brisanja javnog nadmetanja</response>
         [HttpDelete("{javnoNadmetanjeId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -122,6 +123,52 @@ namespace JavnoNadmetanjeService.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
+        }
+
+        /// <summary>
+        /// Azuriranje postojeceg javnog nadmetanja
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200">Vraca azurirano javno nadmetanje</response>
+        /// <response code="404">Javno Nadmetanje nije pronadjeno</response>
+        /// <response code="500">Doslo je do greske na serveru prilikom azuriranja</response>
+        [HttpPut]
+        [Consumes("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<JavnoNadmetanjeConfirmationDto> UpdateJavnoNadmetanje(JavnoNadmetanjeUpdateDto javnoNadmetanjeDto)
+        {
+            try
+            {
+                JavnoNadmetanje oldJn = javnoNadmetanjeRepository.GetJavnoNadmetanjeById(javnoNadmetanjeDto.JavnoNadmetanjeId);
+
+                if (oldJn == null)
+                {
+                    return NotFound();
+                }
+
+                JavnoNadmetanje jn = mapper.Map<JavnoNadmetanje>(javnoNadmetanjeDto);
+
+                mapper.Map(jn, oldJn);
+
+                JavnoNadmetanjeConfirmationDto confirmation = javnoNadmetanjeRepository.UpdateJavnoNadmetanje(jn);
+
+                return Ok(mapper.Map<JavnoNadmetanjeConfirmationDto>(confirmation));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpOptions]
+        [AllowAnonymous]
+        public IActionResult GetJavnoNadmetanjeOptions()
+        {
+            Response.Headers.Add("Allow", "GET, POST, PUT, DELETE");
+
+            return Ok();
         }
 
 

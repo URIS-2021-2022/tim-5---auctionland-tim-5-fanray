@@ -7,6 +7,8 @@ namespace JavnoNadmetanjeService.Models
 {
     public class SluzbeniListUpdateDto
     {
+        public Guid SluzbeniListId { get; set; }
+
         public string Opstina { get; set; }
 
         public string BrojSluzbenogLista { get; set; }

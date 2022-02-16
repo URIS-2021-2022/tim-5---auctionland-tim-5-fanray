@@ -7,6 +7,8 @@ namespace JavnoNadmetanjeService.Models
 {
     public class StatusJavnogNadmetanjaUpdateDto
     {
+        public Guid StatusJavnogNadmetanjaId { get; set; }
+
         public string NazivStatusaJavnogNadmetanja { get; set; }
     }
 }

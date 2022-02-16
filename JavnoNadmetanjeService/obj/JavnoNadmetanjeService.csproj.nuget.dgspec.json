@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nikola\\source\\uris-auctionland\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\JavnoNadmetanjeService.csproj": {}
+    "C:\\Users\\Nikola\\source\\aucitionland-novo\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\JavnoNadmetanjeService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nikola\\source\\uris-auctionland\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\JavnoNadmetanjeService.csproj": {
+    "C:\\Users\\Nikola\\source\\aucitionland-novo\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\JavnoNadmetanjeService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nikola\\source\\uris-auctionland\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\JavnoNadmetanjeService.csproj",
+        "projectUniqueName": "C:\\Users\\Nikola\\source\\aucitionland-novo\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\JavnoNadmetanjeService.csproj",
         "projectName": "JavnoNadmetanjeService",
-        "projectPath": "C:\\Users\\Nikola\\source\\uris-auctionland\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\JavnoNadmetanjeService.csproj",
+        "projectPath": "C:\\Users\\Nikola\\source\\aucitionland-novo\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\JavnoNadmetanjeService.csproj",
         "packagesPath": "C:\\Users\\Nikola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nikola\\source\\uris-auctionland\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\obj\\",
+        "outputPath": "C:\\Users\\Nikola\\source\\aucitionland-novo\\tim-5---auctionland-tim-5-fanray\\JavnoNadmetanjeService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }
