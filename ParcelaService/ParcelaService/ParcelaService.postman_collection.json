@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7e81ec53-89b1-48aa-a5be-0adbe482e9de",
+		"_postman_id": "a33b0828-01dd-453e-9779-7528cfd3a95e",
 		"name": "ParcelaService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -499,7 +499,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDM0OTQxODMsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzQ1IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNDUifQ.KDHRQiYdbxqyB9tuI3kCJVxe2FHIF5IO4aJoGGI6VBo",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzAxMTgsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzA5IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDkifQ.quoxmo9F1Dh1RdI9TyTHEvn12SFpkwMEkzW4pzkVVRA",
 				"type": "string"
 			}
 		]
@@ -527,7 +527,7 @@
 	"variable": [
 		{
 			"key": "api_url",
-			"value": "https://localhost:44345/api/v1",
+			"value": "http://localhost:30309",
 			"type": "default"
 		}
 	]

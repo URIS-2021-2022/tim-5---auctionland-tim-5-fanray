@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "72d65ba6-c64d-4442-a5c7-afe73e617dab",
+		"_postman_id": "772d7ed5-0330-495e-9ef8-ffa77ee6a2c5",
 		"name": "LoggerService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -90,7 +90,7 @@
 	"variable": [
 		{
 			"key": "api_url",
-			"value": "https://localhost:44301/api/v1",
+			"value": "http://localhost:30302/api/v1",
 			"type": "default"
 		}
 	]
