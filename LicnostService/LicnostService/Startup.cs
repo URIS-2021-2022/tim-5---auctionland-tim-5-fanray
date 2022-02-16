@@ -8,9 +8,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using LicnostService.Data;
+using LicnostService.Helpers;
 using LicnostService.Entities;
 using System;
 using System.Text;
+
 namespace LicnostService
 {
     public class Startup
@@ -28,7 +30,9 @@ namespace LicnostService
             services.AddScoped<IClanRepository, ClanRepository>();
             services.AddScoped<IPredsednikRepository, PredsednikRepository>();
             services.AddScoped<IKomisijaRepository, KomisijaRepository>();
-          
+            services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
+            services.AddScoped<IAuthHelper, AuthHelper>();
+
 
             services.AddControllers();
 

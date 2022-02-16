@@ -1,0 +1,650 @@
+{
+	"info": {
+		"_postman_id": "5d270c52-2283-449e-8f9e-c069b435e846",
+		"name": "LicnostService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[Licnost] Delete One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/licnost/286b795b-acf4-4a44-9b16-a38d98f38012",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"licnost",
+						"286b795b-acf4-4a44-9b16-a38d98f38012"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Licnost] Create One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"licnostID\": \"5a226f45-f838-4367-9ba7-feecb5e6f3bf\",\r\n        \"ime\": \"Milan\",\r\n        \"prezime\": \"Brckalo\",\r\n        \"funkcija\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/licnost",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"licnost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Licnost] Get One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/licnost/30dbed55-df2d-40b5-9486-72b8da47df1f",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"licnost",
+						"30dbed55-df2d-40b5-9486-72b8da47df1f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Licnost] Update One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"licnostID\": \"30dbed55-df2d-40b5-9486-72b8da47df1f\",\r\n        \"ime\": \"Sneza\",\r\n        \"prezime\": \"Nikolic\",\r\n        \"funkcija\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/licnost",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"licnost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Licnost] Get All",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/licnost",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"licnost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Clan] Create One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"clanID\": \"7f2bf0c0-3af0-4bb9-acca-8e99eb2c69e1\",\r\n        \"licnostID\": \"5bfdfeb8-1d68-44ef-b6b1-968a37279251\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/clan",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"clan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Clan] Get One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/clan/17fc842e-54f4-48fe-b189-0fd12d895c9a",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"clan",
+						"17fc842e-54f4-48fe-b189-0fd12d895c9a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Clan] Get All",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/clan?licnostId=5bfdfeb8-1d68-44ef-b6b1-968a37279251",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"clan"
+					],
+					"query": [
+						{
+							"key": "licnostId",
+							"value": "5bfdfeb8-1d68-44ef-b6b1-968a37279251"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Clan] Delete One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/clan/b3e0a13a-3129-44a6-96b3-15443683d553",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"clan",
+						"b3e0a13a-3129-44a6-96b3-15443683d553"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Predsednik] Create One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"predsednikID\": \"8cb76b35-271b-465a-809a-c4adedc4b01b\",\r\n        \"licnostID\": \"fe890641-61ea-4ef8-84f1-fcdb7a7cdb5d\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/predsednik",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"predsednik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Predsednik] Get One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/predsednik/c28bf995-14dd-4478-ae88-30bd67e09294",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"predsednik",
+						"c28bf995-14dd-4478-ae88-30bd67e09294"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Predsednik] Get All",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/predsednik?licnostId=fe890641-61ea-4ef8-84f1-fcdb7a7cdb5d",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"predsednik"
+					],
+					"query": [
+						{
+							"key": "licnostId",
+							"value": "fe890641-61ea-4ef8-84f1-fcdb7a7cdb5d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Predsednik] Delete One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/predsednik/76e9c2ca-4b0f-4e62-9588-c2afef384e2a",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"predsednik",
+						"76e9c2ca-4b0f-4e62-9588-c2afef384e2a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Komisija] Create One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"komisijaID\": \"6e402900-245a-416c-95d0-32e15b8823a9\",\r\n        \"clanID\": \"48c5549f-29e3-4647-99ea-d51fd0428e5c\",\r\n        \"predsednikID\": \"c28bf995-14dd-4478-ae88-30bd67e09294\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/komisija",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"komisija"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Komisija] Get All",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/komisija",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"komisija"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Komisija] Get One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/komisija/71e16e8e-b03e-410d-a2a7-5f1f9e204f79",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"komisija",
+						"71e16e8e-b03e-410d-a2a7-5f1f9e204f79"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Auth] Login",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"korisnickoIme\": \"lenastancic\",\r\n    \"lozinka\": \"licnost123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/login",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Komisija] Delete One",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/komisija/3df0238c-360a-4128-8a0e-2df3210d93aa",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"komisija",
+						"3df0238c-360a-4128-8a0e-2df3210d93aa"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMzI5NjksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.gfXIdkogj7l_7DZHWD5yVSh9-FUgm-Gg1y9buxD7TMA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "https://localhost:44351/api/v1"
+		}
+	]
+}
