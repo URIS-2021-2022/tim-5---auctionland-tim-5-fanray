@@ -79,7 +79,7 @@ namespace LicitacijaService.Migrations
                         },
                         new
                         {
-                            DokumentacijaFlID = new Guid("edc4ee98-a0b1-4386-a8b5-be436ef5bb2a"),
+                            DokumentacijaFlID = new Guid("ee695aa1-7e7b-47d4-9670-541b3537c07e"),
                             DokumentacijaID = new Guid("3465e0f2-a2bd-4ef6-bcda-fa2e71488caa")
                         });
                 });
@@ -107,7 +107,7 @@ namespace LicitacijaService.Migrations
                         },
                         new
                         {
-                            DokumentacijaPlID = new Guid("975f85c2-79d4-483d-a520-2aad03b9e215"),
+                            DokumentacijaPlID = new Guid("71ba2ade-8528-4b22-8bd2-2b3bc1ec523c"),
                             DokumentacijaID = new Guid("d8695c8d-ce0f-40be-a7b4-82042c223e39")
                         });
                 });
@@ -176,7 +176,7 @@ namespace LicitacijaService.Migrations
             modelBuilder.Entity("LicitacijaService.Entities.Licitacija", b =>
                 {
                     b.HasOne("LicitacijaService.Entities.Dokumentacija", "Dokumentacija")
-                        .WithMany()
+                        .WithMany("LicitacijaList")
                         .HasForeignKey("DokumentacijaID");
                 });
 #pragma warning restore 612, 618

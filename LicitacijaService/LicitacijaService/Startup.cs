@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using LicitacijaService.Data;
 using LicitacijaService.Entities;
+using LicitacijaService.Helpers;
 using System;
 using System.Text;
 
@@ -29,6 +30,8 @@ namespace LicitacijaService
             services.AddScoped<IDokumentacijaZaFizickoLiceRepository, DokumentacijaZaFizickoLiceRepository>();
             services.AddScoped<IDokumentacijaZaPravnoLiceRepository, DokumentacijaZaPravnoLiceRepository>();
             services.AddScoped<ILicitacijaRepository, LicitacijaRepository>();
+            services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
+            services.AddScoped<IAuthHelper, AuthHelper>();
 
             services.AddControllers();
 
@@ -45,7 +48,7 @@ namespace LicitacijaService
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = Configuration["Jwt:Issuer"],
-                    ValidAudience = Configuration["Jwt:Issuer"],
+                    ValidAudience = Configuration["Jwt:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
             });
@@ -68,6 +71,7 @@ namespace LicitacijaService
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

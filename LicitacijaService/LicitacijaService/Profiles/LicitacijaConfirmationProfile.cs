@@ -8,9 +8,9 @@ using LicitacijaService.Models;
 
 namespace LicitacijaService.Profiles
 {
-    public class LicitacijaConfirmationDto : Profile
+    public class LicitacijaConfirmationProfile : Profile
     {
-        public LicitacijaConfirmationDto()
+        public LicitacijaConfirmationProfile()
         {
             CreateMap<Licitacija, LicitacijaConfirmationDto>();
         }

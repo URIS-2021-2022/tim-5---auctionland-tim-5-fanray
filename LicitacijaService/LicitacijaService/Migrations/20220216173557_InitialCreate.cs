@@ -96,7 +96,7 @@ namespace LicitacijaService.Migrations
                 values: new object[,]
                 {
                     { new Guid("050c3e3d-0698-48a3-a1c5-eda9dc448da5"), new Guid("f1247d53-334e-433f-84dd-b67a3660a269") },
-                    { new Guid("edc4ee98-a0b1-4386-a8b5-be436ef5bb2a"), new Guid("3465e0f2-a2bd-4ef6-bcda-fa2e71488caa") }
+                    { new Guid("ee695aa1-7e7b-47d4-9670-541b3537c07e"), new Guid("3465e0f2-a2bd-4ef6-bcda-fa2e71488caa") }
                 });
 
             migrationBuilder.InsertData(
@@ -105,7 +105,7 @@ namespace LicitacijaService.Migrations
                 values: new object[,]
                 {
                     { new Guid("20e00a61-9e6a-4d6b-9df0-0b85e645849d"), new Guid("4cc35a36-46cc-4115-bc4b-a580e20cd23f") },
-                    { new Guid("975f85c2-79d4-483d-a520-2aad03b9e215"), new Guid("d8695c8d-ce0f-40be-a7b4-82042c223e39") }
+                    { new Guid("71ba2ade-8528-4b22-8bd2-2b3bc1ec523c"), new Guid("d8695c8d-ce0f-40be-a7b4-82042c223e39") }
                 });
 
             migrationBuilder.InsertData(

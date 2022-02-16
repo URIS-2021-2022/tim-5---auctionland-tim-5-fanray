@@ -8,5 +8,6 @@ namespace LicnostService.Models
     public class ClanDto
     {
         public Guid ClanID { get; set; }
+        public Guid LicnostID { get; set; }
     }
 }

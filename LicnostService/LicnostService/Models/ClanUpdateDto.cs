@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace LicnostService.Models
 {
-    public class PredsednikDto
+    public class ClanUpdateDto
     {
-        public Guid PredsednikID { get; set; }
+        public Guid ClanID { get; set; }
         public Guid LicnostID { get; set; }
     }
 }
