@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Routing;
 using ParcelaService.Data;
 using ParcelaService.Entities;
 using ParcelaService.Models;
+using ParcelaService.Services;
 using System;
 using System.Collections.Generic;
 
@@ -20,12 +21,14 @@ namespace ParcelaService.Controllers
         private readonly IParcelaRepository ParcelaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public ParcelaController(IParcelaRepository parcelaRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public ParcelaController(IParcelaRepository parcelaRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.ParcelaRepository = parcelaRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         /// <summary>
@@ -91,6 +94,8 @@ namespace ParcelaService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetParcelaById", "Parcela", new { parcelaId = confirmation.ParcelaID });
 
+                LoggerService.createLogAsync("Parcela " + parcela.ParcelaID + " je dodata");
+
                 return Created(location, Mapper.Map<ParcelaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -128,6 +133,8 @@ namespace ParcelaService.Controllers
 
                 ParcelaConfirmationDto confirmation = ParcelaRepository.UpdateParcela(parcela);
 
+                LoggerService.createLogAsync("Parcela " + parcela.ParcelaID + " je ažurirana");
+
                 return Ok(Mapper.Map<ParcelaConfirmationDto>(confirmation));
             }
             catch (Exception ex) 
@@ -160,6 +167,8 @@ namespace ParcelaService.Controllers
                 }
 
                 ParcelaConfirmationDto confirmation = ParcelaRepository.DeleteParcela(parcelaId);
+
+                LoggerService.createLogAsync("Parcela " + parcela.ParcelaID + " je izbrisana");
 
                 return Ok(Mapper.Map<ParcelaConfirmationDto>(confirmation));
             }
