@@ -10,15 +10,20 @@ namespace LiceService.Data
 
 
     {
+        private readonly LiceContext Context;
 
+        public KontaktOsobaRepository(LiceContext context)
+        {
+            this.Context = context;
+        }
         public KontaktOsoba GetKontaktOsobaById(Guid kontaktosobaId)
         {
-            throw new NotImplementedException();
+            return Context.KontaktOsoba.FirstOrDefault(e => e.KontaktOsobaID == kontaktosobaId);
         }
 
         public List<KontaktOsoba> GetKontaktOsobaList()
         {
-            throw new NotImplementedException();
+            return Context.KontaktOsoba.ToList();
         }
     }
 }

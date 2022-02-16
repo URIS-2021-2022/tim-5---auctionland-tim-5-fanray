@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace LiceService.Controllers
 {
 	[ApiController]
-	[Route("api/v1/pravnolice")]
+	[Route("api/v1/pravnoLice")]
 	[Produces("application/json")]
-	[Authorize]
+	//[Authorize]
 	public class PravnoLiceController : ControllerBase
 	{
 		private readonly IPravnoLiceRepository PravnoLiceRepository;

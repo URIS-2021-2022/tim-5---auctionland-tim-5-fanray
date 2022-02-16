@@ -12,61 +12,60 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace LiceService.Controllers
-{ 
-[ApiController]
-[Route("api/v1/fizickolice")]
-[Produces("application/json")]
-[Authorize]
-public class FizickoLiceController : ControllerBase
 {
-	private readonly IFizickoLiceRepository FizickoLiceRepository;
-	private readonly IMapper Mapper;
-
-	public FizickoLiceController(IFizickoLiceRepository fizickoLiceRepository, IMapper mapper)
+	[ApiController]
+	[Route("api/v1/fizickoLice")]
+	[Produces("application/json")]
+	//[Authorize]
+	public class FizickoLiceController : ControllerBase
 	{
-		this.FizickoLiceRepository = fizickoLiceRepository;
-		this.Mapper = mapper;
-	}
+		private readonly IFizickoLiceRepository FizickoLiceRepository;
+		private readonly IMapper Mapper;
 
-	[HttpGet]
-	[ProducesResponseType(StatusCodes.Status200OK)]
-	[ProducesResponseType(StatusCodes.Status204NoContent)]
-	public ActionResult<List<FizickoLiceDto>> GetFizickoLiceList()
-	{
-		List<FizickoLice> fizickoLiceList = FizickoLiceRepository.GetFizickoLiceList();
-
-		if (fizickoLiceList == null || fizickoLiceList.Count == 0)
+		public FizickoLiceController(IFizickoLiceRepository fizickoLiceRepository, IMapper mapper)
 		{
-			return NoContent();
+			this.FizickoLiceRepository = fizickoLiceRepository;
+			this.Mapper = mapper;
 		}
 
-		return Ok(Mapper.Map<List<FizickoLiceDto>>(fizickoLiceList));
-	}
-
-
-	[HttpGet("{fizickoLiceId}")]
-	[ProducesResponseType(StatusCodes.Status200OK)]
-	[ProducesResponseType(StatusCodes.Status404NotFound)]
-	public ActionResult<FizickoLiceDto> GetFizickoLiceById(Guid fizickoLiceId)
-	{
-		FizickoLice fizickoLice = FizickoLiceRepository.GetFizickoLiceById(fizickoLiceId);
-
-		if (fizickoLice == null)
+		[HttpGet]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status204NoContent)]
+		public ActionResult<List<FizickoLiceDto>> GetFizickoLiceList()
 		{
-			return NotFound();
+			List<FizickoLice> fizickoLiceList = FizickoLiceRepository.GetFizickoLiceList();
+
+			if (fizickoLiceList == null || fizickoLiceList.Count == 0)
+			{
+				return NoContent();
+			}
+
+			return Ok(Mapper.Map<List<FizickoLiceDto>>(fizickoLiceList));
 		}
 
-		return Ok(Mapper.Map<FizickoLiceDto>(fizickoLice));
+
+		[HttpGet("{fizickoLiceId}")]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
+		public ActionResult<FizickoLiceDto> GetFizickoLiceById(Guid fizickoLiceId)
+		{
+			FizickoLice fizickoLice = FizickoLiceRepository.GetFizickoLiceById(fizickoLiceId);
+
+			if (fizickoLice == null)
+			{
+				return NotFound();
+			}
+
+			return Ok(Mapper.Map<FizickoLiceDto>(fizickoLice));
+		}
+
+		[HttpOptions]
+		[AllowAnonymous]
+		public IActionResult GetExamRegistrationOptions()
+		{
+			Response.Headers.Add("Allow", "GET");
+
+			return Ok();
+		}
 	}
-
-	[HttpOptions]
-	[AllowAnonymous]
-	public IActionResult GetExamRegistrationOptions()
-	{
-		Response.Headers.Add("Allow", "GET");
-
-		return Ok();
-	}
- }
-
 }
