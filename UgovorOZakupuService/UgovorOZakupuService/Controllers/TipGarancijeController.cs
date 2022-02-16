@@ -24,7 +24,7 @@ namespace UgovorOZakupuService.Controllers
         public TipGaranijeController(ITipGarancijeRepository tipGarancijeRepository, IMapper mapper)
         {
             this.TipGarancijeRepository = tipGarancijeRepository;
-            this.Mapper = mapper;
+            this.Mapper= mapper;
         }
 
         [HttpGet]

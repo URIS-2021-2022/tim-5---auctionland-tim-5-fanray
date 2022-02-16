@@ -8,9 +8,7 @@ using UgovorOZakupuService.Helpers;
 using UgovorOZakupuService.Models;
 
 namespace UgovorOZakupuService.Controllers
-{
-    public class AtuthController
-    {
+{   
         [ApiController]
         [Route("api/v1/auth")]
         [Produces("application/json")]
@@ -39,5 +37,4 @@ namespace UgovorOZakupuService.Controllers
                 return Unauthorized();
             }
         }
-    }
 }

@@ -45,7 +45,7 @@ namespace UgovorOZakupuService.Controllers
                 return Ok(Mapper.Map<List<UgovorDto>>(ugovorList));
             }
 
-            [HttpGet("{ugovorId}")]
+        [HttpGet("{ugovorId}")]
             [ProducesResponseType(StatusCodes.Status200OK)]
             [ProducesResponseType(StatusCodes.Status404NotFound)]
             public ActionResult<UgovorDto> GetUgovorById(Guid ugovorId)
