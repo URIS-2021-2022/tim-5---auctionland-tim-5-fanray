@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "78f0b173-389b-4483-8f73-0239a9ab52c9",
+		"name": "OvlascenoLiceService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[OvlascenoLice] Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/ovlascenoLice",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"ovlascenoLice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[OvlascenoLice] Get One",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/ovlascenoLice/d041c26e-34c1-4c2d-a9f6-0c0478f3f437",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"ovlascenoLice",
+						"d041c26e-34c1-4c2d-a9f6-0c0478f3f437"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[OvlascenoLice] Delete One",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/ovlascenoLice/d041c26e-34c1-4c2d-a9f6-0c0478f3f437",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"ovlascenoLice",
+						"d041c26e-34c1-4c2d-a9f6-0c0478f3f437"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[OvlascenoLice] Create One",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"OvlascenoLiceID\":\"9c00e5db-4c4f-4b70-8a82-230a1406adfc\",\r\n    \"Ime\":\"Dejan\",\r\n    \"Prezime\":\"Jovic\",\r\n    \"JMBG\":\"1108988171454\",\r\n    \"BrojPasosa\":\"PR24565E6\",\r\n    \"BrojTableID\":\"206a4efa-5389-41a8-a730-4df3842cf7fe\",\r\n    \"DrzavaID\":\"bb9c4ebc-2028-4a83-88d7-04422ab58548\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/ovlascenoLice",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"ovlascenoLice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[OvlascenoLice] Update One",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"OvlascenoLiceID\":\"d041c26e-34c1-4c2d-a9f6-0c0478f3f437\",\r\n    \"Ime\":\"Milos\",\r\n    \"Prezime\":\"Jovanovic\",\r\n    \"JMBG\":\"1108988171454\",\r\n    \"BrojPasosa\":\"BP0710\",\r\n    \"BrojTableID\":\"206a4efa-5389-41a8-a730-4df3842cf7fe\",\r\n    \"DrzavaID\":\"bb9c4ebc-2028-4a83-88d7-04422ab58548\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/ovlascenoLice/d041c26e-34c1-4c2d-a9f6-0c0478f3f437",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"ovlascenoLice",
+						"d041c26e-34c1-4c2d-a9f6-0c0478f3f437"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[BrojTable] Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/tabla",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"tabla"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[BrojTable] Get One",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/tabla/206a4efa-5389-41a8-a730-4df3842cf7fe",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"tabla",
+						"206a4efa-5389-41a8-a730-4df3842cf7fe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Drzava] Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/drzava",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"drzava"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Drzava] Get One",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/drzava/bb9c4ebc-2028-4a83-88d7-04422ab58548",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"drzava",
+						"bb9c4ebc-2028-4a83-88d7-04422ab58548"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Auth] Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"korisnickoIme\":\"m.staka\",\r\n    \"lozinka\":\"ovlascenolice123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/login",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "http://localhost:46154/api/v1",
+			"type": "string"
+		}
+	]
+}
