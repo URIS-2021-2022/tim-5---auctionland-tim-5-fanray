@@ -27,7 +27,7 @@ namespace ZalbaService.Data
                     Ime = "Marko",
                     Prezime = "Štaka",
                     KorisnickoIme = "m.staka",
-                    Lozinka = korisnik.Item2,
+                    Lozinka = korisnik.Item1,
                     TipKorisnika = Guid.Parse("03032c98-d505-4062-9f52-b55e196201c8"),
                     Salt = korisnik.Item2
                 }

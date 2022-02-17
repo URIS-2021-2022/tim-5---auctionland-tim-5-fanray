@@ -13,6 +13,8 @@ namespace ZalbaService.Controllers
 {
     [ApiController]
     [Route("api/v1/zalba")]
+    [Produces("application/json")]
+    [Authorize]
     public class ZalbaController : ControllerBase
     {
         private readonly IZalbaRepository ZalbaRepository;
