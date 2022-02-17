@@ -10,27 +10,32 @@ using System.Threading.Tasks;
 using UplataService.Data;
 using UplataService.Entities;
 using UplataService.Models;
+using UplataService.Services;
 
 namespace UplataService.Controllers
 {
     [ApiController]
     [Route("api/v1/uplata")]
     [Produces("application/json")]
-    //[Authorize]
+    [Authorize]
     public class UplataController : ControllerBase
     {
         private readonly IUplataRepository UplataRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public UplataController(IUplataRepository uplataRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public UplataController(IUplataRepository uplataRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.UplataRepository = uplataRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<List<UplataDto>> GetUplataList()
         {
             List<Uplata> uplataList = UplataRepository.getUplataList();
@@ -44,6 +49,8 @@ namespace UplataService.Controllers
         }
 
         [HttpGet("{uplataId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Uplata> GetUplataById(Guid uplataId)
         {
             Uplata uplata = UplataRepository.getUplataById(uplataId);
@@ -58,13 +65,23 @@ namespace UplataService.Controllers
 
 
         [HttpPost]
+        [Consumes("application/json")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<UplataConfirmationDto> CreateUplata([FromBody] UplataCreateDto uplataDto)
         {
             try
             {
+
+                Uplata uplata = Mapper.Map<Uplata>(uplataDto);
                 UplataConfirmationDto confirmation = UplataRepository.CreateUplata(uplataDto);
 
+               
+
                 string location = LinkGenerator.GetPathByAction("GetUplataById", "Uplata", new { uplataId = confirmation.UplataID });
+
+                LoggerService.createLogAsync("Uplata " + uplata.UplataID + " je dodata");
+
 
                 return Created(location, Mapper.Map<UplataConfirmationDto>(confirmation));
             }
@@ -75,6 +92,10 @@ namespace UplataService.Controllers
         }
 
         [HttpPut]
+        [Consumes("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<UplataConfirmationDto> UpdateUplata(UplataUpdateDto uplataDto)
         {
             try
@@ -91,12 +112,19 @@ namespace UplataService.Controllers
                 Mapper.Map(uplata, oldUplata);
 
                 return Ok(Mapper.Map<UplataConfirmationDto>(oldUplata));
+
+                UplataConfirmationDto confirmation = UplataRepository.UpdateUplata(uplataDto);
+
+                LoggerService.createLogAsync("Uplata " + uplata.UplataID + " je ažurirana");
+
+                return Ok(Mapper.Map<UplataConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Update Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+    
         [HttpDelete("{uplataId}")]
         public ActionResult<UplataConfirmationDto> DeleteUplata(Guid uplataId)
         {
@@ -109,13 +137,16 @@ namespace UplataService.Controllers
                     return NotFound();
                 }
 
-                UplataRepository.DeleteUplata(uplataId);
 
-                return Ok(Mapper.Map<UplataConfirmationDto>(uplata));
+                UplataConfirmationDto confirmation = UplataRepository.DeleteUplata(uplataId);
+
+                LoggerService.createLogAsync("Uplata " + uplata.UplataID + " je izbrisana");
+
+                return Ok(Mapper.Map<UplataConfirmationDto>(confirmation));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Delete Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 

@@ -13,11 +13,11 @@ namespace UplataService.Data
          
         List<Uplata> getUplataList();
 
-        Uplata getUplataById(Guid uplataID);
+        Uplata getUplataById(Guid uplataId);
 
-        UplataConfirmationDto CreateUplata(UplataCreateDto uplataDto);
+        UplataConfirmationDto CreateUplata(UplataCreateDto uplata);
 
-        UplataConfirmationDto UpdateUplata(UplataUpdateDto uplataDto);
+        UplataConfirmationDto UpdateUplata(UplataUpdateDto uplata);
 
         UplataConfirmationDto DeleteUplata(Guid uplataId);
     }
