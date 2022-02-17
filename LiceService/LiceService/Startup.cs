@@ -1,5 +1,6 @@
 using LiceService.Data;
 using LiceService.Entities;
+using LiceService.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +29,11 @@ namespace LiceService
         {
 
             services.AddScoped<ILiceRepository, LiceRepository>();
+            services.AddScoped<IFizickoLiceRepository, FizickoLiceRepository>();
+            services.AddScoped<IPravnoLiceRepository, PravnoLiceRepository>();
+            services.AddScoped<IKontaktOsobaRepository, KontaktOsobaRepository>();
+            services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
+            services.AddScoped<IAuthHelper, AuthHelper>();
             services.AddControllers();
 
             services.AddDbContext<LiceContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LiceDB")));
@@ -69,6 +75,7 @@ namespace LiceService
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

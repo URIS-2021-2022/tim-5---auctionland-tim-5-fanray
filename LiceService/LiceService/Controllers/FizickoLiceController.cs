@@ -16,7 +16,7 @@ namespace LiceService.Controllers
 	[ApiController]
 	[Route("api/v1/fizickoLice")]
 	[Produces("application/json")]
-	//[Authorize]
+	[Authorize]
 	public class FizickoLiceController : ControllerBase
 	{
 		private readonly IFizickoLiceRepository FizickoLiceRepository;

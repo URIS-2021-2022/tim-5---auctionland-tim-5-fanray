@@ -16,7 +16,7 @@ namespace LiceService.Controllers
     [ApiController]
     [Route("api/v1/lice")]
     [Produces("application/json")]
-    //[Authorize]
+    [Authorize]
     public class LiceController : ControllerBase
     {
         private readonly ILiceRepository LiceRepository;

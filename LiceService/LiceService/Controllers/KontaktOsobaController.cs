@@ -16,7 +16,7 @@ namespace LiceService.Controllers
     [ApiController]
     [Route("api/v1/kontaktOsoba")]
     [Produces("application/json")]
-    //[Authorize]
+    [Authorize]
     public class KontaktOsobaController : ControllerBase
     {
 
