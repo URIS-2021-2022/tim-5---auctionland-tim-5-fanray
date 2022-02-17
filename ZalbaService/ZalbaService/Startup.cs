@@ -30,6 +30,8 @@ namespace ZalbaService
             services.AddScoped<IStatusZalbeRepository, StatusZalbeRepository>();
             services.AddScoped<ITipZalbeRepository, TipZalbeRepository>();
             services.AddScoped<IZalbaRepository, ZalbaRepository>();
+            services.AddScoped<IKorisnikRepository, KorisnikMockRepository>();
+            services.AddScoped<IAuthHelper, AuthHelper>();
 
             services.AddControllers();
 
