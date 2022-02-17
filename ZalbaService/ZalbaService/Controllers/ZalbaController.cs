@@ -15,7 +15,7 @@ namespace ZalbaService.Controllers
     [Route("api/v1/zalba")]
     public class ZalbaController : ControllerBase
     {
-        private IZalbaRepository ZalbaRepository;
+        private readonly IZalbaRepository ZalbaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
         
@@ -66,7 +66,7 @@ namespace ZalbaService.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Create Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -90,7 +90,7 @@ namespace ZalbaService.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Update Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -110,9 +110,9 @@ namespace ZalbaService.Controllers
 
                 return Ok(Mapper.Map<ZalbaConfirmationDto>(zalba));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Delete Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
