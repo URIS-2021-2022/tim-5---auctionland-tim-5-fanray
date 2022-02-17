@@ -13,7 +13,7 @@ namespace JavnoNadmetanjeService.Models
 
         public Guid StatusJavnogNadmetanjaId { get; set; }
 
-        public Guid SluzbeniList { get; set; }
+        public Guid KatastarskaOpstinaId { get; set; }
 
         public DateTime Datum { get; set; }
 
