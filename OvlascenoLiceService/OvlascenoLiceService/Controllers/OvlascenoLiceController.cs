@@ -13,6 +13,8 @@ namespace OvlascenoLice.Controllers
 {
     [ApiController]
     [Route("api/v1/ovlascenoLice")]
+    [Produces("application/json")]
+    [Authorize]
     public class OvlascenoLiceController : ControllerBase
     {
         private readonly IOvlascenoLiceRepository OvlascenoLiceRepository;
@@ -39,7 +41,7 @@ namespace OvlascenoLice.Controllers
             return Ok(Mapper.Map<List<OvlascenoLiceDto>>(ovlascenoLiceList));
         }
 
-        [HttpGet("{liceId}")]
+        [HttpGet("{ovlascenoLiceId}")]
         public ActionResult<OvlascenoLiceService.Entities.OvlascenoLice> GetOvlascenoLiceById(Guid ovlascenoLiceId)
         {
             OvlascenoLiceService.Entities.OvlascenoLice ovlascenoLice = OvlascenoLiceRepository.GetOvlascenoLiceById(ovlascenoLiceId);
@@ -94,7 +96,7 @@ namespace OvlascenoLice.Controllers
             }
         }
 
-        [HttpDelete("{liceId}")]
+        [HttpDelete("{ovlascenoLiceId}")]
         public ActionResult<OvlascenoLiceConfirmationDto> DeleteOvlascenoLice(Guid ovlascenoLiceId)
         {
             try

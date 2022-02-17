@@ -29,6 +29,8 @@ namespace OvlascenoLiceService
             services.AddScoped<IBrojTableRepository, BrojTableRepository>();
             services.AddScoped<IDrzavaRepository, DrzavaRepository>();
             services.AddScoped<IOvlascenoLiceRepository, OvlascenoLiceRepository>();
+            services.AddScoped<IKorisnikRepository, KorisnikMockRepository>();
+            services.AddScoped<IAuthHelper, AuthHelper>();
 
             services.AddControllers();
 
