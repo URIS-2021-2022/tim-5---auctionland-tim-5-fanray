@@ -49,7 +49,7 @@ namespace UplataService.Data
 
             if (uplata == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("uplataId");
             }
 
             Context.Remove(uplata);

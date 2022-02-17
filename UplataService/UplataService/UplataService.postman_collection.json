@@ -7,11 +7,28 @@
 	"item": [
 		{
 			"name": "GetUplata",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-			
-					
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "https://localhost:44339/api/v1/uplata",
 					"protocol": "https",
@@ -27,13 +44,13 @@
 				}
 			},
 			"response": []
-		},		{
+		},
+		{
 			"name": "GetUplataById",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
 			"request": {
-				
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -121,7 +138,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"UplataID\" : \"efb3be0f-7082-4998-858d-51340d2abbab\",\r\n    \"Broj_Racuna\" : 751161854,\r\n    \"Poziv_Na_Broj\": 8948562222,\r\n    \"Iznos\" : 55,\r\n    \"Svrha_Uplate\" : \"Uplata uplata \",\r\n    \"DatumUplate\" : \"2021-05-02 11:07:00\",\r\n    \"DatumKursa\" : \"2021-05-02 11:07:00\",\r\n    \"Valuta\" : \"EUR\",\r\n    \"Vrednost\" : 55\r\n}",
+					"raw": "{\r\n    \"UplataID\" : \"efb3be0f-7082-4998-858d-51340d2abbab\",\r\n    \"Broj_Racuna\" : 751161854,\r\n    \"Poziv_Na_Broj\": 462,\r\n    \"Iznos\" : 55,\r\n    \"Svrha_Uplate\" : \"Uplata uplata \",\r\n    \"DatumUplate\" : \"2021-05-02 11:07:00\",\r\n    \"DatumKursa\" : \"2021-05-02 11:07:00\",\r\n    \"Valuta\" : \"EUR\",\r\n    \"Vrednost\" : 55\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -139,6 +156,37 @@
 						"api",
 						"v1",
 						"uplata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AuthPost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"korisnickoIme\" : \"nikolina\",\r\n    \"lozinka\": \"sifra123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44339/api/v1/auth/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44339",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
 					]
 				}
 			},
