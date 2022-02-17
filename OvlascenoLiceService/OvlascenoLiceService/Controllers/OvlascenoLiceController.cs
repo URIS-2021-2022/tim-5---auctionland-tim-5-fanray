@@ -15,7 +15,7 @@ namespace OvlascenoLice.Controllers
     [Route("api/v1/ovlascenoLice")]
     public class OvlascenoLiceController : ControllerBase
     {
-        private IOvlascenoLiceRepository OvlascenoLiceRepository;
+        private readonly IOvlascenoLiceRepository OvlascenoLiceRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
 
@@ -66,7 +66,7 @@ namespace OvlascenoLice.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Create Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -90,7 +90,7 @@ namespace OvlascenoLice.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Update Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -110,9 +110,9 @@ namespace OvlascenoLice.Controllers
 
                 return Ok(Mapper.Map<OvlascenoLiceConfirmationDto>(ovlascenoLice));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Delete Error");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
