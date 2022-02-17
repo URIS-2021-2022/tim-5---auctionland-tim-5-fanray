@@ -17,7 +17,7 @@ namespace OvlascenoLiceService.Data
 
         private void FillData()
         {
-            var korisnik = HashPassword("parcela123");
+            var korisnik = HashPassword("ovlascenolice123");
 
             KorisnikList.AddRange(new List<Korisnik>
             {

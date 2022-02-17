@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace OvlascenoLice.Controllers
 {
     [ApiController]
-    [Route("api/v1/lice")]
+    [Route("api/v1/ovlascenoLice")]
     public class OvlascenoLiceController : ControllerBase
     {
         private IOvlascenoLiceRepository OvlascenoLiceRepository;

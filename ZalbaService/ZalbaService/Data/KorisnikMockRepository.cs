@@ -17,7 +17,7 @@ namespace ZalbaService.Data
 
         private void FillData()
         {
-            var korisnik = HashPassword("parcela123");
+            var korisnik = HashPassword("zalba123");
 
             KorisnikList.AddRange(new List<Korisnik>
             {

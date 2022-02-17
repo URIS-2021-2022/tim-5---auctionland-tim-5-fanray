@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "044967c4-a095-4d02-b3f6-19431c448beb",
+		"name": "ZalbaService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[Licitacija] Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/zalba",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"zalba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Licitacija] Get One",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/zalba/42058551-6a8a-4485-af7f-1124de19e566",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"zalba",
+						"42058551-6a8a-4485-af7f-1124de19e566"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Licitacija] Delete One",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/zalba/42058551-6a8a-4485-af7f-1124de19e566",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"zalba",
+						"42058551-6a8a-4485-af7f-1124de19e566"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Licitacija] Create One",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ZalbaID\":\"1bfff8f2-1529-4b74-9adc-aecf39301d2d\",\r\n    \"Datum_Podnosenja_Zalbe\":\"2020-01-10T09:00:00\",\r\n    \"Razlog_Podnosenja_Zalbe\":\"Povreda pravilnika postupka\",\r\n    \"Obrazlozenje\":\"Neispravni podaci\",\r\n    \"Datum_Resenja\":\"2020-01-17T09:00:00\",\r\n    \"Broj_Resenja\":22,\r\n    \"Broj_Nadmetanja\":35,\r\n    \"RadnjaNaOsnovuZalbeID\":\"ed7da07e-c1f6-4d4f-882c-d6c4b5118e46\",\r\n    \"StatusZalbeID\":\"c6fb5ac5-eaef-4db2-99a5-84a938972183\",\r\n    \"TipZalbeID\":\"7e82c9ce-c998-40c0-b743-6b9456d3629e\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/zalba",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"zalba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Licitacija] Update One",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ZalbaID\":\"42058551-6a8a-4485-af7f-1124de19e566\",\r\n    \"Datum_Podnosenja_Zalbe\":\"2020-01-10T09:00:00\",\r\n    \"Razlog_Podnosenja_Zalbe\":\"Povreda pravilnika postupka\",\r\n    \"Obrazlozenje\":\"Neispravni podaci\",\r\n    \"Datum_Resenja\":\"2020-01-17T09:00:00\",\r\n    \"Broj_Resenja\":22,\r\n    \"Broj_Nadmetanja\":35,\r\n    \"RadnjaNaOsnovuZalbeID\":\"ed7da07e-c1f6-4d4f-882c-d6c4b5118e46\",\r\n    \"StatusZalbeID\":\"c6fb5ac5-eaef-4db2-99a5-84a938972183\",\r\n    \"TipZalbeID\":\"7e82c9ce-c998-40c0-b743-6b9456d3629e\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/zalba/42058551-6a8a-4485-af7f-1124de19e566",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"zalba",
+						"42058551-6a8a-4485-af7f-1124de19e566"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[RadnjaNaOsnovuZalbe] Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/radnja",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"radnja"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[RadnjaNaOsnovuZalbe] Get One",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/radnja/78f43850-ddc4-49ba-b71d-62266a13a164",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"radnja",
+						"78f43850-ddc4-49ba-b71d-62266a13a164"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[StatusZalbe] Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/status",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[StatusZalbe] Get One",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/status/567ada34-3b58-4925-9227-7fa1be213f7e",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"status",
+						"567ada34-3b58-4925-9227-7fa1be213f7e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[TipZalbe] Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/tip",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"tip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[TipZalbe] Get One",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/tip/42058551-6a8a-4485-af7f-1124de19e566",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"tip",
+						"42058551-6a8a-4485-af7f-1124de19e566"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Auth] Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"korisnickoIme\":\"m.staka\",\r\n    \"lozinka\":\"zalba123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/login",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "http://localhost:34415/api/v1",
+			"type": "string"
+		}
+	]
+}
