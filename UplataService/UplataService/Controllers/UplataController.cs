@@ -16,7 +16,7 @@ namespace UplataService.Controllers
     [ApiController]
     [Route("api/v1/uplata")]
     [Produces("application/json")]
-    //[Authorize]
+    [Authorize]
     public class UplataController : ControllerBase
     {
         private readonly IUplataRepository UplataRepository;

@@ -28,7 +28,7 @@ namespace UplataService.Data
                     Ime = "Nikolina",
                     Prezime = "Bijelic",
                     KorisnickoIme = "nikolina",
-                    Lozinka = korisnik.Item2,
+                    Lozinka = korisnik.Item1,
                     TipKorisnika = Guid.Parse("13032c98-d505-4062-9f52-b55e196201c8"),
                     Salt = korisnik.Item2
                 }
