@@ -40,7 +40,7 @@ namespace KupacService.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<List<NajboljiPonudjacDto>> GetNajboljiPonudjacList()
         {
-            List<Najbolji_Ponudjac> najboljiPonudjacList = NajboljiPonudjacRepository.GetNajbolji_PonudjacList();
+            List<NajboljiPonudjac> najboljiPonudjacList = NajboljiPonudjacRepository.GetNajbolji_PonudjacList();
 
             if (najboljiPonudjacList == null || najboljiPonudjacList.Count == 0)
             {
@@ -62,7 +62,7 @@ namespace KupacService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<NajboljiPonudjacDto> GetNajbolji_PonudjacById(Guid najboljiPonudjacId)
         {
-            Najbolji_Ponudjac najboljiPonudjac = NajboljiPonudjacRepository.GetNajbolji_PonudjacById(najboljiPonudjacId);
+            NajboljiPonudjac najboljiPonudjac = NajboljiPonudjacRepository.GetNajbolji_PonudjacById(najboljiPonudjacId);
 
             if (najboljiPonudjac == null)
             {
@@ -86,10 +86,10 @@ namespace KupacService.Controllers
         {
             try
             {
-                Najbolji_Ponudjac najboljiPonudjac = Mapper.Map<Najbolji_Ponudjac>(najboljiPonudjacDto);
+                NajboljiPonudjac najboljiPonudjac = Mapper.Map<NajboljiPonudjac>(najboljiPonudjacDto);
                 NajboljiPonudjacConfirmationDto confirmation = NajboljiPonudjacRepository.CreateNajboljiPonudjac(najboljiPonudjac);
 
-                string location = LinkGenerator.GetPathByAction("GetNajbolji_PonudjacById", "Najbolji_Ponudjac", new { najboljiPonudjacId = confirmation.NajboljiPonudjacId });
+                string location = LinkGenerator.GetPathByAction("GetNajboljiPonudjacById", "NajboljiPonudjac", new { najboljiPonudjacId = confirmation.NajboljiPonudjacId });
 
                 return Created(location, Mapper.Map<NajboljiPonudjacConfirmationDto>(confirmation));
             }
@@ -114,14 +114,14 @@ namespace KupacService.Controllers
         {
             try
             {
-                Najbolji_Ponudjac oldnajboljiPonudjac = NajboljiPonudjacRepository.GetNajbolji_PonudjacById(najboljiPonudjacDto.NajboljiPonudjacId);
+                NajboljiPonudjac oldnajboljiPonudjac = NajboljiPonudjacRepository.GetNajbolji_PonudjacById(najboljiPonudjacDto.NajboljiPonudjacId);
 
                 if (oldnajboljiPonudjac == null)
                 {
                     return NotFound();
                 }
 
-                Najbolji_Ponudjac najboljiPonudjac = Mapper.Map<Najbolji_Ponudjac>(najboljiPonudjacDto);
+                NajboljiPonudjac najboljiPonudjac = Mapper.Map<NajboljiPonudjac>(najboljiPonudjacDto);
 
                 Mapper.Map(najboljiPonudjac, oldnajboljiPonudjac);
 
@@ -151,7 +151,7 @@ namespace KupacService.Controllers
         {
             try
             {
-                Najbolji_Ponudjac najboljiPonudjac = NajboljiPonudjacRepository.GetNajbolji_PonudjacById(najboljiPonudjacId);
+                NajboljiPonudjac najboljiPonudjac = NajboljiPonudjacRepository.GetNajbolji_PonudjacById(najboljiPonudjacId);
 
                 if (najboljiPonudjac == null)
                 {

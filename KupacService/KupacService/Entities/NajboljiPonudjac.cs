@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KupacService.Entities
 {
-    public class Najbolji_Ponudjac
+    public class NajboljiPonudjac
     {
         [Key]
         public Guid NajboljiPonudjacId { get; set; }
