@@ -13,5 +13,8 @@ namespace LiceService.Entities
         public int Broj_Telefona2 { get; set; }
         public string Email { get; set; }
         public int Broj_Racuna { get; set; }
+
+
+
      }
 }
