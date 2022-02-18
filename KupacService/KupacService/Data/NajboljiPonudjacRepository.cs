@@ -18,16 +18,16 @@ namespace KupacService.Data
             this.Context = context;
             this.Mapper = mapper;
         }
-        public Najbolji_Ponudjac GetNajbolji_PonudjacById(Guid najboljiPonudjacId)
+        public NajboljiPonudjac GetNajbolji_PonudjacById(Guid najboljiPonudjacId)
         {
             return Context.Najbolji_Ponudjac.FirstOrDefault(e => e.NajboljiPonudjacId == najboljiPonudjacId);
         }
 
-        public List<Najbolji_Ponudjac> GetNajbolji_PonudjacList()
+        public List<NajboljiPonudjac> GetNajbolji_PonudjacList()
         {
             return Context.Najbolji_Ponudjac.ToList();
         }
-        public NajboljiPonudjacConfirmationDto CreateNajboljiPonudjac(Najbolji_Ponudjac najboljiPonudjac)
+        public NajboljiPonudjacConfirmationDto CreateNajboljiPonudjac(NajboljiPonudjac najboljiPonudjac)
         {
             najboljiPonudjac.NajboljiPonudjacId = Guid.NewGuid();
 
@@ -39,7 +39,7 @@ namespace KupacService.Data
 
         public NajboljiPonudjacConfirmationDto DeleteNajboljiPonudjac(Guid najboljiPonudjacId)
         {
-            Najbolji_Ponudjac najboljiPonudjac = GetNajbolji_PonudjacById(najboljiPonudjacId);
+            NajboljiPonudjac najboljiPonudjac = GetNajbolji_PonudjacById(najboljiPonudjacId);
 
             if (najboljiPonudjac == null)
             {
@@ -51,9 +51,9 @@ namespace KupacService.Data
 
             return Mapper.Map<NajboljiPonudjacConfirmationDto>(najboljiPonudjac);
         }
-        public NajboljiPonudjacConfirmationDto UpdateNajboljiPonudjac(Najbolji_Ponudjac najboljiPonudjac)
+        public NajboljiPonudjacConfirmationDto UpdateNajboljiPonudjac(NajboljiPonudjac najboljiPonudjac)
         {
-            Najbolji_Ponudjac np = Context.Najbolji_Ponudjac.FirstOrDefault(e => e.NajboljiPonudjacId == najboljiPonudjac.NajboljiPonudjacId);
+            NajboljiPonudjac np = Context.Najbolji_Ponudjac.FirstOrDefault(e => e.NajboljiPonudjacId == najboljiPonudjac.NajboljiPonudjacId);
 
             if (np == null)
             {
