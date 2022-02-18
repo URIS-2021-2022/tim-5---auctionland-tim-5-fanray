@@ -69,15 +69,9 @@ namespace UplataService.Controllers
         {
             try
             {
-
-                Uplata uplata = Mapper.Map<Uplata>(uplataDto);
-                UplataConfirmationDto confirmation = UplataRepository.CreateUplata(uplataDto);
-
-               
+                UplataConfirmationDto confirmation = UplataRepository.CreateUplata(uplataDto);           
 
                 string location = LinkGenerator.GetPathByAction("GetUplataById", "Uplata", new { uplataId = confirmation.UplataID });
-
-
 
                 return Created(location, Mapper.Map<UplataConfirmationDto>(confirmation));
             }
@@ -108,12 +102,8 @@ namespace UplataService.Controllers
                 Mapper.Map(uplata, oldUplata);
 
                 return Ok(Mapper.Map<UplataConfirmationDto>(oldUplata));
-
-                UplataConfirmationDto confirmation = UplataRepository.UpdateUplata(uplataDto);
-
-
-                return Ok(Mapper.Map<UplataConfirmationDto>(confirmation));
             }
+
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
