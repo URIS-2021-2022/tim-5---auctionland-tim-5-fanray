@@ -1,6 +1,7 @@
 using AdresaService.Data;
 using AdresaService.Entities;
 using AdresaService.Helpers;
+using AdresaService.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,10 +35,13 @@ namespace AdresaService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
             services.AddScoped<IAdresaRepository, AdresaRepository>();
             services.AddScoped<IDrzavaRepository, DrzavaRepository>();
             services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>(); // Ovo je nedostajalo.
+            services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();
 

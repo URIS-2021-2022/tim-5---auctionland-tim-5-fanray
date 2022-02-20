@@ -8,6 +8,7 @@ using LicitacijaService.Entities;
 using LicitacijaService.Models;
 using System;
 using System.Collections.Generic;
+using LicitacijaService.Services;
 
 namespace LicitacijaService.Controllers
 {
@@ -20,12 +21,14 @@ namespace LicitacijaService.Controllers
         private readonly ILicitacijaRepository LicitacijaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public LicitacijaController(ILicitacijaRepository licitacijaRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public LicitacijaController(ILicitacijaRepository licitacijaRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.LicitacijaRepository = licitacijaRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         [HttpGet]
@@ -71,6 +74,8 @@ namespace LicitacijaService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetLicitacijaById", "Licitacija", new { licitacijaId = confirmation.LicitacijaID });
 
+                LoggerService.createLogAsync("Licitacija " + licitacija.LicitacijaID + " je dodata");
+
                 return Created(location, Mapper.Map<LicitacijaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -95,6 +100,8 @@ namespace LicitacijaService.Controllers
 
                 Mapper.Map(licitacija, oldLicitacija);
 
+                LoggerService.createLogAsync("Licitacija " + licitacija.LicitacijaID + " je ažurirana");
+
                 return Ok(Mapper.Map<LicitacijaConfirmationDto>(oldLicitacija));
             }
             catch (Exception ex)
@@ -116,6 +123,8 @@ namespace LicitacijaService.Controllers
                 }
 
                 LicitacijaRepository.DeleteLicitacija(licitacijaId);
+
+                LoggerService.createLogAsync("Licitacija " + licitacija.LicitacijaID + " je izbrisana");
 
                 return Ok(Mapper.Map<LicitacijaConfirmationDto>(licitacija));
             }

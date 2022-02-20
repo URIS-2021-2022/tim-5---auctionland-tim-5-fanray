@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using OvlascenoLiceService.Data;
 using OvlascenoLiceService.Entities;
 using OvlascenoLiceService.Helpers;
+using OvlascenoLiceService.Services;
 using System;
 using System.Text;
 
@@ -26,11 +27,13 @@ namespace OvlascenoLiceService
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
             services.AddScoped<IBrojTableRepository, BrojTableRepository>();
-            services.AddScoped<IDrzavaRepository, DrzavaRepository>();
             services.AddScoped<IOvlascenoLiceRepository, OvlascenoLiceRepository>();
             services.AddScoped<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();
 

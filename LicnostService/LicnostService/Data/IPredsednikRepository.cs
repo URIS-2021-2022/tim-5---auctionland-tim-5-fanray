@@ -13,7 +13,7 @@ namespace LicnostService.Data
         Predsednik GetPredsednikById(Guid predsednikId);
 
         PredsednikConfirmationDto CreatePredsednik(Predsednik predsednik);
-        PredsednikConfirmationDto UpdatePredsednik(Predsednik predsednik);
+        PredsednikConfirmationDto UpdatePredsednik(Predsednik plan);
         PredsednikConfirmationDto DeletePredsednik(Guid predsednikId);
     }
 }

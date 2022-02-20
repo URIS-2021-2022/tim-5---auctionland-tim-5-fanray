@@ -8,10 +8,7 @@ namespace UgovorOZakupuService.Entities
 {
     public class TipGarancije
     {
-        [Key]
         public Guid TipGarancijeID { get; set;  }
-
-        [Required]
         public string NazivTipaG { get; set; }
     }
 }

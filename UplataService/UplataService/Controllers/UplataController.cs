@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using UplataService.Data;
 using UplataService.Entities;
 using UplataService.Models;
+using UplataService.Services;
 
 namespace UplataService.Controllers
 {
@@ -22,12 +23,14 @@ namespace UplataService.Controllers
         private readonly IUplataRepository UplataRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public UplataController(IUplataRepository uplataRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public UplataController(IUplataRepository uplataRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.UplataRepository = uplataRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         [HttpGet]
@@ -69,9 +72,16 @@ namespace UplataService.Controllers
         {
             try
             {
-                UplataConfirmationDto confirmation = UplataRepository.CreateUplata(uplataDto);           
+
+                Uplata uplata = Mapper.Map<Uplata>(uplataDto);
+                UplataConfirmationDto confirmation = UplataRepository.CreateUplata(uplataDto);
+
+               
 
                 string location = LinkGenerator.GetPathByAction("GetUplataById", "Uplata", new { uplataId = confirmation.UplataID });
+
+                LoggerService.createLogAsync("Uplata " + confirmation.UplataID + " je dodata");
+
 
                 return Created(location, Mapper.Map<UplataConfirmationDto>(confirmation));
             }
@@ -102,8 +112,13 @@ namespace UplataService.Controllers
                 Mapper.Map(uplata, oldUplata);
 
                 return Ok(Mapper.Map<UplataConfirmationDto>(oldUplata));
-            }
 
+                UplataConfirmationDto confirmation = UplataRepository.UpdateUplata(uplataDto);
+
+                LoggerService.createLogAsync("Uplata " + uplata.UplataID + " je ažurirana");
+
+                return Ok(Mapper.Map<UplataConfirmationDto>(confirmation));
+            }
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
@@ -125,6 +140,7 @@ namespace UplataService.Controllers
 
                 UplataConfirmationDto confirmation = UplataRepository.DeleteUplata(uplataId);
 
+                LoggerService.createLogAsync("Uplata " + uplata.UplataID + " je izbrisana");
 
                 return Ok(Mapper.Map<UplataConfirmationDto>(confirmation));
             }

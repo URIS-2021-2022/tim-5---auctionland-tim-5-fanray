@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace ZalbaService.Controllers
 {
     [ApiController]
-    [Route("api/v1/status")]
+    [Route("api/v1/status-zalbe")]
     [Produces("application/json")]
     [Authorize]
     public class StatusZalbeController : ControllerBase

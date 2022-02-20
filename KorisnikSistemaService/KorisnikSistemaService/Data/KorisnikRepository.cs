@@ -21,7 +21,7 @@ namespace KorisnikSistemaService.Data
             this.Context = context;
             this.Mapper = mapper;
 
-            FillData();
+            KorisnikList.AddRange(GetKorisnikList());
         }
 
         public List<Korisnik> GetKorisnikList()
@@ -37,6 +37,11 @@ namespace KorisnikSistemaService.Data
         public KorisnikConfirmationDto CreateKorisnik(Korisnik korisnik)
         {
             korisnik.KorisnikID = Guid.NewGuid();
+
+            var sifra = HashPassword(korisnik.Lozinka);
+
+            korisnik.Lozinka = sifra.Item1;
+            korisnik.Salt = sifra.Item2;
 
             Context.Korisnik.Add(korisnik);
             Context.SaveChanges();
@@ -57,7 +62,11 @@ namespace KorisnikSistemaService.Data
             k.Ime = korisnik.Ime;
             k.Prezime = korisnik.Prezime;
             k.KorisnickoIme = korisnik.KorisnickoIme;
-            k.Lozinka = korisnik.Lozinka;
+
+            var sifra = HashPassword(korisnik.Lozinka);
+
+            k.Lozinka = sifra.Item1;
+            k.Salt = sifra.Item2;
 
             Context.SaveChanges();
 
@@ -77,25 +86,6 @@ namespace KorisnikSistemaService.Data
             Context.SaveChanges();
 
             return Mapper.Map<KorisnikConfirmationDto>(korisnik);
-        }
-
-        private void FillData()
-        {
-            var korisnik = HashPassword("korisnik123");
-
-            KorisnikList.AddRange(new List<Korisnik>
-            {
-                new Korisnik
-                {
-                    KorisnikID = Guid.Parse("fd1267ce-2ee2-4503-9578-480d4f056d8b"),
-                    Ime = "Ivan",
-                    Prezime = "Ilic",
-                    KorisnickoIme = "ivanilic",
-                    Lozinka = korisnik.Item1,
-                    TipKorisnikaID = Guid.Parse("dff28caf-e345-4b3c-9525-85898b7f93c3"),
-                    Salt = korisnik.Item2
-                }
-            });
         }
 
         private Tuple<string, string> HashPassword(string lozinka)

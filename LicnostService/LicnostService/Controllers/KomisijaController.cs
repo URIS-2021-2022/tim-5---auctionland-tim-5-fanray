@@ -8,6 +8,7 @@ using LicnostService.Entities;
 using LicnostService.Models;
 using System;
 using System.Collections.Generic;
+using LicnostService.Services;
 
 namespace LicnostService.Controllers
 {
@@ -20,12 +21,13 @@ namespace LicnostService.Controllers
         private readonly IKomisijaRepository KomisijaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
-
-        public KomisijaController(IKomisijaRepository komisijaRepository, LinkGenerator linkGenerator, IMapper mapper)
+        private readonly ILoggerService LoggerService;
+        public KomisijaController(IKomisijaRepository komisijaRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.KomisijaRepository = komisijaRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         /// <response code="204">Nema kultura</response>
@@ -72,6 +74,8 @@ namespace LicnostService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetKomisijaById", "Komisija", new { komisijaId = confirmation.KomisijaID });
 
+                LoggerService.createLogAsync("Komisija " + komisija.KomisijaID + " je dodata");
+
                 return Created(location, Mapper.Map<KomisijaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -102,6 +106,8 @@ namespace LicnostService.Controllers
 
                 KomisijaConfirmationDto confirmation = KomisijaRepository.UpdateKomisija(komisija);
 
+                LoggerService.createLogAsync("Komisija " + komisija.KomisijaID + " je ažurirana");
+
                 return Ok(Mapper.Map<KomisijaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -126,6 +132,8 @@ namespace LicnostService.Controllers
                 }
 
                 KomisijaConfirmationDto confirmation = KomisijaRepository.DeleteKomisija(komisijaId);
+
+                LoggerService.createLogAsync("Komisija " + komisija.KomisijaID + " je izbrisana");
 
                 return Ok(Mapper.Map<KomisijaConfirmationDto>(confirmation));
             }

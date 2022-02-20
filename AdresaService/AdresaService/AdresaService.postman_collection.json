@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c1126e64-8ce0-41bf-85d4-008bf15b4829",
+		"_postman_id": "9247abc2-5bff-48a5-9d44-32a4fa98fbd0",
 		"name": "AdresaService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,16 +8,6 @@
 		{
 			"name": "AdresaGetAll",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwNDc1MTQsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0Mzk0IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzOTQifQ.rl8IyErMlvgQ-GHvf9-9gH7c8drP0Y9rdArP9lM7N3g",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -118,13 +108,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{api_url}}/adresa/82d4036a-a69d-4dc4-8f56-0b182f1f311d",
+					"raw": "{{api_url}}/adresa/98e5e83e-857f-4930-8b7f-276055d38557",
 					"host": [
 						"{{api_url}}"
 					],
 					"path": [
 						"adresa",
-						"82d4036a-a69d-4dc4-8f56-0b182f1f311d"
+						"98e5e83e-857f-4930-8b7f-276055d38557"
 					]
 				}
 			},
@@ -137,7 +127,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n        \"adresaID\": \"e877883e-b3d1-40fe-ac45-462c9925b54e\",\r\n        \"ulica\": \"Bulevar Evrope\",\r\n        \"broj\": \"35\",\r\n        \"mesto\": \"Novi Sad\",\r\n        \"postanskiBroj\": 21203\r\n}",
+					"raw": " {\r\n        \"adresaID\": \"98e5e83e-857f-4930-8b7f-276055d38557\",\r\n        \"ulica\": \"Bulevar Evrope\",\r\n        \"broj\": \"35\",\r\n        \"mesto\": \"Novi Sad\",\r\n        \"postanskiBroj\": 21203\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -188,7 +178,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwNDc1MTQsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0Mzk0IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzOTQifQ.rl8IyErMlvgQ-GHvf9-9gH7c8drP0Y9rdArP9lM7N3g",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUxMTA0MTcsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzE0IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTQifQ.AnZyBH6uv3j7zbrPEGdJ-FmZvLidoo7Lqnw22ql2Bcw",
 				"type": "string"
 			}
 		]
@@ -216,7 +206,7 @@
 	"variable": [
 		{
 			"key": "api_url",
-			"value": "https://localhost:44394/api/v1",
+			"value": "http://localhost:30314/api/v1",
 			"type": "default"
 		}
 	]

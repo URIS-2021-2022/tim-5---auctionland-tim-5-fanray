@@ -1,6 +1,7 @@
 using KorisnikSistemaService.Data;
 using KorisnikSistemaService.Entites;
 using KorisnikSistemaService.Helpers;
+using KorisnikSistemaService.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,10 +33,12 @@ namespace KorisnikSistemaService
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
             services.AddScoped<ITipKorisnikaRepository, TipKorisnikaRepository>();
             services.AddScoped<IKorisnikRepository, KorisnikRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
-
+            services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();
 

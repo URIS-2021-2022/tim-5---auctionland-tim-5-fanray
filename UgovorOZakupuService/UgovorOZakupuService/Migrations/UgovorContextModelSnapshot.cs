@@ -136,7 +136,6 @@ namespace UgovorOZakupuService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivTipaG")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TipGarancijeID");

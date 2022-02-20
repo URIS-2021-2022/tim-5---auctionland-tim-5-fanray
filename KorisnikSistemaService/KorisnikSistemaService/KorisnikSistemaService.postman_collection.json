@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c2ff1e69-2548-45b9-b50f-979e68ed4a1b",
+		"_postman_id": "655891cc-7851-4d97-8351-cf0d5e45e82a",
 		"name": "KorisnikSistemaService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -108,7 +108,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"korisnikID\": \"b643a476-5164-4e45-983b-ed0c363b7ef4\",\r\n  \"tipKorisnikaID\": \"912de663-6320-4521-a7d7-3a7086f42b2c\",\r\n  \"ime\": \"Tanja\",\r\n  \"prezime\": \"Savic\",\r\n  \"korisnickoIme\": \"tanjaS\",\r\n  \"lozinka\": \"tanja123\"\r\n}",
+					"raw": "{\r\n  \"korisnikID\": \"34f11383-cb12-481d-9ff7-2fd458dc7e2b\",\r\n  \"tipKorisnikaID\": \"912de663-6320-4521-a7d7-3a7086f42b2c\",\r\n  \"ime\": \"Tanja\",\r\n  \"prezime\": \"Savic\",\r\n  \"korisnickoIme\": \"tanjaS\",\r\n  \"lozinka\": \"tanja123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -143,13 +143,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{api_url}}/korisnik/d9b35c6d-9b01-45d2-8535-6b8d042eb060",
+					"raw": "{{api_url}}/korisnik/34f11383-cb12-481d-9ff7-2fd458dc7e2b",
 					"host": [
 						"{{api_url}}"
 					],
 					"path": [
 						"korisnik",
-						"d9b35c6d-9b01-45d2-8535-6b8d042eb060"
+						"34f11383-cb12-481d-9ff7-2fd458dc7e2b"
 					]
 				}
 			},
@@ -162,7 +162,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"korisnickoIme\": \"ivanilic\",\r\n  \"lozinka\": \"korisnik123\"\r\n}",
+					"raw": "{\r\n  \"korisnickoIme\": \"tamaraR\",\r\n  \"lozinka\": \"tamara123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -188,7 +188,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwNTA5NjAsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUzIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTMifQ.L38Q6tS0C1jw30RXQ_KxipV4BgJQQAmEwmsvFl5d9gY",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUxMTk5MjcsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAzIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDMifQ.z5IMfbCDwtKWcPTf2J0KQzAOqbI67hrSC4Lkcq1WnPc",
 				"type": "string"
 			}
 		]
@@ -216,7 +216,7 @@
 	"variable": [
 		{
 			"key": "api_url",
-			"value": "https://localhost:44353/api/v1",
+			"value": "http://localhost:30303/api/v1",
 			"type": "string"
 		}
 	]

@@ -9,7 +9,6 @@ namespace UgovorOZakupuService.Entities
 {
     public class Ugovor
     {
-        [Key]
         public Guid UgovorID { get; set; }
         public Guid KorisnikID { get; set; }
         public string ZavodniBroj { get; set; }

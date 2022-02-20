@@ -1,44 +1,21 @@
 {
 	"info": {
-		"_postman_id": "03e3ccc5-4e61-46c4-9c47-7d932cf182ce",
+		"_postman_id": "010b8d75-f702-4e94-979e-0934ef9c8b6e",
 		"name": "UplataService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "GetUplata",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "",
-						"value": "",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
+				"header": [],
 				"url": {
-					"raw": "https://localhost:44339/api/v1/uplata",
-					"protocol": "https",
+					"raw": "{{api_url}}/uplata",
 					"host": [
-						"localhost"
+						"{{api_url}}"
 					],
-					"port": "44339",
 					"path": [
-						"api",
-						"v1",
 						"uplata"
 					]
 				}
@@ -63,15 +40,11 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:44339/api/v1/uplata/44af7348-2f6c-7763-84c7-0d3ddf556dde",
-					"protocol": "https",
+					"raw": "{{api_url}}/uplata/44af7348-2f6c-7763-84c7-0d3ddf556dde",
 					"host": [
-						"localhost"
+						"{{api_url}}"
 					],
-					"port": "44339",
 					"path": [
-						"api",
-						"v1",
 						"uplata",
 						"44af7348-2f6c-7763-84c7-0d3ddf556dde"
 					]
@@ -86,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"UplataID\" : \"9e1a4745-8838-4130-8662-4337d153a5fd\",\r\n    \"Broj_Racuna\" : 151161854,\r\n    \"Poziv_Na_Broj\": 1548562222,\r\n    \"Iznos\" : 552,\r\n    \"Svrha_Uplate\" : \"Uplata \",\r\n    \"DatumUplate\" : \"2021-02-02 11:07:00\",\r\n    \"DatumKursa\" : \"2021-02-02 11:07:00\",\r\n    \"Valuta\" : \"EUR\",\r\n    \"Vrednost\" : 552\r\n}",
+					"raw": "{\r\n    \"Broj_Racuna\" : 151161854,\r\n    \"Poziv_Na_Broj\": 1548562222,\r\n    \"Iznos\" : 552,\r\n    \"Svrha_Uplate\" : \"Uplata \",\r\n    \"DatumUplate\" : \"2022-02-16T19:43:22.079Z\",\r\n    \"DatumKursa\" : \"2022-02-16T19:43:22.079Z\",\r\n    \"Valuta\" : \"EUR\",\r\n    \"Vrednost\" : 552\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -94,15 +67,11 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:44339/api/v1/uplata",
-					"protocol": "https",
+					"raw": "{{api_url}}/uplata",
 					"host": [
-						"localhost"
+						"{{api_url}}"
 					],
-					"port": "44339",
 					"path": [
-						"api",
-						"v1",
 						"uplata"
 					]
 				}
@@ -115,15 +84,11 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:44339/api/v1/uplata/44af7348-2f6c-7763-84c7-0d3ddf556dde",
-					"protocol": "https",
+					"raw": "{{api_url}}/uplata/44af7348-2f6c-7763-84c7-0d3ddf556dde",
 					"host": [
-						"localhost"
+						"{{api_url}}"
 					],
-					"port": "44339",
 					"path": [
-						"api",
-						"v1",
 						"uplata",
 						"44af7348-2f6c-7763-84c7-0d3ddf556dde"
 					]
@@ -138,7 +103,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"UplataID\" : \"efb3be0f-7082-4998-858d-51340d2abbab\",\r\n    \"Broj_Racuna\" : 751161854,\r\n    \"Poziv_Na_Broj\": 462,\r\n    \"Iznos\" : 55,\r\n    \"Svrha_Uplate\" : \"Uplata uplata \",\r\n    \"DatumUplate\" : \"2021-05-02 11:07:00\",\r\n    \"DatumKursa\" : \"2021-05-02 11:07:00\",\r\n    \"Valuta\" : \"EUR\",\r\n    \"Vrednost\" : 55\r\n}",
+					"raw": "{\r\n    \"UplataID\" : \"44af7348-2f6c-7763-84c7-0d3ddf556dde\",\r\n    \"Broj_Racuna\" : 751161854,\r\n    \"Poziv_Na_Broj\": 1548562222,\r\n    \"Iznos\" : 55,\r\n    \"Svrha_Uplate\" : \"Uplata uplata \",\r\n    \"DatumUplate\" : \"2022-02-16T19:43:22.079Z\",\r\n    \"DatumKursa\" : \"2022-02-16T19:43:22.079Z\",\r\n    \"Valuta\" : \"EUR\",\r\n    \"Vrednost\" : 55\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -146,15 +111,11 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:44339/api/v1/uplata",
-					"protocol": "https",
+					"raw": "{{api_url}}/uplata",
 					"host": [
-						"localhost"
+						"{{api_url}}"
 					],
-					"port": "44339",
 					"path": [
-						"api",
-						"v1",
 						"uplata"
 					]
 				}
@@ -162,13 +123,13 @@
 			"response": []
 		},
 		{
-			"name": "AuthPost",
+			"name": "Auth",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \"korisnickoIme\" : \"nikolina\",\r\n    \"lozinka\": \"sifra123456\"\r\n}",
+					"raw": "{\r\n    \"korisnickoIme\": \"nikolina\",\r\n    \"lozinka\": \"sifra123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -176,21 +137,54 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:44339/api/v1/auth/login",
-					"protocol": "https",
+					"raw": "{{api_url}}/auth/login",
 					"host": [
-						"localhost"
+						"{{api_url}}"
 					],
-					"port": "44339",
 					"path": [
-						"api",
-						"v1",
 						"auth",
 						"login"
 					]
 				}
 			},
 			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUxMzExNTEsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzA2IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDYifQ.MM7BlBFh0vFa7YlDfEOKLJTha4OnBZniTLWvTIFMq1Q",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "http://localhost:30306/api/v1",
+			"type": "default"
 		}
 	]
 }

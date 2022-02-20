@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b1135246-3fd2-498b-be2f-5d3eb3298735",
+		"_postman_id": "2e7e4ef7-75ac-4301-8102-621c434e18a3",
 		"name": "UgovorOZakupuService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -178,7 +178,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"korisnikID\": \"87e332ef-478d-4e75-a1fd-a6eee61a98e4\",\r\n  \"ugovorID\": \"19ae79be-10cb-4e96-b672-68bccea7cbdb\",\r\n  \"kupacID\": \"ee0d7da2-a336-4a45-b70a-a540e6f9f0a9\",\r\n  \"javnoNadmetanjeID\": \"d5fc96d3-10c3-46f2-b12c-542bf0577c66\",\r\n  \"licnostID\": \"f1ef17ec-310f-4cc9-9120-de03262470c4\",\r\n  \"rokID\": \"28de10a1-1df6-41a1-a397-1d15067e95ce\",\r\n  \"dokumentID\": \"acbfa1a7-1c09-4a98-9119-b11a9bb34b75\",\r\n  \"tipGarancijeID\": \"d93136b7-a0f5-4af1-931e-a87507d613e4\",\r\n  \"zavodniBroj\": \"UGO-12/11\",\r\n  \"mestoPotpisivanja\": \"Beograd\",\r\n  \"datumZavodjenja\": \"2022-02-16T19:43:22.079Z\",\r\n  \"rokZaVracanjeZem\": \"2022-02-16T19:43:22.079Z\",\r\n  \"datumPotpisa\": \"2022-02-16T19:43:22.079Z\"\r\n}",
+					"raw": "{\r\n    \"ugovorID\": \"0ec914e2-a7a2-4935-ad30-5912fc86fd19\",\r\n    \"korisnikID\": \"25862727-de11-49c4-aea2-5431db48f0a5\",\r\n    \"kupacID\": \"81037b57-d24c-4d85-9649-7fc6ed635a0c\",\r\n    \"javnoNadmetanjeID\": \"84b3ea4c-e02f-41b1-a1ef-2734ef97abb2\",\r\n    \"licnostID\": \"45aed467-8061-4011-bfc6-3bc4d01b65f9\",\r\n    \"rokID\": \"8d6b2975-80bc-4823-9216-66cc6892d29e\",\r\n    \"dokumentID\": \"f00355a8-b3dc-4a6f-b4d7-46f4d7d7a9c7\",\r\n    \"tipGarancijeID\": \"f5c2bfbf-06e0-4a11-9b05-e7940d146016\",\r\n    \"zavodniBroj\": \"UGV-3/21\",\r\n    \"mestoPotpisivanja\": \"Novi Sad\",\r\n    \"datumZavodjenja\": \"2022-01-18T16:14:33\",\r\n    \"rokZaVracanjeZem\": \"2023-04-29T10:00:00\",\r\n    \"datumPotpisa\": \"2022-01-23T14:20:57\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -203,13 +203,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{api_url}}/ugovor/2771bdd8-ca2a-4791-8620-e6555c447342",
+					"raw": "{{api_url}}/ugovor/0ec914e2-a7a2-4935-ad30-5912fc86fd19",
 					"host": [
 						"{{api_url}}"
 					],
 					"path": [
 						"ugovor",
-						"2771bdd8-ca2a-4791-8620-e6555c447342"
+						"0ec914e2-a7a2-4935-ad30-5912fc86fd19"
 					]
 				}
 			},
@@ -248,7 +248,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwNTEwNDQsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzUxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTEifQ.jrdJ6hRZcWg1HPhjXbLN16g86zkufMT04mECJOdt-78",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUxMTYzNjEsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzEyIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTIifQ.jaInaKyUcNibmtX-Z_sue_JSn-PidTPjDeFAbTIWvKk",
 				"type": "string"
 			}
 		]
@@ -276,7 +276,7 @@
 	"variable": [
 		{
 			"key": "api_url",
-			"value": "https://localhost:44351/api/v1",
+			"value": "http://localhost:30312/api/v1",
 			"type": "string"
 		}
 	]

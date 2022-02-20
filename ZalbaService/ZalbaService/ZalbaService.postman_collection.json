@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "044967c4-a095-4d02-b3f6-19431c448beb",
+		"_postman_id": "8d7d5009-a9dd-4d31-864d-2b0e9d5fd693",
 		"name": "ZalbaService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -99,13 +99,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{api_url}}/zalba/42058551-6a8a-4485-af7f-1124de19e566",
+					"raw": "{{api_url}}/zalba",
 					"host": [
 						"{{api_url}}"
 					],
 					"path": [
-						"zalba",
-						"42058551-6a8a-4485-af7f-1124de19e566"
+						"zalba"
 					]
 				}
 			},
@@ -245,7 +244,14 @@
 		}
 	],
 	"auth": {
-		"type": "bearer"
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUxMjYyNjQsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzEwIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTAifQ.zORsFf2EZmmGQQ_FJk5VQD7J-Zk6-8LxrafZC0XR9bs",
+				"type": "string"
+			}
+		]
 	},
 	"event": [
 		{
@@ -270,7 +276,7 @@
 	"variable": [
 		{
 			"key": "api_url",
-			"value": "http://localhost:34415/api/v1",
+			"value": "http://localhost:30310/api/v1",
 			"type": "string"
 		}
 	]

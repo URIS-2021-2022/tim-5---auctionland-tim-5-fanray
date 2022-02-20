@@ -21,31 +21,29 @@ namespace LiceService.Migrations
 
             modelBuilder.Entity("LiceService.Entities.FizickoLice", b =>
                 {
-                    b.Property<Guid>("JMBG")
+                    b.Property<Guid>("LiceID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Ime")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("LiceID")
+                    b.Property<Guid?>("JMBG")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Prezime")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("JMBG");
-
-                    b.HasIndex("LiceID");
+                    b.HasKey("LiceID");
 
                     b.ToTable("FizickoLice");
 
                     b.HasData(
                         new
                         {
-                            JMBG = new Guid("18dca15b-188f-49f9-b4db-ece15575995a"),
-                            Ime = "Marko",
                             LiceID = new Guid("8de0c01b-b7b0-4df2-9009-3df21b91a0bb"),
+                            Ime = "Marko",
+                            JMBG = new Guid("18dca15b-188f-49f9-b4db-ece15575995a"),
                             Prezime = "Markovic"
                         });
                 });
@@ -62,10 +60,7 @@ namespace LiceService.Migrations
                     b.Property<string>("Ime")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("LiPravnoLiceceMaticni_broj")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("Maticni_broj")
+                    b.Property<Guid>("Maticni_Broj")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Prezime")
@@ -76,8 +71,6 @@ namespace LiceService.Migrations
 
                     b.HasKey("KontaktOsobaID");
 
-                    b.HasIndex("LiPravnoLiceceMaticni_broj");
-
                     b.ToTable("KontaktOsoba");
 
                     b.HasData(
@@ -86,7 +79,7 @@ namespace LiceService.Migrations
                             KontaktOsobaID = new Guid("a43a31f7-ffad-4aff-a199-1a6d31a8b850"),
                             Funkcija = "Generalni direktor",
                             Ime = "Petar",
-                            Maticni_broj = new Guid("ffc4407f-68a8-4d74-a48d-17389cc3f01f"),
+                            Maticni_Broj = new Guid("ffc4407f-68a8-4d74-a48d-17389cc3f01f"),
                             Prezime = "Petrovic",
                             Telefon = "0658899471"
                         });
@@ -121,7 +114,7 @@ namespace LiceService.Migrations
                             Broj_Racuna = 123456789,
                             Broj_Telefona1 = 654488522,
                             Broj_Telefona2 = 654488521,
-                            Email = "email1"
+                            Email = "nekolice@gmail.com"
                         },
                         new
                         {
@@ -129,56 +122,33 @@ namespace LiceService.Migrations
                             Broj_Racuna = 987456123,
                             Broj_Telefona1 = 614188522,
                             Broj_Telefona2 = 624489521,
-                            Email = "email2"
+                            Email = "nekolice99@gmail.com"
                         });
                 });
 
             modelBuilder.Entity("LiceService.Entities.PravnoLice", b =>
                 {
-                    b.Property<Guid>("Maticni_broj")
+                    b.Property<Guid>("LiceID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("LiceID")
+                    b.Property<Guid?>("MaticniBroj")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Naziv")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Maticni_broj");
-
-                    b.HasIndex("LiceID");
+                    b.HasKey("LiceID");
 
                     b.ToTable("PravnoLice");
 
                     b.HasData(
                         new
                         {
-                            Maticni_broj = new Guid("ffc4407f-68a8-4d74-a48d-17389cc3f01f"),
                             LiceID = new Guid("e7c1316d-5805-4d2b-be96-f764f0247acc"),
+                            MaticniBroj = new Guid("ffc4407f-68a8-4d74-a48d-17389cc3f01f"),
                             Naziv = "Firma1"
                         });
-                });
-
-            modelBuilder.Entity("LiceService.Entities.FizickoLice", b =>
-                {
-                    b.HasOne("LiceService.Entities.Lice", "Lice")
-                        .WithMany()
-                        .HasForeignKey("LiceID");
-                });
-
-            modelBuilder.Entity("LiceService.Entities.KontaktOsoba", b =>
-                {
-                    b.HasOne("LiceService.Entities.PravnoLice", "LiPravnoLicece")
-                        .WithMany()
-                        .HasForeignKey("LiPravnoLiceceMaticni_broj");
-                });
-
-            modelBuilder.Entity("LiceService.Entities.PravnoLice", b =>
-                {
-                    b.HasOne("LiceService.Entities.Lice", "Lice")
-                        .WithMany()
-                        .HasForeignKey("LiceID");
                 });
 #pragma warning restore 612, 618
         }

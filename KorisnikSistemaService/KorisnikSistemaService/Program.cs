@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace KorisnikSistemaService
 {
-    public static class Program
+    public class Program
     {
         public static void Main(string[] args)
         {

@@ -16,7 +16,7 @@ namespace LiceService.Data
 
         public PravnoLice GetPravnoLiceById(Guid pravnoLiceId)
         {
-            return Context.PravnoLice.FirstOrDefault(e => e.Maticni_broj == pravnoLiceId);
+            return Context.PravnoLice.FirstOrDefault(e => e.LiceID == pravnoLiceId);
         }
 
         public List<PravnoLice> GetPravnoLiceList()

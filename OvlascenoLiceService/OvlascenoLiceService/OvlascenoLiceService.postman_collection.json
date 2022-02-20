@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "78f0b173-389b-4483-8f73-0239a9ab52c9",
+		"_postman_id": "d8f4d2c9-5f0c-4ca4-b256-baec0cc6dd0a",
 		"name": "OvlascenoLiceService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -99,13 +99,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{api_url}}/ovlascenoLice/d041c26e-34c1-4c2d-a9f6-0c0478f3f437",
+					"raw": "{{api_url}}/ovlascenoLice",
 					"host": [
 						"{{api_url}}"
 					],
 					"path": [
-						"ovlascenoLice",
-						"d041c26e-34c1-4c2d-a9f6-0c0478f3f437"
+						"ovlascenoLice"
 					]
 				}
 			},
@@ -209,6 +208,16 @@
 			"response": []
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUxMjgyMjUsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzExIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTEifQ.8DcVuNYXnwt1_wHtGGE4SzQz_NFFbigtA-gniwN1G8o",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
@@ -232,7 +241,7 @@
 	"variable": [
 		{
 			"key": "api_url",
-			"value": "http://localhost:46154/api/v1",
+			"value": "http://localhost:30311/api/v1",
 			"type": "string"
 		}
 	]

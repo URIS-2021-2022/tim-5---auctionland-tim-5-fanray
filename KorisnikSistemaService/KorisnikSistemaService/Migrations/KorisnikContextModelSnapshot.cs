@@ -51,10 +51,11 @@ namespace KorisnikSistemaService.Migrations
                         new
                         {
                             KorisnikID = new Guid("34f11383-cb12-481d-9ff7-2fd458dc7e2b"),
-                            Ime = "Ivan",
-                            KorisnickoIme = "ivan.ilic",
-                            Lozinka = "ivanilic123",
-                            Prezime = "Ilic",
+                            Ime = "Tamara",
+                            KorisnickoIme = "tamaraR",
+                            Lozinka = "nhYpLzd/fTb2vxFYx+gABPbPeg+WWAoerw9Dlbb4jLbryFo7ibG+BB5n3G8Lqj5UHktQdep5sPQiBKEsoNIgx6eMtvA9P4QuwYb5NnJNI6e2hIVrptZYg04S62EgjKoudeBEQHpg5IInSZyixKD7/MyqbTv4YZdYnG/Uk3WIPwL5efURsvd+KO026fpsrx2C/ulFqfis2NM8lYyYpVJ7/ehqYhP3sQA6131tywYj+g/iwWLAjg/GwUbmc+KZh0FioXf9RctJD1I9+qsxKXBIEEepMc1CmzQVina+Rz9SsmZINSm38ssyeEi4AI9XXukw+k9NYYXxfD6nKihH5pv5+A==",
+                            Prezime = "Radulovic",
+                            Salt = "12+Dquh+FAKw",
                             TipKorisnikaID = new Guid("e4e52522-1f76-4c03-95d4-011bff472838")
                         });
                 });
@@ -66,7 +67,6 @@ namespace KorisnikSistemaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivTipa")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TipKorisnikaID");

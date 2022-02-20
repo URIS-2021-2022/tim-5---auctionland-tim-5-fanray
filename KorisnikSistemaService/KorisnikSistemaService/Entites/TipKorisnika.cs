@@ -8,10 +8,7 @@ namespace KorisnikSistemaService.Entites
 {
     public class TipKorisnika
     {
-        [Key]
         public Guid TipKorisnikaID { get; set; }
-
-        [Required]
         public string NazivTipa { get; set; }
 
     }

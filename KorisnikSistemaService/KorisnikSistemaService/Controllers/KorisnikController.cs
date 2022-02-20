@@ -2,6 +2,7 @@
 using KorisnikSistemaService.Data;
 using KorisnikSistemaService.Entites;
 using KorisnikSistemaService.Models;
+using KorisnikSistemaService.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,12 +22,14 @@ namespace KorisnikSistemaService.Controllers
         private readonly IKorisnikRepository KorisnikRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public KorisnikController(IKorisnikRepository korisnikRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public KorisnikController(IKorisnikRepository korisnikRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.KorisnikRepository = korisnikRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         [HttpGet]
@@ -72,6 +75,8 @@ namespace KorisnikSistemaService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetKorisnikById", "Korisnik", new { korisnikId = confirmation.KorisnikID });
 
+                LoggerService.createLogAsync("Korisnik " + korisnik.KorisnikID + " je dodat");
+
                 return Created(location, Mapper.Map<KorisnikConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -102,6 +107,8 @@ namespace KorisnikSistemaService.Controllers
 
                 KorisnikConfirmationDto confirmation = KorisnikRepository.UpdateKorisnik(korisnik);
 
+                LoggerService.createLogAsync("Korisnik " + korisnik.KorisnikID + " je ažuriran");
+
                 return Ok(Mapper.Map<KorisnikConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -126,6 +133,8 @@ namespace KorisnikSistemaService.Controllers
                 }
 
                 KorisnikConfirmationDto confirmation = KorisnikRepository.DeleteKorisnik(korisnikId);
+
+                LoggerService.createLogAsync("Korisnik " + korisnik.KorisnikID + " je izbrisan");
 
                 return Ok(Mapper.Map<KorisnikConfirmationDto>(confirmation));
             }

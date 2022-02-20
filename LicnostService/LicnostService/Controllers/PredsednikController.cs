@@ -8,6 +8,7 @@ using LicnostService.Entities;
 using LicnostService.Models;
 using System;
 using System.Collections.Generic;
+using LicnostService.Services;
 
 namespace LicnostService.Controllers
 {
@@ -20,12 +21,14 @@ namespace LicnostService.Controllers
         private readonly IPredsednikRepository PredsednikRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public PredsednikController(IPredsednikRepository predsednikRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public PredsednikController(IPredsednikRepository predsednikRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.PredsednikRepository = predsednikRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
 
@@ -74,6 +77,8 @@ namespace LicnostService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetPredsednikById", "Predsednik", new { predsednikId = confirmation.PredsednikID });
 
+                LoggerService.createLogAsync("Predsednik " + predsednik.PredsednikID + " je dodat");
+
                 return Created(location, Mapper.Map<PredsednikConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -105,6 +110,8 @@ namespace LicnostService.Controllers
 
                 PredsednikConfirmationDto confirmation = PredsednikRepository.UpdatePredsednik(predsednik);
 
+                LoggerService.createLogAsync("Predsednik " + predsednik.PredsednikID + " je ažuriran");
+
                 return Ok(Mapper.Map<PredsednikConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -130,6 +137,8 @@ namespace LicnostService.Controllers
                 }
 
                 PredsednikConfirmationDto confirmation = PredsednikRepository.DeletePredsednik(predsednikId);
+
+                LoggerService.createLogAsync("Predsednik " + predsednik.PredsednikID + " je izbrisan");
 
                 return Ok(Mapper.Map<PredsednikConfirmationDto>(confirmation));
             }

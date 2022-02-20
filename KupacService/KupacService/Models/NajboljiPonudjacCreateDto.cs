@@ -7,6 +7,6 @@ namespace KupacService.Models
 {
     public class NajboljiPonudjacCreateDto
     {
-        public Guid? KupacId { get; set; }
+        public Guid NajboljiPonudjacId { get; set; }
     }
 }

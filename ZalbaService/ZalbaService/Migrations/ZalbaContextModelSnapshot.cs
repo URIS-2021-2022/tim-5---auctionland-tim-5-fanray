@@ -26,7 +26,6 @@ namespace ZalbaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivRadnjeNaOsnovuZalbe")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RadnjaNaOsnovuZalbeID");
@@ -58,7 +57,6 @@ namespace ZalbaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivStatusaZalbe")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("StatusZalbeID");
@@ -90,7 +88,6 @@ namespace ZalbaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivTipaZalbe")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TipZalbeID");
@@ -150,12 +147,6 @@ namespace ZalbaService.Migrations
 
                     b.HasKey("ZalbaID");
 
-                    b.HasIndex("RadnjaNaOsnovuZalbeID");
-
-                    b.HasIndex("StatusZalbeID");
-
-                    b.HasIndex("TipZalbeID");
-
                     b.ToTable("Zalba");
 
                     b.HasData(
@@ -172,21 +163,6 @@ namespace ZalbaService.Migrations
                             StatusZalbeID = new Guid("c6fb5ac5-eaef-4db2-99a5-84a938972183"),
                             TipZalbeID = new Guid("42058551-6a8a-4485-af7f-1124de19e566")
                         });
-                });
-
-            modelBuilder.Entity("ZalbaService.Entities.Zalba", b =>
-                {
-                    b.HasOne("ZalbaService.Entities.RadnjaNaOsnovuZalbe", "RadnjaNaOsnovuZalbe")
-                        .WithMany("ZalbaList")
-                        .HasForeignKey("RadnjaNaOsnovuZalbeID");
-
-                    b.HasOne("ZalbaService.Entities.StatusZalbe", "StatusZalbe")
-                        .WithMany("ZalbaList")
-                        .HasForeignKey("StatusZalbeID");
-
-                    b.HasOne("ZalbaService.Entities.TipZalbe", "TipZalbe")
-                        .WithMany("ZalbaList")
-                        .HasForeignKey("TipZalbeID");
                 });
 #pragma warning restore 612, 618
         }

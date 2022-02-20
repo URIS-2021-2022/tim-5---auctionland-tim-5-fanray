@@ -7,6 +7,6 @@ namespace KupacService.Models
 {
     public class PrijavljenKupacCreateDto
     {
-        public Guid? KupacId { get; set; }
+        public Guid PrijavljenKupacId { get; set; }
     }
 }

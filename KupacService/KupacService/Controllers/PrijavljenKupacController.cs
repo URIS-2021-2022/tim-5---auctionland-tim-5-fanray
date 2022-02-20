@@ -2,6 +2,7 @@
 using KupacService.Data;
 using KupacService.Entities;
 using KupacService.Models;
+using KupacService.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 namespace KupacService.Controllers
 {
     [ApiController]
-    [Route("api/v1/prijavljenKupac")]
+    [Route("api/v1/prijavljen-kupac")]
     [Produces("application/json")]
     [Authorize]
     public class PrijavljenKupacController : ControllerBase
@@ -22,12 +23,18 @@ namespace KupacService.Controllers
         private readonly IPrijavljeniKupacRepository PrijavljenKupacRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public PrijavljenKupacController(IPrijavljeniKupacRepository prijavljenKupacRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public PrijavljenKupacController(
+            IPrijavljeniKupacRepository prijavljenKupacRepository,
+            LinkGenerator linkGenerator,
+            IMapper mapper,
+            ILoggerService loggerService)
         {
             this.PrijavljenKupacRepository = prijavljenKupacRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         /// <summary>
@@ -41,7 +48,7 @@ namespace KupacService.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<List<PrijavljenKupacDto>> GetPrijavljenKupacList()
         {
-            List<PrijavljenKupac> prijavljenKupacList = PrijavljenKupacRepository.GetPrijavljen_KupacList();
+            List<Prijavljen_Kupac> prijavljenKupacList = PrijavljenKupacRepository.GetPrijavljen_KupacList();
 
             if (prijavljenKupacList == null || prijavljenKupacList.Count == 0)
             {
@@ -63,7 +70,7 @@ namespace KupacService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<KupacDto> GetPrijavljen_KupacById(Guid prijavljenKupacId)
         {
-            PrijavljenKupac prijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacId);
+            Prijavljen_Kupac prijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacId);
 
             if (prijavljenKupac == null)
             {
@@ -87,10 +94,12 @@ namespace KupacService.Controllers
         {
             try
             {
-                PrijavljenKupac prijavljenKupac = Mapper.Map<PrijavljenKupac>(prijavljenKupacDto);
+                Prijavljen_Kupac prijavljenKupac = Mapper.Map<Prijavljen_Kupac>(prijavljenKupacDto);
                 PrijavljenKupacConfirmationDto confirmation = PrijavljenKupacRepository.CreatePrijavljenKupac(prijavljenKupac);
 
                 string location = LinkGenerator.GetPathByAction("GetPrijavljen_KupacById", "Prijavljen_Kupac", new { prijavljenKupacId = confirmation.PrijavljenKupacId });
+
+                LoggerService.createLogAsync("Prijavljeni kupac " + prijavljenKupac.PrijavljenKupacId + " je dodat");
 
                 return Created(location, Mapper.Map<PrijavljenKupacConfirmationDto>(confirmation));
             }
@@ -115,18 +124,20 @@ namespace KupacService.Controllers
         {
             try
             {
-                PrijavljenKupac oldprijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacDto.PrijavljenKupacId);
+                Prijavljen_Kupac oldprijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacDto.PrijavljenKupacId);
 
                 if (oldprijavljenKupac == null)
                 {
                     return NotFound();
                 }
 
-                PrijavljenKupac prijavljenKupac = Mapper.Map<PrijavljenKupac>(prijavljenKupacDto);
+                Prijavljen_Kupac prijavljenKupac = Mapper.Map<Prijavljen_Kupac>(prijavljenKupacDto);
 
                 Mapper.Map(prijavljenKupac, oldprijavljenKupac);
 
                 PrijavljenKupacConfirmationDto confirmation = PrijavljenKupacRepository.UpdatePrijavljenKupac(prijavljenKupac);
+
+                LoggerService.createLogAsync("Prijavljeni kupac " + prijavljenKupac.PrijavljenKupacId + " je ažuriran");
 
                 return Ok(Mapper.Map<PrijavljenKupacConfirmationDto>(confirmation));
             }
@@ -152,7 +163,7 @@ namespace KupacService.Controllers
         {
             try
             {
-                PrijavljenKupac prijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacId);
+                Prijavljen_Kupac prijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacId);
 
                 if (prijavljenKupac == null)
                 {
@@ -160,6 +171,8 @@ namespace KupacService.Controllers
                 }
 
                 PrijavljenKupacConfirmationDto confirmation = PrijavljenKupacRepository.DeletePrijavljenKupac(prijavljenKupacId);
+
+                LoggerService.createLogAsync("Prijavljeni kupac " + prijavljenKupac.PrijavljenKupacId + " je izbrisan");
 
                 return Ok(Mapper.Map<PrijavljenKupacConfirmationDto>(confirmation));
             }

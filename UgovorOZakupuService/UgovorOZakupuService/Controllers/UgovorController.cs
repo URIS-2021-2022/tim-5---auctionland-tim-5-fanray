@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using UgovorOZakupuService.Data;
 using UgovorOZakupuService.Entities;
 using UgovorOZakupuService.Models;
+using UgovorOZakupuService.Services;
 
 namespace UgovorOZakupuService.Controllers
 {
@@ -22,12 +23,14 @@ namespace UgovorOZakupuService.Controllers
             private readonly IUgovorRepository UgovorRepository;
             private readonly LinkGenerator LinkGenerator;
             private readonly IMapper Mapper;
+            private readonly ILoggerService LoggerService;
 
-            public UgovorController(IUgovorRepository ugovorRepository, LinkGenerator linkGenerator, IMapper mapper)
+            public UgovorController(IUgovorRepository ugovorRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
             {
                 this.UgovorRepository = ugovorRepository;
                 this.LinkGenerator = linkGenerator;
                 this.Mapper = mapper;
+                this.LoggerService = loggerService;
             }
 
             [HttpGet]
@@ -45,7 +48,7 @@ namespace UgovorOZakupuService.Controllers
                 return Ok(Mapper.Map<List<UgovorDto>>(ugovorList));
             }
 
-        [HttpGet("{ugovorId}")]
+            [HttpGet("{ugovorId}")]
             [ProducesResponseType(StatusCodes.Status200OK)]
             [ProducesResponseType(StatusCodes.Status404NotFound)]
             public ActionResult<UgovorDto> GetUgovorById(Guid ugovorId)
@@ -72,6 +75,8 @@ namespace UgovorOZakupuService.Controllers
                     UgovorConfirmationDto confirmation = UgovorRepository.CreateUgovor(ugovor);
 
                     string location = LinkGenerator.GetPathByAction("GetUgovorById", "Ugovor", new { ugovorId = confirmation.UgovorID });
+
+                    LoggerService.createLogAsync("Ugovor " + ugovor.UgovorID + " je dodat");
 
                     return Created(location, Mapper.Map<UgovorConfirmationDto>(confirmation));
                 }
@@ -103,6 +108,8 @@ namespace UgovorOZakupuService.Controllers
 
                     UgovorConfirmationDto confirmation = UgovorRepository.UpdateUgovor(ugovor);
 
+                    LoggerService.createLogAsync("Ugovor " + ugovor.UgovorID + " je ažuriran");
+
                     return Ok(Mapper.Map<UgovorConfirmationDto>(confirmation));
                 }
                 catch (Exception ex)
@@ -127,6 +134,8 @@ namespace UgovorOZakupuService.Controllers
                     }
 
                     UgovorConfirmationDto confirmation = UgovorRepository.DeleteUgovor(ugovorId);
+
+                    LoggerService.createLogAsync("Ugovor " + ugovor.UgovorID + " je izbrisan");
 
                     return Ok(Mapper.Map<UgovorConfirmationDto>(confirmation));
                 }

@@ -2,6 +2,7 @@
 using LiceService.Data;
 using LiceService.Entities;
 using LiceService.Models;
+using LiceService.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,12 +23,14 @@ namespace LiceService.Controllers
         private readonly ILiceRepository LiceRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public LiceController(ILiceRepository liceRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public LiceController(ILiceRepository liceRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.LiceRepository = liceRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         [HttpGet]
@@ -67,11 +70,13 @@ namespace LiceService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetLiceById", "Lice", new { liceId = confirmation.LiceID });
 
+                LoggerService.createLogAsync("Lice " + lice.LiceID + " je dodato");
+
                 return Created(location, Mapper.Map<LiceConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Create Error");
             }
         }
 
@@ -91,11 +96,13 @@ namespace LiceService.Controllers
 
                 Mapper.Map(lice, oldLice);
 
+                LoggerService.createLogAsync("Lice " + lice.LiceID + " je ažurirano");
+
                 return Ok(Mapper.Map<LiceConfirmationDto>(oldLice));
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Update Error");
             }
         }
         [HttpDelete("{liceId}")]
@@ -111,6 +118,8 @@ namespace LiceService.Controllers
                 }
 
                 LiceRepository.DeleteLice(liceId);
+
+                LoggerService.createLogAsync("Lice " + lice.LiceID + " je izbrisano");
 
                 return Ok(Mapper.Map<LiceConfirmationDto>(lice));
             }

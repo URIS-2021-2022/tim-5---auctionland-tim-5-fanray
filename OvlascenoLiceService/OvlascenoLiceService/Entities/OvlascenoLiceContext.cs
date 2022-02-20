@@ -15,7 +15,6 @@ namespace OvlascenoLiceService.Entities
 
         public DbSet<OvlascenoLice> OvlascenoLice { get; set; }
         public DbSet<BrojTable> BrojTable { get; set; }
-        public DbSet<Drzava> Drzava { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -40,15 +39,6 @@ namespace OvlascenoLiceService.Entities
                     {
                         BrojTableID = Guid.Parse("aad4011e-d00a-49c0-ac13-27f485621e7e"),
                         Broj_Table = "143"
-                    }
-            );
-            
-            modelBuilder.Entity<Drzava>()
-                .HasData(
-                    new Drzava
-                    {
-                        DrzavaID = Guid.Parse("bb9c4ebc-2028-4a83-88d7-04422ab58548"),
-                        NazivDrzave = "Srbija"
                     }
             );
 

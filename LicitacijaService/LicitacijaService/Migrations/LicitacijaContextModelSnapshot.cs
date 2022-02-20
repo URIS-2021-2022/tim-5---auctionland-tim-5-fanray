@@ -26,7 +26,6 @@ namespace LicitacijaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("NazivDokumentacije")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DokumentacijaID");
@@ -67,8 +66,6 @@ namespace LicitacijaService.Migrations
 
                     b.HasKey("DokumentacijaFlID");
 
-                    b.HasIndex("DokumentacijaID");
-
                     b.ToTable("DokumentacijaZaFizickoLice");
 
                     b.HasData(
@@ -94,8 +91,6 @@ namespace LicitacijaService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("DokumentacijaPlID");
-
-                    b.HasIndex("DokumentacijaID");
 
                     b.ToTable("DokumentacijaZaPravnoLice");
 
@@ -141,8 +136,6 @@ namespace LicitacijaService.Migrations
 
                     b.HasKey("LicitacijaID");
 
-                    b.HasIndex("DokumentacijaID");
-
                     b.ToTable("Licitacija");
 
                     b.HasData(
@@ -157,27 +150,6 @@ namespace LicitacijaService.Migrations
                             Ogranicenje = "",
                             RokZaPrijavu = new DateTime(2020, 12, 20, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         });
-                });
-
-            modelBuilder.Entity("LicitacijaService.Entities.DokumentacijaZaFizickoLice", b =>
-                {
-                    b.HasOne("LicitacijaService.Entities.Dokumentacija", "Dokumentacija")
-                        .WithMany()
-                        .HasForeignKey("DokumentacijaID");
-                });
-
-            modelBuilder.Entity("LicitacijaService.Entities.DokumentacijaZaPravnoLice", b =>
-                {
-                    b.HasOne("LicitacijaService.Entities.Dokumentacija", "Dokumentacija")
-                        .WithMany()
-                        .HasForeignKey("DokumentacijaID");
-                });
-
-            modelBuilder.Entity("LicitacijaService.Entities.Licitacija", b =>
-                {
-                    b.HasOne("LicitacijaService.Entities.Dokumentacija", "Dokumentacija")
-                        .WithMany("LicitacijaList")
-                        .HasForeignKey("DokumentacijaID");
                 });
 #pragma warning restore 612, 618
         }

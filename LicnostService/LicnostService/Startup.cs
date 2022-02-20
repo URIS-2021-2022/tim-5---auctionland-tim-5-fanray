@@ -12,6 +12,7 @@ using LicnostService.Helpers;
 using LicnostService.Entities;
 using System;
 using System.Text;
+using LicnostService.Services;
 
 namespace LicnostService
 {
@@ -26,13 +27,15 @@ namespace LicnostService
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
             services.AddScoped<ILicnostRepository, LicnostRepository>();
             services.AddScoped<IClanRepository, ClanRepository>();
             services.AddScoped<IPredsednikRepository, PredsednikRepository>();
             services.AddScoped<IKomisijaRepository, KomisijaRepository>();
             services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
-
+            services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();
 

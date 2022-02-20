@@ -12,7 +12,7 @@ namespace LiceService.Profiles
     {
         public LiceUpdateProfile()
         {
-            CreateMap<Lice, LiceUpdateDto>();
+            CreateMap<LiceUpdateDto, Lice>();
         }
     }
 }

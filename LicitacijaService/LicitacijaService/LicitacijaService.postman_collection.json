@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6f02ab25-c036-43a8-9d99-503c0d061b43",
+		"_postman_id": "0e746299-e85d-4f2e-8fad-0656d42bcc88",
 		"name": "LicitacijaService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,26 +11,16 @@
 				"strictSSL": false
 			},
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
-							"type": "string"
-						}
-					]
-				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{api_url}}/licitacija/26da5bbd-8cd6-4b9d-944f-fa37572a5ed9",
+					"raw": "{{api_url}}/licitacija/50af7348-2f6c-4763-84c7-0d9ddf556dde",
 					"host": [
 						"{{api_url}}"
 					],
 					"path": [
 						"licitacija",
-						"26da5bbd-8cd6-4b9d-944f-fa37572a5ed9"
+						"50af7348-2f6c-4763-84c7-0d9ddf556dde"
 					]
 				}
 			},
@@ -42,16 +32,6 @@
 				"strictSSL": false
 			},
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
-							"type": "string"
-						}
-					]
-				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -81,21 +61,11 @@
 				"strictSSL": false
 			},
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
-							"type": "string"
-						}
-					]
-				},
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n        \"licitacijaID\": \"e1802578-f47b-43dc-8b51-cb43d2f2db88\",\r\n        \"dokumentacijaID\": \"3465e0f2-a2bd-4ef6-bcda-fa2e71488caa\",\r\n        \"broj\": 20,\r\n        \"godina\": 2022,\r\n        \"datum\": \"2020-11-15T09:00:00\",\r\n        \"ogranicenje\": \"\",\r\n        \"korakCene\": \"\",\r\n        \"rokZaPrijavu\": \"2020-12-20T09:00:00\"\r\n    }",
+					"raw": " {\r\n        \"licitacijaID\": \"50af7348-2f6c-4763-84c7-0d9ddf556dde\",\r\n        \"dokumentacijaID\": \"3465e0f2-a2bd-4ef6-bcda-fa2e71488caa\",\r\n        \"broj\": 20,\r\n        \"godina\": 2022,\r\n        \"datum\": \"2020-11-15T09:00:00\",\r\n        \"ogranicenje\": \"\",\r\n        \"korakCene\": \"\",\r\n        \"rokZaPrijavu\": \"2020-12-20T09:00:00\"\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -120,16 +90,6 @@
 				"strictSSL": false
 			},
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -151,16 +111,6 @@
 				"strictSSL": false
 			},
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -181,16 +131,6 @@
 				"strictSSL": false
 			},
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -212,16 +152,6 @@
 				"strictSSL": false
 			},
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -242,16 +172,6 @@
 				"strictSSL": false
 			},
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -273,16 +193,6 @@
 				"strictSSL": false
 			},
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -303,16 +213,6 @@
 				"strictSSL": false
 			},
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -334,16 +234,6 @@
 				"strictSSL": false
 			},
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -394,7 +284,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwMTc3MTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzgxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzODEifQ.44skSE88vMrgyy4ugjtj0zqbf_xEbwdgPeythZ5_dQI",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUxMDU3MjMsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzA3IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDcifQ.fLO_DQHsr8yd4dPQYEQUI1nOB9RhhT073MspXXYrnrY",
 				"type": "string"
 			}
 		]
@@ -422,7 +312,7 @@
 	"variable": [
 		{
 			"key": "api_url",
-			"value": "https://localhost:44381/api/v1"
+			"value": "http://localhost:30307/api/v1"
 		}
 	]
 }

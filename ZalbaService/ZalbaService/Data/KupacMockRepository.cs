@@ -63,9 +63,9 @@ namespace ZalbaService.Data
             });
         }
 
-        public PrijavljeniKupacDto GetPrijavljeniKupacById(Guid prijavljeniKupacId)
+        public PrijavljeniKupacDto GetPrijavljeniKupacById(Guid prijavljeniKupacID)
         {
-            return PrijavljeniKupacList.FirstOrDefault(e => e.PrijavljeniKupacID == prijavljeniKupacId);
+            return PrijavljeniKupacList.FirstOrDefault(e => e.PrijavljeniKupacID == prijavljeniKupacID);
         }
 
         public List<PrijavljeniKupacDto> GetPrijavljeniKupacList()
@@ -73,9 +73,9 @@ namespace ZalbaService.Data
             return PrijavljeniKupacList;
         }
 
-        public NajboljiPonudjacDto GetNajboljiPonudjacById(Guid najboljiPonudjacId)
+        public NajboljiPonudjacDto GetNajboljiPonudjacById(Guid najboljiPonudjacID)
         {
-            return NajboljiPonudjacList.FirstOrDefault(e => e.NajboljiPonudjacID == najboljiPonudjacId);
+            return NajboljiPonudjacList.FirstOrDefault(e => e.NajboljiPonudjacID == najboljiPonudjacID);
         }
 
         public List<NajboljiPonudjacDto> GetNajboljiPonudjacList()
@@ -83,9 +83,9 @@ namespace ZalbaService.Data
             return NajboljiPonudjacList;
         }
 
-        public PrioritetDto GetPrioritetById(Guid prioritetId)
+        public PrioritetDto GetPrioritetById(Guid prioritetID)
         {
-            return PrioritetList.FirstOrDefault(e => e.PrioritetID == prioritetId);
+            return PrioritetList.FirstOrDefault(e => e.PrioritetID == prioritetID);
         }
 
         public List<PrioritetDto> GetPrioritetList()

@@ -1,6 +1,7 @@
 using LiceService.Data;
 using LiceService.Entities;
 using LiceService.Helpers;
+using LiceService.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,13 +28,14 @@ namespace LiceService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddHttpClient();
             services.AddScoped<ILiceRepository, LiceRepository>();
             services.AddScoped<IFizickoLiceRepository, FizickoLiceRepository>();
             services.AddScoped<IPravnoLiceRepository, PravnoLiceRepository>();
             services.AddScoped<IKontaktOsobaRepository, KontaktOsobaRepository>();
             services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddSingleton<ILoggerService, LoggerService>();
             services.AddControllers();
 
             services.AddDbContext<LiceContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LiceDB")));

@@ -12,10 +12,10 @@ namespace KupacService.Profiles
     {
         public NajboljiPonudjacProfile()
         {
-            CreateMap<NajboljiPonudjac, NajboljiPonudjacDto>();
-            CreateMap<NajboljiPonudjac, NajboljiPonudjacConfirmationDto>();
-            CreateMap<NajboljiPonudjacCreateDto, NajboljiPonudjac>();
-            CreateMap<NajboljiPonudjacUpdateDto, NajboljiPonudjac>();
+            CreateMap<Najbolji_Ponudjac, NajboljiPonudjacDto>();
+            CreateMap<Najbolji_Ponudjac, NajboljiPonudjacConfirmationDto>();
+            CreateMap<NajboljiPonudjacCreateDto, Najbolji_Ponudjac>();
+            CreateMap<NajboljiPonudjacUpdateDto, Najbolji_Ponudjac>();
         }
     }
 }

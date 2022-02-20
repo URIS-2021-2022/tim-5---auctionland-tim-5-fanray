@@ -8,6 +8,7 @@ using LicnostService.Entities;
 using LicnostService.Models;
 using System;
 using System.Collections.Generic;
+using LicnostService.Services;
 
 namespace LicnostService.Controllers
 {
@@ -20,12 +21,14 @@ namespace LicnostService.Controllers
         private readonly IClanRepository ClanRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public ClanController(IClanRepository clanRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public ClanController(IClanRepository clanRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.ClanRepository = clanRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
        
@@ -74,6 +77,8 @@ namespace LicnostService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetClanById", "Clan", new { clanId = confirmation.ClanID });
 
+                LoggerService.createLogAsync("Član " + clan.ClanID + " je dodat");
+
                 return Created(location, Mapper.Map<ClanConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -105,6 +110,8 @@ namespace LicnostService.Controllers
 
                 ClanConfirmationDto confirmation = ClanRepository.UpdateClan(clan);
 
+                LoggerService.createLogAsync("Član " + clan.ClanID + " je ažuriran");
+
                 return Ok(Mapper.Map<ClanConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -130,6 +137,8 @@ namespace LicnostService.Controllers
                 }
 
                 ClanConfirmationDto confirmation = ClanRepository.DeleteClan(clanId);
+
+                LoggerService.createLogAsync("Član " + clan.ClanID + " je izbrisan");
 
                 return Ok(Mapper.Map<ClanConfirmationDto>(confirmation));
             }

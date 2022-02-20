@@ -12,6 +12,7 @@ using LicitacijaService.Entities;
 using LicitacijaService.Helpers;
 using System;
 using System.Text;
+using LicitacijaService.Services;
 
 namespace LicitacijaService
 {
@@ -26,12 +27,15 @@ namespace LicitacijaService
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
             services.AddScoped<IDokumentacijaRepository, DokumentacijaRepository>();
             services.AddScoped<IDokumentacijaZaFizickoLiceRepository, DokumentacijaZaFizickoLiceRepository>();
             services.AddScoped<IDokumentacijaZaPravnoLiceRepository, DokumentacijaZaPravnoLiceRepository>();
             services.AddScoped<ILicitacijaRepository, LicitacijaRepository>();
             services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();
 

@@ -1,6 +1,7 @@
 ﻿using AdresaService.Data;
 using AdresaService.Entities;
 using AdresaService.Models;
+using AdresaService.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -22,12 +23,14 @@ namespace AdresaService.Controllers
         private readonly IAdresaRepository AdresaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public AdresaController(IAdresaRepository adresaRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public AdresaController(IAdresaRepository adresaRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.AdresaRepository = adresaRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         /// <summary>
@@ -92,6 +95,8 @@ namespace AdresaService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetAdresaById", "Adresa", new { adresaId = confirmation.AdresaID });
 
+                LoggerService.createLogAsync("Adresa " + adresa.AdresaID + " je dodata");
+
                 return Created(location, Mapper.Map<AdresaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -129,6 +134,8 @@ namespace AdresaService.Controllers
 
                 AdresaConfirmationDto confirmation = AdresaRepository.UpdateAdresa(adresa);
 
+                LoggerService.createLogAsync("Adresa " + adresa.AdresaID + " je ažurirana");
+
                 return Ok(Mapper.Map<AdresaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -161,6 +168,8 @@ namespace AdresaService.Controllers
                 }
 
                 AdresaConfirmationDto confirmation = AdresaRepository.DeleteAdresa(adresaId);
+
+                LoggerService.createLogAsync("Adresa " + adresa.AdresaID + " je izbrisana");
 
                 return Ok(Mapper.Map<AdresaConfirmationDto>(confirmation));
             }

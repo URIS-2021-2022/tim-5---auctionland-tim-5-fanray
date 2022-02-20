@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace ZalbaService.Controllers
 {
     [ApiController]
-    [Route("api/v1/tip")]
+    [Route("api/v1/tip-zalbe")]
     [Produces("application/json")]
     [Authorize]
     public class TipZalbeController : ControllerBase

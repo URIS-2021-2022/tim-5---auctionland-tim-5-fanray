@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using UgovorOZakupuService.Data;
 using UgovorOZakupuService.Entities;
 using UgovorOZakupuService.Helpers;
+using UgovorOZakupuService.Services;
 
 namespace UgovorOZakupuService
 {
@@ -32,6 +33,8 @@ namespace UgovorOZakupuService
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
             services.AddScoped<IUgovorRepository, UgovorRepository>();
             services.AddScoped<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<ITipGarancijeRepository, TipGarancijeRepository>();
@@ -41,7 +44,7 @@ namespace UgovorOZakupuService
             services.AddScoped<ILicnostMockRepository, LicnostMockRepository>();
             services.AddScoped<IJavnoNadmetanjeMockRepository, JavnoNadmetanjeMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
-
+            services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();
 

@@ -15,12 +15,6 @@ namespace LiceService.Entities
         public string Prezime { get; set; }
         public string Funkcija { get; set; }
         public string Telefon { get; set; }
-
-        [ForeignKey("PravnoLice")]
-        public Guid Maticni_broj { get; set; }
-        public PravnoLice LiPravnoLicece { get; set; }
-
-        
-
+        public Guid Maticni_Broj { get; set; }
     }
 }

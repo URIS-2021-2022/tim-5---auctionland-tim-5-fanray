@@ -155,9 +155,9 @@ namespace UgovorOZakupuService.Data
             });
         }
 
-        public KatastarskaOpstinaDto GetKatastarskaOpstinaById(Guid katastarskaOpstinaId)
+        public KatastarskaOpstinaDto GetKatastarskaOpstinaById(Guid katastarskaOpstinaID)
         {
-            return KatastarskaOpstinaList.FirstOrDefault(e => e.KatastarskaOpstinaID == katastarskaOpstinaId);
+            return KatastarskaOpstinaList.FirstOrDefault(e => e.KatastarskaOpstinaID == katastarskaOpstinaID);
         }
 
         public List<KatastarskaOpstinaDto> GetKatastarskaOpstinaList()
@@ -165,9 +165,9 @@ namespace UgovorOZakupuService.Data
             return KatastarskaOpstinaList;
         }
 
-        public SluzbeniListDto GetSluzbeniListById(Guid sluzbeniListId)
+        public SluzbeniListDto GetSluzbeniListById(Guid sluzbeniListID)
         {
-            return SluzbeniListList.FirstOrDefault(e => e.SluzbeniListID == sluzbeniListId);
+            return SluzbeniListList.FirstOrDefault(e => e.SluzbeniListID == sluzbeniListID);
         }
 
         public List<SluzbeniListDto> GetSluzbeniListList()
@@ -175,9 +175,9 @@ namespace UgovorOZakupuService.Data
             return SluzbeniListList;
         }
 
-        public StatusJavnogNadmetanjaDto GetStatusJavnogNadmetanjaById(Guid statusJavnogNadmetanjaId)
+        public StatusJavnogNadmetanjaDto GetStatusJavnogNadmetanjaById(Guid statusJavnogNadmetanjaID)
         {
-            return StatusJavnogNadmetanjaList.FirstOrDefault(e => e.StatusJavnogNadmetanjaID == statusJavnogNadmetanjaId);
+            return StatusJavnogNadmetanjaList.FirstOrDefault(e => e.StatusJavnogNadmetanjaID == statusJavnogNadmetanjaID);
         }
 
         public List<StatusJavnogNadmetanjaDto> GetStatusJavnogNadmetanjaList()
@@ -185,9 +185,9 @@ namespace UgovorOZakupuService.Data
             return StatusJavnogNadmetanjaList;
         }
 
-        public TipJavnogNadmetanjaDto GetTipJavnogNadmetanjaById(Guid tipJavnogNadmetanjaId)
+        public TipJavnogNadmetanjaDto GetTipJavnogNadmetanjaById(Guid tipJavnogNadmetanjaID)
         {
-            return TipJavnogNadmetanjaList.FirstOrDefault(e => e.TipJavnogNadmetanjaID == tipJavnogNadmetanjaId);
+            return TipJavnogNadmetanjaList.FirstOrDefault(e => e.TipJavnogNadmetanjaID == tipJavnogNadmetanjaID);
         }
 
         public List<TipJavnogNadmetanjaDto> GetTipJavnogNadmetanjaList()

@@ -9,17 +9,10 @@ namespace LiceService.Entities
 {
     public class FizickoLice
     {
-        
         [Key]
-        public Guid JMBG { get; set; }
+        public Guid LiceID { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
-
-        [ForeignKey("Lice")]
-        public Guid? LiceID { get; set; }
-        public Lice Lice { get; set; }
-       
-        
-
+        public Guid? JMBG { get; set; }
     }
 }

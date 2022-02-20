@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8f2c0312-f6d0-4694-860e-dad349afef69",
+		"_postman_id": "de6860be-27ba-432c-b2eb-23f9b453d69a",
 		"name": "KupacService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,16 +8,6 @@
 		{
 			"name": "PrioritetGetAll",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDQ5NTEwNjYsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0Mzc2IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNzYifQ.SnWq8tNnikj9PWvyfbTJZs8fZinADG15CphTSRQde9k",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -36,7 +26,16 @@
 			"name": "KupacGetAll",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/kupac",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"kupac"
+					]
+				}
 			},
 			"response": []
 		},
@@ -44,7 +43,10 @@
 			"name": "PrijavljenKupacGetAll",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},
@@ -52,7 +54,10 @@
 			"name": "NajboljiPonudjacGetAll",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},
@@ -60,7 +65,10 @@
 			"name": "KupacGetById",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},
@@ -68,7 +76,10 @@
 			"name": "PrioritetGetById",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},
@@ -76,7 +87,10 @@
 			"name": "PrijavljenKupacGetById",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},
@@ -84,7 +98,10 @@
 			"name": "NajboljiPonudjacGetById",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},
@@ -148,7 +165,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"kupacId\": \"9c6b78a1-a8e2-44f8-a19b-44ad7968a742\",\r\n        \"prioritetId\": \"608ed376-c4bb-4bdd-84cb-f34147ca96df\",\r\n        \"ostvarenaPovrsina\": \"300m2\",\r\n        \"ovlascenoLiceId\": \"148805f4-3093-4fd3-aea1-f253038b3c8f\",\r\n        \"imaZabranu\": false,\r\n        \"datumPocetkaZabrane\": \"2020-11-15T09:00:00\",\r\n        \"datumTrajanjaZabrane\": \"1 godinu\",\r\n        \"datumPrestankaZabrane\": \"2021-11-15T09:00:00\"\r\n    }",
+					"raw": "    {\r\n        \"kupacId\": \"a35d8ec7-4cea-42ec-859e-5c012476ced0\",\r\n        \"prioritetId\": \"608ed376-c4bb-4bdd-84cb-f34147ca96df\",\r\n        \"ostvarenaPovrsina\": \"300m2\",\r\n        \"ovlascenoLiceId\": \"148805f4-3093-4fd3-aea1-f253038b3c8f\",\r\n        \"imaZabranu\": false,\r\n        \"datumPocetkaZabrane\": \"2020-11-15T09:00:00\",\r\n        \"datumTrajanjaZabrane\": \"1 godinu\",\r\n        \"datumPrestankaZabrane\": \"2021-11-15T09:00:00\"\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -173,13 +190,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{api_url}}/kupac/9c6b78a1-a8e2-44f8-a19b-44ad7968a742",
+					"raw": "{{api_url}}/kupac/a35d8ec7-4cea-42ec-859e-5c012476ced0",
 					"host": [
 						"{{api_url}}"
 					],
 					"path": [
 						"kupac",
-						"9c6b78a1-a8e2-44f8-a19b-44ad7968a742"
+						"a35d8ec7-4cea-42ec-859e-5c012476ced0"
 					]
 				}
 			},
@@ -192,7 +209,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n        \r\n        \"kupacId\": \"a35d8ec7-4cea-42ec-859e-5c012476ced0\"\r\n}",
+					"raw": "{\r\n    \"PrijavljenKupacId\": \"a35d8ec7-4cea-42ec-859e-5c012476ced0\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -331,7 +348,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUwNTA2NzUsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0Mzc2IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNzYifQ.u-wseAmAMHcoFStYHIthEBEcgwR-fTMUK_96cyPdsA4",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUxMTE2NzMsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzEzIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTMifQ.naYJ2cOO8OB3Q0navwAdScosYmn6FASlnOlpaCI1wYU",
 				"type": "string"
 			}
 		]
@@ -359,7 +376,7 @@
 	"variable": [
 		{
 			"key": "api_url",
-			"value": "https://localhost:44376/api/v1",
+			"value": "http://localhost:30313/api/v1",
 			"type": "default"
 		}
 	]

@@ -30,8 +30,6 @@ namespace LicnostService.Migrations
 
                     b.HasKey("ClanID");
 
-                    b.HasIndex("LicnostID");
-
                     b.ToTable("Clan");
 
                     b.HasData(
@@ -55,10 +53,6 @@ namespace LicnostService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("KomisijaID");
-
-                    b.HasIndex("ClanID");
-
-                    b.HasIndex("PredsednikID");
 
                     b.ToTable("Komisija");
 
@@ -128,26 +122,6 @@ namespace LicnostService.Migrations
                             PredsednikID = new Guid("8d878d03-fb76-42fc-91a0-5c8d3c36180e"),
                             LicnostID = new Guid("f45c4d55-00af-4f06-be69-f79e3fa9dcc2")
                         });
-                });
-
-            modelBuilder.Entity("LicnostService.Entities.Clan", b =>
-                {
-                    b.HasOne("LicnostService.Entities.Licnost", "Licnost")
-                        .WithMany()
-                        .HasForeignKey("LicnostID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("LicnostService.Entities.Komisija", b =>
-                {
-                    b.HasOne("LicnostService.Entities.Clan", "Clan")
-                        .WithMany()
-                        .HasForeignKey("ClanID");
-
-                    b.HasOne("LicnostService.Entities.Predsednik", "Predsednik")
-                        .WithMany()
-                        .HasForeignKey("PredsednikID");
                 });
 
             modelBuilder.Entity("LicnostService.Entities.Predsednik", b =>

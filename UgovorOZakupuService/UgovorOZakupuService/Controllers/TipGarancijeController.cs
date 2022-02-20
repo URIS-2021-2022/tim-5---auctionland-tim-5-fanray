@@ -13,7 +13,7 @@ using UgovorOZakupuService.Models;
 namespace UgovorOZakupuService.Controllers
 {
     [ApiController]
-    [Route("api/v1/tipGarancije")]
+    [Route("api/v1/tip-garancije")]
     [Produces("application/json")]
     [Authorize]
     public class TipGaranijeController : ControllerBase

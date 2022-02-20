@@ -8,6 +8,7 @@ using ZalbaService.Entities;
 using ZalbaService.Models;
 using System;
 using System.Collections.Generic;
+using ZalbaService.Services;
 
 namespace ZalbaService.Controllers
 {
@@ -20,12 +21,14 @@ namespace ZalbaService.Controllers
         private readonly IZalbaRepository ZalbaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
         
-        public ZalbaController(IZalbaRepository zalbaRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public ZalbaController(IZalbaRepository zalbaRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.ZalbaRepository = zalbaRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
         
         [HttpGet]
@@ -64,6 +67,8 @@ namespace ZalbaService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetZalbaById", "Zalba", new { zalbaId = confirmation.ZalbaID });
 
+                LoggerService.createLogAsync("Žalba " + zalba.ZalbaID + " je dodata");
+
                 return Created(location, Mapper.Map<ZalbaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -88,6 +93,8 @@ namespace ZalbaService.Controllers
 
                 Mapper.Map(zalba, oldZalba);
 
+                LoggerService.createLogAsync("Žalba " + zalba.ZalbaID + " je ažurirana");
+
                 return Ok(Mapper.Map<ZalbaConfirmationDto>(oldZalba));
             }
             catch (Exception ex)
@@ -109,6 +116,8 @@ namespace ZalbaService.Controllers
                 }
 
                 ZalbaRepository.DeleteZalba(zalbaId);
+
+                LoggerService.createLogAsync("Žalba " + zalba.ZalbaID + " je izbrisana");
 
                 return Ok(Mapper.Map<ZalbaConfirmationDto>(zalba));
             }

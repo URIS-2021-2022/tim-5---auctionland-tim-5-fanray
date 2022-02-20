@@ -1,0 +1,2334 @@
+{
+	"info": {
+		"_postman_id": "6cbb1ccc-1d34-479b-a6ca-3cc05722002a",
+		"name": "AuctionLandTim5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LoggerService",
+			"item": [
+				{
+					"name": "Log - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/log",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"log"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/log/d592cc56-f9ec-484d-b082-e8ae655b586c",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"log",
+								"d592cc56-f9ec-484d-b082-e8ae655b586c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "KorisnikSistemaService",
+			"item": [
+				{
+					"name": "Korisnik - Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"korisnickoIme\": \"tamaraR\",\r\n    \"lozinka\": \"tamara123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/auth/login",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Korisnik - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/korisnik",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"korisnik"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Korisnik - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/korisnik/34f11383-cb12-481d-9ff7-2fd458dc7e2b",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"korisnik",
+								"34f11383-cb12-481d-9ff7-2fd458dc7e2b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipKorisnika - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/tip-korisnika",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"tip-korisnika"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipKorisnika - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/tip-korisnika/454f563e-3057-4ea7-8f5f-c871249ab128",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"tip-korisnika",
+								"454f563e-3057-4ea7-8f5f-c871249ab128"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Korisnik - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipKorisnikaID\": \"3d9d9ecb-e306-402a-9aa8-8e0c526bf890\",\r\n    \"ime\": \"Jovana\",\r\n    \"prezime\": \"Karamarkovic\",\r\n    \"korisnickoIme\": \"jovanaK\",\r\n    \"lozinka\": \"jovana123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/korisnik",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"korisnik"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Korisnik - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"korisnikID\": \"34f11383-cb12-481d-9ff7-2fd458dc7e2b\",\r\n    \"tipKorisnikaID\": \"912de663-6320-4521-a7d7-3a7086f42b2c\",\r\n    \"ime\": \"Tanja\",\r\n    \"prezime\": \"Savic\",\r\n    \"korisnickoIme\": \"tanjaS\",\r\n    \"lozinka\": \"tanja123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/korisnik",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"korisnik"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Korisnik - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/korisnik/34f11383-cb12-481d-9ff7-2fd458dc7e2b",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"korisnik",
+								"34f11383-cb12-481d-9ff7-2fd458dc7e2b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "JavnoNadmetanjeService",
+			"item": [
+				{
+					"name": "JavnoNadmetanje - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/javno-nadmetanje",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"javno-nadmetanje"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JavnoNadmetanje - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/javno-nadmetanje/1ae8137b-1674-4c91-a4b5-87a133f5dd87",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"javno-nadmetanje",
+								"1ae8137b-1674-4c91-a4b5-87a133f5dd87"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JavnoNadmetanje - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"statusJavnogNadmetanjaId\": \"167a01c0-2e68-46a8-b201-3a23e3a20bff\",\r\n    \"tipJavnogNadmetanjaId\": \"bc679089-e19f-43e4-946f-651ffbdb2afb\",\r\n    \"katastarskaOpstinaId\": \"24742b99-32c6-4999-b0a7-757a178f9ee7\",\r\n    \"datum\": \"2022-02-10T00:00:00\",\r\n    \"vremePocetka\": \"2022-02-10T09:00:00\",\r\n    \"vremeKraja\": \"2022-02-10T11:00:00\",\r\n    \"pocetnaCenaHektar\": 7000,\r\n    \"izuzeto\": false,\r\n    \"izlicitiranaCena\": 8600,\r\n    \"periodZakupa\": 12,\r\n    \"brojUcesnika\": 15,\r\n    \"visinaDopuneDepozita\": 200,\r\n    \"krug\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/javno-nadmetanje",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"javno-nadmetanje"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JavnoNadmetanje - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"javnoNadmetanjeId\": \"1ae8137b-1674-4c91-a4b5-87a133f5dd87\",\r\n    \"tipJavnogNadmetanjaId\":\r\n    \"bc679089-e19f-43e4-946f-651ffbdb2afb\",\r\n    \"statusJavnogNadmetanjaId\":\r\n    \"167a01c0-2e68-46a8-b201-3a23e3a20bff\",\r\n    \"katastarskaOpstinaId\": \"5a20c276-5b98-4e24-92b4-0996cb51b293\",\r\n    \"datum\": \"2022-02-10T00:00:00\",\r\n    \"vremePocetka\": \"2022-02-10T09:00:00\",\r\n    \"vremeKraja\": \"2022-02-10T11:00:00\",\r\n    \"pocetnaCenaHektar\": 7100,\r\n    \"izuzeto\": false,\r\n    \"izlicitiranaCena\": 8600,\r\n    \"periodZakupa\": 12,\r\n    \"brojUcesnika\": 15,\r\n    \"visinaDopuneDepozita\": 200,\r\n    \"krug\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/javno-nadmetanje",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"javno-nadmetanje"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JavnoNadmetanje - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/javno-nadmetanje/1ae8137b-1674-4c91-a4b5-87a133f5dd87",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"javno-nadmetanje",
+								"1ae8137b-1674-4c91-a4b5-87a133f5dd87"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipJavnogNadmetanja - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/tip-javnog-nadmetanja",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"tip-javnog-nadmetanja"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipJavnogNadmetanja - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/tip-javnog-nadmetanja/bc679089-e19f-43e4-946f-651ffbdb2afb",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"tip-javnog-nadmetanja",
+								"bc679089-e19f-43e4-946f-651ffbdb2afb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "StatusJavnogNadmetanja - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/status-javnog-nadmetanja",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"status-javnog-nadmetanja"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "StatusJavnogNadmetanja - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/status-javnog-nadmetanja/167a01c0-2e68-46a8-b201-3a23e3a20bff",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"status-javnog-nadmetanja",
+								"167a01c0-2e68-46a8-b201-3a23e3a20bff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SluzbeniList - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/sluzbeni-list",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"sluzbeni-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SluzbeniList - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/sluzbeni-list/496ac934-a718-43a6-ac7f-8db141478180",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"sluzbeni-list",
+								"496ac934-a718-43a6-ac7f-8db141478180"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SluzbeniList - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"opstina\": \"Bikovo1\",\r\n    \"brojSluzbenogLista\": \"5/2022\",\r\n    \"datumIzdavanja\": \"2022-02-05T00:00:00\",\r\n    \"javnoNadmetanjeId\": \"1ae8137b-1674-4c91-a4b5-87a133f5dd87\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/sluzbeni-list",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"sluzbeni-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SluzbeniList - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sluzbeniListId\": \"496ac934-a718-43a6-ac7f-8db141478180\",\r\n    \"opstina\": \"Bikovo 2\",\r\n    \"brojSluzbenogLista\": \"1/2022\",\r\n    \"datumIzdavanja\": \"2022-02-05T00:00:00\",\r\n    \"javnoNadmetanjeId\": \"1ae8137b-1674-4c91-a4b5-87a133f5dd87\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/sluzbeni-list",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"sluzbeni-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SluzbeniList - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/sluzbeni-list/496ac934-a718-43a6-ac7f-8db141478180",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"sluzbeni-list",
+								"496ac934-a718-43a6-ac7f-8db141478180"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LiceService",
+			"item": [
+				{
+					"name": "Lice - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/lice",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"lice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lice - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/lice/8de0c01b-b7b0-4df2-9009-3df21b91a0bb",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"lice",
+								"8de0c01b-b7b0-4df2-9009-3df21b91a0bb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lice - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"broj_telefona1\": 654488522,\r\n    \"broj_telefona2\": 654488521,\r\n    \"email\": \"nekolice97@gmail.com\",\r\n    \"broj_racuna\": 123456789\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/lice",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"lice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lice - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"liceID\": \"8de0c01b-b7b0-4df2-9009-3df21b91a0bb\",\r\n    \"broj_Telefona1\": 654488522,\r\n    \"broj_Telefona2\": 654488521,\r\n    \"email\": \"nekolice@outlook.com\",\r\n    \"broj_Racuna\": 123456789\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/lice",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"lice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lice - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/lice/8de0c01b-b7b0-4df2-9009-3df21b91a0bb",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"lice",
+								"8de0c01b-b7b0-4df2-9009-3df21b91a0bb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UplataService",
+			"item": [
+				{
+					"name": "Uplata - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/uplata",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"uplata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Uplata - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/uplata/44af7348-2f6c-7763-84c7-0d3ddf556dde",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"uplata",
+								"44af7348-2f6c-7763-84c7-0d3ddf556dde"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Uplata - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Broj_Racuna\" : 151161854,\r\n    \"Poziv_Na_Broj\": 1548562222,\r\n    \"Iznos\" : 552,\r\n    \"Svrha_Uplate\" : \"Uplata \",\r\n    \"DatumUplate\" : \"2022-02-16T19:43:22.079Z\",\r\n    \"DatumKursa\" : \"2022-02-16T19:43:22.079Z\",\r\n    \"Valuta\" : \"EUR\",\r\n    \"Vrednost\" : 552\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/uplata",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"uplata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Uplata - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UplataID\" : \"44af7348-2f6c-7763-84c7-0d3ddf556dde\",\r\n    \"Broj_Racuna\" : 751161854,\r\n    \"Poziv_Na_Broj\": 1548562222,\r\n    \"Iznos\" : 55,\r\n    \"Svrha_Uplate\" : \"Uplata uplata \",\r\n    \"DatumUplate\" : \"2022-02-16T19:43:22.079Z\",\r\n    \"DatumKursa\" : \"2022-02-16T19:43:22.079Z\",\r\n    \"Valuta\" : \"EUR\",\r\n    \"Vrednost\" : 55\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/uplata",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"uplata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Uplata - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/uplata/44af7348-2f6c-7763-84c7-0d3ddf556dde",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"uplata",
+								"44af7348-2f6c-7763-84c7-0d3ddf556dde"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LicitacijaService",
+			"item": [
+				{
+					"name": "Licitacija - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/licitacija",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"licitacija"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Licitacija - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/licitacija/50af7348-2f6c-4763-84c7-0d9ddf556dde",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"licitacija",
+								"50af7348-2f6c-4763-84c7-0d9ddf556dde"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Licitacija - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dokumentacijaID\": \"3465e0f2-a2bd-4ef6-bcda-fa2e71488caa\",\r\n    \"broj\": 2,\r\n    \"godina\": 2022,\r\n    \"datum\": \"2020-11-15T09:00:00\",\r\n    \"ogranicenje\": \"\",\r\n    \"korakCene\": \"\",\r\n    \"rokZaPrijavu\": \"2020-12-20T09:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/licitacija",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"licitacija"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Licitacija - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"licitacijaID\": \"50af7348-2f6c-4763-84c7-0d9ddf556dde\",\r\n    \"dokumentacijaID\": \"3465e0f2-a2bd-4ef6-bcda-fa2e71488caa\",\r\n    \"broj\": 20,\r\n    \"godina\": 2022,\r\n    \"datum\": \"2020-11-15T09:00:00\",\r\n    \"ogranicenje\": \"\",\r\n    \"korakCene\": \"\",\r\n    \"rokZaPrijavu\": \"2020-12-20T09:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/licitacija",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"licitacija"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Licitacija - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/licitacija/50af7348-2f6c-4763-84c7-0d9ddf556dde",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"licitacija",
+								"50af7348-2f6c-4763-84c7-0d9ddf556dde"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LicnostService",
+			"item": [
+				{
+					"name": "Licnost - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/licnost",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"licnost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Licnost - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/licnost/4a078606-30b2-497e-8650-7330a236e150",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"licnost",
+								"4a078606-30b2-497e-8650-7330a236e150"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Licnost - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ime\": \"Milan\",\r\n    \"prezime\": \"Brckalo\",\r\n    \"funkcija\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/licnost",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"licnost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Licnost - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"licnostID\": \"f45c4d55-00af-4f06-be69-f79e3fa9dcc2\",\r\n    \"ime\": \"Sneza\",\r\n    \"prezime\": \"Nikolic\",\r\n    \"funkcija\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/licnost",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"licnost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Licnost - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/licnost/4a078606-30b2-497e-8650-7330a236e150",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"licnost",
+								"4a078606-30b2-497e-8650-7330a236e150"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clan - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/clan?licnostId=4a078606-30b2-497e-8650-7330a236e150",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"clan"
+							],
+							"query": [
+								{
+									"key": "licnostId",
+									"value": "4a078606-30b2-497e-8650-7330a236e150"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clan - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/clan/17fc842e-54f4-48fe-b189-0fd12d895c9a",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"clan",
+								"17fc842e-54f4-48fe-b189-0fd12d895c9a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clan - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clanID\": \"7f2bf0c0-3af0-4bb9-acca-8e99eb2c69e1\",\r\n    \"licnostID\": \"5bfdfeb8-1d68-44ef-b6b1-968a37279251\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/clan",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"clan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Komisija - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/komisija",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"komisija"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Komisija - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/komisija/8d878d03-fb76-42fc-91a0-5c8d3c36180e",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"komisija",
+								"8d878d03-fb76-42fc-91a0-5c8d3c36180e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Komisija - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clanID\": \"48c5549f-29e3-4647-99ea-d51fd0428e5c\",\r\n    \"predsednikID\": \"c28bf995-14dd-4478-ae88-30bd67e09294\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/komisija",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"komisija"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Predsednik - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/predsednik?licnostId=f45c4d55-00af-4f06-be69-f79e3fa9dcc2",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"predsednik"
+							],
+							"query": [
+								{
+									"key": "licnostId",
+									"value": "f45c4d55-00af-4f06-be69-f79e3fa9dcc2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Predsednik - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/predsednik/8d878d03-fb76-42fc-91a0-5c8d3c36180e",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"predsednik",
+								"8d878d03-fb76-42fc-91a0-5c8d3c36180e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Predsednik - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"predsednikID\": \"8cb76b35-271b-465a-809a-c4adedc4b01b\",\r\n    \"clanID\": \"fe890641-61ea-4ef8-84f1-fcdb7a7cdb5d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/predsednik",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"predsednik"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ParcelaService",
+			"item": [
+				{
+					"name": "Parcela - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/parcela",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"parcela"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parcela - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/parcela/ae463837-b971-4354-9f40-92cc819edf25",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"parcela",
+								"ae463837-b971-4354-9f40-92cc819edf25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parcela - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"korisnikParceleID\": \"efb3be0f-7082-4998-858d-51340d2abbab\",\r\n    \"povrsina\": 300,\r\n    \"brojParcele\": \"PC-2701\",\r\n    \"katastarskaOpstinaID\": \"714f831b-b86b-443d-abf5-f248694a8b2e\",\r\n    \"brojListaNepokretnosti\": \"LN103\",\r\n    \"kulturaID\": \"fc963149-30b2-4038-b5f0-bdaff5e332c2\",\r\n    \"klasaID\": \"5c3ad689-4409-4e4d-8e93-fd452776c770\",\r\n    \"obradivostID\": \"9e1a4745-8838-4130-8662-4337d153a5fd\",\r\n    \"zasticenaZonaID\": \"308a9704-2235-4310-9092-9cde4a40164b\",\r\n    \"oblikSvojineID\": \"84226e05-ec99-4c6c-827f-f0ccf63a0990\",\r\n    \"odvodnjavanjeID\": \"0f18b42e-3451-426d-8720-cdd50110989b\",\r\n    \"kulturaStvarnoStanje\": \"\",\r\n    \"klasaStvarnoStanje\": \"\",\r\n    \"obradivostStvarnoStanje\": \"\",\r\n    \"zasticenaZonaStvarnoStanje\": \"\",\r\n    \"odvodnjavanjeStvarnoStanje\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/parcela",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"parcela"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parcela - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parcelaID\": \"ae463837-b971-4354-9f40-92cc819edf25\",\r\n    \"korisnikParceleID\": \"efb3be0f-7082-4998-858d-51340d2abbab\",\r\n    \"povrsina\": 100,\r\n    \"brojParcele\": \"PC-2601\",\r\n    \"katastarskaOpstinaID\": \"870742be-2358-45f2-bb1b-1d4efa6bf9d2\",\r\n    \"brojListaNepokretnosti\": \"LN101\",\r\n    \"kulturaID\": \"a644ca6e-89c2-4b16-84d8-6f5b76909ad2\",\r\n    \"klasaID\": \"5c3ad689-4409-4e4d-8e93-fd452776c770\",\r\n    \"obradivostID\": \"9e1a4745-8838-4130-8662-4337d153a5fd\",\r\n    \"zasticenaZonaID\": \"308a9704-2235-4310-9092-9cde4a40164b\",\r\n    \"oblikSvojineID\": \"84226e05-ec99-4c6c-827f-f0ccf63a0990\",\r\n    \"odvodnjavanjeID\": \"0f18b42e-3451-426d-8720-cdd50110989b\",\r\n    \"kulturaStvarnoStanje\": \"odlicno\",\r\n    \"klasaStvarnoStanje\": \"odlicno\",\r\n    \"obradivostStvarnoStanje\": \"odlicno\",\r\n    \"zasticenaZonaStvarnoStanje\": \"odlicno\",\r\n    \"odvodnjavanjeStvarnoStanje\": \"odlicno\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/parcela",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"parcela"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parcela - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/parcela/ae463837-b971-4354-9f40-92cc819edf25",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"parcela",
+								"ae463837-b971-4354-9f40-92cc819edf25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeoParcele - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/deo-parcele?parcelaId=ae463837-b971-4354-9f40-92cc819edf25",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"deo-parcele"
+							],
+							"query": [
+								{
+									"key": "parcelaId",
+									"value": "ae463837-b971-4354-9f40-92cc819edf25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeoParcele - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/deo-parcele/bdafb306-0e28-4dd3-ad97-14532d86552c",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"deo-parcele",
+								"bdafb306-0e28-4dd3-ad97-14532d86552c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeoParcele - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parcelaID\": \"ae463837-b971-4354-9f40-92cc819edf25\",\r\n    \"nazivDelaParcele\": \"Kameno brdo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/deo-parcele",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"deo-parcele"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeoParcele - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"deoParceleID\": \"bdafb306-0e28-4dd3-ad97-14532d86552c\",\r\n    \"parcelaID\": \"ae463837-b971-4354-9f40-92cc819edf25\",\r\n    \"nazivDelaParcele\": \"Pored magistralnog puta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/deo-parcele",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"deo-parcele"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeoParcele - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/deo-parcele/bdafb306-0e28-4dd3-ad97-14532d86552c",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"deo-parcele",
+								"bdafb306-0e28-4dd3-ad97-14532d86552c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ZalbaService",
+			"item": [
+				{
+					"name": "Zalba - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/zalba",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"zalba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Zalba - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/zalba/42058551-6a8a-4485-af7f-1124de19e566",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"zalba",
+								"42058551-6a8a-4485-af7f-1124de19e566"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Zalba - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Datum_Podnosenja_Zalbe\":\"2020-01-10T09:00:00\",\r\n    \"Razlog_Podnosenja_Zalbe\":\"Povreda pravilnika postupka\",\r\n    \"Obrazlozenje\":\"Neispravni podaci\",\r\n    \"Datum_Resenja\":\"2020-01-17T09:00:00\",\r\n    \"Broj_Resenja\":22,\r\n    \"Broj_Nadmetanja\":35,\r\n    \"RadnjaNaOsnovuZalbeID\":\"ed7da07e-c1f6-4d4f-882c-d6c4b5118e46\",\r\n    \"StatusZalbeID\":\"c6fb5ac5-eaef-4db2-99a5-84a938972183\",\r\n    \"TipZalbeID\":\"7e82c9ce-c998-40c0-b743-6b9456d3629e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/zalba",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"zalba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Zalba - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ZalbaID\":\"42058551-6a8a-4485-af7f-1124de19e566\",\r\n    \"Datum_Podnosenja_Zalbe\":\"2020-01-10T09:00:00\",\r\n    \"Razlog_Podnosenja_Zalbe\":\"Povreda pravilnika postupka\",\r\n    \"Obrazlozenje\":\"Neispravni podaci\",\r\n    \"Datum_Resenja\":\"2020-01-17T09:00:00\",\r\n    \"Broj_Resenja\":22,\r\n    \"Broj_Nadmetanja\":35,\r\n    \"RadnjaNaOsnovuZalbeID\":\"ed7da07e-c1f6-4d4f-882c-d6c4b5118e46\",\r\n    \"StatusZalbeID\":\"c6fb5ac5-eaef-4db2-99a5-84a938972183\",\r\n    \"TipZalbeID\":\"7e82c9ce-c998-40c0-b743-6b9456d3629e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/zalba",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"zalba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Zalba - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/zalba/42058551-6a8a-4485-af7f-1124de19e566",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"zalba",
+								"42058551-6a8a-4485-af7f-1124de19e566"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OvlascenoLiceService",
+			"item": [
+				{
+					"name": "OvlascenoLice - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/ovlasceno-lice",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"ovlasceno-lice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OvlascenoLice - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/ovlasceno-lice/d041c26e-34c1-4c2d-a9f6-0c0478f3f437",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"ovlasceno-lice",
+								"d041c26e-34c1-4c2d-a9f6-0c0478f3f437"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OvlascenoLice - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Ime\":\"Dejan\",\r\n    \"Prezime\":\"Jovic\",\r\n    \"JMBG\":\"1108988171454\",\r\n    \"BrojPasosa\":\"PR24565E6\",\r\n    \"BrojTableID\":\"206a4efa-5389-41a8-a730-4df3842cf7fe\",\r\n    \"DrzavaID\":\"bb9c4ebc-2028-4a83-88d7-04422ab58548\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/ovlasceno-lice",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"ovlasceno-lice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OvlascenoLice - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"OvlascenoLiceID\":\"d041c26e-34c1-4c2d-a9f6-0c0478f3f437\",\r\n    \"Ime\":\"Milos\",\r\n    \"Prezime\":\"Jovanovic\",\r\n    \"JMBG\":\"1108988171454\",\r\n    \"BrojPasosa\":\"BP0710\",\r\n    \"BrojTableID\":\"206a4efa-5389-41a8-a730-4df3842cf7fe\",\r\n    \"DrzavaID\":\"bb9c4ebc-2028-4a83-88d7-04422ab58548\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/ovlasceno-lice",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"ovlasceno-lice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OvlascenoLice - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/ovlasceno-lice/d041c26e-34c1-4c2d-a9f6-0c0478f3f437",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"ovlasceno-lice",
+								"d041c26e-34c1-4c2d-a9f6-0c0478f3f437"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UgovorOZakupuService",
+			"item": [
+				{
+					"name": "Ugovor - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/ugovor",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"ugovor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ugovor - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/ugovor/0ec914e2-a7a2-4935-ad30-5912fc86fd19",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"ugovor",
+								"0ec914e2-a7a2-4935-ad30-5912fc86fd19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ugovor - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"korisnikID\": \"87e332ef-478d-4e75-a1fd-a6eee61a98e4\",\r\n    \"kupacID\": \"ee0d7da2-a336-4a45-b70a-a540e6f9f0a9\",\r\n    \"javnoNadmetanjeID\": \"d5fc96d3-10c3-46f2-b12c-542bf0577c66\",\r\n    \"licnostID\": \"f1ef17ec-310f-4cc9-9120-de03262470c4\",\r\n    \"rokID\": \"28de10a1-1df6-41a1-a397-1d15067e95ce\",\r\n    \"dokumentID\": \"acbfa1a7-1c09-4a98-9119-b11a9bb34b75\",\r\n    \"tipGarancijeID\": \"d93136b7-a0f5-4af1-931e-a87507d613e4\",\r\n    \"zavodniBroj\": \"UGO-12/11\",\r\n    \"mestoPotpisivanja\": \"Novi Sad\",\r\n    \"datumZavodjenja\": \"2022-02-16T19:43:22.079Z\",\r\n    \"rokZaVracanjeZem\": \"2022-02-16T19:43:22.079Z\",\r\n    \"datumPotpisa\": \"2022-02-16T19:43:22.079Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/ugovor",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"ugovor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ugovor - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ugovorID\": \"0ec914e2-a7a2-4935-ad30-5912fc86fd19\",\r\n    \"korisnikID\": \"25862727-de11-49c4-aea2-5431db48f0a5\",\r\n    \"kupacID\": \"81037b57-d24c-4d85-9649-7fc6ed635a0c\",\r\n    \"javnoNadmetanjeID\": \"84b3ea4c-e02f-41b1-a1ef-2734ef97abb2\",\r\n    \"licnostID\": \"45aed467-8061-4011-bfc6-3bc4d01b65f9\",\r\n    \"rokID\": \"8d6b2975-80bc-4823-9216-66cc6892d29e\",\r\n    \"dokumentID\": \"f00355a8-b3dc-4a6f-b4d7-46f4d7d7a9c7\",\r\n    \"tipGarancijeID\": \"f5c2bfbf-06e0-4a11-9b05-e7940d146016\",\r\n    \"zavodniBroj\": \"UGV-3/21\",\r\n    \"mestoPotpisivanja\": \"Novi Sad\",\r\n    \"datumZavodjenja\": \"2022-01-18T16:14:33\",\r\n    \"rokZaVracanjeZem\": \"2023-04-29T10:00:00\",\r\n    \"datumPotpisa\": \"2022-01-23T14:20:57\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/ugovor",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"ugovor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ugovor - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/ugovor/0ec914e2-a7a2-4935-ad30-5912fc86fd19",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"ugovor",
+								"0ec914e2-a7a2-4935-ad30-5912fc86fd19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipGarancije - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/tip-garancije",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"tip-garancije"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipGarancije - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/tip-garancije/d2e52d2e-8c27-49e1-b4e0-4a873a6ca75e",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"tip-garancije",
+								"d2e52d2e-8c27-49e1-b4e0-4a873a6ca75e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rok - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/rok",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"rok"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rok - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/rok/34562293-3bb6-4ef3-922f-f9d7d3c57864",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"rok",
+								"34562293-3bb6-4ef3-922f-f9d7d3c57864"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dokument - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/dokument",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"dokument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dokument - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/dokument/4a807a16-a73f-4f02-944a-0db26fd2fa5e",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"dokument",
+								"4a807a16-a73f-4f02-944a-0db26fd2fa5e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "KupacService",
+			"item": [
+				{
+					"name": "Kupac - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/kupac",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"kupac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kupac - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/kupac/a35d8ec7-4cea-42ec-859e-5c012476ced0",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"kupac",
+								"a35d8ec7-4cea-42ec-859e-5c012476ced0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kupac - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{       \r\n    \"prioritetId\": \"608ed376-c4bb-4bdd-84cb-f34147ca96df\",\r\n    \"ostvarenaPovrsina\": \"200m2\",\r\n    \"ovlascenoLiceId\": \"148805f4-3093-4fd3-aea1-f253038b3c8f\",\r\n    \"imaZabranu\": true,\r\n    \"datumPocetkaZabrane\": \"2020-11-15T09:00:00\",\r\n    \"datumTrajanjaZabrane\": \"1 godinu\",\r\n    \"datumPrestankaZabrane\": \"2021-11-15T09:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/kupac",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"kupac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kupac - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"kupacId\": \"a35d8ec7-4cea-42ec-859e-5c012476ced0\",\r\n    \"prioritetId\": \"608ed376-c4bb-4bdd-84cb-f34147ca96df\",\r\n    \"ostvarenaPovrsina\": \"300m2\",\r\n    \"ovlascenoLiceId\": \"148805f4-3093-4fd3-aea1-f253038b3c8f\",\r\n    \"imaZabranu\": false,\r\n    \"datumPocetkaZabrane\": \"2020-11-15T09:00:00\",\r\n    \"datumTrajanjaZabrane\": \"1 godinu\",\r\n    \"datumPrestankaZabrane\": \"2021-11-15T09:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/kupac",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"kupac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kupac - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/kupac/a35d8ec7-4cea-42ec-859e-5c012476ced0",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"kupac",
+								"a35d8ec7-4cea-42ec-859e-5c012476ced0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PrijavljenKupac - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/prijavljen-kupac",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"prijavljen-kupac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PrijavljenKupac - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/prijavljen-kupac/1a1bdf95-8ee1-4998-a78c-360039502626",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"prijavljen-kupac",
+								"1a1bdf95-8ee1-4998-a78c-360039502626"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PrijavljenKupac - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PrijavljenKupacId\": \"a35d8ec7-4cea-42ec-859e-5c012476ced0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/prijavljen-kupac",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"prijavljen-kupac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PrijavljenKupac - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"prijavljenKupacId\": \"1a1bdf95-8ee1-4998-a78c-360039502626\",\r\n    \"kupacId\": \"ef63397b-2c81-4c96-a647-932506a50987\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/prijavljen-kupac",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"prijavljen-kupac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PrijavljenKupac - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/prijavljen-kupac/1a1bdf95-8ee1-4998-a78c-360039502626",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"prijavljen-kupac",
+								"1a1bdf95-8ee1-4998-a78c-360039502626"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NajboljiPonudjac - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/najbolji-ponudjac",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"najbolji-ponudjac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NajboljiPonudjac - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/najbolji-ponudjac/c566ecfd-a27d-4a0b-8032-66fc24754929",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"najbolji-ponudjac",
+								"c566ecfd-a27d-4a0b-8032-66fc24754929"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NajboljiPonudjac - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"kupacId\": \"a35d8ec7-4cea-42ec-859e-5c012476ced0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/najbolji-ponudjac",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"najbolji-ponudjac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NajboljiPonudjac - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"najboljiPonudjacId\": \"c566ecfd-a27d-4a0b-8032-66fc24754929\",\r\n    \"kupacId\": \"d7199212-2584-4565-8870-fdd9b2a6a3c0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/najbolji-ponudjac",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"najbolji-ponudjac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NajboljiPonudjac - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/najbolji-ponudjac/c566ecfd-a27d-4a0b-8032-66fc24754929",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"najbolji-ponudjac",
+								"c566ecfd-a27d-4a0b-8032-66fc24754929"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Prioritet - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/prioritet",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"prioritet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Prioritet - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/prioritet/20e00a61-9e6a-4d6b-9df0-0b85e645849d",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"prioritet",
+								"20e00a61-9e6a-4d6b-9df0-0b85e645849d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AdresaService",
+			"item": [
+				{
+					"name": "Adresa - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/adresa",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"adresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adresa - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/adresa/98e5e83e-857f-4930-8b7f-276055d38557",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"adresa",
+								"98e5e83e-857f-4930-8b7f-276055d38557"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adresa - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n    \"ulica\": \"Bulevar Oslobodjenja\",\r\n    \"broj\": \"5\",\r\n    \"mesto\": \"Novi Sad\",\r\n    \"postanskiBroj\": 21207,\r\n    \"drzavaID\": \"a8d29242-7df3-4bfb-be49-48519f65649b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/adresa",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"adresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adresa - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"adresaID\": \"98e5e83e-857f-4930-8b7f-276055d38557\",\r\n    \"ulica\": \"Bulevar Evrope\",\r\n    \"broj\": \"35\",\r\n    \"mesto\": \"Novi Sad\",\r\n    \"postanskiBroj\": 21203\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/adresa",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"adresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adresa - Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/adresa/98e5e83e-857f-4930-8b7f-276055d38557",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"adresa",
+								"98e5e83e-857f-4930-8b7f-276055d38557"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Drzava - Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/drzava",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"drzava"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Drzava - Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{gateway_url}}/drzava/a8d29242-7df3-4bfb-be49-48519f65649b",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"drzava",
+								"a8d29242-7df3-4bfb-be49-48519f65649b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUyMTMzMzEsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAzIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDMifQ.w_R7L62jzBpJeXw0X2jSCreAR4-7gXTOQmnVP4HM7G0",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "gateway_url",
+			"value": "http://localhost:30301/api",
+			"type": "default"
+		}
+	]
+}

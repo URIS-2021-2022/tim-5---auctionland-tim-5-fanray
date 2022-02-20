@@ -18,16 +18,16 @@ namespace KupacService.Data
             this.Context = context;
             this.Mapper = mapper;
         }
-        public PrijavljenKupac GetPrijavljen_KupacById(Guid prijavljenKupacId)
+        public Prijavljen_Kupac GetPrijavljen_KupacById(Guid prijavljenKupacId)
         {
             return Context.Prijavljen_Kupac.FirstOrDefault(e => e.PrijavljenKupacId == prijavljenKupacId);
         }
 
-        public List<PrijavljenKupac> GetPrijavljen_KupacList()
+        public List<Prijavljen_Kupac> GetPrijavljen_KupacList()
         {
             return Context.Prijavljen_Kupac.ToList();
         }
-        public PrijavljenKupacConfirmationDto CreatePrijavljenKupac(PrijavljenKupac prijavljenKupac)
+        public PrijavljenKupacConfirmationDto CreatePrijavljenKupac(Prijavljen_Kupac prijavljenKupac)
         {
             prijavljenKupac.PrijavljenKupacId = Guid.NewGuid();
 
@@ -36,9 +36,9 @@ namespace KupacService.Data
 
             return Mapper.Map<PrijavljenKupacConfirmationDto>(prijavljenKupac);
         }
-        public PrijavljenKupacConfirmationDto UpdatePrijavljenKupac(PrijavljenKupac prijavljenKupac)
+        public PrijavljenKupacConfirmationDto UpdatePrijavljenKupac(Prijavljen_Kupac prijavljenKupac)
         {
-            PrijavljenKupac pk = Context.Prijavljen_Kupac.FirstOrDefault(e => e.PrijavljenKupacId == prijavljenKupac.PrijavljenKupacId);
+            Prijavljen_Kupac pk = Context.Prijavljen_Kupac.FirstOrDefault(e => e.PrijavljenKupacId == prijavljenKupac.PrijavljenKupacId);
 
             if (pk == null)
             {
@@ -54,7 +54,7 @@ namespace KupacService.Data
         }
         public PrijavljenKupacConfirmationDto DeletePrijavljenKupac(Guid prijavljenKupacId)
         {
-            PrijavljenKupac prijavljenKupac = GetPrijavljen_KupacById(prijavljenKupacId);
+            Prijavljen_Kupac prijavljenKupac = GetPrijavljen_KupacById(prijavljenKupacId);
 
             if (prijavljenKupac == null)
             {

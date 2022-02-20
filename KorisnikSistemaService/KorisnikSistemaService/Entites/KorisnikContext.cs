@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace KorisnikSistemaService.Entites
@@ -70,6 +71,9 @@ namespace KorisnikSistemaService.Entites
                         NazivTipa = "Administrator"
                     }
                 );
+
+            var korisnik = HashPassword("tamara123");
+
             modelBuilder.Entity<Korisnik>()
                 .HasData(
                     new Korisnik
@@ -78,10 +82,22 @@ namespace KorisnikSistemaService.Entites
                         Ime = "Tamara",
                         Prezime = "Radulovic",
                         KorisnickoIme = "tamaraR",
-                        Lozinka = "tamara123",
-                        TipKorisnikaID = Guid.Parse("e4e52522-1f76-4c03-95d4-011bff472838")
+                        Lozinka = korisnik.Item1,
+                        TipKorisnikaID = Guid.Parse("e4e52522-1f76-4c03-95d4-011bff472838"),
+                        Salt = korisnik.Item2
                     }
                 );
+        }
+        private Tuple<string, string> HashPassword(string lozinka)
+        {
+            var sBytes = new byte[lozinka.Length];
+
+            new RNGCryptoServiceProvider().GetNonZeroBytes(sBytes);
+
+            var salt = Convert.ToBase64String(sBytes);
+            var derivedBytes = new Rfc2898DeriveBytes(lozinka, sBytes, 100);
+
+            return new Tuple<string, string>(Convert.ToBase64String(derivedBytes.GetBytes(256)), salt);
         }
     }
 }

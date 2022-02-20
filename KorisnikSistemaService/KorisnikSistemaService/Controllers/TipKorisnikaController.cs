@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace KorisnikSistemaService.Controllers
 {
     [ApiController]
-    [Route("api/v1/tipKorisnika")]
+    [Route("api/v1/tip-korisnika")]
     [Produces("application/json")]
     [Authorize]
     public class TipKorisnikaController : ControllerBase

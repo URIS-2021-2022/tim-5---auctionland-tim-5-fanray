@@ -2,6 +2,7 @@
 using KupacService.Data;
 using KupacService.Entities;
 using KupacService.Models;
+using KupacService.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,12 +23,14 @@ namespace KupacService.Controllers
         private readonly IKupacRepository KupacRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public KupacController(IKupacRepository kupacRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public KupacController(IKupacRepository kupacRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.KupacRepository = kupacRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         /// <summary>
@@ -93,11 +96,13 @@ namespace KupacService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetKupacById", "Kupac", new { kupacId = confirmation.KupacId });
 
+                LoggerService.createLogAsync("Kupac " + kupac.KupacId + " je dodat");
+
                 return Created(location, Mapper.Map<KupacConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
         /// <summary>
@@ -128,6 +133,8 @@ namespace KupacService.Controllers
                 Mapper.Map(kupac, oldKupac);
 
                 KupacConfirmationDto confirmation = KupacRepository.UpdateKupac(kupac);
+
+                LoggerService.createLogAsync("Kupac " + kupac.KupacId + " je ažuriran");
 
                 return Ok(Mapper.Map<KupacConfirmationDto>(confirmation));
             }
@@ -161,6 +168,8 @@ namespace KupacService.Controllers
                 }
 
                 KupacConfirmationDto confirmation = KupacRepository.DeleteKupac(kupacId);
+
+                LoggerService.createLogAsync("Kupac " + kupac.KupacId + " je izbrisan");
 
                 return Ok(Mapper.Map<KupacConfirmationDto>(confirmation));
             }

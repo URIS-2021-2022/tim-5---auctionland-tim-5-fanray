@@ -9,10 +9,10 @@ namespace KupacService.Data
 {
     public interface IPrijavljeniKupacRepository
     {
-        List<PrijavljenKupac> GetPrijavljen_KupacList();
-        PrijavljenKupac GetPrijavljen_KupacById(Guid prijavljenKupacId);
-        PrijavljenKupacConfirmationDto CreatePrijavljenKupac(PrijavljenKupac prijavljenKupac);
-        PrijavljenKupacConfirmationDto UpdatePrijavljenKupac(PrijavljenKupac prijavljenKupac);
+        List<Prijavljen_Kupac> GetPrijavljen_KupacList();
+        Prijavljen_Kupac GetPrijavljen_KupacById(Guid prijavljenKupacId);
+        PrijavljenKupacConfirmationDto CreatePrijavljenKupac(Prijavljen_Kupac prijavljenKupac);
+        PrijavljenKupacConfirmationDto UpdatePrijavljenKupac(Prijavljen_Kupac prijavljenKupac);
         PrijavljenKupacConfirmationDto DeletePrijavljenKupac(Guid prijavljenKupacId);
     }
 }

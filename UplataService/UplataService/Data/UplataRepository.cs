@@ -19,22 +19,29 @@ namespace UplataService.Data
         {
             this.Context = context;
             this.Mapper = mapper;
-        }
+        } 
 
-        public UplataConfirmationDto CreateUplata(Uplata uplata)
+        public UplataConfirmationDto CreateUplata(UplataCreateDto uplataDto)
         {
-            uplata.UplataID = Guid.NewGuid();
+            Uplata uplata = new Uplata()
+            {
+                UplataID = Guid.NewGuid(),
+                Broj_Racuna = uplataDto.Broj_Racuna,
+                Poziv_Na_Broj = uplataDto.Poziv_Na_Broj,
+                Iznos = uplataDto.Iznos,
+                Svrha_Uplate = uplataDto.Svrha_Uplate,
+                DatumUplate = uplataDto.DatumUplate,
+                DatumKursa = uplataDto.DatumKursa,
+                Valuta = uplataDto.Valuta,
+                Vrednost = uplataDto.Vrednost
+            };
 
-            Context.Uplata.Add(uplata);
+            Context.Add(uplata);
             Context.SaveChanges();
 
             return Mapper.Map<UplataConfirmationDto>(uplata);
         }
-
-        public UplataConfirmationDto CreateUplata(UplataCreateDto uplata)
-        {
-            throw new NotImplementedException();
-        }
+    
 
         public UplataConfirmationDto DeleteUplata(Guid uplataId)
         {
@@ -51,9 +58,9 @@ namespace UplataService.Data
             return Mapper.Map<UplataConfirmationDto>(uplata);
         }
 
-        public Uplata getUplataById(Guid uplataId)
+        public Uplata getUplataById(Guid uplataID)
         {
-            return Context.Uplata.FirstOrDefault(e => e.UplataID == uplataId);
+            return Context.Uplata.FirstOrDefault(e => e.UplataID == uplataID);
         }
 
         public List<Uplata> getUplataList()
@@ -61,23 +68,23 @@ namespace UplataService.Data
             return Context.Uplata.ToList();
         }
 
-        public UplataConfirmationDto UpdateUplata(UplataUpdateDto uplata)
+        public UplataConfirmationDto UpdateUplata(UplataUpdateDto uplataDto)
         {
-            Uplata u = Context.Uplata.FirstOrDefault(e => e.UplataID == uplata.UplataID);
+            Uplata uplata = Context.Uplata.FirstOrDefault(e => e.UplataID == uplataDto.UplataID);
 
             if (uplata == null)
             {
                 throw new EntryPointNotFoundException();
             }
 
-            u.Broj_Racuna = uplata.Broj_Racuna;
-            u.Poziv_Na_Broj = uplata.Poziv_Na_Broj;
-            u.Iznos = uplata.Iznos;
-            u.Svrha_Uplate = uplata.Svrha_Uplate;
-            u.DatumUplate = uplata.DatumUplate;
-            u.DatumKursa = uplata.DatumKursa;
-            u.Valuta = uplata.Valuta;
-            u.Vrednost = uplata.Vrednost;
+            uplata.Broj_Racuna = uplataDto.Broj_Racuna;
+            uplata.Poziv_Na_Broj = uplataDto.Poziv_Na_Broj;
+            uplata.Iznos = uplataDto.Iznos;
+            uplata.Svrha_Uplate = uplataDto.Svrha_Uplate;
+            uplata.DatumUplate = uplataDto.DatumUplate;
+            uplata.DatumKursa = uplataDto.DatumKursa;
+            uplata.Valuta = uplataDto.Valuta;
+            uplata.Vrednost = uplataDto.Vrednost;
 
 
             Context.SaveChanges();

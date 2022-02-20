@@ -8,7 +8,6 @@ namespace UgovorOZakupuService.Entities
 {
     public class Rok
     {
-        [Key]
         public Guid RokID { get; set; }
         public DateTime DatumRokaDospeca { get; set; }
     }

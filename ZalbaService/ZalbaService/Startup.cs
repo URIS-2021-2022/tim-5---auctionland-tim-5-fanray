@@ -12,6 +12,7 @@ using ZalbaService.Entities;
 using ZalbaService.Helpers;
 using System;
 using System.Text;
+using ZalbaService.Services;
 
 namespace ZalbaService
 {
@@ -26,12 +27,15 @@ namespace ZalbaService
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
             services.AddScoped<IRadnjaNaOsnovuZalbeRepository, RadnjaNaOsnovuZalbeRepository>();
             services.AddScoped<IStatusZalbeRepository, StatusZalbeRepository>();
             services.AddScoped<ITipZalbeRepository, TipZalbeRepository>();
             services.AddScoped<IZalbaRepository, ZalbaRepository>();
             services.AddScoped<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();
 

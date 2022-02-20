@@ -9,10 +9,10 @@ namespace KupacService.Data
 {
     public interface INajboljiPonudjacRepository
     {
-        List<NajboljiPonudjac> GetNajbolji_PonudjacList();
-        NajboljiPonudjac GetNajbolji_PonudjacById(Guid najboljiPonudjacId);
-        NajboljiPonudjacConfirmationDto CreateNajboljiPonudjac(NajboljiPonudjac najboljiPonudjac);
-        NajboljiPonudjacConfirmationDto UpdateNajboljiPonudjac(NajboljiPonudjac najboljiPonudjac);
+        List<Najbolji_Ponudjac> GetNajbolji_PonudjacList();
+        Najbolji_Ponudjac GetNajbolji_PonudjacById(Guid najboljiPonudjacId);
+        NajboljiPonudjacConfirmationDto CreateNajboljiPonudjac(Najbolji_Ponudjac najboljiPonudjac);
+        NajboljiPonudjacConfirmationDto UpdateNajboljiPonudjac(Najbolji_Ponudjac najboljiPonudjac);
         NajboljiPonudjacConfirmationDto DeleteNajboljiPonudjac(Guid najboljiPonudjacId);
     }
 }

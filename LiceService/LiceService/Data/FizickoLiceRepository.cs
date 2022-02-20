@@ -16,7 +16,7 @@ namespace LiceService.Data
 
         public FizickoLice GetFizickoLiceById(Guid fizickoLiceId)
         {
-            return Context.FizickoLice.FirstOrDefault(e => e.JMBG == fizickoLiceId);
+            return Context.FizickoLice.FirstOrDefault(e => e.LiceID == fizickoLiceId);
         }
 
         public List<FizickoLice> GetFizickoLiceList()

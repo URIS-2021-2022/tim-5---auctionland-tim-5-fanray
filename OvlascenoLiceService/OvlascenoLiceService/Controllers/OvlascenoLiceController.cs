@@ -6,13 +6,14 @@ using Microsoft.AspNetCore.Routing;
 using OvlascenoLiceService.Data;
 using OvlascenoLiceService.Entities;
 using OvlascenoLiceService.Models;
+using OvlascenoLiceService.Services;
 using System;
 using System.Collections.Generic;
 
 namespace OvlascenoLice.Controllers
 {
     [ApiController]
-    [Route("api/v1/ovlascenoLice")]
+    [Route("api/v1/ovlasceno-lice")]
     [Produces("application/json")]
     [Authorize]
     public class OvlascenoLiceController : ControllerBase
@@ -20,12 +21,14 @@ namespace OvlascenoLice.Controllers
         private readonly IOvlascenoLiceRepository OvlascenoLiceRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public OvlascenoLiceController(IOvlascenoLiceRepository ovlascenoLiceRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public OvlascenoLiceController(IOvlascenoLiceRepository ovlascenoLiceRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.OvlascenoLiceRepository = ovlascenoLiceRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         [HttpGet]
@@ -64,6 +67,8 @@ namespace OvlascenoLice.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetOvlascenoLiceById", "OvlascenoLice", new { ovlascenoLiceId = confirmation.OvlascenoLiceID });
 
+                LoggerService.createLogAsync("Ovlašćeno lice " +  ovlascenoLice.OvlascenoLiceID + " je dodato");
+
                 return Created(location, Mapper.Map<OvlascenoLiceConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -88,6 +93,8 @@ namespace OvlascenoLice.Controllers
 
                 Mapper.Map(ovlascenoLice, oldOvlascenoLice);
 
+                LoggerService.createLogAsync("Ovlašćeno lice " + ovlascenoLice.OvlascenoLiceID + " je ažurirano");
+
                 return Ok(Mapper.Map<OvlascenoLiceConfirmationDto>(oldOvlascenoLice));
             }
             catch (Exception ex)
@@ -109,6 +116,8 @@ namespace OvlascenoLice.Controllers
                 }
 
                 OvlascenoLiceRepository.DeleteOvlascenoLice(ovlascenoLiceId);
+
+                LoggerService.createLogAsync("Ovlašćeno lice " + ovlascenoLice.OvlascenoLiceID + " je izbrisano");
 
                 return Ok(Mapper.Map<OvlascenoLiceConfirmationDto>(ovlascenoLice));
             }

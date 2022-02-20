@@ -26,7 +26,6 @@ namespace OvlascenoLiceService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Broj_Table")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BrojTableID");
@@ -48,28 +47,6 @@ namespace OvlascenoLiceService.Migrations
                         {
                             BrojTableID = new Guid("aad4011e-d00a-49c0-ac13-27f485621e7e"),
                             Broj_Table = "143"
-                        });
-                });
-
-            modelBuilder.Entity("OvlascenoLiceService.Entities.Drzava", b =>
-                {
-                    b.Property<Guid>("DrzavaID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("NazivDrzave")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DrzavaID");
-
-                    b.ToTable("Drzava");
-
-                    b.HasData(
-                        new
-                        {
-                            DrzavaID = new Guid("bb9c4ebc-2028-4a83-88d7-04422ab58548"),
-                            NazivDrzave = "Srbija"
                         });
                 });
 
@@ -99,10 +76,6 @@ namespace OvlascenoLiceService.Migrations
 
                     b.HasKey("OvlascenoLiceID");
 
-                    b.HasIndex("BrojTableID");
-
-                    b.HasIndex("DrzavaID");
-
                     b.ToTable("OvlascenoLice");
 
                     b.HasData(
@@ -116,17 +89,6 @@ namespace OvlascenoLiceService.Migrations
                             JMBG = "1007990171500",
                             Prezime = "Jovanovic"
                         });
-                });
-
-            modelBuilder.Entity("OvlascenoLiceService.Entities.OvlascenoLice", b =>
-                {
-                    b.HasOne("OvlascenoLiceService.Entities.BrojTable", "BrojTable")
-                        .WithMany("OvlascenoLiceList")
-                        .HasForeignKey("BrojTableID");
-
-                    b.HasOne("OvlascenoLiceService.Entities.Drzava", "Drzava")
-                        .WithMany("OvlascenoLiceList")
-                        .HasForeignKey("DrzavaID");
                 });
 #pragma warning restore 612, 618
         }

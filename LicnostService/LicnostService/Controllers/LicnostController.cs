@@ -8,6 +8,7 @@ using LicnostService.Entities;
 using LicnostService.Models;
 using System;
 using System.Collections.Generic;
+using LicnostService.Services;
 
 namespace LicnostService.Controllers
 {
@@ -20,12 +21,14 @@ namespace LicnostService.Controllers
         private readonly ILicnostRepository LicnostRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILoggerService LoggerService;
 
-        public LicnostController(ILicnostRepository licnostRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public LicnostController(ILicnostRepository licnostRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
         {
             this.LicnostRepository = licnostRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LoggerService = loggerService;
         }
 
         [HttpGet]
@@ -71,6 +74,8 @@ namespace LicnostService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetLicnostById", "Licnost", new { licnostId = confirmation.LicnostID });
 
+                LoggerService.createLogAsync("Ličnost " + licnost.LicnostID + " je dodata");
+
                 return Created(location, Mapper.Map<LicnostConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -101,6 +106,8 @@ namespace LicnostService.Controllers
 
                 LicnostConfirmationDto confirmation = LicnostRepository.UpdateLicnost(licnost);
 
+                LoggerService.createLogAsync("Ličnost " + licnost.LicnostID + " je ažurirana");
+
                 return Ok(Mapper.Map<LicnostConfirmationDto>(confirmation));
             }
             catch (Exception ex)
@@ -125,6 +132,8 @@ namespace LicnostService.Controllers
                 }
 
                 LicnostConfirmationDto confirmation = LicnostRepository.DeleteLicnost(licnostId);
+
+                LoggerService.createLogAsync("Ličnost " + licnost.LicnostID + " je izbrisana");
 
                 return Ok(Mapper.Map<LicnostConfirmationDto>(confirmation));
             }

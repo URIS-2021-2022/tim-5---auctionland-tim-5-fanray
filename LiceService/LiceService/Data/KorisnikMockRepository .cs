@@ -18,7 +18,7 @@ namespace LiceService.Data
 
         private void FillData()
         {
-            var korisnik = HashPassword("lice123");
+            var korisnik = HashPassword("sifra123456");
 
             KorisnikList.AddRange(new List<Korisnik>
             {

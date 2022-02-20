@@ -9,16 +9,9 @@ namespace LiceService.Entities
 {
     public class PravnoLice
     {
-
        [Key]
-        public Guid Maticni_broj { get; set; }
-        public string Naziv { get; set; }
-
-        [ForeignKey("Lice")]
-        public Guid? LiceID { get; set; }
-        public Lice Lice { get; set; }
-
-
-
+       public Guid LiceID { get; set; }
+       public string Naziv { get; set; }
+       public Guid? MaticniBroj { get; set; }
     }
 }

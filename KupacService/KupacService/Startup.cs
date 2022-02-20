@@ -1,6 +1,7 @@
 using KupacService.Data;
 using KupacService.Entities;
 using KupacService.Helpers;
+using KupacService.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,12 +34,15 @@ namespace KupacService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
             services.AddScoped<IKupacRepository, KupacRepository>();
             services.AddScoped<IPrijavljeniKupacRepository, PrijavljenKupacRepository>();
             services.AddScoped<INajboljiPonudjacRepository, NajboljiPonudjacRepository>();
             services.AddScoped<IPrioritetRepository, PrioritetRepository>();
             services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();
 
