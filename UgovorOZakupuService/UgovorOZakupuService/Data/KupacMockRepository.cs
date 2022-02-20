@@ -63,9 +63,9 @@ namespace UgovorOZakupuService.Data
             });
         }
 
-        public PrijavljeniKupacDto GetPrijavljeniKupacById(Guid prijavljeniKupacID)
+        public PrijavljeniKupacDto GetPrijavljeniKupacById(Guid prijavljeniKupacId)
         {
-            return PrijavljeniKupacList.FirstOrDefault(e => e.PrijavljeniKupacID == prijavljeniKupacID);
+            return PrijavljeniKupacList.FirstOrDefault(e => e.PrijavljeniKupacID == prijavljeniKupacId);
         }
 
         public List<PrijavljeniKupacDto> GetPrijavljeniKupacList()
@@ -73,9 +73,9 @@ namespace UgovorOZakupuService.Data
             return PrijavljeniKupacList;
         }
 
-        public NajboljiPonudjacDto GetNajboljiPonudjacById(Guid najboljiPonudjacID)
+        public NajboljiPonudjacDto GetNajboljiPonudjacById(Guid najboljiPonudjacId)
         {
-            return NajboljiPonudjacList.FirstOrDefault(e => e.NajboljiPonudjacID == najboljiPonudjacID);
+            return NajboljiPonudjacList.FirstOrDefault(e => e.NajboljiPonudjacID == najboljiPonudjacId);
         }
 
         public List<NajboljiPonudjacDto> GetNajboljiPonudjacList()
@@ -83,9 +83,9 @@ namespace UgovorOZakupuService.Data
             return NajboljiPonudjacList;
         }
 
-        public PrioritetDto GetPrioritetById(Guid prioritetID)
+        public PrioritetDto GetPrioritetById(Guid prioritetId)
         {
-            return PrioritetList.FirstOrDefault(e => e.PrioritetID == prioritetID);
+            return PrioritetList.FirstOrDefault(e => e.PrioritetID == prioritetId);
         }
 
         public List<PrioritetDto> GetPrioritetList()
