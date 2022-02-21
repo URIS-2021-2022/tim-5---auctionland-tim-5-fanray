@@ -13,6 +13,8 @@ using ZalbaService.Helpers;
 using System;
 using System.Text;
 using ZalbaService.Services;
+using System.Reflection;
+using System.IO;
 
 namespace ZalbaService
 {
@@ -57,7 +59,15 @@ namespace ZalbaService
                 };
             });
 
-            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "ZalbaService", Version = "v1" }));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ZalbaService", Version = "v1" });
+
+                var xmlComments = $"{ Assembly.GetExecutingAssembly().GetName().Name }.xml";
+                var xmlCommentsPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
+
+                c.IncludeXmlComments(xmlCommentsPath);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

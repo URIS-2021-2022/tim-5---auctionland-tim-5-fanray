@@ -19,13 +19,20 @@ namespace OvlascenoLice.Controllers
     public class OvlascenoLiceController : ControllerBase
     {
         private readonly IOvlascenoLiceRepository OvlascenoLiceRepository;
+        private readonly IBrojTableRepository BrojTableRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
         private readonly ILoggerService LoggerService;
 
-        public OvlascenoLiceController(IOvlascenoLiceRepository ovlascenoLiceRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
+        public OvlascenoLiceController(
+            IOvlascenoLiceRepository ovlascenoLiceRepository, 
+            IBrojTableRepository brojTableRepository,
+            LinkGenerator linkGenerator, 
+            IMapper mapper, ILoggerService 
+            loggerService)
         {
             this.OvlascenoLiceRepository = ovlascenoLiceRepository;
+            this.BrojTableRepository = brojTableRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
             this.LoggerService = loggerService;
@@ -41,6 +48,11 @@ namespace OvlascenoLice.Controllers
                 return NoContent();
             }
 
+            foreach (OvlascenoLiceService.Entities.OvlascenoLice ol in ovlascenoLiceList)
+            {
+                ol.BrojTable = BrojTableRepository.GetBrojTableById(ol.BrojTableID);
+            }
+
             return Ok(Mapper.Map<List<OvlascenoLiceDto>>(ovlascenoLiceList));
         }
 
@@ -53,6 +65,8 @@ namespace OvlascenoLice.Controllers
             {
                 return NotFound();
             }
+
+            ovlascenoLice.BrojTable = BrojTableRepository.GetBrojTableById(ovlascenoLice.BrojTableID);
 
             return Ok(Mapper.Map<OvlascenoLiceDto>(ovlascenoLice));
         }

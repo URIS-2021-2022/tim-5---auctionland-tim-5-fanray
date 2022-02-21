@@ -12,6 +12,8 @@ using OvlascenoLiceService.Entities;
 using OvlascenoLiceService.Helpers;
 using OvlascenoLiceService.Services;
 using System;
+using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace OvlascenoLiceService
@@ -55,7 +57,15 @@ namespace OvlascenoLiceService
                 };
             });
 
-            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "OvlascenoLiceService", Version = "v1" }));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "OvlascenoLiceService", Version = "v1" });
+
+                var xmlComments = $"{ Assembly.GetExecutingAssembly().GetName().Name }.xml";
+                var xmlCommentsPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
+
+                c.IncludeXmlComments(xmlCommentsPath);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

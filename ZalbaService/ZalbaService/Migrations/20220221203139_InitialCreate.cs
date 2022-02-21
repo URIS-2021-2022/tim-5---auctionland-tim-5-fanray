@@ -54,13 +54,31 @@ namespace ZalbaService.Migrations
                     Datum_Resenja = table.Column<DateTime>(nullable: false),
                     Broj_Resenja = table.Column<int>(nullable: false),
                     Broj_Nadmetanja = table.Column<int>(nullable: false),
-                    RadnjaNaOsnovuZalbeID = table.Column<Guid>(nullable: true),
-                    StatusZalbeID = table.Column<Guid>(nullable: true),
-                    TipZalbeID = table.Column<Guid>(nullable: true)
+                    RadnjaNaOsnovuZalbeID = table.Column<Guid>(nullable: false),
+                    StatusZalbeID = table.Column<Guid>(nullable: false),
+                    TipZalbeID = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Zalba", x => x.ZalbaID);
+                    table.ForeignKey(
+                        name: "FK_Zalba_RadnjaNaOsnovuZalbe_RadnjaNaOsnovuZalbeID",
+                        column: x => x.RadnjaNaOsnovuZalbeID,
+                        principalTable: "RadnjaNaOsnovuZalbe",
+                        principalColumn: "RadnjaNaOsnovuZalbeID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Zalba_StatusZalbe_StatusZalbeID",
+                        column: x => x.StatusZalbeID,
+                        principalTable: "StatusZalbe",
+                        principalColumn: "StatusZalbeID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Zalba_TipZalbe_TipZalbeID",
+                        column: x => x.TipZalbeID,
+                        principalTable: "TipZalbe",
+                        principalColumn: "TipZalbeID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -97,10 +115,28 @@ namespace ZalbaService.Migrations
                 table: "Zalba",
                 columns: new[] { "ZalbaID", "Broj_Nadmetanja", "Broj_Resenja", "Datum_Podnosenja_Zalbe", "Datum_Resenja", "Obrazlozenje", "RadnjaNaOsnovuZalbeID", "Razlog_Podnosenja_Zalbe", "StatusZalbeID", "TipZalbeID" },
                 values: new object[] { new Guid("42058551-6a8a-4485-af7f-1124de19e566"), 53, 13, new DateTime(2020, 11, 15, 9, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 1, 17, 9, 0, 0, 0, DateTimeKind.Unspecified), "Neispravno utvređno stanje razgraničenja parcela", new Guid("78f43850-ddc4-49ba-b71d-62266a13a164"), "Bitna povreda odredaba parničnog postupka", new Guid("c6fb5ac5-eaef-4db2-99a5-84a938972183"), new Guid("42058551-6a8a-4485-af7f-1124de19e566") });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Zalba_RadnjaNaOsnovuZalbeID",
+                table: "Zalba",
+                column: "RadnjaNaOsnovuZalbeID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Zalba_StatusZalbeID",
+                table: "Zalba",
+                column: "StatusZalbeID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Zalba_TipZalbeID",
+                table: "Zalba",
+                column: "TipZalbeID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Zalba");
+
             migrationBuilder.DropTable(
                 name: "RadnjaNaOsnovuZalbe");
 
@@ -109,9 +145,6 @@ namespace ZalbaService.Migrations
 
             migrationBuilder.DropTable(
                 name: "TipZalbe");
-
-            migrationBuilder.DropTable(
-                name: "Zalba");
         }
     }
 }

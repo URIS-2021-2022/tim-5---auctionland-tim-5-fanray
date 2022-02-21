@@ -21,13 +21,20 @@ namespace AdresaService.Controllers
     public class AdresaController : ControllerBase
     {
         private readonly IAdresaRepository AdresaRepository;
+        private readonly IDrzavaRepository DrzavaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
         private readonly ILoggerService LoggerService;
 
-        public AdresaController(IAdresaRepository adresaRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
+        public AdresaController(
+            IAdresaRepository adresaRepository, 
+            IDrzavaRepository drzavaRepository,
+            LinkGenerator linkGenerator, 
+            IMapper mapper, 
+            ILoggerService loggerService)
         {
             this.AdresaRepository = adresaRepository;
+            this.DrzavaRepository = drzavaRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
             this.LoggerService = loggerService;
@@ -51,6 +58,11 @@ namespace AdresaService.Controllers
                 return NoContent();
             }
 
+            foreach (Adresa a in adresaList)
+            {
+                a.Drzava = DrzavaRepository.GetDrzavaById(a.DrzavaID);
+            }
+
             return Ok(Mapper.Map<List<AdresaDto>>(adresaList));
         }
 
@@ -72,6 +84,8 @@ namespace AdresaService.Controllers
             {
                 return NotFound();
             }
+
+            adresa.Drzava = DrzavaRepository.GetDrzavaById(adresa.DrzavaID);
 
             return Ok(Mapper.Map<AdresaDto>(adresa));
         }

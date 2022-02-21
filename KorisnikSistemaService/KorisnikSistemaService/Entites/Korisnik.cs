@@ -17,7 +17,9 @@ namespace KorisnikSistemaService.Entites
        public string KorisnickoIme { get; set; }
        public string Lozinka { get; set; }
        public string Salt { get; set; }
-       public Guid? TipKorisnikaID { get; set; }
-       
+
+       [ForeignKey("TipKorisnika")]
+       public Guid TipKorisnikaID { get; set; }
+       public TipKorisnika TipKorisnika { get; set; }
     }
 }

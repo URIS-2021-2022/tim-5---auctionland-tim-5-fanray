@@ -133,19 +133,25 @@ namespace ZalbaService.Migrations
                     b.Property<string>("Obrazlozenje")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("RadnjaNaOsnovuZalbeID")
+                    b.Property<Guid>("RadnjaNaOsnovuZalbeID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Razlog_Podnosenja_Zalbe")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("StatusZalbeID")
+                    b.Property<Guid>("StatusZalbeID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("TipZalbeID")
+                    b.Property<Guid>("TipZalbeID")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ZalbaID");
+
+                    b.HasIndex("RadnjaNaOsnovuZalbeID");
+
+                    b.HasIndex("StatusZalbeID");
+
+                    b.HasIndex("TipZalbeID");
 
                     b.ToTable("Zalba");
 
@@ -163,6 +169,27 @@ namespace ZalbaService.Migrations
                             StatusZalbeID = new Guid("c6fb5ac5-eaef-4db2-99a5-84a938972183"),
                             TipZalbeID = new Guid("42058551-6a8a-4485-af7f-1124de19e566")
                         });
+                });
+
+            modelBuilder.Entity("ZalbaService.Entities.Zalba", b =>
+                {
+                    b.HasOne("ZalbaService.Entities.RadnjaNaOsnovuZalbe", "RadnjaNaOsnovuZalbe")
+                        .WithMany()
+                        .HasForeignKey("RadnjaNaOsnovuZalbeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ZalbaService.Entities.StatusZalbe", "StatusZalbe")
+                        .WithMany()
+                        .HasForeignKey("StatusZalbeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ZalbaService.Entities.TipZalbe", "TipZalbe")
+                        .WithMany()
+                        .HasForeignKey("TipZalbeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

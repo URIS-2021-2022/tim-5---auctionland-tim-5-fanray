@@ -9,6 +9,7 @@ namespace UgovorOZakupuService.Entities
 {
     public class Ugovor
     {
+        [Key]
         public Guid UgovorID { get; set; }
         public Guid KorisnikID { get; set; }
         public string ZavodniBroj { get; set; }
@@ -16,11 +17,18 @@ namespace UgovorOZakupuService.Entities
         public DateTime RokZaVracanjeZem { get; set; }
         public string MestoPotpisivanja { get; set; }
         public DateTime DatumPotpisa { get; set; }
-       public Guid? JavnoNadmetanjeID { get; set; }
-       public Guid? KupacID { get; set; }
-       public Guid? LicnostID { get; set; }
-       public Guid? DokumentID { get; set; }
-       public Guid? TipGarancijeID { get; set; }
-       public Guid? RokID { get; set; }
+        public Guid JavnoNadmetanjeID { get; set; }
+        public Guid KupacID { get; set; }
+        public Guid LicnostID { get; set; }
+
+        [ForeignKey("Dokument")]
+        public Guid DokumentID { get; set; }
+        public Dokument Dokument { get; set; }
+        [ForeignKey("TipGarancije")]
+        public Guid TipGarancijeID { get; set; }
+        public TipGarancije TipGarancije { get; set; }
+        [ForeignKey("Rok")]
+        public Guid RokID { get; set; }
+        public Rok Rok { get; set; }
     }
 }

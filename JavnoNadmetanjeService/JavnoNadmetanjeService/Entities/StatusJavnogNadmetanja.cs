@@ -10,5 +10,7 @@ namespace JavnoNadmetanjeService.Entities
     {
         public Guid StatusJavnogNadmetanjaId { get; set; }
         public string NazivStatusaJavnogNadmetanja { get; set; }
+
+        public List<JavnoNadmetanje> JavnoNadmetanjeList { get; set; }
     }
 }

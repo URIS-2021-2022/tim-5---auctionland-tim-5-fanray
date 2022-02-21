@@ -147,9 +147,9 @@ namespace UgovorOZakupuService.Entities
                         JavnoNadmetanjeID = Guid.Parse("84b3ea4c-e02f-41b1-a1ef-2734ef97abb2"),
                         KupacID = Guid.Parse("81037b57-d24c-4d85-9649-7fc6ed635a0c"),
                         LicnostID = Guid.Parse("45aed467-8061-4011-bfc6-3bc4d01b65f9"),
-                        DokumentID = Guid.Parse("f00355a8-b3dc-4a6f-b4d7-46f4d7d7a9c7"),
-                        TipGarancijeID = Guid.Parse("f5c2bfbf-06e0-4a11-9b05-e7940d146016"),
-                        RokID = Guid.Parse("8d6b2975-80bc-4823-9216-66cc6892d29e")
+                        DokumentID = Guid.Parse("2f1c2288-8255-4128-aa44-91303617bcb8"),
+                        TipGarancijeID = Guid.Parse("8a02b3ef-651c-4893-8c71-8cf5ca4619fe"),
+                        RokID = Guid.Parse("34562293-3bb6-4ef3-922f-f9d7d3c57864")
                     }
                 );
         }

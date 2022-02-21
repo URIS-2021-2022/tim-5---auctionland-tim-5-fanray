@@ -13,6 +13,8 @@ using LicnostService.Entities;
 using System;
 using System.Text;
 using LicnostService.Services;
+using System.Reflection;
+using System.IO;
 
 namespace LicnostService
 {
@@ -57,7 +59,15 @@ namespace LicnostService
                 };
             });
 
-            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "LicnostService", Version = "v1" }));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "LicnostService", Version = "v1" });
+
+                var xmlComments = $"{ Assembly.GetExecutingAssembly().GetName().Name }.xml";
+                var xmlCommentsPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
+
+                c.IncludeXmlComments(xmlCommentsPath);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

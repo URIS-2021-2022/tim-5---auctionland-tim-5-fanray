@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AdresaService</name>
+    </assembly>
+    <members>
+        <member name="M:AdresaService.Controllers.AdresaController.GetAdresaList">
+            <summary>
+            Vraca listu svih adresa
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih adresa</response>
+            <response code="204">Nema adresa</response>
+        </member>
+        <member name="M:AdresaService.Controllers.AdresaController.GetAdresaById(System.Guid)">
+            <summary>
+            Vraca adresu sa trazenim ID-em
+            </summary>
+            <param name="adresaId">Sifra adrese</param>
+            <returns></returns>
+            <response code="200">Vraca trazenu adresu</response>
+            <response code="404">Adresa nije pronadjena</response>
+        </member>
+        <member name="M:AdresaService.Controllers.AdresaController.CreateAdresa(AdresaService.Models.AdresaCreateDto)">
+            <summary>
+            Upis nove adrese
+            </summary>
+            <returns></returns>
+            <response code="201">Vraca kreiranu adresu</response>
+            <response code="500">Doslo je do greske na serveru prilikom kreiranja adrese</response>
+        </member>
+        <member name="M:AdresaService.Controllers.AdresaController.UpdateAdresa(AdresaService.Models.AdresaUpdateDto)">
+            <summary>
+            Azuriranje postojece adrese
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca azuriranu adresu</response>
+            <response code="404">Adresa nije pronadjena</response>
+            <response code="500">Doslo je do greske na serveru prilikom azuriranja adrese</response>
+        </member>
+        <member name="M:AdresaService.Controllers.AdresaController.DeleteAdresa(System.Guid)">
+            <summary>
+            Brisanje adrese sa trazenim ID-em
+            </summary>
+            <param name="adresaId">Sifra adrese</param>
+            <returns></returns>
+            <response code="200">Vraca izbrisanu adresu</response>
+            <response code="404">Adresa nije pronadjena</response>
+            <response code="500">Doslo je do greske na serveru prilikom brisanja adrese</response>
+        </member>
+        <member name="M:AdresaService.Controllers.AuthController.Login(AdresaService.Models.Principal)">
+            <summary>
+            Prijava u sistem
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca token korisnika</response>
+            <response code="401">Autentifikacija nije uspela</response>
+        </member>
+        <member name="M:AdresaService.Controllers.DrzavaController.GetDrzavaList">
+            <summary>
+            Vraca listu svih drzava
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih drzava</response>
+            <response code="204">Nema drzava</response>
+        </member>
+        <member name="M:AdresaService.Controllers.DrzavaController.GetDrzavaById(System.Guid)">
+            <summary>
+            Vraca drzavu sa trazenim ID-em
+            </summary>
+            <param name="drzavaId">Sifra drzave</param>
+            <returns></returns>
+            <response code="200">Vraca trazenu drzavu</response>
+            <response code="404">Drzava nije pronadjena</response>
+        </member>
+    </members>
+</doc>

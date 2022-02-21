@@ -20,13 +20,20 @@ namespace KorisnikSistemaService.Controllers
     public class KorisnikController : ControllerBase
     {
         private readonly IKorisnikRepository KorisnikRepository;
+        private readonly ITipKorisnikaRepository TipKorisnikaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
         private readonly ILoggerService LoggerService;
 
-        public KorisnikController(IKorisnikRepository korisnikRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
+        public KorisnikController(
+            IKorisnikRepository korisnikRepository, 
+            ITipKorisnikaRepository tipKorisnikaRepository,
+            LinkGenerator linkGenerator, 
+            IMapper mapper, 
+            ILoggerService loggerService)
         {
             this.KorisnikRepository = korisnikRepository;
+            this.TipKorisnikaRepository = tipKorisnikaRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
             this.LoggerService = loggerService;
@@ -44,6 +51,11 @@ namespace KorisnikSistemaService.Controllers
                 return NoContent();
             }
 
+            foreach (Korisnik k in korisnikList)
+            {
+                k.TipKorisnika = TipKorisnikaRepository.GetTipKorisnikaById(k.TipKorisnikaID);
+            }
+
             return Ok(Mapper.Map<List<KorisnikDto>>(korisnikList));
         }
 
@@ -58,6 +70,8 @@ namespace KorisnikSistemaService.Controllers
             {
                 return NotFound();
             }
+
+            korisnik.TipKorisnika = TipKorisnikaRepository.GetTipKorisnikaById(korisnik.TipKorisnikaID);
 
             return Ok(Mapper.Map<KorisnikDto>(korisnik));
         }

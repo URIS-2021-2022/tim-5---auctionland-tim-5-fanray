@@ -12,6 +12,8 @@ using ParcelaService.Entities;
 using ParcelaService.Helpers;
 using ParcelaService.Services;
 using System;
+using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace ParcelaService
@@ -62,7 +64,15 @@ namespace ParcelaService
                 };
             });
 
-            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "ParcelaService", Version = "v1" }));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ParcelaService", Version = "v1" });
+
+                var xmlComments = $"{ Assembly.GetExecutingAssembly().GetName().Name }.xml";
+                var xmlCommentsPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
+
+                c.IncludeXmlComments(xmlCommentsPath);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

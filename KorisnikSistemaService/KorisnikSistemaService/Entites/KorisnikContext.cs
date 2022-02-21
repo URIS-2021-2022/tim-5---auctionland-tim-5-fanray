@@ -83,7 +83,7 @@ namespace KorisnikSistemaService.Entites
                         Prezime = "Radulovic",
                         KorisnickoIme = "tamaraR",
                         Lozinka = korisnik.Item1,
-                        TipKorisnikaID = Guid.Parse("e4e52522-1f76-4c03-95d4-011bff472838"),
+                        TipKorisnikaID = Guid.Parse("acfbe150-40cb-4f3e-9c38-2ad33bf1b0f0"),
                         Salt = korisnik.Item2
                     }
                 );

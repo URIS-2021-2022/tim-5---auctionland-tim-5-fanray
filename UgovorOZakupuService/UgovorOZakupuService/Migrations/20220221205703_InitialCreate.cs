@@ -57,16 +57,34 @@ namespace UgovorOZakupuService.Migrations
                     RokZaVracanjeZem = table.Column<DateTime>(nullable: false),
                     MestoPotpisivanja = table.Column<string>(nullable: true),
                     DatumPotpisa = table.Column<DateTime>(nullable: false),
-                    JavnoNadmetanjeID = table.Column<Guid>(nullable: true),
-                    KupacID = table.Column<Guid>(nullable: true),
-                    LicnostID = table.Column<Guid>(nullable: true),
-                    DokumentID = table.Column<Guid>(nullable: true),
-                    TipGarancijeID = table.Column<Guid>(nullable: true),
-                    RokID = table.Column<Guid>(nullable: true)
+                    JavnoNadmetanjeID = table.Column<Guid>(nullable: false),
+                    KupacID = table.Column<Guid>(nullable: false),
+                    LicnostID = table.Column<Guid>(nullable: false),
+                    DokumentID = table.Column<Guid>(nullable: false),
+                    TipGarancijeID = table.Column<Guid>(nullable: false),
+                    RokID = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ugovor", x => x.UgovorID);
+                    table.ForeignKey(
+                        name: "FK_Ugovor_Dokument_DokumentID",
+                        column: x => x.DokumentID,
+                        principalTable: "Dokument",
+                        principalColumn: "DokumentID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Ugovor_Rok_RokID",
+                        column: x => x.RokID,
+                        principalTable: "Rok",
+                        principalColumn: "RokID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Ugovor_TipGarancije_TipGarancijeID",
+                        column: x => x.TipGarancijeID,
+                        principalTable: "TipGarancije",
+                        principalColumn: "TipGarancijeID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -104,11 +122,29 @@ namespace UgovorOZakupuService.Migrations
             migrationBuilder.InsertData(
                 table: "Ugovor",
                 columns: new[] { "UgovorID", "DatumPotpisa", "DatumZavodjenja", "DokumentID", "JavnoNadmetanjeID", "KorisnikID", "KupacID", "LicnostID", "MestoPotpisivanja", "RokID", "RokZaVracanjeZem", "TipGarancijeID", "ZavodniBroj" },
-                values: new object[] { new Guid("0ec914e2-a7a2-4935-ad30-5912fc86fd19"), new DateTime(2022, 1, 23, 14, 20, 57, 0, DateTimeKind.Unspecified), new DateTime(2022, 1, 18, 16, 14, 33, 0, DateTimeKind.Unspecified), new Guid("f00355a8-b3dc-4a6f-b4d7-46f4d7d7a9c7"), new Guid("84b3ea4c-e02f-41b1-a1ef-2734ef97abb2"), new Guid("25862727-de11-49c4-aea2-5431db48f0a5"), new Guid("81037b57-d24c-4d85-9649-7fc6ed635a0c"), new Guid("45aed467-8061-4011-bfc6-3bc4d01b65f9"), "Beograd", new Guid("8d6b2975-80bc-4823-9216-66cc6892d29e"), new DateTime(2023, 4, 29, 10, 0, 0, 0, DateTimeKind.Unspecified), new Guid("f5c2bfbf-06e0-4a11-9b05-e7940d146016"), "UGV-3/21" });
+                values: new object[] { new Guid("0ec914e2-a7a2-4935-ad30-5912fc86fd19"), new DateTime(2022, 1, 23, 14, 20, 57, 0, DateTimeKind.Unspecified), new DateTime(2022, 1, 18, 16, 14, 33, 0, DateTimeKind.Unspecified), new Guid("2f1c2288-8255-4128-aa44-91303617bcb8"), new Guid("84b3ea4c-e02f-41b1-a1ef-2734ef97abb2"), new Guid("25862727-de11-49c4-aea2-5431db48f0a5"), new Guid("81037b57-d24c-4d85-9649-7fc6ed635a0c"), new Guid("45aed467-8061-4011-bfc6-3bc4d01b65f9"), "Beograd", new Guid("34562293-3bb6-4ef3-922f-f9d7d3c57864"), new DateTime(2023, 4, 29, 10, 0, 0, 0, DateTimeKind.Unspecified), new Guid("8a02b3ef-651c-4893-8c71-8cf5ca4619fe"), "UGV-3/21" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ugovor_DokumentID",
+                table: "Ugovor",
+                column: "DokumentID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ugovor_RokID",
+                table: "Ugovor",
+                column: "RokID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ugovor_TipGarancijeID",
+                table: "Ugovor",
+                column: "TipGarancijeID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Ugovor");
+
             migrationBuilder.DropTable(
                 name: "Dokument");
 
@@ -117,9 +153,6 @@ namespace UgovorOZakupuService.Migrations
 
             migrationBuilder.DropTable(
                 name: "TipGarancije");
-
-            migrationBuilder.DropTable(
-                name: "Ugovor");
         }
     }
 }

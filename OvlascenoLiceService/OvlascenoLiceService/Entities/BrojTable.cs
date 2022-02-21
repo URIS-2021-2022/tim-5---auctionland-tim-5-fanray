@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace OvlascenoLiceService.Entities
 {
@@ -6,5 +7,6 @@ namespace OvlascenoLiceService.Entities
     {
         public Guid BrojTableID { get; set; }
         public string Broj_Table { get; set; }
+        public List<OvlascenoLice> OvlascenoLiceList { get; set; }
     }
 }

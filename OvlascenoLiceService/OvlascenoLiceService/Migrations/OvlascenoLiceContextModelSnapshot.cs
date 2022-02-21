@@ -59,10 +59,10 @@ namespace OvlascenoLiceService.Migrations
                     b.Property<string>("BrojPasosa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("BrojTableID")
+                    b.Property<Guid>("BrojTableID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("DrzavaID")
+                    b.Property<Guid>("DrzavaID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Ime")
@@ -75,6 +75,8 @@ namespace OvlascenoLiceService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OvlascenoLiceID");
+
+                    b.HasIndex("BrojTableID");
 
                     b.ToTable("OvlascenoLice");
 
@@ -89,6 +91,15 @@ namespace OvlascenoLiceService.Migrations
                             JMBG = "1007990171500",
                             Prezime = "Jovanovic"
                         });
+                });
+
+            modelBuilder.Entity("OvlascenoLiceService.Entities.OvlascenoLice", b =>
+                {
+                    b.HasOne("OvlascenoLiceService.Entities.BrojTable", "BrojTable")
+                        .WithMany("OvlascenoLiceList")
+                        .HasForeignKey("BrojTableID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -18,12 +18,14 @@ namespace ParcelaService.Controllers
     public class DeoParceleController : ControllerBase
     {
         private readonly IDeoParceleRepository DeoParceleRepository;
+        private readonly IParcelaRepository ParcelaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
 
-        public DeoParceleController(IDeoParceleRepository deoParceleRepository, LinkGenerator linkGenerator, IMapper mapper)
+        public DeoParceleController(IDeoParceleRepository deoParceleRepository, IParcelaRepository parcelaRepository, LinkGenerator linkGenerator, IMapper mapper)
         {
             this.DeoParceleRepository = deoParceleRepository;
+            this.ParcelaRepository = parcelaRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
         }
@@ -47,6 +49,11 @@ namespace ParcelaService.Controllers
                 return NoContent();
             }
 
+            foreach (DeoParcele dp in deoParceleList)
+            {
+                dp.Parcela = ParcelaRepository.GetParcelaById(dp.ParcelaID);
+            }
+
             return Ok(Mapper.Map<List<DeoParceleDto>>(deoParceleList));
         }
 
@@ -68,6 +75,8 @@ namespace ParcelaService.Controllers
             {
                 return NotFound();
             }
+
+            deoParcele.Parcela = ParcelaRepository.GetParcelaById(deoParcele.ParcelaID);
 
             return Ok(Mapper.Map<DeoParceleDto>(deoParcele));
         }

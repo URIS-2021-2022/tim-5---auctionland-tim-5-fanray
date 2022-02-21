@@ -14,6 +14,6 @@ namespace UgovorOZakupuService.Entities
         public DateTime Datum { get; set; }
         public DateTime DatumDonosenja { get; set; }
         public string Sablon { get; set; }
-
+        public List<Ugovor> UgovorList { get; set; }
     }
 }

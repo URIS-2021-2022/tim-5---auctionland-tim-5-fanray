@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace ZalbaService.Entities
 {
@@ -6,5 +7,6 @@ namespace ZalbaService.Entities
     {
         public Guid StatusZalbeID { get; set; }
         public string NazivStatusaZalbe { get; set; }
+        public List<Zalba> ZalbaList { get; set; }
     }
 }

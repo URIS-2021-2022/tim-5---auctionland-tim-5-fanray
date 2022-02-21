@@ -9,7 +9,7 @@ namespace OvlascenoLiceService.Models
         public string Prezime { get; set; }
         public string JMBG { get; set; }
         public string BrojPasosa { get; set; }
-        public Guid BrojTableID { get; set; }
+        public BrojTableDto BrojTable { get; set; }
         public Guid DrzavaID { get; set; }
     }
 }

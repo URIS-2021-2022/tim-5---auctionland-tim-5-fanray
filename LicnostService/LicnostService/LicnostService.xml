@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LicnostService</name>
+    </assembly>
+    <members>
+        <member name="M:LicnostService.Controllers.KomisijaController.GetKomisijaList">
+            <response code="204">Nema kultura</response>
+        </member>
+    </members>
+</doc>

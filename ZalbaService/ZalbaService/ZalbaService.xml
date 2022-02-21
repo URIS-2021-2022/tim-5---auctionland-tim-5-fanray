@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ZalbaService</name>
+    </assembly>
+    <members>
+        <member name="M:ZalbaService.Controllers.AuthController.Login(ZalbaService.Models.Principal)">
+            <summary>
+            Prijava u sistem
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca token korisnika</response>
+            <response code="401">Autentifikacija nije uspjela</response>
+        </member>
+        <member name="M:ZalbaService.Controllers.RadnjaNaOsnovuZalbeController.GetRadnjaNaOsnovuZalbeById(System.Guid)">
+            OBJASNJENJE [1]
+        </member>
+        <member name="M:ZalbaService.Controllers.StatusZalbeController.GetStatusZalbeList">
+            OBJASNJENJE [1]
+        </member>
+        <member name="M:ZalbaService.Controllers.StatusZalbeController.GetStatusZalbeById(System.Guid)">
+            OBJASNJENJE [1]
+        </member>
+        <member name="M:ZalbaService.Controllers.TipZalbeController.GetTipZalbeList">
+            OBJASNJENJE [1]
+        </member>
+        <member name="M:ZalbaService.Controllers.TipZalbeController.GetTipZalbeById(System.Guid)">
+            OBJASNJENJE [1]
+        </member>
+    </members>
+</doc>

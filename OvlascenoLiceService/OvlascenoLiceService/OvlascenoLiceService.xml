@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OvlascenoLiceService</name>
+    </assembly>
+    <members>
+        <member name="M:OvlascenoLiceService.Controllers.AuthController.Login(OvlascenoLiceService.Models.Principal)">
+            <summary>
+            Prijava u sistem
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca token korisnika</response>
+            <response code="401">Autentifikacija nije uspjela</response>
+        </member>
+        <member name="M:OvlascenoLice.Controllers.BrojTableController.GetBrojTableById(System.Guid)">
+            OBJASNJENJE [1]
+        </member>
+    </members>
+</doc>

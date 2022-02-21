@@ -10,7 +10,7 @@ using UgovorOZakupuService.Entities;
 namespace UgovorOZakupuService.Migrations
 {
     [DbContext(typeof(UgovorContext))]
-    [Migration("20220217144440_InitialCreate")]
+    [Migration("20220221205703_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -184,37 +184,43 @@ namespace UgovorOZakupuService.Migrations
                     b.Property<DateTime>("DatumZavodjenja")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("DokumentID")
+                    b.Property<Guid>("DokumentID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("JavnoNadmetanjeID")
+                    b.Property<Guid>("JavnoNadmetanjeID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("KorisnikID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("KupacID")
+                    b.Property<Guid>("KupacID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("LicnostID")
+                    b.Property<Guid>("LicnostID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MestoPotpisivanja")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("RokID")
+                    b.Property<Guid>("RokID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("RokZaVracanjeZem")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("TipGarancijeID")
+                    b.Property<Guid>("TipGarancijeID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ZavodniBroj")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UgovorID");
+
+                    b.HasIndex("DokumentID");
+
+                    b.HasIndex("RokID");
+
+                    b.HasIndex("TipGarancijeID");
 
                     b.ToTable("Ugovor");
 
@@ -224,17 +230,38 @@ namespace UgovorOZakupuService.Migrations
                             UgovorID = new Guid("0ec914e2-a7a2-4935-ad30-5912fc86fd19"),
                             DatumPotpisa = new DateTime(2022, 1, 23, 14, 20, 57, 0, DateTimeKind.Unspecified),
                             DatumZavodjenja = new DateTime(2022, 1, 18, 16, 14, 33, 0, DateTimeKind.Unspecified),
-                            DokumentID = new Guid("f00355a8-b3dc-4a6f-b4d7-46f4d7d7a9c7"),
+                            DokumentID = new Guid("2f1c2288-8255-4128-aa44-91303617bcb8"),
                             JavnoNadmetanjeID = new Guid("84b3ea4c-e02f-41b1-a1ef-2734ef97abb2"),
                             KorisnikID = new Guid("25862727-de11-49c4-aea2-5431db48f0a5"),
                             KupacID = new Guid("81037b57-d24c-4d85-9649-7fc6ed635a0c"),
                             LicnostID = new Guid("45aed467-8061-4011-bfc6-3bc4d01b65f9"),
                             MestoPotpisivanja = "Beograd",
-                            RokID = new Guid("8d6b2975-80bc-4823-9216-66cc6892d29e"),
+                            RokID = new Guid("34562293-3bb6-4ef3-922f-f9d7d3c57864"),
                             RokZaVracanjeZem = new DateTime(2023, 4, 29, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            TipGarancijeID = new Guid("f5c2bfbf-06e0-4a11-9b05-e7940d146016"),
+                            TipGarancijeID = new Guid("8a02b3ef-651c-4893-8c71-8cf5ca4619fe"),
                             ZavodniBroj = "UGV-3/21"
                         });
+                });
+
+            modelBuilder.Entity("UgovorOZakupuService.Entities.Ugovor", b =>
+                {
+                    b.HasOne("UgovorOZakupuService.Entities.Dokument", "Dokument")
+                        .WithMany("UgovorList")
+                        .HasForeignKey("DokumentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("UgovorOZakupuService.Entities.Rok", "Rok")
+                        .WithMany("UgovorList")
+                        .HasForeignKey("RokID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("UgovorOZakupuService.Entities.TipGarancije", "TipGarancije")
+                        .WithMany("UgovorList")
+                        .HasForeignKey("TipGarancijeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -40,10 +40,12 @@ namespace KorisnikSistemaService.Migrations
                     b.Property<string>("Salt")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("TipKorisnikaID")
+                    b.Property<Guid>("TipKorisnikaID")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("KorisnikID");
+
+                    b.HasIndex("TipKorisnikaID");
 
                     b.ToTable("Korisnik");
 
@@ -53,10 +55,10 @@ namespace KorisnikSistemaService.Migrations
                             KorisnikID = new Guid("34f11383-cb12-481d-9ff7-2fd458dc7e2b"),
                             Ime = "Tamara",
                             KorisnickoIme = "tamaraR",
-                            Lozinka = "nhYpLzd/fTb2vxFYx+gABPbPeg+WWAoerw9Dlbb4jLbryFo7ibG+BB5n3G8Lqj5UHktQdep5sPQiBKEsoNIgx6eMtvA9P4QuwYb5NnJNI6e2hIVrptZYg04S62EgjKoudeBEQHpg5IInSZyixKD7/MyqbTv4YZdYnG/Uk3WIPwL5efURsvd+KO026fpsrx2C/ulFqfis2NM8lYyYpVJ7/ehqYhP3sQA6131tywYj+g/iwWLAjg/GwUbmc+KZh0FioXf9RctJD1I9+qsxKXBIEEepMc1CmzQVina+Rz9SsmZINSm38ssyeEi4AI9XXukw+k9NYYXxfD6nKihH5pv5+A==",
+                            Lozinka = "IqXLp0SHh6vgO13/zoIYARufDn7KKd6P/I4GryashMHgtzs8KnkRTZ6wwtBgMcdGB55ZMhQZk5ZMoWRjdzBraEIH/o5bPFSBqZwqLKlnIriKDnT+uCpoAZVbfR59UteqktqPYUsmcQb3EvYu2duhvVI1tcyrR3hdk+YLyr4sz1HbNjLmgexyM+3DMCypPrzHeeW8GSk9O6tOrsqjBiMsLVDSpiDJcToqVC/cXMWzXEpMHIivPJQs5VcI0DW12br7RaVV/xGXCBpLivEPjvJgADZdmwDukDBMkUsYeiQYOWicpNs32nYo85OhiDI/UyxhlvpATEUOblZq4VU4gO4JaA==",
                             Prezime = "Radulovic",
-                            Salt = "12+Dquh+FAKw",
-                            TipKorisnikaID = new Guid("e4e52522-1f76-4c03-95d4-011bff472838")
+                            Salt = "pO0aEPLIZvtJ",
+                            TipKorisnikaID = new Guid("acfbe150-40cb-4f3e-9c38-2ad33bf1b0f0")
                         });
                 });
 
@@ -114,6 +116,15 @@ namespace KorisnikSistemaService.Migrations
                             TipKorisnikaID = new Guid("9ec688a2-c452-4f4b-9d4f-79cd14ecf25f"),
                             NazivTipa = "Administrator"
                         });
+                });
+
+            modelBuilder.Entity("KorisnikSistemaService.Entites.Korisnik", b =>
+                {
+                    b.HasOne("KorisnikSistemaService.Entites.TipKorisnika", "TipKorisnika")
+                        .WithMany("KorisnikList")
+                        .HasForeignKey("TipKorisnikaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

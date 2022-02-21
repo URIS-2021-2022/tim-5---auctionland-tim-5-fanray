@@ -19,13 +19,26 @@ namespace ZalbaService.Controllers
     public class ZalbaController : ControllerBase
     {
         private readonly IZalbaRepository ZalbaRepository;
+        private readonly IRadnjaNaOsnovuZalbeRepository RadnjaNaOsnovuZalbeRepository;
+        private readonly IStatusZalbeRepository StatusZalbeRepository;
+        private readonly ITipZalbeRepository TipZalbeRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
         private readonly ILoggerService LoggerService;
         
-        public ZalbaController(IZalbaRepository zalbaRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
+        public ZalbaController(
+            IZalbaRepository zalbaRepository, 
+            IRadnjaNaOsnovuZalbeRepository radnjaNaOsnovuZalbeRepository,
+            IStatusZalbeRepository statusZalbeRepository,
+            ITipZalbeRepository tipZalbeRepository,
+            LinkGenerator linkGenerator, 
+            IMapper mapper, 
+            ILoggerService loggerService)
         {
             this.ZalbaRepository = zalbaRepository;
+            this.RadnjaNaOsnovuZalbeRepository = radnjaNaOsnovuZalbeRepository;
+            this.StatusZalbeRepository = statusZalbeRepository;
+            this.TipZalbeRepository = tipZalbeRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
             this.LoggerService = loggerService;
@@ -41,6 +54,13 @@ namespace ZalbaService.Controllers
                 return NoContent();
             }
 
+            foreach (Zalba z in zalbaList)
+            {
+                z.RadnjaNaOsnovuZalbe = RadnjaNaOsnovuZalbeRepository.GetRadnjaNaOsnovuZalbeById(z.RadnjaNaOsnovuZalbeID);
+                z.StatusZalbe = StatusZalbeRepository.GetStatusZalbeById(z.StatusZalbeID);
+                z.TipZalbe = TipZalbeRepository.GetTipZalbeById(z.TipZalbeID);
+            }
+
             return Ok(Mapper.Map<List<ZalbaDto>>(zalbaList));
         }
         
@@ -53,6 +73,10 @@ namespace ZalbaService.Controllers
             {
                 return NotFound();
             }
+
+            zalba.RadnjaNaOsnovuZalbe = RadnjaNaOsnovuZalbeRepository.GetRadnjaNaOsnovuZalbeById(zalba.RadnjaNaOsnovuZalbeID);
+            zalba.StatusZalbe = StatusZalbeRepository.GetStatusZalbeById(zalba.StatusZalbeID);
+            zalba.TipZalbe = TipZalbeRepository.GetTipZalbeById(zalba.TipZalbeID);
 
             return Ok(Mapper.Map<ZalbaDto>(zalba));
         }

@@ -9,9 +9,9 @@ namespace JavnoNadmetanjeService.Models
     {
         public Guid JavnoNadmetanjeId { get; set; }
 
-        public Guid TipJavnogNadmetanjaId { get; set; }
+        public TipJavnogNadmetanjaDto TipJavnogNadmetanja { get; set; }
 
-        public Guid StatusJavnogNadmetanjaId { get; set; }
+        public StatusJavnogNadmetanjaDto StatusJavnogNadmetanja { get; set; }
 
         public Guid KatastarskaOpstinaId { get; set; }
 

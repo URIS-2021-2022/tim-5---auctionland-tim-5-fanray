@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParcelaService</name>
+    </assembly>
+    <members>
+        <member name="M:ParcelaService.Controllers.AuthController.Login(ParcelaService.Models.Principal)">
+            <summary>
+            Prijava u sistem
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca token korisnika</response>
+            <response code="401">Autentifikacija nije uspjela</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.DeoParceleController.GetDeoParceleList(System.Guid)">
+            <summary>
+            Vraca listu svih delova od trazene parcele
+            </summary>
+            <query name="parcelaId"></query>
+            <returns></returns>
+            <response code="200">Vraca listu svih delova trazene parcele</response>
+            <response code="204">Nema delova parcele</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.DeoParceleController.GetDeoParceleById(System.Guid)">
+            <summary>
+            Vraca deo parcele sa trazenim ID-em
+            </summary>
+            <param name="deoParceleId">Sifra dela parcele</param>
+            <returns></returns>
+            <response code="200">Vraca trazeni deo parcele</response>
+            <response code="404">Deo parcele nije pronadjen</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.DeoParceleController.CreateDeoParcele(ParcelaService.Models.DeoParceleCreateDto)">
+            <summary>
+            Upis novog dela parcele
+            </summary>
+            <returns></returns>
+            <response code="201">Vraca kreirani deo parcele</response>
+            <response code="500">Doslo je do greske na serveru prilikom kreiranja dela parcele</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.DeoParceleController.UpdateDeoParcele(ParcelaService.Models.DeoParceleUpdateDto)">
+            <summary>
+            Azuriranje postojeceg dela parcele
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca azurirani deo parcele</response>
+            <response code="404">Deo parcele nije pronadjen</response>
+            <response code="500">Doslo je do greske na serveru prilikom azuriranja dela parcele</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.DeoParceleController.DeleteDeoParcele(System.Guid)">
+            <summary>
+            Brisanje dela parcele sa trazenim ID-em
+            </summary>
+            <param name="deoParceleId">Sifra dela parcele</param>
+            <returns></returns>
+            <response code="200">Vraca izbrisani deo parcele</response>
+            <response code="404">Deo parcele nije pronadjen</response>
+            <response code="500">Doslo je do greske na serveru prilikom brisanja dela parcele</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.KatastarskaOpstinaController.GetKatastarskaOpstinaList">
+            <summary>
+            Vraca listu katastarskih opstina
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih katastarskih opstina</response>
+            <response code="204">Nema katastarskih opstina</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.KatastarskaOpstinaController.GetKatastarskaOpstinaById(System.Guid)">
+            <summary>
+            Vraca katastarsku opstinu sa trazenim ID-em
+            </summary>
+            <param name="katastarId">Sifra katastarske opstine</param>
+            <returns></returns>
+            <response code="200">Vraca trazenu katastarsku opstinu</response>
+            <response code="404">Katastarska opstina nije pronadjena</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.KlasaController.GetKlasaList">
+            <summary>
+            Vraca listu klasa
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih klasa</response>
+            <response code="204">Nema klasa</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.KlasaController.GetKlasaById(System.Guid)">
+            <summary>
+            Vraca klasu sa trazenim ID-em
+            </summary>
+            <param name="klasaId">Sifra klase</param>
+            <returns></returns>
+            <response code="200">Vraca trazenu klasu</response>
+            <response code="404">Klasa nije pronadjena</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.KulturaController.GetKulturaList">
+            <summary>
+            Vraca listu svih kultura
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih kultura</response>
+            <response code="204">Nema kultura</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.KulturaController.GetKulturaById(System.Guid)">
+            <summary>
+            Vraca kulturu sa trazenim ID-em
+            </summary>
+            <param name="kulturaId">Sifra kulture</param>
+            <returns></returns>
+            <response code="200">Vraca trazenu kulturu</response>
+            <response code="404">Kultura nije pronadjena</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.OblikSvojineController.GetOblikSvojineList">
+            <summary>
+            Vraca listu svih oblika svojine
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih oblika svojine</response>
+            <response code="204">Nema oblika svojine</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.OblikSvojineController.GetOblikSvojineById(System.Guid)">
+            <summary>
+            Vraca oblik svojine sa trazenim ID-em
+            </summary>
+            <param name="svojinaId">Sifra oblika svojine</param>
+            <returns></returns>
+            <response code="200">Vraca trazeni oblik svojine</response>
+            <response code="404">Oblik svojine nije pronadjen</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.ObradivostController.GetObradivostList">
+            <summary>
+            Vraca listu svih obradivosti
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih obradivosti</response>
+            <response code="204">Nema obradivosti</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.ObradivostController.GetObradivostById(System.Guid)">
+            <summary>
+            Vraca obradivost sa trazenim ID-em
+            </summary>
+            <param name="obradivostId">Sifra obradivosti</param>
+            <returns></returns>
+            <response code="200">Vraca trazenu obradivost</response>
+            <response code="404">Obradivost nije pronadjeno</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.OdvodnjavanjeController.GetOdvodnjavanjeList">
+            <summary>
+            Vraca listu svih odvodnjavanja
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih odvodnjavanja</response>
+            <response code="204">Nema odvodnjavanja</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.OdvodnjavanjeController.GetOdvodnjavanjeById(System.Guid)">
+            <summary>
+            Vraca odvodnjavanje sa trazenim ID-em
+            </summary>
+            <param name="odvodnjavanjeId">Sifra odvodnjavanja</param>
+            <returns></returns>
+            <response code="200">Vraca trazeno odvodnjavanje</response>
+            <response code="404">Odvodnjavanje nije pronadjeno</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.ParcelaController.GetParcelaList">
+            <summary>
+            Vraca listu svih parcela
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih parcela</response>
+            <response code="204">Nema parcela</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.ParcelaController.GetParcelaById(System.Guid)">
+            <summary>
+            Vraca parcelu sa trazenim ID-em
+            </summary>
+            <param name="parcelaId">Sifra parcele</param>
+            <returns></returns>
+            <response code="200">Vraca trazenu parcelu</response>
+            <response code="404">Parcela nije pronadjena</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.ParcelaController.CreateParcela(ParcelaService.Models.ParcelaCreateDto)">
+            <summary>
+            Upis nove parcele
+            </summary>
+            <returns></returns>
+            <response code="201">Vraca kreiranu parcelu</response>
+            <response code="500">Doslo je do greske na serveru prilikom kreiranja parcele</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.ParcelaController.UpdateParcela(ParcelaService.Models.ParcelaUpdateDto)">
+            <summary>
+            Azuriranje postojece parcele
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca azuriranu parcelu</response>
+            <response code="404">Parcela nije pronadjena</response>
+            <response code="500">Doslo je do greske na serveru prilikom azuriranja parcele</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.ParcelaController.DeleteParcela(System.Guid)">
+            <summary>
+            Brisanje parcele sa trazenim ID-em
+            </summary>
+            <param name="parcelaId">Sifra parcele</param>
+            <returns></returns>
+            <response code="200">Vraca izbrisanu parcelu</response>
+            <response code="404">Parcela nije pronadjena</response>
+            <response code="500">Doslo je do greske na serveru prilikom brisanja parcele</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.ZasticenaZonaController.GetZasticenaZonaList">
+            <summary>
+            Vraca listu svih zasticenih zona
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih zasticenih zona</response>
+            <response code="204">Nema zasticenih zona</response>
+        </member>
+        <member name="M:ParcelaService.Controllers.ZasticenaZonaController.GetZasticenaZonaById(System.Guid)">
+            <summary>
+            Vraca zasticenu zonu sa trazenim ID-em
+            </summary>
+            <param name="zonaId">Sifra zasticene zone</param>
+            <returns></returns>
+            <response code="200">Vraca trazenu zasticenu zonu</response>
+            <response code="404">Zasticena zona nije pronadjena</response>
+        </member>
+    </members>
+</doc>

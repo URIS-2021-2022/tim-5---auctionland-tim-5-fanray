@@ -21,10 +21,10 @@ namespace ZalbaService.Models
 
         public int Broj_Nadmetanja { get; set; }
 
-        public Guid RadnjaNaOsnovuZalbeID { get; set; }
+        public RadnjaNaOsnovuZalbeDto RadnjaNaOsnovuZalbe { get; set; }
 
-        public Guid StatusZalbeID { get; set; }
+        public StatusZalbeDto StatusZalbe { get; set; }
 
-        public Guid TipZalbeID { get; set; }
+        public TipZalbeDto TipZalbe { get; set; }
     }
 }

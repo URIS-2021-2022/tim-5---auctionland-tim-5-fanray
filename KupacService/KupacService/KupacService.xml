@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KupacService</name>
+    </assembly>
+    <members>
+        <member name="M:KupacService.Controllers.AuthController.Login(KupacService.Models.Principal)">
+            <summary>
+            Prijava u sistem
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca token korisnika</response>
+            <response code="401">Autentifikacija nije uspela</response>
+        </member>
+        <member name="M:KupacService.Controllers.KupacController.GetKupacList">
+            <summary>
+            Vraca listu svih kupaca
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih kupaca</response>
+            <response code="204">Nema kupca</response>
+        </member>
+        <member name="M:KupacService.Controllers.KupacController.GetKupacById(System.Guid)">
+            <summary>
+            Vraca kupca sa trazenim ID-em
+            </summary>
+            <param name="kupacId">Sifra kupca</param>
+            <returns></returns>
+            <response code="200">Vraca trazenog kupca</response>
+            <response code="404">Kupac nije pronadjen</response>
+        </member>
+        <member name="M:KupacService.Controllers.KupacController.CreateKupac(KupacService.Models.KupacCreateDto)">
+            <summary>
+            Upis novog kupca
+            </summary>
+            <returns></returns>
+            <response code="201">Vraca kreiranog kupca</response>
+            <response code="500">Doslo je do greske na serveru prilikom kreiranja kupca</response>
+        </member>
+        <member name="M:KupacService.Controllers.KupacController.UpdateKupac(KupacService.Models.KupacUpdateDto)">
+            <summary>
+            Azuriranje postojeceg kupca
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca azuriranog kupca</response>
+            <response code="404">Kupac nije pronadjen </response>
+            <response code="500">Doslo je do greske na serveru prilikom azuriranja kupca</response>
+        </member>
+        <member name="M:KupacService.Controllers.KupacController.DeleteKupac(System.Guid)">
+            <summary>
+            Brisanje kupca sa trazenim ID-em
+            </summary>
+            <param name="kupacId">Sifra kupca</param>
+            <returns></returns>
+            <response code="200">Vraca izbrisanog kupca</response>
+            <response code="404">Kupac nije pronadjen</response>
+            <response code="500">Doslo je do greske na serveru prilikom brisanja kupca</response>
+        </member>
+        <member name="M:KupacService.Controllers.NajboljiPonudjacController.GetNajboljiPonudjacList">
+            <summary>
+            Vraca listu svih najboljih ponudjaca
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih najboljih ponudjaca</response>
+            <response code="204">Nema najboljih ponudjaca</response>
+        </member>
+        <member name="M:KupacService.Controllers.NajboljiPonudjacController.GetNajbolji_PonudjacById(System.Guid)">
+            <summary>
+            Vraca najboljeg ponudjaca sa trazenim ID-em
+            </summary>
+            <param name="najboljiPonudjacId">Sifra najboljeg ponudjaca</param>
+            <returns></returns>
+            <response code="200">Vraca najboljeg ponudjaca</response>
+            <response code="404">Najbolji ponudjac nije pronadjen</response>
+        </member>
+        <member name="M:KupacService.Controllers.NajboljiPonudjacController.CreateNajboljiPonudjac(KupacService.Models.NajboljiPonudjacCreateDto)">
+            <summary>
+            Upis novog najboljeg ponudjaca
+            </summary>
+            <returns></returns>
+            <response code="201">Vraca kreiranog ponudjaca</response>
+            <response code="500">Doslo je do greske na serveru prilikom kreiranja ponudjaca</response>
+        </member>
+        <member name="M:KupacService.Controllers.NajboljiPonudjacController.UpdateNajboljiPonudjac(KupacService.Models.NajboljiPonudjacUpdateDto)">
+            <summary>
+            Azuriranje postojeceg najboljeg ponudjaca
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca azuriranog najboljeg ponudjaca</response>
+            <response code="404">Najbolji ponudjac nije pronadjen </response>
+            <response code="500">Doslo je do greske na serveru prilikom azuriranja najboljeg ponudjaca</response>
+        </member>
+        <member name="M:KupacService.Controllers.NajboljiPonudjacController.DeleteNajboljiPonudjac(System.Guid)">
+            <summary>
+            Brisanje najboljeg ponudjaca sa trazenim ID-em
+            </summary>
+            <param name="najboljiPonudjacId">Sifra najboljeg ponudjaca</param>
+            <returns></returns>
+            <response code="200">Vraca izbrisanog ponudjaca</response>
+            <response code="404">Ponudjac nije pronadjen</response>
+            <response code="500">Doslo je do greske na serveru prilikom brisanja ponudjaca</response>
+        </member>
+        <member name="M:KupacService.Controllers.PrijavljenKupacController.GetPrijavljenKupacList">
+            <summary>
+            Vraca listu svih prijavljenih kupaca
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih prijavljenih kupaca</response>
+            <response code="204">Nema prijavljenih kupaca</response>
+        </member>
+        <member name="M:KupacService.Controllers.PrijavljenKupacController.GetPrijavljen_KupacById(System.Guid)">
+            <summary>
+            Vraca prijavljenog kupca sa trazenim ID-em
+            </summary>
+            <param name="prijavljenKupacId">Sifra kupca</param>
+            <returns></returns>
+            <response code="200">Vraca trazenog prijavljenog kupca</response>
+            <response code="404">Prijavljen kupac nije pronadjen</response>
+        </member>
+        <member name="M:KupacService.Controllers.PrijavljenKupacController.CreatePrijavljenKupac(KupacService.Models.PrijavljenKupacCreateDto)">
+            <summary>
+            Upis novog prijavljenog kupca
+            </summary>
+            <returns></returns>
+            <response code="201">Vraca kreiranog prijavljenog kupca</response>
+            <response code="500">Doslo je do greske na serveru prilikom kreiranja prijavljenog kupca</response>
+        </member>
+        <member name="M:KupacService.Controllers.PrijavljenKupacController.UpdatePrijavljenKupac(KupacService.Models.PrijavljenKupacUpdateDto)">
+            <summary>
+            Azuriranje postojeceg prijavljenog kupca
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca azuriranog prijavljenog kupca</response>
+            <response code="404">Prijavljen kupac nije pronadjen </response>
+            <response code="500">Doslo je do greske na serveru prilikom azuriranja prijavljenog kupca</response>
+        </member>
+        <member name="M:KupacService.Controllers.PrijavljenKupacController.DeletePrijavljenKupac(System.Guid)">
+            <summary>
+            Brisanje prijavljenog kupca sa trazenim ID-em
+            </summary>
+            <param name="prijavljenKupacId">Sifra prijavljenog kupca</param>
+            <returns></returns>
+            <response code="200">Vraca izbrisanog prijavljenog kupca</response>
+            <response code="404">Prijavljen kupac nije pronadjen</response>
+            <response code="500">Doslo je do greske na serveru prilikom brisanja prijavljenog kupca</response>
+        </member>
+        <member name="M:KupacService.Controllers.PrioritetController.GetPrioritetList">
+            <summary>
+            Vraca listu svih prioriteta
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih prioriteta</response>
+            <response code="204">Nema prioriteta</response>
+        </member>
+        <member name="M:KupacService.Controllers.PrioritetController.GetPrioritetById(System.Guid)">
+            <summary>
+            Vraca prioritet sa trazenim ID-em
+            </summary>
+            <param name="prioritetId">Sifra prioriteta</param>
+            <returns></returns>
+            <response code="200">Vraca trazeni prioritet</response>
+            <response code="404">Prioritet nije pronadjen</response>
+        </member>
+    </members>
+</doc>

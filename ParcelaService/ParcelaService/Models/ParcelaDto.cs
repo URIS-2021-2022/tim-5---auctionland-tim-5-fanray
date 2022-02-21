@@ -8,14 +8,14 @@ namespace ParcelaService.Models
         public Guid KorisnikParceleID { get; set; }
         public int Povrsina { get; set; }
         public string BrojParcele { get; set; }
-        public Guid KatastarskaOpstinaID { get; set; }
+        public KatastarskaOpstinaDto KatastarskaOpstina { get; set; }
         public string BrojListaNepokretnosti { get; set; }
-        public Guid KulturaID { get; set; }
-        public Guid KlasaID { get; set; }
-        public Guid ObradivostID { get; set; }
-        public Guid ZasticenaZonaID { get; set; }
-        public Guid OblikSvojineID { get; set; }
-        public Guid OdvodnjavanjeID { get; set; }
+        public KulturaDto Kultura { get; set; }
+        public KlasaDto Klasa { get; set; }
+        public ObradivostDto Obradivost { get; set; }
+        public ZasticenaZonaDto ZasticenaZona { get; set; }
+        public OblikSvojineDto OblikSvojine { get; set; }
+        public OdvodnjavanjeDto Odvodnjavanje { get; set; }
         public string KulturaStvarnoStanje { get; set; }
         public string KlasaStvarnoStanje { get; set; }
         public string ObradivostStvarnoStanje { get; set; }

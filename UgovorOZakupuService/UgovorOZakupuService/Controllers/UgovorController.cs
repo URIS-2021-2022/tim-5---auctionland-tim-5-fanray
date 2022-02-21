@@ -21,13 +21,26 @@ namespace UgovorOZakupuService.Controllers
         public class UgovorController : ControllerBase
         {
             private readonly IUgovorRepository UgovorRepository;
+            private readonly ITipGarancijeRepository TipGarancijeRepository;
+            private readonly IRokRepository RokRepository;
+            private readonly IDokumentRepository DokumentRepository;
             private readonly LinkGenerator LinkGenerator;
             private readonly IMapper Mapper;
             private readonly ILoggerService LoggerService;
 
-            public UgovorController(IUgovorRepository ugovorRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
+            public UgovorController(
+                IUgovorRepository ugovorRepository, 
+                IDokumentRepository dokumentRepository,
+                IRokRepository rokRepository,
+                ITipGarancijeRepository tipGarancijeRepository,
+                LinkGenerator linkGenerator, 
+                IMapper mapper, 
+                ILoggerService loggerService)
             {
                 this.UgovorRepository = ugovorRepository;
+                this.DokumentRepository = dokumentRepository;
+                this.RokRepository = rokRepository;
+                this.TipGarancijeRepository = tipGarancijeRepository;
                 this.LinkGenerator = linkGenerator;
                 this.Mapper = mapper;
                 this.LoggerService = loggerService;
@@ -45,6 +58,13 @@ namespace UgovorOZakupuService.Controllers
                     return NoContent();
                 }
 
+                foreach (Ugovor u in ugovorList)
+                {
+                    u.Dokument = DokumentRepository.GetDokumentById(u.DokumentID);
+                    u.Rok = RokRepository.GetRokById(u.RokID);
+                    u.TipGarancije = TipGarancijeRepository.GetTipGarancijeById(u.TipGarancijeID);
+                }
+
                 return Ok(Mapper.Map<List<UgovorDto>>(ugovorList));
             }
 
@@ -59,6 +79,10 @@ namespace UgovorOZakupuService.Controllers
                 {
                     return NotFound();
                 }
+
+                ugovor.Dokument = DokumentRepository.GetDokumentById(ugovor.DokumentID);
+                ugovor.Rok = RokRepository.GetRokById(ugovor.RokID);
+                ugovor.TipGarancije = TipGarancijeRepository.GetTipGarancijeById(ugovor.TipGarancijeID);
 
                 return Ok(Mapper.Map<UgovorDto>(ugovor));
             }

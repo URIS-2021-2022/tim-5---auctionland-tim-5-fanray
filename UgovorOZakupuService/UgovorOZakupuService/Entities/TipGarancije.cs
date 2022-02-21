@@ -10,5 +10,6 @@ namespace UgovorOZakupuService.Entities
     {
         public Guid TipGarancijeID { get; set;  }
         public string NazivTipaG { get; set; }
+        public List<Ugovor> UgovorList { get; set; }
     }
 }

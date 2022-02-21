@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LicitacijaService</name>
+    </assembly>
+    <members>
+        <member name="M:LicitacijaService.Controllers.DokumentacijaController.GetDokumentacijaById(System.Guid)">
+            <response code="404">Klasa nije pronadjena</response>
+        </member>
+        <member name="M:LicitacijaService.Controllers.DokumentacijaZaFizickoLiceController.GetDokumentacijaZaFizickoLiceById(System.Guid)">
+            <response code="404">Klasa nije pronadjena</response>
+        </member>
+        <member name="M:LicitacijaService.Controllers.DokumentacijaZaPravnoLiceController.GetDokumentacijaZaPravnoLiceById(System.Guid)">
+            <response code="404">Klasa nije pronadjena</response>
+        </member>
+    </members>
+</doc>

@@ -21,17 +21,23 @@ namespace JavnoNadmetanjeService.Controllers
     public class JavnoNadmetanjeController : ControllerBase
     {
         private readonly IJavnoNadmetanjeRepository javnoNadmetanjeRepository;
+        private readonly ITipJavnogNadmetanjaRepository tipJavnogNadmetanjaRepository;
+        private readonly IStatusJavnogNadmetanjaRepository statusJavnogNadmetanjaRepository;
         private readonly LinkGenerator linkGenerator;
         private readonly IMapper mapper;
         private readonly ILoggerService LoggerService;
 
         public JavnoNadmetanjeController(
             IJavnoNadmetanjeRepository javnoNadmetanjeRepository,
+            ITipJavnogNadmetanjaRepository tipJavnogNadmetanjaRepository,
+            IStatusJavnogNadmetanjaRepository statusJavnogNadmetanjaRepository,
             LinkGenerator linkGenerator, IMapper mapper,
             ILoggerService loggerService
             )
         {
             this.javnoNadmetanjeRepository = javnoNadmetanjeRepository;
+            this.tipJavnogNadmetanjaRepository = tipJavnogNadmetanjaRepository;
+            this.statusJavnogNadmetanjaRepository = statusJavnogNadmetanjaRepository;
             this.linkGenerator = linkGenerator;
             this.mapper = mapper;
             this.LoggerService = loggerService;
@@ -53,6 +59,14 @@ namespace JavnoNadmetanjeService.Controllers
             {
                 return NoContent();
             }
+
+            foreach (JavnoNadmetanje jn in javnaNadmetanja)
+            {
+                jn.TipJavnogNadmetanja = tipJavnogNadmetanjaRepository.GetTipJavnogNadmetanjaById(jn.TipJavnogNadmetanjaId);
+                jn.StatusJavnogNadmetanja = statusJavnogNadmetanjaRepository.GetStatusJavnogNadmetanjaById(jn.StatusJavnogNadmetanjaId);
+            }
+
+
             return Ok(mapper.Map<List<JavnoNadmetanjeDto>>(javnaNadmetanja));
         }
 
@@ -73,6 +87,10 @@ namespace JavnoNadmetanjeService.Controllers
             {
                 return NotFound();
             }
+
+            javnoNadmetanje.TipJavnogNadmetanja = tipJavnogNadmetanjaRepository.GetTipJavnogNadmetanjaById(javnoNadmetanje.TipJavnogNadmetanjaId);
+            javnoNadmetanje.StatusJavnogNadmetanja = statusJavnogNadmetanjaRepository.GetStatusJavnogNadmetanjaById(javnoNadmetanje.StatusJavnogNadmetanjaId);
+
             return Ok(mapper.Map<JavnoNadmetanjeDto>(javnoNadmetanje));
         }
 

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JavnoNadmetanjeService.Migrations
 {
     [DbContext(typeof(JavnoNadmetanjeContext))]
-    [Migration("20220217203712_InitialCreate")]
+    [Migration("20220221160045_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,6 +68,10 @@ namespace JavnoNadmetanjeService.Migrations
 
                     b.HasKey("JavnoNadmetanjeId");
 
+                    b.HasIndex("StatusJavnogNadmetanjaId");
+
+                    b.HasIndex("TipJavnogNadmetanjaId");
+
                     b.ToTable("JavnoNadmetanje");
 
                     b.HasData(
@@ -78,7 +82,7 @@ namespace JavnoNadmetanjeService.Migrations
                             Datum = new DateTime(2022, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IzlicitiranaCena = 8600,
                             Izuzeto = false,
-                            KatastarskaOpstinaId = new Guid("24742b99-32c6-4999-b0a7-757a178f9ee7"),
+                            KatastarskaOpstinaId = new Guid("714f831b-b86b-443d-abf5-f248694a8b2e"),
                             Krug = 1,
                             PeriodZakupa = 12,
                             PocetnaCenaHektar = 7000,
@@ -109,6 +113,8 @@ namespace JavnoNadmetanjeService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SluzbeniListId");
+
+                    b.HasIndex("JavnoNadmetanjeId");
 
                     b.ToTable("SluzbeniList");
 
@@ -178,6 +184,30 @@ namespace JavnoNadmetanjeService.Migrations
                             TipJavnogNadmetanjaId = new Guid("d7a80343-d802-43d6-b128-79ba8554acd2"),
                             NazivTipaJavnogNadmetanja = "Otvaranje zatvorenih ponuda"
                         });
+                });
+
+            modelBuilder.Entity("JavnoNadmetanjeService.Entities.JavnoNadmetanje", b =>
+                {
+                    b.HasOne("JavnoNadmetanjeService.Entities.StatusJavnogNadmetanja", "StatusJavnogNadmetanja")
+                        .WithMany("JavnoNadmetanjeList")
+                        .HasForeignKey("StatusJavnogNadmetanjaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JavnoNadmetanjeService.Entities.TipJavnogNadmetanja", "TipJavnogNadmetanja")
+                        .WithMany("JavnoNadmetanjeList")
+                        .HasForeignKey("TipJavnogNadmetanjaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("JavnoNadmetanjeService.Entities.SluzbeniList", b =>
+                {
+                    b.HasOne("JavnoNadmetanjeService.Entities.JavnoNadmetanje", "JavnoNadmetanje")
+                        .WithMany("SluzbeniListList")
+                        .HasForeignKey("JavnoNadmetanjeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

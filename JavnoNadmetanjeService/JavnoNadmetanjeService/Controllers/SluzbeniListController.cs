@@ -21,17 +21,20 @@ namespace JavnoNadmetanjeService.Controllers
     public class SluzbeniListController : ControllerBase
     {
         private readonly ISluzbeniListRepository sluzbeniListRepository;
+        private readonly IJavnoNadmetanjeRepository javnoNadmetanjeRepository;
         private readonly LinkGenerator linkGenerator;
         private readonly IMapper mapper;
         private readonly ILoggerService LoggerService;
 
         public SluzbeniListController(
             ISluzbeniListRepository sluzbeniListRepository,
+            IJavnoNadmetanjeRepository javnoNadmetanjeRepository,
             LinkGenerator linkGenerator,
             IMapper mapper,
             ILoggerService loggerService)
         {
             this.sluzbeniListRepository = sluzbeniListRepository;
+            this.javnoNadmetanjeRepository = javnoNadmetanjeRepository;
             this.linkGenerator = linkGenerator;
             this.mapper = mapper;
             this.LoggerService = loggerService;
@@ -53,6 +56,12 @@ namespace JavnoNadmetanjeService.Controllers
             {
                 return NoContent();
             }
+
+            foreach (SluzbeniList sl in sluzbeniListovi)
+            {
+                sl.JavnoNadmetanje = javnoNadmetanjeRepository.GetJavnoNadmetanjeById(sl.JavnoNadmetanjeId);
+            }
+
             return Ok(mapper.Map<List<SluzbeniListDto>>(sluzbeniListovi));
         }
 
@@ -73,6 +82,9 @@ namespace JavnoNadmetanjeService.Controllers
             {
                 return NotFound();
             }
+
+            sluzbeniList.JavnoNadmetanje = javnoNadmetanjeRepository.GetJavnoNadmetanjeById(sluzbeniList.JavnoNadmetanjeId);
+
             return Ok(mapper.Map<SluzbeniListDto>(sluzbeniList));
         }
 

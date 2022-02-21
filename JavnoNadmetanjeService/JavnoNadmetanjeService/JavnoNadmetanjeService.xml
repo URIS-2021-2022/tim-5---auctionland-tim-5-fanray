@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JavnoNadmetanjeService</name>
+    </assembly>
+    <members>
+        <member name="M:JavnoNadmetanjeService.Controllers.AuthController.Login(JavnoNadmetanjeService.Models.Principal)">
+            <summary>
+            Prijava u sistem
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca token korisnika</response>
+            <response code="401">Autentifikacija nije uspjela</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.GetJavnoNadmetanje">
+            <summary>
+            Vraca listu svih javnih nadmetanja
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih javnih nadmetanja</response>
+            <response code="204">Nema javnih nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.GetJavnoNadmetanjeById(System.Guid)">
+            <summary>
+            Vraca javno nadmetanje sa trazenim ID-em
+            </summary>
+            <param name="javnoNadmetanjeId">Sifra javnog nadmetanja</param>
+            <returns></returns>
+            <response code="200">Vraca trazeno javno nadmetanje</response>
+            <response code="404">Javno nadmetanje nije pronadjeno</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.CreateJavnoNadmetanje(JavnoNadmetanjeService.Models.JavnoNadmetanjeCreateDto)">
+            <summary>
+            Upis novog javnog nadmetanja
+            </summary>
+            <returns></returns>
+            <response code="201">Vraca kreirano javno nadmetanje</response>
+            <response code="500">Doslo je do greske na serveru prilikom kreiranja javnog nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.DeleteJavnoNadmetanje(System.Guid)">
+            <summary>
+            Brisanje javnog nadmetanja sa trazenim ID-em
+            </summary>
+            <param name="javnoNadmetanjeId">Sifra javnog nadmetanja</param>
+            <returns></returns>
+            <response code="200">Vraca izbrisano javno nadmetanje</response>
+            <response code="404">Javno nadmetanje nije pronadjeno</response>
+            <response code="500">Doslo je do greske na serveru prilikom brisanja javnog nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.JavnoNadmetanjeController.UpdateJavnoNadmetanje(JavnoNadmetanjeService.Models.JavnoNadmetanjeUpdateDto)">
+            <summary>
+            Azuriranje postojeceg javnog nadmetanja
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca azurirano javno nadmetanje</response>
+            <response code="404">Javno Nadmetanje nije pronadjeno</response>
+            <response code="500">Doslo je do greske na serveru prilikom azuriranja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.SluzbeniListController.GetSluzbeniList">
+            <summary>
+            Vraca listu svih sluzbenih listova
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih sluzbenih listova</response>
+            <response code="204">Nema sluzbenih listova</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.SluzbeniListController.GetSluzbeniListById(System.Guid)">
+            <summary>
+            Vraca sluzbeni list sa trazenim ID-em
+            </summary>
+            <param name="sluzbeniListId">Sifra sluzbenog lista</param>
+            <returns></returns>
+            <response code="200">Vraca trazeni sluzbeni list</response>
+            <response code="404">Sluzbeni list nije pronadjen</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.SluzbeniListController.CreateSluzbeniList(JavnoNadmetanjeService.Models.SluzbeniListCreateDto)">
+            <summary>
+            Upis novog sluzbenog lista
+            </summary>
+            <returns></returns>
+            <response code="201">Vraca kreiran sluzbeni list</response>
+            <response code="500">Doslo je do greske na serveru prilikom kreiranja sluzbenog lista</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.SluzbeniListController.DeleteSluzbeniList(System.Guid)">
+            <summary>
+            Brisanje sluzbenog lista sa trazenim ID-em
+            </summary>
+            <param name="sluzbeniListId">Sifra sluzbenog lista</param>
+            <returns></returns>
+            <response code="200">Vraca izbrisan sluzbeni list</response>
+            <response code="404">Sluzbeni list nije pronadjen</response>
+            <response code="500">Doslo je do greske na serveru prilikom brisanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.SluzbeniListController.UpdateSluzbeniList(JavnoNadmetanjeService.Models.SluzbeniListUpdateDto)">
+            <summary>
+            Azuriranje postojeceg sluzbenog lista
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca azuriran sluzbeni list</response>
+            <response code="404">Sluzbeni list nije pronadjen</response>
+            <response code="500">Doslo je do greske na serveru prilikom azuriranja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.StatusJavnogNadmetanjaController.GetStatusJavnogNadmetanja">
+            <summary>
+            Vraca listu svih statusa javnih nadmetanja
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih statusa javnih nadmetanja</response>
+            <response code="204">Nema statusa javnih nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.StatusJavnogNadmetanjaController.GetStatusJavnogNadmetanjaById(System.Guid)">
+            <summary>
+            Vraca status javnog nadmetanja sa trazenim ID-em
+            </summary>
+            <param name="statusJavnogNadmetanjaId">Sifra statusa javnog nadmetanja</param>
+            <returns></returns>
+            <response code="200">Vraca trazeni status javnog nadmetanja</response>
+            <response code="404">Status javnog nadmetanja nije pronadjen</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.StatusJavnogNadmetanjaController.CreateStatusJavnogNadmetanja(JavnoNadmetanjeService.Models.StatusJavnogNadmetanjaCreateDto)">
+            <summary>
+            Upis novog statusa javnog nadmetanja
+            </summary>
+            <returns></returns>
+            <response code="201">Vraca kreiran statusa javnog nadmetanja</response>
+            <response code="500">Doslo je do greske na serveru prilikom kreiranja statusa javnog nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.StatusJavnogNadmetanjaController.DeleteStatusJavnogNadmetanja(System.Guid)">
+            <summary>
+            Brisanje statusa javnog nadmetanja sa trazenim ID-em
+            </summary>
+            <param name="statusJavnogNadmetanjaId">Sifra statusa javnog nadmetanja</param>
+            <returns></returns>
+            <response code="200">Vraca izbrisan status javnog nadmetanja</response>
+            <response code="404">Status javnog nadmetanja nije pronadjen</response>
+            <response code="500">Doslo je do greske na serveru prilikom brisanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.StatusJavnogNadmetanjaController.UpdateStatusJavnogNadmetanja(JavnoNadmetanjeService.Models.StatusJavnogNadmetanjaUpdateDto)">
+            <summary>
+            Azuriranje postojeceg statusa javnog nadmetanja
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca azuriran status javnog nadmetanja</response>
+            <response code="404">Status javnog nadmetanja nije pronadjen</response>
+            <response code="500">Doslo je do greske na serveru prilikom azuriranja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.TipJavnogNadmetanjaController.GetTipJavnogNadmetanja">
+            <summary>
+            Vraca listu svih tipova javnih nadmetanja
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih tipova javnih nadmetanja</response>
+            <response code="204">Nema tipova javnih nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.TipJavnogNadmetanjaController.GetTipJavnogNadmetanjaById(System.Guid)">
+            <summary>
+            Vraca tip javnog nadmetanja sa trazenim ID-em
+            </summary>
+            <param name="tipJavnogNadmetanjaId">Sifra tipa javnog nadmetanja</param>
+            <returns></returns>
+            <response code="200">Vraca trazeni tip javnog nadmetanja</response>
+            <response code="404">Tip javnog nadmetanja nije pronadjen</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.TipJavnogNadmetanjaController.CreateTipJavnogNadmetanja(JavnoNadmetanjeService.Models.TipJavnogNadmetanjaCreateDto)">
+            <summary>
+            Upis novog tipa javnog nadmetanja
+            </summary>
+            <returns></returns>
+            <response code="201">Vraca kreiran tip javnog nadmetanja</response>
+            <response code="500">Doslo je do greske na serveru prilikom kreiranja tipa javnog nadmetanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.TipJavnogNadmetanjaController.DeleteTipJavnogNadmetanja(System.Guid)">
+            <summary>
+            Brisanje tipa javnog nadmetanja sa trazenim ID-em
+            </summary>
+            <param name="tipJavnogNadmetanjaId">Sifra tipa javnog nadmetanja</param>
+            <returns></returns>
+            <response code="200">Vraca izbrisan tip javnog nadmetanja</response>
+            <response code="404">Tip javnog nadmetanja nije pronadjen</response>
+            <response code="500">Doslo je do greske na serveru prilikom brisanja</response>
+        </member>
+        <member name="M:JavnoNadmetanjeService.Controllers.TipJavnogNadmetanjaController.UpdateTipJavnogNadmetanja(JavnoNadmetanjeService.Models.TipJavnogNadmetanjaUpdateDto)">
+            <summary>
+            Azuriranje postojeceg tipa javnog nadmetanja
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca azuriran tip javnog nadmetanja</response>
+            <response code="404">Tip javnog nadmetanja nije pronadjen</response>
+            <response code="500">Doslo je do greske na serveru prilikom azuriranja</response>
+        </member>
+    </members>
+</doc>

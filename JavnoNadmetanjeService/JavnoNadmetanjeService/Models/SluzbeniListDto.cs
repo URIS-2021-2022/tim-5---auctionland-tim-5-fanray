@@ -15,6 +15,6 @@ namespace JavnoNadmetanjeService.Models
 
         public DateTime DatumIzdavanja { get; set; }
 
-        public Guid JavnoNadmetanjeId { get; set; }
+        public JavnoNadmetanjeDto JavnoNadmetanje { get; set; }
     }
 }

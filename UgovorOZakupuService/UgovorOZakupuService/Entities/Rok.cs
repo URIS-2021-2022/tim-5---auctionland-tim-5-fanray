@@ -10,5 +10,6 @@ namespace UgovorOZakupuService.Entities
     {
         public Guid RokID { get; set; }
         public DateTime DatumRokaDospeca { get; set; }
+        public List<Ugovor> UgovorList { get; set; }
     }
 }

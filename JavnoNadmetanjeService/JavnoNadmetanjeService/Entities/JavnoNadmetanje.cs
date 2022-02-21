@@ -12,9 +12,13 @@ namespace JavnoNadmetanjeService.Entities
         [Key]
         public Guid JavnoNadmetanjeId { get; set; }
 
+        [ForeignKey("TipJavnogNadmetanja")]
         public Guid TipJavnogNadmetanjaId { get; set; }
+        public TipJavnogNadmetanja TipJavnogNadmetanja { get; set; }
 
+        [ForeignKey("StatusJavnogNadmetanja")]
         public Guid StatusJavnogNadmetanjaId { get; set; }
+        public StatusJavnogNadmetanja StatusJavnogNadmetanja { get; set; }
 
         public Guid KatastarskaOpstinaId { get; set; }
 
@@ -37,5 +41,7 @@ namespace JavnoNadmetanjeService.Entities
         public int VisinaDopuneDepozita { get; set; }
 
         public int Krug { get; set; }
+
+        public List<SluzbeniList> SluzbeniListList { get; set; }
     }
 }

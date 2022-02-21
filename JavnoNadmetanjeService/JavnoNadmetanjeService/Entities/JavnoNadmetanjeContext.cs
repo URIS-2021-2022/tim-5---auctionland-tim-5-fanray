@@ -69,7 +69,7 @@ namespace JavnoNadmetanjeService.Entities
                         JavnoNadmetanjeId = Guid.Parse("1ae8137b-1674-4c91-a4b5-87a133f5dd87"),
                         TipJavnogNadmetanjaId = Guid.Parse("bc679089-e19f-43e4-946f-651ffbdb2afb"),
                         StatusJavnogNadmetanjaId = Guid.Parse("167a01c0-2e68-46a8-b201-3a23e3a20bff"),
-                        KatastarskaOpstinaId = Guid.Parse("24742b99-32c6-4999-b0a7-757a178f9ee7"),
+                        KatastarskaOpstinaId = Guid.Parse("714f831b-b86b-443d-abf5-f248694a8b2e"),
                         Datum = new DateTime(2022, 2, 10),
                         VremePocetka = new DateTime(2022, 2, 10, 9, 0, 0),
                         VremeKraja = new DateTime(2022, 2, 10, 11, 0, 0),

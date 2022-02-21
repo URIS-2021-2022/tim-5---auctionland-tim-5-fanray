@@ -13,6 +13,8 @@ using LicitacijaService.Helpers;
 using System;
 using System.Text;
 using LicitacijaService.Services;
+using System.Reflection;
+using System.IO;
 
 namespace LicitacijaService
 {
@@ -57,7 +59,15 @@ namespace LicitacijaService
                 };
             });
 
-            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "LicitacijaService", Version = "v1" }));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "LicitacijaService", Version = "v1" });
+
+                var xmlComments = $"{ Assembly.GetExecutingAssembly().GetName().Name }.xml";
+                var xmlCommentsPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
+
+                c.IncludeXmlComments(xmlCommentsPath);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

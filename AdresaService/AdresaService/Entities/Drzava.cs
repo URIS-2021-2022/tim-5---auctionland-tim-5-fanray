@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AdresaService.Entities
 {
@@ -6,5 +7,6 @@ namespace AdresaService.Entities
     {
         public Guid DrzavaID { get; set; }
         public string NazivDrzave { get; set; }
+        public List<Adresa> AdresaList { get; set; }
     }
 }

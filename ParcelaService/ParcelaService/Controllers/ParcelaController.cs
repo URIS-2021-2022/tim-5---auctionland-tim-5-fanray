@@ -19,13 +19,38 @@ namespace ParcelaService.Controllers
     public class ParcelaController : ControllerBase
     {
         private readonly IParcelaRepository ParcelaRepository;
+        private readonly IKatastarskaOpstinaRepository KatastarskaOpstinaRepository;
+        private readonly IKlasaRepository KlasaRepository;
+        private readonly IKulturaRepository KulturaRepository;
+        private readonly IOblikSvojineRepository OblikSvojineRepository;
+        private readonly IObradivostRepository ObradivostRepository;
+        private readonly IOdvodnjavanjeRepository OdvodnjavanjeRepository;
+        private readonly IZasticenaZonaRepository ZasticenaZonaRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
         private readonly ILoggerService LoggerService;
 
-        public ParcelaController(IParcelaRepository parcelaRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
+        public ParcelaController(
+            IParcelaRepository parcelaRepository,
+            IKatastarskaOpstinaRepository katastarskaOpstinaRepository,
+            IKlasaRepository klasaRepository,
+            IKulturaRepository kulturaRepository,
+            IOblikSvojineRepository oblikSvojineRepository,
+            IObradivostRepository obradivostRepository,
+            IOdvodnjavanjeRepository odvodnjavanjeRepository,
+            IZasticenaZonaRepository zasticenaZonaRepository,
+            LinkGenerator linkGenerator, 
+            IMapper mapper, 
+            ILoggerService loggerService)
         {
             this.ParcelaRepository = parcelaRepository;
+            this.KatastarskaOpstinaRepository = katastarskaOpstinaRepository;
+            this.KlasaRepository = klasaRepository;
+            this.KulturaRepository = kulturaRepository;
+            this.OblikSvojineRepository = oblikSvojineRepository;
+            this.ObradivostRepository = obradivostRepository;
+            this.OdvodnjavanjeRepository = odvodnjavanjeRepository;
+            this.ZasticenaZonaRepository = zasticenaZonaRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
             this.LoggerService = loggerService;
@@ -49,6 +74,17 @@ namespace ParcelaService.Controllers
                 return NoContent();
             }
 
+            foreach (Parcela p in parcelaList)
+            {
+                p.KatastarskaOpstina = KatastarskaOpstinaRepository.GetKatastarskaOpstinaById(p.KatastarskaOpstinaID);
+                p.Klasa = KlasaRepository.GetKlasaById(p.KlasaID);
+                p.Kultura = KulturaRepository.GetKulturaById(p.KulturaID);
+                p.OblikSvojine = OblikSvojineRepository.GetOblikSvojineById(p.OblikSvojineID);
+                p.Obradivost = ObradivostRepository.GetObradivostById(p.ObradivostID);
+                p.Odvodnjavanje = OdvodnjavanjeRepository.GetOdvodnjavanjeById(p.OdvodnjavanjeID);
+                p.ZasticenaZona = ZasticenaZonaRepository.GetZasticenaZonaById(p.ZasticenaZonaID);
+            }
+
             return Ok(Mapper.Map<List<ParcelaDto>>(parcelaList));
         }
 
@@ -64,14 +100,22 @@ namespace ParcelaService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<ParcelaDto> GetParcelaById(Guid parcelaId)
         {
-            Parcela parcela = ParcelaRepository.GetParcelaById(parcelaId);
+            Parcela p = ParcelaRepository.GetParcelaById(parcelaId);
 
-            if (parcela == null)
+            if (p == null)
             {
                 return NotFound();
             }
 
-            return Ok(Mapper.Map<ParcelaDto>(parcela));
+            p.KatastarskaOpstina = KatastarskaOpstinaRepository.GetKatastarskaOpstinaById(p.KatastarskaOpstinaID);
+            p.Klasa = KlasaRepository.GetKlasaById(p.KlasaID);
+            p.Kultura = KulturaRepository.GetKulturaById(p.KulturaID);
+            p.OblikSvojine = OblikSvojineRepository.GetOblikSvojineById(p.OblikSvojineID);
+            p.Obradivost = ObradivostRepository.GetObradivostById(p.ObradivostID);
+            p.Odvodnjavanje = OdvodnjavanjeRepository.GetOdvodnjavanjeById(p.OdvodnjavanjeID);
+            p.ZasticenaZona = ZasticenaZonaRepository.GetZasticenaZonaById(p.ZasticenaZonaID);
+
+            return Ok(Mapper.Map<ParcelaDto>(p));
         }
 
 

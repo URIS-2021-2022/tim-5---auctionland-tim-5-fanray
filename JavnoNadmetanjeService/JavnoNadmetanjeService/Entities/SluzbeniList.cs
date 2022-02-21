@@ -18,7 +18,9 @@ namespace JavnoNadmetanjeService.Entities
 
         public DateTime DatumIzdavanja { get; set; }
 
+        [ForeignKey("JavnoNadmetanje")]
         public Guid JavnoNadmetanjeId { get; set; }
+        public JavnoNadmetanje JavnoNadmetanje { get; set; }
 
     }
 }

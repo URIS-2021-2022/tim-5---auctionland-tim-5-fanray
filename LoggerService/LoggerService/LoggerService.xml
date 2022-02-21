@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LoggerService</name>
+    </assembly>
+    <members>
+        <member name="M:LoggerService.Controllers.LogController.GetLogList">
+            <summary>
+            Vraca listu svih logova
+            </summary>
+            <returns></returns>
+            <response code="200">Vraca listu svih logova</response>
+            <response code="204">Nema logova</response>
+        </member>
+        <member name="M:LoggerService.Controllers.LogController.GetLogById(System.Guid)">
+            <summary>
+            Vraca log sa trazenim ID-em
+            </summary>
+            <param name="logId">Sifra loga</param>
+            <returns></returns>
+            <response code="200">Vraca trazeni log</response>
+            <response code="404">Log nije pronadjen</response>
+        </member>
+        <member name="M:LoggerService.Controllers.LogController.CreateLog(LoggerService.Models.LogCreateDto)">
+            <summary>
+            Upis novog loga
+            </summary>
+            <returns></returns>
+            <response code="201">Vraca kreirani log</response>
+            <response code="500">Doslo je do greske na serveru prilikom kreiranja loga</response>
+        </member>
+    </members>
+</doc>
