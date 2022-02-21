@@ -74,7 +74,7 @@ namespace UplataService.Controllers
             {
 
                 Uplata uplata = Mapper.Map<Uplata>(uplataDto);
-                UplataConfirmationDto confirmation = UplataRepository.CreateUplata(uplataDto);
+                UplataConfirmationDto confirmation = UplataRepository.CreateUplata(uplata);
 
                
 
@@ -110,8 +110,6 @@ namespace UplataService.Controllers
                 Uplata uplata = Mapper.Map<Uplata>(uplataDto);
 
                 Mapper.Map(uplata, oldUplata);
-
-                return Ok(Mapper.Map<UplataConfirmationDto>(oldUplata));
 
                 UplataConfirmationDto confirmation = UplataRepository.UpdateUplata(uplataDto);
 

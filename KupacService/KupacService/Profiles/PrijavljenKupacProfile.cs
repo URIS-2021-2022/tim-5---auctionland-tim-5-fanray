@@ -12,10 +12,10 @@ namespace KupacService.Profiles
     {
         public PrijavljenKupacProfile()
         {
-            CreateMap<Prijavljen_Kupac, PrijavljenKupacDto>();
-            CreateMap<Prijavljen_Kupac, PrijavljenKupacConfirmationDto>();
-            CreateMap<PrijavljenKupacCreateDto, Prijavljen_Kupac>();
-            CreateMap<PrijavljenKupacUpdateDto, Prijavljen_Kupac>();
+            CreateMap<PrijavljenKupac, PrijavljenKupacDto>();
+            CreateMap<PrijavljenKupac, PrijavljenKupacConfirmationDto>();
+            CreateMap<PrijavljenKupacCreateDto, PrijavljenKupac>();
+            CreateMap<PrijavljenKupacUpdateDto, PrijavljenKupac>();
 
         }
     }

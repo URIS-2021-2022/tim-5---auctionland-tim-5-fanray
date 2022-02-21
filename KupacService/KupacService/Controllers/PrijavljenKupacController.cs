@@ -48,7 +48,7 @@ namespace KupacService.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public ActionResult<List<PrijavljenKupacDto>> GetPrijavljenKupacList()
         {
-            List<Prijavljen_Kupac> prijavljenKupacList = PrijavljenKupacRepository.GetPrijavljen_KupacList();
+            List<PrijavljenKupac> prijavljenKupacList = PrijavljenKupacRepository.GetPrijavljen_KupacList();
 
             if (prijavljenKupacList == null || prijavljenKupacList.Count == 0)
             {
@@ -70,7 +70,7 @@ namespace KupacService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<KupacDto> GetPrijavljen_KupacById(Guid prijavljenKupacId)
         {
-            Prijavljen_Kupac prijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacId);
+            PrijavljenKupac prijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacId);
 
             if (prijavljenKupac == null)
             {
@@ -94,7 +94,7 @@ namespace KupacService.Controllers
         {
             try
             {
-                Prijavljen_Kupac prijavljenKupac = Mapper.Map<Prijavljen_Kupac>(prijavljenKupacDto);
+                PrijavljenKupac prijavljenKupac = Mapper.Map<PrijavljenKupac>(prijavljenKupacDto);
                 PrijavljenKupacConfirmationDto confirmation = PrijavljenKupacRepository.CreatePrijavljenKupac(prijavljenKupac);
 
                 string location = LinkGenerator.GetPathByAction("GetPrijavljen_KupacById", "Prijavljen_Kupac", new { prijavljenKupacId = confirmation.PrijavljenKupacId });
@@ -124,14 +124,14 @@ namespace KupacService.Controllers
         {
             try
             {
-                Prijavljen_Kupac oldprijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacDto.PrijavljenKupacId);
+                PrijavljenKupac oldprijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacDto.PrijavljenKupacId);
 
                 if (oldprijavljenKupac == null)
                 {
                     return NotFound();
                 }
 
-                Prijavljen_Kupac prijavljenKupac = Mapper.Map<Prijavljen_Kupac>(prijavljenKupacDto);
+                PrijavljenKupac prijavljenKupac = Mapper.Map<PrijavljenKupac>(prijavljenKupacDto);
 
                 Mapper.Map(prijavljenKupac, oldprijavljenKupac);
 
@@ -163,7 +163,7 @@ namespace KupacService.Controllers
         {
             try
             {
-                Prijavljen_Kupac prijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacId);
+                PrijavljenKupac prijavljenKupac = PrijavljenKupacRepository.GetPrijavljen_KupacById(prijavljenKupacId);
 
                 if (prijavljenKupac == null)
                 {

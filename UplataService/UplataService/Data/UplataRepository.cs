@@ -21,7 +21,7 @@ namespace UplataService.Data
             this.Mapper = mapper;
         } 
 
-        public UplataConfirmationDto CreateUplata(UplataCreateDto uplataDto)
+        public UplataConfirmationDto CreateUplata(Uplata uplataDto)
         {
             Uplata uplata = new Uplata()
             {
@@ -58,9 +58,9 @@ namespace UplataService.Data
             return Mapper.Map<UplataConfirmationDto>(uplata);
         }
 
-        public Uplata getUplataById(Guid uplataID)
+        public Uplata getUplataById(Guid uplataId)
         {
-            return Context.Uplata.FirstOrDefault(e => e.UplataID == uplataID);
+            return Context.Uplata.FirstOrDefault(e => e.UplataID == uplataId);
         }
 
         public List<Uplata> getUplataList()

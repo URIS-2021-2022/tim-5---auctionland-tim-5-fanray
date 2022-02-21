@@ -64,7 +64,7 @@ namespace KupacService.Migrations
                         });
                 });
 
-            modelBuilder.Entity("KupacService.Entities.Najbolji_Ponudjac", b =>
+            modelBuilder.Entity("KupacService.Entities.NajboljiPonudjac", b =>
                 {
                     b.Property<Guid>("NajboljiPonudjacId")
                         .ValueGeneratedOnAdd()
@@ -85,7 +85,7 @@ namespace KupacService.Migrations
                         });
                 });
 
-            modelBuilder.Entity("KupacService.Entities.Prijavljen_Kupac", b =>
+            modelBuilder.Entity("KupacService.Entities.PrijavljenKupac", b =>
                 {
                     b.Property<Guid>("PrijavljenKupacId")
                         .ValueGeneratedOnAdd()

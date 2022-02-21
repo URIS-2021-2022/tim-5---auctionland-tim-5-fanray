@@ -19,9 +19,9 @@ namespace KupacService.Entities
 
         public DbSet<Kupac> Kupac { get; set; }
 
-        public DbSet<Prijavljen_Kupac> Prijavljen_Kupac { get; set; }
+        public DbSet<PrijavljenKupac> Prijavljen_Kupac { get; set; }
 
-        public DbSet<Najbolji_Ponudjac> Najbolji_Ponudjac { get; set; }
+        public DbSet<NajboljiPonudjac> Najbolji_Ponudjac { get; set; }
 
         public DbSet<Prioritet> Prioritet { get; set; }
 
@@ -34,9 +34,9 @@ namespace KupacService.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Prijavljen_Kupac>()
+            modelBuilder.Entity<PrijavljenKupac>()
                 .HasData(
-                    new Prijavljen_Kupac
+                    new PrijavljenKupac
                     {
                         PrijavljenKupacId = Guid.Parse("1a1bdf95-8ee1-4998-a78c-360039502626"),
                         KupacId = Guid.Parse("a35d8ec7-4cea-42ec-859e-5c012476ced0")
@@ -44,9 +44,9 @@ namespace KupacService.Entities
                    
             );
 
-            modelBuilder.Entity<Najbolji_Ponudjac>()
+            modelBuilder.Entity<NajboljiPonudjac>()
                 .HasData(
-                    new Najbolji_Ponudjac
+                    new NajboljiPonudjac
                     {
                         NajboljiPonudjacId = Guid.Parse("c566ecfd-a27d-4a0b-8032-66fc24754929"),
                         KupacId = Guid.Parse("a35d8ec7-4cea-42ec-859e-5c012476ced0"),

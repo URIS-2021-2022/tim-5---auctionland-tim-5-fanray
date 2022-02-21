@@ -15,9 +15,9 @@ namespace UplataService.Data
 
         Uplata getUplataById(Guid uplataId);
 
-        UplataConfirmationDto CreateUplata(UplataCreateDto uplata);
+        UplataConfirmationDto CreateUplata(Uplata uplataDto);
 
-        UplataConfirmationDto UpdateUplata(UplataUpdateDto uplata);
+        UplataConfirmationDto UpdateUplata(UplataUpdateDto uplataDto);
 
         UplataConfirmationDto DeleteUplata(Guid uplataId);
     }

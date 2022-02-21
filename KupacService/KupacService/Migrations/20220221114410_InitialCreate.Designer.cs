@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KupacService.Migrations
 {
     [DbContext(typeof(KupacContext))]
-    [Migration("20220217132711_InitialCreate")]
+    [Migration("20220221114410_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,7 +66,7 @@ namespace KupacService.Migrations
                         });
                 });
 
-            modelBuilder.Entity("KupacService.Entities.Najbolji_Ponudjac", b =>
+            modelBuilder.Entity("KupacService.Entities.NajboljiPonudjac", b =>
                 {
                     b.Property<Guid>("NajboljiPonudjacId")
                         .ValueGeneratedOnAdd()
@@ -87,7 +87,7 @@ namespace KupacService.Migrations
                         });
                 });
 
-            modelBuilder.Entity("KupacService.Entities.Prijavljen_Kupac", b =>
+            modelBuilder.Entity("KupacService.Entities.PrijavljenKupac", b =>
                 {
                     b.Property<Guid>("PrijavljenKupacId")
                         .ValueGeneratedOnAdd()
