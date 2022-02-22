@@ -145,8 +145,8 @@ namespace UgovorOZakupuService.Entities
                         MestoPotpisivanja = "Beograd",
                         DatumPotpisa = DateTime.Parse("2022-01-23T14:20:57"),
                         JavnoNadmetanjeID = Guid.Parse("84b3ea4c-e02f-41b1-a1ef-2734ef97abb2"),
-                        KupacID = Guid.Parse("81037b57-d24c-4d85-9649-7fc6ed635a0c"),
-                        LicnostID = Guid.Parse("45aed467-8061-4011-bfc6-3bc4d01b65f9"),
+                        KupacID = Guid.Parse("a35d8ec7-4cea-42ec-859e-5c012476ced0"),
+                        LicnostID = Guid.Parse("4a078606-30b2-497e-8650-7330a236e150"),
                         DokumentID = Guid.Parse("2f1c2288-8255-4128-aa44-91303617bcb8"),
                         TipGarancijeID = Guid.Parse("8a02b3ef-651c-4893-8c71-8cf5ca4619fe"),
                         RokID = Guid.Parse("34562293-3bb6-4ef3-922f-f9d7d3c57864")

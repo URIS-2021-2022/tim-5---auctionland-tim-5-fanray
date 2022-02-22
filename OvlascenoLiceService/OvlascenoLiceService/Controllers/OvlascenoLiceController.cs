@@ -22,12 +22,14 @@ namespace OvlascenoLice.Controllers
         private readonly IBrojTableRepository BrojTableRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly IAdresaService AdresaService;
         private readonly ILoggerService LoggerService;
 
         public OvlascenoLiceController(
             IOvlascenoLiceRepository ovlascenoLiceRepository, 
             IBrojTableRepository brojTableRepository,
-            LinkGenerator linkGenerator, 
+            LinkGenerator linkGenerator,
+            IAdresaService adresaService,
             IMapper mapper, ILoggerService 
             loggerService)
         {
@@ -35,6 +37,7 @@ namespace OvlascenoLice.Controllers
             this.BrojTableRepository = brojTableRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.AdresaService = adresaService;
             this.LoggerService = loggerService;
         }
 
@@ -53,7 +56,14 @@ namespace OvlascenoLice.Controllers
                 ol.BrojTable = BrojTableRepository.GetBrojTableById(ol.BrojTableID);
             }
 
-            return Ok(Mapper.Map<List<OvlascenoLiceDto>>(ovlascenoLiceList));
+            List<OvlascenoLiceDto> ovlascenoLiceDto = Mapper.Map<List<OvlascenoLiceDto>>(ovlascenoLiceList);
+
+            foreach (OvlascenoLiceDto olDto in ovlascenoLiceDto)
+            {
+                olDto.Drzava = AdresaService.GetDrzavaByIdAsync(olDto.DrzavaID, Request).Result;
+            }
+
+            return Ok(ovlascenoLiceDto);
         }
 
         [HttpGet("{ovlascenoLiceId}")]
@@ -68,7 +78,12 @@ namespace OvlascenoLice.Controllers
 
             ovlascenoLice.BrojTable = BrojTableRepository.GetBrojTableById(ovlascenoLice.BrojTableID);
 
-            return Ok(Mapper.Map<OvlascenoLiceDto>(ovlascenoLice));
+
+            OvlascenoLiceDto olDto = Mapper.Map<OvlascenoLiceDto>(ovlascenoLice);
+
+            olDto.Drzava = AdresaService.GetDrzavaByIdAsync(ovlascenoLice.DrzavaID, Request).Result;
+
+            return Ok(olDto);
         }
 
         [HttpPost]

@@ -1,4 +1,5 @@
-﻿using ParcelaService.Models;
+﻿using Microsoft.AspNetCore.Http;
+using ParcelaService.Models;
 
 namespace ParcelaService.Helpers
 {
@@ -6,5 +7,6 @@ namespace ParcelaService.Helpers
     {
         bool AuthenticatePrincipal(Principal principal);
         string GenerateJwt(Principal principal);
+        string GetToken(HttpRequest request);
     }
 }

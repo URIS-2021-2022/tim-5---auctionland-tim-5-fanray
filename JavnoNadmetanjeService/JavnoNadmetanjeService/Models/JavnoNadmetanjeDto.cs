@@ -14,6 +14,7 @@ namespace JavnoNadmetanjeService.Models
         public StatusJavnogNadmetanjaDto StatusJavnogNadmetanja { get; set; }
 
         public Guid KatastarskaOpstinaId { get; set; }
+        public KatastarskaOpstinaDto KatastarskaOpstina { get; set; }
 
         public DateTime Datum { get; set; }
 

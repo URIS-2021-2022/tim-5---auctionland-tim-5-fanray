@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using OvlascenoLiceService.Data;
@@ -31,6 +32,11 @@ namespace OvlascenoLiceService.Helpers
             var token = new JwtSecurityToken(Configuration["Jwt:Issuer"], Configuration["Jwt:Audience"], null, expires: DateTime.Now.AddMinutes(120), signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public string GetToken(HttpRequest request)
+        {
+            return request.Headers["Authorization"].ToString().Split(" ")[1];
         }
     }
 }

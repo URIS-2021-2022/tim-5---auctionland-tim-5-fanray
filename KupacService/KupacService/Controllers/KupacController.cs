@@ -23,13 +23,20 @@ namespace KupacService.Controllers
         private readonly IKupacRepository KupacRepository;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly IOvlascenoLiceService OvlascenoLiceService;
         private readonly ILoggerService LoggerService;
 
-        public KupacController(IKupacRepository kupacRepository, LinkGenerator linkGenerator, IMapper mapper, ILoggerService loggerService)
+        public KupacController(
+            IKupacRepository kupacRepository, 
+            LinkGenerator linkGenerator, 
+            IMapper mapper, 
+            IOvlascenoLiceService ovlascenoLiceService,
+            ILoggerService loggerService)
         {
             this.KupacRepository = kupacRepository;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.OvlascenoLiceService = ovlascenoLiceService;
             this.LoggerService = loggerService;
         }
 
@@ -51,7 +58,14 @@ namespace KupacService.Controllers
                 return NoContent();
             }
 
-            return Ok(Mapper.Map<List<KupacDto>>(kupacList));
+            List<KupacDto> kupacDtoList = Mapper.Map<List<KupacDto>>(kupacList);
+
+            foreach (KupacDto kdto in kupacDtoList)
+            {
+                kdto.OvlascenoLice = OvlascenoLiceService.GetOvlascenoLiceByIdAsync(kdto.OvlascenoLiceId, Request).Result;
+            }
+
+            return Ok(kupacDtoList);
         }
 
         /// <summary>
@@ -73,9 +87,12 @@ namespace KupacService.Controllers
                 return NotFound();
             }
 
-            return Ok(Mapper.Map<KupacDto>(kupac));
+            KupacDto kupacDto = Mapper.Map<KupacDto>(kupac);
+
+            kupacDto.OvlascenoLice = OvlascenoLiceService.GetOvlascenoLiceByIdAsync(kupacDto.OvlascenoLiceId, Request).Result;
+
+            return Ok(kupacDto);
         }
-        //...
 
         /// <summary>
         /// Upis novog kupca

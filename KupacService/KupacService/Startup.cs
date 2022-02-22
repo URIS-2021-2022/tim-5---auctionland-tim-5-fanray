@@ -44,6 +44,7 @@ namespace KupacService
             services.AddScoped<IPrioritetRepository, PrioritetRepository>();
             services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddScoped<IOvlascenoLiceService, OvlascenoLiceService>();
             services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();

@@ -26,6 +26,8 @@ namespace UgovorOZakupuService.Controllers
             private readonly IDokumentRepository DokumentRepository;
             private readonly LinkGenerator LinkGenerator;
             private readonly IMapper Mapper;
+            private readonly IKupacService KupacService;
+            private readonly ILicnostService LicnostService;
             private readonly ILoggerService LoggerService;
 
             public UgovorController(
@@ -34,7 +36,9 @@ namespace UgovorOZakupuService.Controllers
                 IRokRepository rokRepository,
                 ITipGarancijeRepository tipGarancijeRepository,
                 LinkGenerator linkGenerator, 
-                IMapper mapper, 
+                IMapper mapper,
+                IKupacService kupacService,
+                ILicnostService licnostService,
                 ILoggerService loggerService)
             {
                 this.UgovorRepository = ugovorRepository;
@@ -43,6 +47,8 @@ namespace UgovorOZakupuService.Controllers
                 this.TipGarancijeRepository = tipGarancijeRepository;
                 this.LinkGenerator = linkGenerator;
                 this.Mapper = mapper;
+                this.KupacService = kupacService;
+                this.LicnostService = licnostService;
                 this.LoggerService = loggerService;
             }
 
@@ -65,8 +71,16 @@ namespace UgovorOZakupuService.Controllers
                     u.TipGarancije = TipGarancijeRepository.GetTipGarancijeById(u.TipGarancijeID);
                 }
 
-                return Ok(Mapper.Map<List<UgovorDto>>(ugovorList));
-            }
+                List<UgovorDto> ugovorListDto = Mapper.Map<List<UgovorDto>>(ugovorList);
+
+                foreach (UgovorDto udto in ugovorListDto)
+                {
+                    udto.Kupac = KupacService.GetKupacByIdAsync(udto.KupacID, Request).Result;
+                    udto.Licnost = LicnostService.GetLicnostByIdAsync(udto.LicnostID, Request).Result;
+                }
+
+                return Ok(ugovorListDto);
+        }
 
             [HttpGet("{ugovorId}")]
             [ProducesResponseType(StatusCodes.Status200OK)]
@@ -84,7 +98,12 @@ namespace UgovorOZakupuService.Controllers
                 ugovor.Rok = RokRepository.GetRokById(ugovor.RokID);
                 ugovor.TipGarancije = TipGarancijeRepository.GetTipGarancijeById(ugovor.TipGarancijeID);
 
-                return Ok(Mapper.Map<UgovorDto>(ugovor));
+                UgovorDto ugovorDto = Mapper.Map<UgovorDto>(ugovor);
+
+                ugovorDto.Kupac = KupacService.GetKupacByIdAsync(ugovorDto.KupacID, Request).Result;
+                ugovorDto.Licnost = LicnostService.GetLicnostByIdAsync(ugovorDto.LicnostID, Request).Result;
+
+                return Ok(ugovorDto);
             }
 
             [HttpPost]

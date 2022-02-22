@@ -43,9 +43,11 @@ namespace ParcelaService
             services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IParcelaHelper, ParcelaHelper>();
             services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddScoped<ILiceService, LiceService>();
             services.AddSingleton<ILoggerService, LoggerService>();
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(
+                options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddDbContext<ParcelaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParcelaDB")));
 

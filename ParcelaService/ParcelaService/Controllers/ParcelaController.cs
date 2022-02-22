@@ -23,6 +23,7 @@ namespace ParcelaService.Controllers
         private readonly IParcelaHelper ParcelaHelper;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
+        private readonly ILiceService LiceService;
         private readonly ILoggerService LoggerService;
 
         public ParcelaController(
@@ -30,12 +31,14 @@ namespace ParcelaService.Controllers
             IParcelaHelper parcelaHelper,
             LinkGenerator linkGenerator, 
             IMapper mapper, 
+            ILiceService liceService,
             ILoggerService loggerService)
         {
             this.ParcelaRepository = parcelaRepository;
             this.ParcelaHelper = parcelaHelper;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
+            this.LiceService = liceService;
             this.LoggerService = loggerService;
         }
 
@@ -62,7 +65,14 @@ namespace ParcelaService.Controllers
                 parcelaList[i] = ParcelaHelper.loadRepositories(parcelaList[i]);
             }
 
-            return Ok(Mapper.Map<List<ParcelaDto>>(parcelaList));
+            List<ParcelaDto> parcelaListDto = Mapper.Map<List<ParcelaDto>>(parcelaList);
+
+            foreach (ParcelaDto p in parcelaListDto)
+            {
+                p.KorisnikParcele = LiceService.GetLiceByIdAsync(p.KorisnikParceleID, Request).Result;
+            }
+
+            return Ok(parcelaList);
         }
 
         /// <summary>
@@ -86,7 +96,11 @@ namespace ParcelaService.Controllers
 
             p = ParcelaHelper.loadRepositories(p);
 
-            return Ok(Mapper.Map<ParcelaDto>(p));
+            ParcelaDto pDto = Mapper.Map<ParcelaDto>(p);
+
+            pDto.KorisnikParcele = LiceService.GetLiceByIdAsync(p.KorisnikParceleID, Request).Result;
+
+            return Ok(pDto);
         }
 
 

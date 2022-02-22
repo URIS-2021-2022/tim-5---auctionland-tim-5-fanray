@@ -25,6 +25,7 @@ namespace JavnoNadmetanjeService.Controllers
         private readonly IStatusJavnogNadmetanjaRepository statusJavnogNadmetanjaRepository;
         private readonly LinkGenerator linkGenerator;
         private readonly IMapper mapper;
+        private readonly IParcelaService ParcelaService;
         private readonly ILoggerService LoggerService;
 
         public JavnoNadmetanjeController(
@@ -32,6 +33,7 @@ namespace JavnoNadmetanjeService.Controllers
             ITipJavnogNadmetanjaRepository tipJavnogNadmetanjaRepository,
             IStatusJavnogNadmetanjaRepository statusJavnogNadmetanjaRepository,
             LinkGenerator linkGenerator, IMapper mapper,
+            IParcelaService parcelaService,
             ILoggerService loggerService
             )
         {
@@ -40,6 +42,7 @@ namespace JavnoNadmetanjeService.Controllers
             this.statusJavnogNadmetanjaRepository = statusJavnogNadmetanjaRepository;
             this.linkGenerator = linkGenerator;
             this.mapper = mapper;
+            this.ParcelaService = parcelaService;
             this.LoggerService = loggerService;
         }
 
@@ -66,8 +69,14 @@ namespace JavnoNadmetanjeService.Controllers
                 jn.StatusJavnogNadmetanja = statusJavnogNadmetanjaRepository.GetStatusJavnogNadmetanjaById(jn.StatusJavnogNadmetanjaId);
             }
 
+            List<JavnoNadmetanjeDto> javnaNadmetanjaDto = mapper.Map<List<JavnoNadmetanjeDto>>(javnaNadmetanja);
 
-            return Ok(mapper.Map<List<JavnoNadmetanjeDto>>(javnaNadmetanja));
+            foreach (JavnoNadmetanjeDto jdto in javnaNadmetanjaDto)
+            {
+                jdto.KatastarskaOpstina = ParcelaService.GetKatastarskaOpstinaByIdAsync(jdto.KatastarskaOpstinaId, Request).Result;
+            }
+
+            return Ok(javnaNadmetanjaDto);
         }
 
         /// <summary>
@@ -91,7 +100,12 @@ namespace JavnoNadmetanjeService.Controllers
             javnoNadmetanje.TipJavnogNadmetanja = tipJavnogNadmetanjaRepository.GetTipJavnogNadmetanjaById(javnoNadmetanje.TipJavnogNadmetanjaId);
             javnoNadmetanje.StatusJavnogNadmetanja = statusJavnogNadmetanjaRepository.GetStatusJavnogNadmetanjaById(javnoNadmetanje.StatusJavnogNadmetanjaId);
 
-            return Ok(mapper.Map<JavnoNadmetanjeDto>(javnoNadmetanje));
+            JavnoNadmetanjeDto javnoNadmetanjeDto = mapper.Map<JavnoNadmetanjeDto>(javnoNadmetanje);
+
+            javnoNadmetanjeDto.KatastarskaOpstina = ParcelaService.GetKatastarskaOpstinaByIdAsync(javnoNadmetanjeDto.KatastarskaOpstinaId, Request).Result;
+
+
+            return Ok(mapper.Map<JavnoNadmetanjeDto>(javnoNadmetanjeDto));
         }
 
         /// <summary>

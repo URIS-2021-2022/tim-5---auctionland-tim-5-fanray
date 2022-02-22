@@ -96,7 +96,7 @@ namespace ParcelaService.Migrations
                 columns: table => new
                 {
                     ParcelaID = table.Column<Guid>(nullable: false),
-                    KorisnikParceleID = table.Column<Guid>(nullable: true),
+                    KorisnikParceleID = table.Column<Guid>(nullable: false),
                     Povrsina = table.Column<int>(nullable: false),
                     BrojParcele = table.Column<string>(nullable: true),
                     BrojListaNepokretnosti = table.Column<string>(nullable: true),
@@ -105,13 +105,13 @@ namespace ParcelaService.Migrations
                     ObradivostStvarnoStanje = table.Column<string>(nullable: true),
                     ZasticenaZonaStvarnoStanje = table.Column<string>(nullable: true),
                     OdvodnjavanjeStvarnoStanje = table.Column<string>(nullable: true),
-                    KatastarskaOpstinaID = table.Column<Guid>(nullable: true),
-                    KulturaID = table.Column<Guid>(nullable: true),
-                    KlasaID = table.Column<Guid>(nullable: true),
-                    ObradivostID = table.Column<Guid>(nullable: true),
-                    ZasticenaZonaID = table.Column<Guid>(nullable: true),
-                    OblikSvojineID = table.Column<Guid>(nullable: true),
-                    OdvodnjavanjeID = table.Column<Guid>(nullable: true)
+                    KatastarskaOpstinaID = table.Column<Guid>(nullable: false),
+                    KulturaID = table.Column<Guid>(nullable: false),
+                    KlasaID = table.Column<Guid>(nullable: false),
+                    ObradivostID = table.Column<Guid>(nullable: false),
+                    ZasticenaZonaID = table.Column<Guid>(nullable: false),
+                    OblikSvojineID = table.Column<Guid>(nullable: false),
+                    OdvodnjavanjeID = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -121,43 +121,43 @@ namespace ParcelaService.Migrations
                         column: x => x.KatastarskaOpstinaID,
                         principalTable: "KatastarskaOpstina",
                         principalColumn: "KatastarskaOpstinaID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Parcela_Klasa_KlasaID",
                         column: x => x.KlasaID,
                         principalTable: "Klasa",
                         principalColumn: "KlasaID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Parcela_Kultura_KulturaID",
                         column: x => x.KulturaID,
                         principalTable: "Kultura",
                         principalColumn: "KulturaID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Parcela_OblikSvojine_OblikSvojineID",
                         column: x => x.OblikSvojineID,
                         principalTable: "OblikSvojine",
                         principalColumn: "OblikSvojineID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Parcela_Obradivost_ObradivostID",
                         column: x => x.ObradivostID,
                         principalTable: "Obradivost",
                         principalColumn: "ObradivostID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Parcela_Odvodnjavanje_OdvodnjavanjeID",
                         column: x => x.OdvodnjavanjeID,
                         principalTable: "Odvodnjavanje",
                         principalColumn: "OdvodnjavanjeID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Parcela_ZasticenaZona_ZasticenaZonaID",
                         column: x => x.ZasticenaZonaID,
                         principalTable: "ZasticenaZona",
                         principalColumn: "ZasticenaZonaID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -273,7 +273,7 @@ namespace ParcelaService.Migrations
             migrationBuilder.InsertData(
                 table: "Parcela",
                 columns: new[] { "ParcelaID", "BrojListaNepokretnosti", "BrojParcele", "KatastarskaOpstinaID", "KlasaID", "KlasaStvarnoStanje", "KorisnikParceleID", "KulturaID", "KulturaStvarnoStanje", "OblikSvojineID", "ObradivostID", "ObradivostStvarnoStanje", "OdvodnjavanjeID", "OdvodnjavanjeStvarnoStanje", "Povrsina", "ZasticenaZonaID", "ZasticenaZonaStvarnoStanje" },
-                values: new object[] { new Guid("ae463837-b971-4354-9f40-92cc819edf25"), "LN101", "PC-2601", new Guid("870742be-2358-45f2-bb1b-1d4efa6bf9d2"), new Guid("5c3ad689-4409-4e4d-8e93-fd452776c770"), "", new Guid("efb3be0f-7082-4998-858d-51340d2abbab"), new Guid("a644ca6e-89c2-4b16-84d8-6f5b76909ad2"), "", new Guid("84226e05-ec99-4c6c-827f-f0ccf63a0990"), new Guid("9e1a4745-8838-4130-8662-4337d153a5fd"), "", new Guid("0f18b42e-3451-426d-8720-cdd50110989b"), "", 100, new Guid("308a9704-2235-4310-9092-9cde4a40164b"), "" });
+                values: new object[] { new Guid("ae463837-b971-4354-9f40-92cc819edf25"), "LN101", "PC-2601", new Guid("870742be-2358-45f2-bb1b-1d4efa6bf9d2"), new Guid("5c3ad689-4409-4e4d-8e93-fd452776c770"), "", new Guid("8de0c01b-b7b0-4df2-9009-3df21b91a0bb"), new Guid("a644ca6e-89c2-4b16-84d8-6f5b76909ad2"), "", new Guid("84226e05-ec99-4c6c-827f-f0ccf63a0990"), new Guid("9e1a4745-8838-4130-8662-4337d153a5fd"), "", new Guid("0f18b42e-3451-426d-8720-cdd50110989b"), "", 100, new Guid("308a9704-2235-4310-9092-9cde4a40164b"), "" });
 
             migrationBuilder.InsertData(
                 table: "DeoParcele",

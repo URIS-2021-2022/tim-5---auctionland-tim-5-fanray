@@ -60,7 +60,7 @@ namespace OvlascenoLiceService.Migrations
             migrationBuilder.InsertData(
                 table: "OvlascenoLice",
                 columns: new[] { "OvlascenoLiceID", "BrojPasosa", "BrojTableID", "DrzavaID", "Ime", "JMBG", "Prezime" },
-                values: new object[] { new Guid("d041c26e-34c1-4c2d-a9f6-0c0478f3f437"), "BP0710", new Guid("206a4efa-5389-41a8-a730-4df3842cf7fe"), new Guid("bb9c4ebc-2028-4a83-88d7-04422ab58548"), "Milos", "1007990171500", "Jovanovic" });
+                values: new object[] { new Guid("d041c26e-34c1-4c2d-a9f6-0c0478f3f437"), "BP0710", new Guid("206a4efa-5389-41a8-a730-4df3842cf7fe"), new Guid("a8d29242-7df3-4bfb-be49-48519f65649b"), "Milos", "1007990171500", "Jovanovic" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_OvlascenoLice_BrojTableID",

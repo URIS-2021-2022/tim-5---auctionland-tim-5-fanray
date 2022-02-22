@@ -6,6 +6,7 @@ namespace ParcelaService.Models
     {
         public Guid ParcelaID { get; set; }
         public Guid KorisnikParceleID { get; set; }
+        public LiceDto KorisnikParcele { get; set; }
         public int Povrsina { get; set; }
         public string BrojParcele { get; set; }
         public KatastarskaOpstinaDto KatastarskaOpstina { get; set; }

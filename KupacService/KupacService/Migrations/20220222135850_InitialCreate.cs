@@ -64,7 +64,7 @@ namespace KupacService.Migrations
             migrationBuilder.InsertData(
                 table: "Kupac",
                 columns: new[] { "KupacId", "DatumPocetkaZabrane", "DatumPrestankaZabrane", "DatumTrajanjaZabrane", "ImaZabranu", "OstvarenaPovrsina", "OvlascenoLiceId", "PrioritetId" },
-                values: new object[] { new Guid("a35d8ec7-4cea-42ec-859e-5c012476ced0"), new DateTime(2020, 11, 15, 9, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 11, 15, 9, 0, 0, 0, DateTimeKind.Unspecified), "1 godinu", true, "200m2", new Guid("148805f4-3093-4fd3-aea1-f253038b3c8f"), new Guid("608ed376-c4bb-4bdd-84cb-f34147ca96df") });
+                values: new object[] { new Guid("a35d8ec7-4cea-42ec-859e-5c012476ced0"), new DateTime(2020, 11, 15, 9, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 11, 15, 9, 0, 0, 0, DateTimeKind.Unspecified), "1 godinu", true, "200m2", new Guid("d041c26e-34c1-4c2d-a9f6-0c0478f3f437"), new Guid("608ed376-c4bb-4bdd-84cb-f34147ca96df") });
 
             migrationBuilder.InsertData(
                 table: "Najbolji_Ponudjac",

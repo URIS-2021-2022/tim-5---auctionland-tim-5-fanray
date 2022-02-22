@@ -35,6 +35,7 @@ namespace OvlascenoLiceService
             services.AddScoped<IOvlascenoLiceRepository, OvlascenoLiceRepository>();
             services.AddScoped<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddScoped<IAdresaService, AdresaService>();
             services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();

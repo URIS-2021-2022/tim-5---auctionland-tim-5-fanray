@@ -10,7 +10,7 @@ using ParcelaService.Entities;
 namespace ParcelaService.Migrations
 {
     [DbContext(typeof(ParcelaContext))]
-    [Migration("20220130142454_InitialCreate")]
+    [Migration("20220222120841_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -353,34 +353,34 @@ namespace ParcelaService.Migrations
                     b.Property<string>("BrojParcele")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("KatastarskaOpstinaID")
+                    b.Property<Guid>("KatastarskaOpstinaID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("KlasaID")
+                    b.Property<Guid>("KlasaID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("KlasaStvarnoStanje")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("KorisnikParceleID")
+                    b.Property<Guid>("KorisnikParceleID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("KulturaID")
+                    b.Property<Guid>("KulturaID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("KulturaStvarnoStanje")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("OblikSvojineID")
+                    b.Property<Guid>("OblikSvojineID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ObradivostID")
+                    b.Property<Guid>("ObradivostID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ObradivostStvarnoStanje")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("OdvodnjavanjeID")
+                    b.Property<Guid>("OdvodnjavanjeID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("OdvodnjavanjeStvarnoStanje")
@@ -389,7 +389,7 @@ namespace ParcelaService.Migrations
                     b.Property<int>("Povrsina")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("ZasticenaZonaID")
+                    b.Property<Guid>("ZasticenaZonaID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ZasticenaZonaStvarnoStanje")
@@ -422,7 +422,7 @@ namespace ParcelaService.Migrations
                             KatastarskaOpstinaID = new Guid("870742be-2358-45f2-bb1b-1d4efa6bf9d2"),
                             KlasaID = new Guid("5c3ad689-4409-4e4d-8e93-fd452776c770"),
                             KlasaStvarnoStanje = "",
-                            KorisnikParceleID = new Guid("efb3be0f-7082-4998-858d-51340d2abbab"),
+                            KorisnikParceleID = new Guid("8de0c01b-b7b0-4df2-9009-3df21b91a0bb"),
                             KulturaID = new Guid("a644ca6e-89c2-4b16-84d8-6f5b76909ad2"),
                             KulturaStvarnoStanje = "",
                             OblikSvojineID = new Guid("84226e05-ec99-4c6c-827f-f0ccf63a0990"),
@@ -486,31 +486,45 @@ namespace ParcelaService.Migrations
                 {
                     b.HasOne("ParcelaService.Entities.KatastarskaOpstina", "KatastarskaOpstina")
                         .WithMany("ParcelaList")
-                        .HasForeignKey("KatastarskaOpstinaID");
+                        .HasForeignKey("KatastarskaOpstinaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ParcelaService.Entities.Klasa", "Klasa")
                         .WithMany("ParcelaList")
-                        .HasForeignKey("KlasaID");
+                        .HasForeignKey("KlasaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ParcelaService.Entities.Kultura", "Kultura")
                         .WithMany("ParcelaList")
-                        .HasForeignKey("KulturaID");
+                        .HasForeignKey("KulturaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ParcelaService.Entities.OblikSvojine", "OblikSvojine")
                         .WithMany("ParcelaList")
-                        .HasForeignKey("OblikSvojineID");
+                        .HasForeignKey("OblikSvojineID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ParcelaService.Entities.Obradivost", "Obradivost")
                         .WithMany("ParcelaList")
-                        .HasForeignKey("ObradivostID");
+                        .HasForeignKey("ObradivostID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ParcelaService.Entities.Odvodnjavanje", "Odvodnjavanje")
                         .WithMany("ParcelaList")
-                        .HasForeignKey("OdvodnjavanjeID");
+                        .HasForeignKey("OdvodnjavanjeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ParcelaService.Entities.ZasticenaZona", "ZasticenaZona")
                         .WithMany("ParcelaList")
-                        .HasForeignKey("ZasticenaZonaID");
+                        .HasForeignKey("ZasticenaZonaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

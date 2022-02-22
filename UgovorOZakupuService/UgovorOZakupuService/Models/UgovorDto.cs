@@ -11,8 +11,10 @@ namespace UgovorOZakupuService.Models
         public Guid UgovorID { get; set; }
         public Guid KorisnikID { get; set; }
         public Guid KupacID { get; set; }
+        public KupacDto Kupac { get; set; }
         public Guid JavnoNadmetanjeID { get; set; }
         public Guid LicnostID { get; set; }
+        public LicnostDto Licnost { get; set; }
         public RokDto Rok { get; set; }
         public DokumentDto Dokument { get; set; }
         public TipGarancijeDto TipGarancije { get; set; }

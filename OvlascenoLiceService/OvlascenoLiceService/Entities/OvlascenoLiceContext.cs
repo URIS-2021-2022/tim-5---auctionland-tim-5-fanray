@@ -52,7 +52,7 @@ namespace OvlascenoLiceService.Entities
                         JMBG = "1007990171500",
                         BrojPasosa = "BP0710",
                         BrojTableID = Guid.Parse("206a4efa-5389-41a8-a730-4df3842cf7fe"),
-                        DrzavaID = Guid.Parse("bb9c4ebc-2028-4a83-88d7-04422ab58548")
+                        DrzavaID = Guid.Parse("a8d29242-7df3-4bfb-be49-48519f65649b")
                     }
             );
         }

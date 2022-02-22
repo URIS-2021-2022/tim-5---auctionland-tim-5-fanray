@@ -11,5 +11,6 @@ namespace OvlascenoLiceService.Models
         public string BrojPasosa { get; set; }
         public BrojTableDto BrojTable { get; set; }
         public Guid DrzavaID { get; set; }
+        public DrzavaDto Drzava { get; set; }
     }
 }

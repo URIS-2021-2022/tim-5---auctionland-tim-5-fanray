@@ -273,7 +273,7 @@ namespace ParcelaService.Entities
                     new Parcela
                     {
                         ParcelaID = Guid.Parse("ae463837-b971-4354-9f40-92cc819edf25"),
-                        KorisnikParceleID = Guid.Parse("efb3be0f-7082-4998-858d-51340d2abbab"),
+                        KorisnikParceleID = Guid.Parse("8de0c01b-b7b0-4df2-9009-3df21b91a0bb"),
                         Povrsina = 100,
                         BrojParcele = "PC-2601",
                         KatastarskaOpstinaID = Guid.Parse("870742be-2358-45f2-bb1b-1d4efa6bf9d2"),

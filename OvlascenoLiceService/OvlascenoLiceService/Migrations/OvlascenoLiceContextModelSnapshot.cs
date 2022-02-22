@@ -86,7 +86,7 @@ namespace OvlascenoLiceService.Migrations
                             OvlascenoLiceID = new Guid("d041c26e-34c1-4c2d-a9f6-0c0478f3f437"),
                             BrojPasosa = "BP0710",
                             BrojTableID = new Guid("206a4efa-5389-41a8-a730-4df3842cf7fe"),
-                            DrzavaID = new Guid("bb9c4ebc-2028-4a83-88d7-04422ab58548"),
+                            DrzavaID = new Guid("a8d29242-7df3-4bfb-be49-48519f65649b"),
                             Ime = "Milos",
                             JMBG = "1007990171500",
                             Prezime = "Jovanovic"

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using OvlascenoLiceService.Models;
 
 namespace OvlascenoLiceService.Helpers
@@ -6,5 +7,6 @@ namespace OvlascenoLiceService.Helpers
     {
         bool AuthenticatePrincipal(Principal principal);
         string GenerateJwt(Principal principal);
+        string GetToken(HttpRequest request);
     }
 }

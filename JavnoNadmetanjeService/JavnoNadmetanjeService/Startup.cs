@@ -43,6 +43,7 @@ namespace JavnoNadmetanjeService
             services.AddScoped<ISluzbeniListRepository, SluzbeniListRepository>();
             services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
             services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddScoped<IParcelaService, ParcelaService>();
             services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddControllers();
