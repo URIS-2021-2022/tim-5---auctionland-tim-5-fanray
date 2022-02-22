@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using ParcelaService.Data;
 using ParcelaService.Entities;
+using ParcelaService.Helpers;
 using ParcelaService.Models;
 using ParcelaService.Services;
 using System;
@@ -19,38 +20,20 @@ namespace ParcelaService.Controllers
     public class ParcelaController : ControllerBase
     {
         private readonly IParcelaRepository ParcelaRepository;
-        private readonly IKatastarskaOpstinaRepository KatastarskaOpstinaRepository;
-        private readonly IKlasaRepository KlasaRepository;
-        private readonly IKulturaRepository KulturaRepository;
-        private readonly IOblikSvojineRepository OblikSvojineRepository;
-        private readonly IObradivostRepository ObradivostRepository;
-        private readonly IOdvodnjavanjeRepository OdvodnjavanjeRepository;
-        private readonly IZasticenaZonaRepository ZasticenaZonaRepository;
+        private readonly IParcelaHelper ParcelaHelper;
         private readonly LinkGenerator LinkGenerator;
         private readonly IMapper Mapper;
         private readonly ILoggerService LoggerService;
 
         public ParcelaController(
             IParcelaRepository parcelaRepository,
-            IKatastarskaOpstinaRepository katastarskaOpstinaRepository,
-            IKlasaRepository klasaRepository,
-            IKulturaRepository kulturaRepository,
-            IOblikSvojineRepository oblikSvojineRepository,
-            IObradivostRepository obradivostRepository,
-            IOdvodnjavanjeRepository odvodnjavanjeRepository,
-            IZasticenaZonaRepository zasticenaZonaRepository,
+            IParcelaHelper parcelaHelper,
             LinkGenerator linkGenerator, 
             IMapper mapper, 
             ILoggerService loggerService)
         {
             this.ParcelaRepository = parcelaRepository;
-            this.KatastarskaOpstinaRepository = katastarskaOpstinaRepository;
-            this.KlasaRepository = klasaRepository;
-            this.KulturaRepository = kulturaRepository;
-            this.OblikSvojineRepository = oblikSvojineRepository;
-            this.ObradivostRepository = obradivostRepository;
-            this.OdvodnjavanjeRepository = odvodnjavanjeRepository;
-            this.ZasticenaZonaRepository = zasticenaZonaRepository;
+            this.ParcelaHelper = parcelaHelper;
             this.LinkGenerator = linkGenerator;
             this.Mapper = mapper;
             this.LoggerService = loggerService;
@@ -74,15 +57,9 @@ namespace ParcelaService.Controllers
                 return NoContent();
             }
 
-            foreach (Parcela p in parcelaList)
+            for (int i = 0; i < parcelaList.Count; i++)
             {
-                p.KatastarskaOpstina = KatastarskaOpstinaRepository.GetKatastarskaOpstinaById(p.KatastarskaOpstinaID);
-                p.Klasa = KlasaRepository.GetKlasaById(p.KlasaID);
-                p.Kultura = KulturaRepository.GetKulturaById(p.KulturaID);
-                p.OblikSvojine = OblikSvojineRepository.GetOblikSvojineById(p.OblikSvojineID);
-                p.Obradivost = ObradivostRepository.GetObradivostById(p.ObradivostID);
-                p.Odvodnjavanje = OdvodnjavanjeRepository.GetOdvodnjavanjeById(p.OdvodnjavanjeID);
-                p.ZasticenaZona = ZasticenaZonaRepository.GetZasticenaZonaById(p.ZasticenaZonaID);
+                parcelaList[i] = ParcelaHelper.loadRepositories(parcelaList[i]);
             }
 
             return Ok(Mapper.Map<List<ParcelaDto>>(parcelaList));
@@ -107,13 +84,7 @@ namespace ParcelaService.Controllers
                 return NotFound();
             }
 
-            p.KatastarskaOpstina = KatastarskaOpstinaRepository.GetKatastarskaOpstinaById(p.KatastarskaOpstinaID);
-            p.Klasa = KlasaRepository.GetKlasaById(p.KlasaID);
-            p.Kultura = KulturaRepository.GetKulturaById(p.KulturaID);
-            p.OblikSvojine = OblikSvojineRepository.GetOblikSvojineById(p.OblikSvojineID);
-            p.Obradivost = ObradivostRepository.GetObradivostById(p.ObradivostID);
-            p.Odvodnjavanje = OdvodnjavanjeRepository.GetOdvodnjavanjeById(p.OdvodnjavanjeID);
-            p.ZasticenaZona = ZasticenaZonaRepository.GetZasticenaZonaById(p.ZasticenaZonaID);
+            p = ParcelaHelper.loadRepositories(p);
 
             return Ok(Mapper.Map<ParcelaDto>(p));
         }

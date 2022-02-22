@@ -41,6 +41,7 @@ namespace ParcelaService
             services.AddScoped<IParcelaRepository, ParcelaRepository>();
             services.AddScoped<IDeoParceleRepository, DeoParceleRepository>();
             services.AddSingleton<IKorisnikRepository, KorisnikMockRepository>();
+            services.AddScoped<IParcelaHelper, ParcelaHelper>();
             services.AddScoped<IAuthHelper, AuthHelper>();
             services.AddSingleton<ILoggerService, LoggerService>();
 
