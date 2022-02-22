@@ -65,6 +65,8 @@ namespace KupacService.Controllers
                 kdto.OvlascenoLice = OvlascenoLiceService.GetOvlascenoLiceByIdAsync(kdto.OvlascenoLiceId, Request).Result;
             }
 
+            LoggerService.createLogAsync("Kupac", "Kupac", "GET", 200);
+
             return Ok(kupacDtoList);
         }
 
@@ -91,6 +93,8 @@ namespace KupacService.Controllers
 
             kupacDto.OvlascenoLice = OvlascenoLiceService.GetOvlascenoLiceByIdAsync(kupacDto.OvlascenoLiceId, Request).Result;
 
+            LoggerService.createLogAsync("Kupac", "Kupac", "GET", 200);
+
             return Ok(kupacDto);
         }
 
@@ -113,12 +117,14 @@ namespace KupacService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetKupacById", "Kupac", new { kupacId = confirmation.KupacId });
 
-                LoggerService.createLogAsync("Kupac " + kupac.KupacId + " je dodat");
+                LoggerService.createLogAsync("Kupac", "Kupac", "POST", 201);
 
                 return Created(location, Mapper.Map<KupacConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Kupac", "Kupac", "POST", 500);
+                
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -151,12 +157,15 @@ namespace KupacService.Controllers
 
                 KupacConfirmationDto confirmation = KupacRepository.UpdateKupac(kupac);
 
-                LoggerService.createLogAsync("Kupac " + kupac.KupacId + " je ažuriran");
+                LoggerService.createLogAsync("Kupac", "Kupac", "PUT", 200);
 
                 return Ok(Mapper.Map<KupacConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+
+                LoggerService.createLogAsync("Kupac", "Kupac", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -186,12 +195,14 @@ namespace KupacService.Controllers
 
                 KupacConfirmationDto confirmation = KupacRepository.DeleteKupac(kupacId);
 
-                LoggerService.createLogAsync("Kupac " + kupac.KupacId + " je izbrisan");
+                LoggerService.createLogAsync("Kupac", "Kupac", "DELETE", 200);
 
                 return Ok(Mapper.Map<KupacConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Kupac", "Kupac", "GET", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

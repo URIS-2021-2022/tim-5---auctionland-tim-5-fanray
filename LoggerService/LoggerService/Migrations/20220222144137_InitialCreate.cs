@@ -12,7 +12,10 @@ namespace LoggerService.Migrations
                 columns: table => new
                 {
                     LogID = table.Column<Guid>(nullable: false),
-                    Opis = table.Column<string>(nullable: false),
+                    Mikroservis = table.Column<string>(nullable: false),
+                    Entitet = table.Column<string>(nullable: false),
+                    Zahtjev = table.Column<string>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
                     DatumKreiranja = table.Column<string>(nullable: false),
                     VremeKreiranja = table.Column<string>(nullable: false)
                 },
@@ -23,8 +26,8 @@ namespace LoggerService.Migrations
 
             migrationBuilder.InsertData(
                 table: "Log",
-                columns: new[] { "LogID", "DatumKreiranja", "Opis", "VremeKreiranja" },
-                values: new object[] { new Guid("d592cc56-f9ec-484d-b082-e8ae655b586c"), "30/01/2022 00:00:00", "Logger je inicijalizovan u bazi podataka", "18:57:42.4842139" });
+                columns: new[] { "LogID", "DatumKreiranja", "Entitet", "Mikroservis", "Status", "VremeKreiranja", "Zahtjev" },
+                values: new object[] { new Guid("d592cc56-f9ec-484d-b082-e8ae655b586c"), "22/02/2022 00:00:00", "Log", "Logger", 201, "15:41:36.7259689", "POST" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

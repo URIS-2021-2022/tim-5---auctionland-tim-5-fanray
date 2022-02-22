@@ -43,6 +43,8 @@ namespace LicnostService.Controllers
                 return NoContent();
             }
 
+            LoggerService.createLogAsync("Licnost", "Komisija", "GET", 200);
+
             return Ok(Mapper.Map<List<KomisijaDto>>(komisijaList));
         }
 
@@ -57,6 +59,8 @@ namespace LicnostService.Controllers
             {
                 return NotFound();
             }
+
+            LoggerService.createLogAsync("Licnost", "Komisija", "GET", 200);
 
             return Ok(Mapper.Map<KomisijaDto>(komisija));
         }
@@ -74,12 +78,14 @@ namespace LicnostService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetKomisijaById", "Komisija", new { komisijaId = confirmation.KomisijaID });
 
-                LoggerService.createLogAsync("Komisija " + komisija.KomisijaID + " je dodata");
+                LoggerService.createLogAsync("Licnost", "Komisija", "POST", 201);
 
                 return Created(location, Mapper.Map<KomisijaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Licnost", "Komisija", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -106,12 +112,15 @@ namespace LicnostService.Controllers
 
                 KomisijaConfirmationDto confirmation = KomisijaRepository.UpdateKomisija(komisija);
 
-                LoggerService.createLogAsync("Komisija " + komisija.KomisijaID + " je ažurirana");
+                LoggerService.createLogAsync("Licnost", "Komisija", "PUT", 200);
 
                 return Ok(Mapper.Map<KomisijaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+
+                LoggerService.createLogAsync("Licnost", "Komisija", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -133,12 +142,14 @@ namespace LicnostService.Controllers
 
                 KomisijaConfirmationDto confirmation = KomisijaRepository.DeleteKomisija(komisijaId);
 
-                LoggerService.createLogAsync("Komisija " + komisija.KomisijaID + " je izbrisana");
+                LoggerService.createLogAsync("Licnost", "Komisija", "DELETE", 200);
 
                 return Ok(Mapper.Map<KomisijaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Licnost", "Komisija", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

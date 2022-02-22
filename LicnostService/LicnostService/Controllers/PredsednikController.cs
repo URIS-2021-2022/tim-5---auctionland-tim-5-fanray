@@ -44,6 +44,8 @@ namespace LicnostService.Controllers
                 return NoContent();
             }
 
+            LoggerService.createLogAsync("Licnost", "Predsednik", "GET", 200);
+
             return Ok(Mapper.Map<List<PredsednikDto>>(predsednikList));
         }
 
@@ -59,6 +61,8 @@ namespace LicnostService.Controllers
             {
                 return NotFound();
             }
+
+            LoggerService.createLogAsync("Licnost", "Predsednik", "GET", 200);
 
             return Ok(Mapper.Map<PredsednikDto>(predsednik));
         }
@@ -77,12 +81,13 @@ namespace LicnostService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetPredsednikById", "Predsednik", new { predsednikId = confirmation.PredsednikID });
 
-                LoggerService.createLogAsync("Predsednik " + predsednik.PredsednikID + " je dodat");
+                LoggerService.createLogAsync("Licnost", "Predsednik", "POST", 201);
 
                 return Created(location, Mapper.Map<PredsednikConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Licnost", "Predsednik", "POST", 500);
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -110,12 +115,14 @@ namespace LicnostService.Controllers
 
                 PredsednikConfirmationDto confirmation = PredsednikRepository.UpdatePredsednik(predsednik);
 
-                LoggerService.createLogAsync("Predsednik " + predsednik.PredsednikID + " je ažuriran");
+                LoggerService.createLogAsync("Licnost", "Predsednik", "PUT", 200);
 
                 return Ok(Mapper.Map<PredsednikConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Licnost", "Predsednik", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -138,12 +145,14 @@ namespace LicnostService.Controllers
 
                 PredsednikConfirmationDto confirmation = PredsednikRepository.DeletePredsednik(predsednikId);
 
-                LoggerService.createLogAsync("Predsednik " + predsednik.PredsednikID + " je izbrisan");
+                LoggerService.createLogAsync("Licnost", "Predsednik", "DELETE", 200);
 
                 return Ok(Mapper.Map<PredsednikConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Licnost", "Predsednik", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace LiceService.Models
+﻿namespace LiceService.Models
 {
     public class LogCreateDto
     {
-        public string Opis { get; set; }
-
+        public string Mikroservis { get; set; }
+        public string Entitet { get; set; }
+        public string Zahtjev { get; set; }
+        public int Status { get; set; }
     }
 }

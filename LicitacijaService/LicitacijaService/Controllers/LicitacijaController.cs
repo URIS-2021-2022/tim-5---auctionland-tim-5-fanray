@@ -43,6 +43,8 @@ namespace LicitacijaService.Controllers
                 return NoContent();
             }
 
+            LoggerService.createLogAsync("Licitacija", "Licitacija", "GET", 200);
+
             return Ok(Mapper.Map<List<LicitacijaDto>>(licitacijaList));
         }
 
@@ -57,6 +59,8 @@ namespace LicitacijaService.Controllers
             {
                 return NotFound();
             }
+
+            LoggerService.createLogAsync("Licitacija", "Licitacija", "GET", 200);
 
             return Ok(Mapper.Map<LicitacijaDto>(licitacija));
         }
@@ -74,12 +78,14 @@ namespace LicitacijaService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetLicitacijaById", "Licitacija", new { licitacijaId = confirmation.LicitacijaID });
 
-                LoggerService.createLogAsync("Licitacija " + licitacija.LicitacijaID + " je dodata");
+                LoggerService.createLogAsync("Licitacija", "Licitacija", "POST", 201);
 
                 return Created(location, Mapper.Map<LicitacijaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Licitacija", "Licitacija", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -100,12 +106,14 @@ namespace LicitacijaService.Controllers
 
                 Mapper.Map(licitacija, oldLicitacija);
 
-                LoggerService.createLogAsync("Licitacija " + licitacija.LicitacijaID + " je ažurirana");
+                LoggerService.createLogAsync("Licitacija", "Licitacija", "PUT", 200);
 
                 return Ok(Mapper.Map<LicitacijaConfirmationDto>(oldLicitacija));
             }
             catch (Exception ex)
             {
+
+                LoggerService.createLogAsync("Licitacija", "Licitacija", "PUT", 500);
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -124,12 +132,14 @@ namespace LicitacijaService.Controllers
 
                 LicitacijaRepository.DeleteLicitacija(licitacijaId);
 
-                LoggerService.createLogAsync("Licitacija " + licitacija.LicitacijaID + " je izbrisana");
+                LoggerService.createLogAsync("Licitacija", "Licitacija", "DELETE", 200);
 
                 return Ok(Mapper.Map<LicitacijaConfirmationDto>(licitacija));
             }
             catch (Exception)
             {
+                LoggerService.createLogAsync("Licitacija", "Licitacija", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, "Delete Error");
             }
         }

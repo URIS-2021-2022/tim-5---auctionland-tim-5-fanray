@@ -54,6 +54,8 @@ namespace KupacService.Controllers
                 return NoContent();
             }
 
+            LoggerService.createLogAsync("Kupac", "NajboljiPonudjac", "GET", 200);
+
             return Ok(Mapper.Map<List<NajboljiPonudjacDto>>(najboljiPonudjacList));
         }
 
@@ -75,6 +77,8 @@ namespace KupacService.Controllers
             {
                 return NotFound();
             }
+
+            LoggerService.createLogAsync("Kupac", "NajboljiPonudjac", "GET", 200);
 
             return Ok(Mapper.Map<NajboljiPonudjacDto>(najboljiPonudjac));
         }
@@ -98,12 +102,14 @@ namespace KupacService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetNajbolji_PonudjacById", "Najbolji_Ponudjac", new { najboljiPonudjacId = confirmation.NajboljiPonudjacId });
 
-                LoggerService.createLogAsync("Najbolji ponuđač " + najboljiPonudjac.NajboljiPonudjacId + " je dodat");
+                LoggerService.createLogAsync("Kupac", "NajboljiPonudjac", "POST", 201);
 
                 return Created(location, Mapper.Map<NajboljiPonudjacConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+
+                LoggerService.createLogAsync("Kupac", "NajboljiPonudjac", "POST", 500);
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -136,12 +142,14 @@ namespace KupacService.Controllers
 
                 NajboljiPonudjacConfirmationDto confirmation = NajboljiPonudjacRepository.UpdateNajboljiPonudjac(najboljiPonudjac);
 
-                LoggerService.createLogAsync("Najbolji ponuđač " + najboljiPonudjac.NajboljiPonudjacId + " je ažuriran");
+                LoggerService.createLogAsync("Kupac", "NajboljiPonudjac", "PUT", 200);
 
                 return Ok(Mapper.Map<NajboljiPonudjacConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Kupac", "NajboljiPonudjac", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -171,12 +179,14 @@ namespace KupacService.Controllers
 
                 NajboljiPonudjacConfirmationDto confirmation = NajboljiPonudjacRepository.DeleteNajboljiPonudjac(najboljiPonudjacId);
 
-                LoggerService.createLogAsync("Najbolji ponuđač " + najboljiPonudjac.NajboljiPonudjacId + " je izbrisan");
+                LoggerService.createLogAsync("Kupac", "NajboljiPonudjac", "DELETE", 200);
 
                 return Ok(Mapper.Map<NajboljiPonudjacConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Kupac", "NajboljiPonudjac", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

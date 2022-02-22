@@ -63,6 +63,8 @@ namespace OvlascenoLice.Controllers
                 olDto.Drzava = AdresaService.GetDrzavaByIdAsync(olDto.DrzavaID, Request).Result;
             }
 
+            LoggerService.createLogAsync("OvlascenoLice", "OvlascenoLice", "GET", 200);
+
             return Ok(ovlascenoLiceDto);
         }
 
@@ -83,6 +85,8 @@ namespace OvlascenoLice.Controllers
 
             olDto.Drzava = AdresaService.GetDrzavaByIdAsync(ovlascenoLice.DrzavaID, Request).Result;
 
+            LoggerService.createLogAsync("OvlascenoLice", "OvlascenoLice", "GET", 200);
+
             return Ok(olDto);
         }
 
@@ -96,12 +100,14 @@ namespace OvlascenoLice.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetOvlascenoLiceById", "OvlascenoLice", new { ovlascenoLiceId = confirmation.OvlascenoLiceID });
 
-                LoggerService.createLogAsync("Ovlašćeno lice " +  ovlascenoLice.OvlascenoLiceID + " je dodato");
+                LoggerService.createLogAsync("OvlascenoLice", "OvlascenoLice", "POST", 201);
 
                 return Created(location, Mapper.Map<OvlascenoLiceConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("OvlascenoLice", "OvlascenoLice", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -122,12 +128,14 @@ namespace OvlascenoLice.Controllers
 
                 Mapper.Map(ovlascenoLice, oldOvlascenoLice);
 
-                LoggerService.createLogAsync("Ovlašćeno lice " + ovlascenoLice.OvlascenoLiceID + " je ažurirano");
+                LoggerService.createLogAsync("OvlascenoLice", "OvlascenoLice", "PUT", 200);
 
                 return Ok(Mapper.Map<OvlascenoLiceConfirmationDto>(oldOvlascenoLice));
             }
             catch (Exception ex)
             {
+
+                LoggerService.createLogAsync("OvlascenoLice", "OvlascenoLice", "PUT", 500);
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -146,12 +154,14 @@ namespace OvlascenoLice.Controllers
 
                 OvlascenoLiceRepository.DeleteOvlascenoLice(ovlascenoLiceId);
 
-                LoggerService.createLogAsync("Ovlašćeno lice " + ovlascenoLice.OvlascenoLiceID + " je izbrisano");
+                LoggerService.createLogAsync("OvlascenoLice", "OvlascenoLice", "DELETE", 200);
 
                 return Ok(Mapper.Map<OvlascenoLiceConfirmationDto>(ovlascenoLice));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("OvlascenoLice", "OvlascenoLice", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

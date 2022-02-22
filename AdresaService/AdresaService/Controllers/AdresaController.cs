@@ -63,6 +63,8 @@ namespace AdresaService.Controllers
                 a.Drzava = DrzavaRepository.GetDrzavaById(a.DrzavaID);
             }
 
+            LoggerService.createLogAsync("Adresa", "Adresa", "GET", 200);
+
             return Ok(Mapper.Map<List<AdresaDto>>(adresaList));
         }
 
@@ -87,6 +89,8 @@ namespace AdresaService.Controllers
 
             adresa.Drzava = DrzavaRepository.GetDrzavaById(adresa.DrzavaID);
 
+            LoggerService.createLogAsync("Adresa", "Adresa", "GET", 200);
+
             return Ok(Mapper.Map<AdresaDto>(adresa));
         }
 
@@ -109,12 +113,14 @@ namespace AdresaService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetAdresaById", "Adresa", new { adresaId = confirmation.AdresaID });
 
-                LoggerService.createLogAsync("Adresa " + adresa.AdresaID + " je dodata");
+                LoggerService.createLogAsync("Adresa", "Adresa", "POST", 201);
 
                 return Created(location, Mapper.Map<AdresaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Adresa", "Adresa", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -148,12 +154,14 @@ namespace AdresaService.Controllers
 
                 AdresaConfirmationDto confirmation = AdresaRepository.UpdateAdresa(adresa);
 
-                LoggerService.createLogAsync("Adresa " + adresa.AdresaID + " je ažurirana");
+                LoggerService.createLogAsync("Adresa", "Adresa", "PUT", 200);
 
                 return Ok(Mapper.Map<AdresaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Adresa", "Adresa", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
 
@@ -183,12 +191,14 @@ namespace AdresaService.Controllers
 
                 AdresaConfirmationDto confirmation = AdresaRepository.DeleteAdresa(adresaId);
 
-                LoggerService.createLogAsync("Adresa " + adresa.AdresaID + " je izbrisana");
+                LoggerService.createLogAsync("Adresa", "Adresa", "DELETE", 200);
 
                 return Ok(Mapper.Map<AdresaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Adresa", "Adresa", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

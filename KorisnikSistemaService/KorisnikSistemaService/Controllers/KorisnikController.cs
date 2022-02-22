@@ -56,6 +56,8 @@ namespace KorisnikSistemaService.Controllers
                 k.TipKorisnika = TipKorisnikaRepository.GetTipKorisnikaById(k.TipKorisnikaID);
             }
 
+            LoggerService.createLogAsync("KorisnikSistema", "KorisnikSistema", "GET", 200);
+
             return Ok(Mapper.Map<List<KorisnikDto>>(korisnikList));
         }
 
@@ -73,6 +75,8 @@ namespace KorisnikSistemaService.Controllers
 
             korisnik.TipKorisnika = TipKorisnikaRepository.GetTipKorisnikaById(korisnik.TipKorisnikaID);
 
+            LoggerService.createLogAsync("KorisnikSistema", "KorisnikSistema", "GET", 200);
+
             return Ok(Mapper.Map<KorisnikDto>(korisnik));
         }
 
@@ -87,14 +91,17 @@ namespace KorisnikSistemaService.Controllers
                 Korisnik korisnik = Mapper.Map<Korisnik>(korisnikDto);
                 KorisnikConfirmationDto confirmation = KorisnikRepository.CreateKorisnik(korisnik);
 
-                string location = LinkGenerator.GetPathByAction("GetKorisnikById", "Korisnik", new { korisnikId = confirmation.KorisnikID });
+                string location = LinkGenerator.GetPathByAction("GetKorsnikById", "Korisnik", new { korisnikId = confirmation.KorisnikID });
 
-                LoggerService.createLogAsync("Korisnik " + korisnik.KorisnikID + " je dodat");
+                LoggerService.createLogAsync("KorisnikSistema", "KorisnikSistema", "POST", 201);
 
                 return Created(location, Mapper.Map<KorisnikConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+
+                LoggerService.createLogAsync("KorisnikSistema", "KorisnikSistema", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -121,12 +128,14 @@ namespace KorisnikSistemaService.Controllers
 
                 KorisnikConfirmationDto confirmation = KorisnikRepository.UpdateKorisnik(korisnik);
 
-                LoggerService.createLogAsync("Korisnik " + korisnik.KorisnikID + " je ažuriran");
+                LoggerService.createLogAsync("KorisnikSistema", "KorisnikSistema", "PUT", 200);
 
                 return Ok(Mapper.Map<KorisnikConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("KorisnikSistema", "KorisnikSistema", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -148,12 +157,14 @@ namespace KorisnikSistemaService.Controllers
 
                 KorisnikConfirmationDto confirmation = KorisnikRepository.DeleteKorisnik(korisnikId);
 
-                LoggerService.createLogAsync("Korisnik " + korisnik.KorisnikID + " je izbrisan");
+                LoggerService.createLogAsync("KorisnikSistema", "KorisnikSistema", "DELETE", 200);
 
                 return Ok(Mapper.Map<KorisnikConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("KorisnikSistema", "KorisnikSistema", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6cbb1ccc-1d34-479b-a6ca-3cc05722002a",
+		"_postman_id": "9cf5a632-4174-4433-aad7-e985229126b9",
 		"name": "AuctionLandTim5",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -152,7 +152,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"tipKorisnikaID\": \"3d9d9ecb-e306-402a-9aa8-8e0c526bf890\",\r\n    \"ime\": \"Jovana\",\r\n    \"prezime\": \"Karamarkovic\",\r\n    \"korisnickoIme\": \"jovanaK\",\r\n    \"lozinka\": \"jovana123\"\r\n}",
+							"raw": "{\r\n    \"tipKorisnikaID\": \"acfbe150-40cb-4f3e-9c38-2ad33bf1b0f0\",\r\n    \"ime\": \"Jovana\",\r\n    \"prezime\": \"Karamarkovic\",\r\n    \"korisnickoIme\": \"jovanaK\",\r\n    \"lozinka\": \"jovana123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -178,7 +178,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"korisnikID\": \"34f11383-cb12-481d-9ff7-2fd458dc7e2b\",\r\n    \"tipKorisnikaID\": \"912de663-6320-4521-a7d7-3a7086f42b2c\",\r\n    \"ime\": \"Tanja\",\r\n    \"prezime\": \"Savic\",\r\n    \"korisnickoIme\": \"tanjaS\",\r\n    \"lozinka\": \"tanja123\"\r\n}",
+							"raw": "{\r\n    \"korisnikID\": \"34f11383-cb12-481d-9ff7-2fd458dc7e2b\",\r\n    \"tipKorisnikaID\": \"acfbe150-40cb-4f3e-9c38-2ad33bf1b0f0\",\r\n    \"ime\": \"Tanja\",\r\n    \"prezime\": \"Savic\",\r\n    \"korisnickoIme\": \"tanjaS\",\r\n    \"lozinka\": \"tanja123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1623,7 +1623,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"korisnikID\": \"87e332ef-478d-4e75-a1fd-a6eee61a98e4\",\r\n    \"kupacID\": \"ee0d7da2-a336-4a45-b70a-a540e6f9f0a9\",\r\n    \"javnoNadmetanjeID\": \"d5fc96d3-10c3-46f2-b12c-542bf0577c66\",\r\n    \"licnostID\": \"f1ef17ec-310f-4cc9-9120-de03262470c4\",\r\n    \"rokID\": \"28de10a1-1df6-41a1-a397-1d15067e95ce\",\r\n    \"dokumentID\": \"acbfa1a7-1c09-4a98-9119-b11a9bb34b75\",\r\n    \"tipGarancijeID\": \"d93136b7-a0f5-4af1-931e-a87507d613e4\",\r\n    \"zavodniBroj\": \"UGO-12/11\",\r\n    \"mestoPotpisivanja\": \"Novi Sad\",\r\n    \"datumZavodjenja\": \"2022-02-16T19:43:22.079Z\",\r\n    \"rokZaVracanjeZem\": \"2022-02-16T19:43:22.079Z\",\r\n    \"datumPotpisa\": \"2022-02-16T19:43:22.079Z\"\r\n}",
+							"raw": "{\r\n    \"korisnikID\": \"87e332ef-478d-4e75-a1fd-a6eee61a98e4\",\r\n    \"kupacID\": \"ee0d7da2-a336-4a45-b70a-a540e6f9f0a9\",\r\n    \"javnoNadmetanjeID\": \"d5fc96d3-10c3-46f2-b12c-542bf0577c66\",\r\n    \"licnostID\": \"f1ef17ec-310f-4cc9-9120-de03262470c4\",\r\n    \"rokID\": \"34562293-3bb6-4ef3-922f-f9d7d3c57864\",\r\n    \"dokumentID\": \"6d9bf251-8c70-495f-93bf-ff1e9ad85b88\",\r\n    \"tipGarancijeID\": \"8a02b3ef-651c-4893-8c71-8cf5ca4619fe\",\r\n    \"zavodniBroj\": \"UGO-12/11\",\r\n    \"mestoPotpisivanja\": \"Novi Sad\",\r\n    \"datumZavodjenja\": \"2022-02-16T19:43:22.079Z\",\r\n    \"rokZaVracanjeZem\": \"2022-02-16T19:43:22.079Z\",\r\n    \"datumPotpisa\": \"2022-02-16T19:43:22.079Z\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1649,7 +1649,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"ugovorID\": \"0ec914e2-a7a2-4935-ad30-5912fc86fd19\",\r\n    \"korisnikID\": \"25862727-de11-49c4-aea2-5431db48f0a5\",\r\n    \"kupacID\": \"81037b57-d24c-4d85-9649-7fc6ed635a0c\",\r\n    \"javnoNadmetanjeID\": \"84b3ea4c-e02f-41b1-a1ef-2734ef97abb2\",\r\n    \"licnostID\": \"45aed467-8061-4011-bfc6-3bc4d01b65f9\",\r\n    \"rokID\": \"8d6b2975-80bc-4823-9216-66cc6892d29e\",\r\n    \"dokumentID\": \"f00355a8-b3dc-4a6f-b4d7-46f4d7d7a9c7\",\r\n    \"tipGarancijeID\": \"f5c2bfbf-06e0-4a11-9b05-e7940d146016\",\r\n    \"zavodniBroj\": \"UGV-3/21\",\r\n    \"mestoPotpisivanja\": \"Novi Sad\",\r\n    \"datumZavodjenja\": \"2022-01-18T16:14:33\",\r\n    \"rokZaVracanjeZem\": \"2023-04-29T10:00:00\",\r\n    \"datumPotpisa\": \"2022-01-23T14:20:57\"\r\n}",
+							"raw": "{\r\n    \"ugovorID\": \"0ec914e2-a7a2-4935-ad30-5912fc86fd19\",\r\n    \"korisnikID\": \"87e332ef-478d-4e75-a1fd-a6eee61a98e4\",\r\n    \"kupacID\": \"ee0d7da2-a336-4a45-b70a-a540e6f9f0a9\",\r\n    \"javnoNadmetanjeID\": \"d5fc96d3-10c3-46f2-b12c-542bf0577c66\",\r\n    \"licnostID\": \"f1ef17ec-310f-4cc9-9120-de03262470c4\",\r\n    \"rokID\": \"34562293-3bb6-4ef3-922f-f9d7d3c57864\",\r\n    \"dokumentID\": \"6d9bf251-8c70-495f-93bf-ff1e9ad85b88\",\r\n    \"tipGarancijeID\": \"8a02b3ef-651c-4893-8c71-8cf5ca4619fe\",\r\n    \"zavodniBroj\": \"UGV-3/21\",\r\n    \"mestoPotpisivanja\": \"Novi Sad\",\r\n    \"datumZavodjenja\": \"2022-01-18T16:14:33\",\r\n    \"rokZaVracanjeZem\": \"2023-04-29T10:00:00\",\r\n    \"datumPotpisa\": \"2022-01-23T14:20:57\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2299,7 +2299,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDUyMTMzMzEsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAzIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDMifQ.w_R7L62jzBpJeXw0X2jSCreAR4-7gXTOQmnVP4HM7G0",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDU1NTE5MzUsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAzIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMDMifQ.7SEuhl3WvJgbQFpNWZnlO0oJw8upYPSr8q-4yhugGG0",
 				"type": "string"
 			}
 		]

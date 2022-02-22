@@ -72,6 +72,8 @@ namespace ParcelaService.Controllers
                 p.KorisnikParcele = LiceService.GetLiceByIdAsync(p.KorisnikParceleID, Request).Result;
             }
 
+            LoggerService.createLogAsync("Parcela", "Parcela", "GET", 200);
+
             return Ok(parcelaList);
         }
 
@@ -100,6 +102,8 @@ namespace ParcelaService.Controllers
 
             pDto.KorisnikParcele = LiceService.GetLiceByIdAsync(p.KorisnikParceleID, Request).Result;
 
+            LoggerService.createLogAsync("Parcela", "Parcela", "GET", 200);
+
             return Ok(pDto);
         }
 
@@ -123,12 +127,14 @@ namespace ParcelaService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetParcelaById", "Parcela", new { parcelaId = confirmation.ParcelaID });
 
-                LoggerService.createLogAsync("Parcela " + parcela.ParcelaID + " je dodata");
+                LoggerService.createLogAsync("Parcela", "Parcela", "POST", 201);
 
                 return Created(location, Mapper.Map<ParcelaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Parcela", "Parcela", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -162,12 +168,14 @@ namespace ParcelaService.Controllers
 
                 ParcelaConfirmationDto confirmation = ParcelaRepository.UpdateParcela(parcela);
 
-                LoggerService.createLogAsync("Parcela " + parcela.ParcelaID + " je ažurirana");
+                LoggerService.createLogAsync("Parcela", "Parcela", "PUT", 200);
 
                 return Ok(Mapper.Map<ParcelaConfirmationDto>(confirmation));
             }
             catch (Exception ex) 
             {
+                LoggerService.createLogAsync("Parcela", "Parcela", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -197,12 +205,14 @@ namespace ParcelaService.Controllers
 
                 ParcelaConfirmationDto confirmation = ParcelaRepository.DeleteParcela(parcelaId);
 
-                LoggerService.createLogAsync("Parcela " + parcela.ParcelaID + " je izbrisana");
+                LoggerService.createLogAsync("Parcela", "Parcela", "DELETE", 200);
 
                 return Ok(Mapper.Map<ParcelaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Parcela", "Parcela", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

@@ -33,10 +33,12 @@ namespace KorisnikSistemaService.Controllers
             {
                 var tokenString = AuthHelper.GenerateJwt(principal);
 
-                LoggerService.createLogAsync("Korisnik " + principal.KorisnickoIme + " se prijavio u sistem");
+                LoggerService.createLogAsync("KorisnikSistema", "Auth", "POST", 200);
 
                 return Ok(new { token = tokenString });
             }
+
+            LoggerService.createLogAsync("KorisnikSistema", "Auth", "POST", 201);
 
             return Unauthorized();
         }

@@ -43,6 +43,8 @@ namespace LicnostService.Controllers
                 return NoContent();
             }
 
+            LoggerService.createLogAsync("Licnost", "Licnost", "GET", 200);
+
             return Ok(Mapper.Map<List<LicnostDto>>(licnostList));
         }
 
@@ -57,6 +59,8 @@ namespace LicnostService.Controllers
             {
                 return NotFound();
             }
+
+            LoggerService.createLogAsync("Licnost", "Licnost", "GET", 200);
 
             return Ok(Mapper.Map<LicnostDto>(licnost));
         }
@@ -74,12 +78,14 @@ namespace LicnostService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetLicnostById", "Licnost", new { licnostId = confirmation.LicnostID });
 
-                LoggerService.createLogAsync("Ličnost " + licnost.LicnostID + " je dodata");
+                LoggerService.createLogAsync("Licnost", "Licnost", "POST", 201);
 
                 return Created(location, Mapper.Map<LicnostConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Licnost", "Komisija", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -106,12 +112,14 @@ namespace LicnostService.Controllers
 
                 LicnostConfirmationDto confirmation = LicnostRepository.UpdateLicnost(licnost);
 
-                LoggerService.createLogAsync("Ličnost " + licnost.LicnostID + " je ažurirana");
+                LoggerService.createLogAsync("Licnost", "Licnost", "PUT", 200);
 
                 return Ok(Mapper.Map<LicnostConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Licnost", "Licnost", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -133,12 +141,14 @@ namespace LicnostService.Controllers
 
                 LicnostConfirmationDto confirmation = LicnostRepository.DeleteLicnost(licnostId);
 
-                LoggerService.createLogAsync("Ličnost " + licnost.LicnostID + " je izbrisana");
+                LoggerService.createLogAsync("Licnost", "Licnost", "DELETE", 200);
 
                 return Ok(Mapper.Map<LicnostConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Licnost", "Licnost", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

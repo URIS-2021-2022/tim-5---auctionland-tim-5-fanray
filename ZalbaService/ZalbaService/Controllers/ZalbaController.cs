@@ -61,6 +61,8 @@ namespace ZalbaService.Controllers
                 z.TipZalbe = TipZalbeRepository.GetTipZalbeById(z.TipZalbeID);
             }
 
+            LoggerService.createLogAsync("Zalba", "Zalba", "GET", 200);
+
             return Ok(Mapper.Map<List<ZalbaDto>>(zalbaList));
         }
         
@@ -78,6 +80,8 @@ namespace ZalbaService.Controllers
             zalba.StatusZalbe = StatusZalbeRepository.GetStatusZalbeById(zalba.StatusZalbeID);
             zalba.TipZalbe = TipZalbeRepository.GetTipZalbeById(zalba.TipZalbeID);
 
+            LoggerService.createLogAsync("Zalba", "Zalba", "GET", 200);
+
             return Ok(Mapper.Map<ZalbaDto>(zalba));
         }
 
@@ -91,12 +95,14 @@ namespace ZalbaService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetZalbaById", "Zalba", new { zalbaId = confirmation.ZalbaID });
 
-                LoggerService.createLogAsync("Žalba " + zalba.ZalbaID + " je dodata");
+                LoggerService.createLogAsync("Zalba", "Zalba", "POST", 201);
 
                 return Created(location, Mapper.Map<ZalbaConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Zalba", "Zalba", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -117,12 +123,14 @@ namespace ZalbaService.Controllers
 
                 Mapper.Map(zalba, oldZalba);
 
-                LoggerService.createLogAsync("Žalba " + zalba.ZalbaID + " je ažurirana");
+                LoggerService.createLogAsync("Zalba", "Zalba", "PUT", 200);
 
                 return Ok(Mapper.Map<ZalbaConfirmationDto>(oldZalba));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Zalba", "Zalba", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -141,12 +149,14 @@ namespace ZalbaService.Controllers
 
                 ZalbaRepository.DeleteZalba(zalbaId);
 
-                LoggerService.createLogAsync("Žalba " + zalba.ZalbaID + " je izbrisana");
+                LoggerService.createLogAsync("Zalba", "Zalba", "DELETE", 200);
 
                 return Ok(Mapper.Map<ZalbaConfirmationDto>(zalba));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Zalba", "Zalba", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

@@ -55,6 +55,8 @@ namespace KupacService.Controllers
                 return NoContent();
             }
 
+            LoggerService.createLogAsync("Kupac", "PrijavljenKupac", "GET", 200);
+
             return Ok(Mapper.Map<List<PrijavljenKupacDto>>(prijavljenKupacList));
         }
 
@@ -76,6 +78,8 @@ namespace KupacService.Controllers
             {
                 return NotFound();
             }
+
+            LoggerService.createLogAsync("Kupac", "PrijavljenKupac", "GET", 200);
 
             return Ok(Mapper.Map<PrijavljenKupacDto>(prijavljenKupac));
         }
@@ -99,12 +103,14 @@ namespace KupacService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetPrijavljen_KupacById", "Prijavljen_Kupac", new { prijavljenKupacId = confirmation.PrijavljenKupacId });
 
-                LoggerService.createLogAsync("Prijavljeni kupac " + prijavljenKupac.PrijavljenKupacId + " je dodat");
+                LoggerService.createLogAsync("Kupac", "PrijavljenKupac", "POST", 201);
 
                 return Created(location, Mapper.Map<PrijavljenKupacConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Kupac", "PrijavljenKupac", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -137,12 +143,14 @@ namespace KupacService.Controllers
 
                 PrijavljenKupacConfirmationDto confirmation = PrijavljenKupacRepository.UpdatePrijavljenKupac(prijavljenKupac);
 
-                LoggerService.createLogAsync("Prijavljeni kupac " + prijavljenKupac.PrijavljenKupacId + " je ažuriran");
+                LoggerService.createLogAsync("Kupac", "PrijavljenKupac", "PUT", 200);
 
                 return Ok(Mapper.Map<PrijavljenKupacConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Kupac", "PrijavljenKupac", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -172,12 +180,14 @@ namespace KupacService.Controllers
 
                 PrijavljenKupacConfirmationDto confirmation = PrijavljenKupacRepository.DeletePrijavljenKupac(prijavljenKupacId);
 
-                LoggerService.createLogAsync("Prijavljeni kupac " + prijavljenKupac.PrijavljenKupacId + " je izbrisan");
+                LoggerService.createLogAsync("Kupac", "PrijavljenKupac", "DELETE", 200);
 
                 return Ok(Mapper.Map<PrijavljenKupacConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Kupac", "PrijavljenKupac", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

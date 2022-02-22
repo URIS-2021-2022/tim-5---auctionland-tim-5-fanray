@@ -79,8 +79,10 @@ namespace UgovorOZakupuService.Controllers
                     udto.Licnost = LicnostService.GetLicnostByIdAsync(udto.LicnostID, Request).Result;
                 }
 
+                LoggerService.createLogAsync("UgovorOZakupu", "Ugovor", "GET", 200);
+
                 return Ok(ugovorListDto);
-        }
+            }
 
             [HttpGet("{ugovorId}")]
             [ProducesResponseType(StatusCodes.Status200OK)]
@@ -103,6 +105,8 @@ namespace UgovorOZakupuService.Controllers
                 ugovorDto.Kupac = KupacService.GetKupacByIdAsync(ugovorDto.KupacID, Request).Result;
                 ugovorDto.Licnost = LicnostService.GetLicnostByIdAsync(ugovorDto.LicnostID, Request).Result;
 
+                LoggerService.createLogAsync("UgovorOZakupu", "Ugovor", "GET", 200);
+
                 return Ok(ugovorDto);
             }
 
@@ -119,12 +123,13 @@ namespace UgovorOZakupuService.Controllers
 
                     string location = LinkGenerator.GetPathByAction("GetUgovorById", "Ugovor", new { ugovorId = confirmation.UgovorID });
 
-                    LoggerService.createLogAsync("Ugovor " + ugovor.UgovorID + " je dodat");
+                    LoggerService.createLogAsync("UgovorOZakupu", "Ugovor", "POST", 201);
 
                     return Created(location, Mapper.Map<UgovorConfirmationDto>(confirmation));
                 }
                 catch (Exception ex)
                 {
+                    LoggerService.createLogAsync("UgovorOZakupu", "Ugovor", "POST", 500);
                     return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
                 }
             }
@@ -151,12 +156,13 @@ namespace UgovorOZakupuService.Controllers
 
                     UgovorConfirmationDto confirmation = UgovorRepository.UpdateUgovor(ugovor);
 
-                    LoggerService.createLogAsync("Ugovor " + ugovor.UgovorID + " je ažuriran");
+                    LoggerService.createLogAsync("UgovorOZakupu", "Ugovor", "PUT", 200);
 
                     return Ok(Mapper.Map<UgovorConfirmationDto>(confirmation));
                 }
                 catch (Exception ex)
                 {
+                    LoggerService.createLogAsync("UgovorOZakupu", "Ugovor", "PUT", 500);
                     return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
                 }
             }
@@ -178,12 +184,13 @@ namespace UgovorOZakupuService.Controllers
 
                     UgovorConfirmationDto confirmation = UgovorRepository.DeleteUgovor(ugovorId);
 
-                    LoggerService.createLogAsync("Ugovor " + ugovor.UgovorID + " je izbrisan");
+                    LoggerService.createLogAsync("UgovorOZakupu", "Ugovor", "DELETE", 200);
 
                     return Ok(Mapper.Map<UgovorConfirmationDto>(confirmation));
                 }
                 catch (Exception ex)
                 {
+                    LoggerService.createLogAsync("UgovorOZakupu", "Ugovor", "DELETE", 500);
                     return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
                 }
             }

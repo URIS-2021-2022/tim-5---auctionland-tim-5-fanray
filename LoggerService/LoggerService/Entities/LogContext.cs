@@ -29,7 +29,10 @@ namespace LoggerService.Entities
                     new Log
                     {
                         LogID = Guid.Parse("d592cc56-f9ec-484d-b082-e8ae655b586c"),
-                        Opis = "Logger je inicijalizovan u bazi podataka",
+                        Mikroservis = "Logger",
+                        Entitet = "Log",
+                        Zahtjev = "POST",
+                        Status = 201,
                         DatumKreiranja = log.Date.ToString(),
                         VremeKreiranja = log.TimeOfDay.ToString()
                     }

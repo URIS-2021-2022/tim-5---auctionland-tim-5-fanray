@@ -29,11 +29,22 @@ namespace LoggerService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Opis")
+                    b.Property<string>("Entitet")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Mikroservis")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<string>("VremeKreiranja")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Zahtjev")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -45,9 +56,12 @@ namespace LoggerService.Migrations
                         new
                         {
                             LogID = new Guid("d592cc56-f9ec-484d-b082-e8ae655b586c"),
-                            DatumKreiranja = "30/01/2022 00:00:00",
-                            Opis = "Logger je inicijalizovan u bazi podataka",
-                            VremeKreiranja = "18:57:42.4842139"
+                            DatumKreiranja = "22/02/2022 00:00:00",
+                            Entitet = "Log",
+                            Mikroservis = "Logger",
+                            Status = 201,
+                            VremeKreiranja = "15:41:36.7259689",
+                            Zahtjev = "POST"
                         });
                 });
 #pragma warning restore 612, 618

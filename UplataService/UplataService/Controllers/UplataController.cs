@@ -45,6 +45,8 @@ namespace UplataService.Controllers
                 return NoContent();
             }
 
+            LoggerService.createLogAsync("Uplata", "Uplata", "GET", 200);
+
             return Ok(Mapper.Map<List<UplataDto>>(uplataList));
         }
 
@@ -59,6 +61,8 @@ namespace UplataService.Controllers
             {
                 return NotFound();
             }
+
+            LoggerService.createLogAsync("Uplata", "Uplata", "GET", 200);
 
             return Ok(Mapper.Map<UplataDto>(uplata));
         }
@@ -80,13 +84,15 @@ namespace UplataService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetUplataById", "Uplata", new { uplataId = confirmation.UplataID });
 
-                LoggerService.createLogAsync("Uplata " + confirmation.UplataID + " je dodata");
+                LoggerService.createLogAsync("Uplata", "Uplata", "POST", 201);
 
 
                 return Created(location, Mapper.Map<UplataConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Uplata", "Uplata", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -113,12 +119,14 @@ namespace UplataService.Controllers
 
                 UplataConfirmationDto confirmation = UplataRepository.UpdateUplata(uplataDto);
 
-                LoggerService.createLogAsync("Uplata " + uplata.UplataID + " je ažurirana");
+                LoggerService.createLogAsync("Uplata", "Uplata", "PUT", 200);
 
                 return Ok(Mapper.Map<UplataConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Uplata", "Uplata", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -138,12 +146,14 @@ namespace UplataService.Controllers
 
                 UplataConfirmationDto confirmation = UplataRepository.DeleteUplata(uplataId);
 
-                LoggerService.createLogAsync("Uplata " + uplata.UplataID + " je izbrisana");
+                LoggerService.createLogAsync("Uplata", "Uplata", "DELETE", 200);
 
                 return Ok(Mapper.Map<UplataConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Uplata", "Uplata", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

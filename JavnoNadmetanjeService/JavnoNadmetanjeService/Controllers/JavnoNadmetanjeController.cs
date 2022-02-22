@@ -76,6 +76,8 @@ namespace JavnoNadmetanjeService.Controllers
                 jdto.KatastarskaOpstina = ParcelaService.GetKatastarskaOpstinaByIdAsync(jdto.KatastarskaOpstinaId, Request).Result;
             }
 
+            LoggerService.createLogAsync("JavnoNadmetanje", "JavnoNadmetanje", "GET", 200);
+
             return Ok(javnaNadmetanjaDto);
         }
 
@@ -104,6 +106,7 @@ namespace JavnoNadmetanjeService.Controllers
 
             javnoNadmetanjeDto.KatastarskaOpstina = ParcelaService.GetKatastarskaOpstinaByIdAsync(javnoNadmetanjeDto.KatastarskaOpstinaId, Request).Result;
 
+            LoggerService.createLogAsync("JavnoNadmetanje", "JavnoNadmetanje", "GET", 200);
 
             return Ok(mapper.Map<JavnoNadmetanjeDto>(javnoNadmetanjeDto));
         }
@@ -126,12 +129,14 @@ namespace JavnoNadmetanjeService.Controllers
                 JavnoNadmetanjeConfirmationDto confirmation = javnoNadmetanjeRepository.CreateJavnoNadmetanje(javnoNadmetanje);
                 string location = linkGenerator.GetPathByAction("GetJavnoNadmetanjeById", "JavnoNadmetanje", new { javnoNadmetanjeId = confirmation.JavnoNadmetanjeId });
 
-                LoggerService.createLogAsync("JNadmetanje " + javnoNadmetanje.JavnoNadmetanjeId + " je dodato");
+                LoggerService.createLogAsync("JavnoNadmetanje", "JavnoNadmetanje", "POST", 201);
 
                 return Created(location, mapper.Map<JavnoNadmetanjeConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("JavnoNadmetanje", "JavnoNadmetanje", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
             
@@ -160,12 +165,14 @@ namespace JavnoNadmetanjeService.Controllers
                 }
                 JavnoNadmetanjeConfirmationDto confirmation = javnoNadmetanjeRepository.DeleteJavnoNadmetanje(javnoNadmetanjeId);
 
-                LoggerService.createLogAsync("JNadmetanje " + javnoNadmetanje.JavnoNadmetanjeId + " je izbrisano");
+                LoggerService.createLogAsync("JavnoNadmetanje", "JavnoNadmetanje", "DELETE", 200);
 
                 return Ok(mapper.Map<JavnoNadmetanjeConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("JavnoNadmetanje", "JavnoNadmetanje", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -199,12 +206,14 @@ namespace JavnoNadmetanjeService.Controllers
 
                 JavnoNadmetanjeConfirmationDto confirmation = javnoNadmetanjeRepository.UpdateJavnoNadmetanje(jn);
 
-                LoggerService.createLogAsync("JNadmetanje " + jn.JavnoNadmetanjeId + " je ažurirano");
+                LoggerService.createLogAsync("JavnoNadmetanje", "JavnoNadmetanje", "PUT", 200);
 
                 return Ok(mapper.Map<JavnoNadmetanjeConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("JavnoNadmetanje", "JavnoNadmetanje", "PUT", 200);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

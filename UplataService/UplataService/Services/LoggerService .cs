@@ -21,11 +21,14 @@ namespace UplataService.Services
             this.HttpClientFactory = httpClientFactory;
         }
 
-        public async Task createLogAsync(string opis)
+        public async Task createLogAsync(string mikroservis, string entitet, string zahtjev, int status)
         {
             LogCreateDto logDto = new LogCreateDto
             {
-                Opis = opis
+                Mikroservis = mikroservis,
+                Entitet = entitet,
+                Zahtjev = zahtjev,
+                Status = status
             };
 
             var log = JsonSerializer.Serialize(logDto);

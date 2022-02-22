@@ -9,7 +9,16 @@ namespace LoggerService.Entities
         public Guid LogID { get; set; }
 
         [Required]
-        public string Opis { get; set; }
+        public string Mikroservis { get; set; }
+
+        [Required]
+        public string Entitet { get; set; }
+
+        [Required]
+        public string Zahtjev { get; set; }
+
+        [Required]
+        public int Status { get; set; }
 
         [Required]
         public string DatumKreiranja { get; set; }

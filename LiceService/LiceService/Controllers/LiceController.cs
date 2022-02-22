@@ -43,6 +43,8 @@ namespace LiceService.Controllers
                 return NoContent();
             }
 
+            LoggerService.createLogAsync("Lice", "Lice", "GET", 200);
+
             return Ok(Mapper.Map<List<LiceDto>>(liceList));
         }
 
@@ -57,6 +59,8 @@ namespace LiceService.Controllers
                 return NotFound();
             }
 
+            LoggerService.createLogAsync("Lice", "Lice", "GET", 200);
+
             return Ok(Mapper.Map<LiceDto>(lice));
         }
         [HttpPost]
@@ -70,12 +74,15 @@ namespace LiceService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetLiceById", "Lice", new { liceId = confirmation.LiceID });
 
-                LoggerService.createLogAsync("Lice " + lice.LiceID + " je dodato");
+                LoggerService.createLogAsync("Lice", "Lice", "POST", 201);
 
                 return Created(location, Mapper.Map<LiceConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+
+                LoggerService.createLogAsync("Lice", "Lice", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -96,12 +103,14 @@ namespace LiceService.Controllers
 
                 Mapper.Map(lice, oldLice);
 
-                LoggerService.createLogAsync("Lice " + lice.LiceID + " je ažurirano");
+                LoggerService.createLogAsync("Lice", "Lice", "PUT", 200);
 
                 return Ok(Mapper.Map<LiceConfirmationDto>(oldLice));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Lice", "Lice", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -119,12 +128,14 @@ namespace LiceService.Controllers
 
                 LiceRepository.DeleteLice(liceId);
 
-                LoggerService.createLogAsync("Lice " + lice.LiceID + " je izbrisano");
+                LoggerService.createLogAsync("Lice", "Lice", "DELETE", 200);
 
                 return Ok(Mapper.Map<LiceConfirmationDto>(lice));
             }
             catch (Exception)
             {
+                LoggerService.createLogAsync("Lice", "Lice", "DELETE", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, "Delete Error");
             }
         }

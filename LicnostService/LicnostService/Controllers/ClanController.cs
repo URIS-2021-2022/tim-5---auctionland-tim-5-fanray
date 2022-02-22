@@ -44,6 +44,8 @@ namespace LicnostService.Controllers
                 return NoContent();
             }
 
+            LoggerService.createLogAsync("Licnost", "Clan", "GET", 200);
+
             return Ok(Mapper.Map<List<ClanDto>>(clanList));
         }
 
@@ -59,6 +61,8 @@ namespace LicnostService.Controllers
             {
                 return NotFound();
             }
+
+            LoggerService.createLogAsync("Licnost", "Clan", "GET", 200);
 
             return Ok(Mapper.Map<ClanDto>(clan));
         }
@@ -77,12 +81,14 @@ namespace LicnostService.Controllers
 
                 string location = LinkGenerator.GetPathByAction("GetClanById", "Clan", new { clanId = confirmation.ClanID });
 
-                LoggerService.createLogAsync("Član " + clan.ClanID + " je dodat");
+                LoggerService.createLogAsync("Licnost", "Clan", "POST", 201);
 
                 return Created(location, Mapper.Map<ClanConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Licnost", "Clan", "POST", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -110,12 +116,14 @@ namespace LicnostService.Controllers
 
                 ClanConfirmationDto confirmation = ClanRepository.UpdateClan(clan);
 
-                LoggerService.createLogAsync("Član " + clan.ClanID + " je ažuriran");
+                LoggerService.createLogAsync("Licnost", "Clan", "PUT", 200);
 
                 return Ok(Mapper.Map<ClanConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+                LoggerService.createLogAsync("Licnost", "Clan", "PUT", 500);
+
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -138,12 +146,14 @@ namespace LicnostService.Controllers
 
                 ClanConfirmationDto confirmation = ClanRepository.DeleteClan(clanId);
 
-                LoggerService.createLogAsync("Član " + clan.ClanID + " je izbrisan");
+                LoggerService.createLogAsync("Licnost", "Clan", "DELETE", 200);
 
                 return Ok(Mapper.Map<ClanConfirmationDto>(confirmation));
             }
             catch (Exception ex)
             {
+
+                LoggerService.createLogAsync("Licnost", "Clan", "DELETE", 500);
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
