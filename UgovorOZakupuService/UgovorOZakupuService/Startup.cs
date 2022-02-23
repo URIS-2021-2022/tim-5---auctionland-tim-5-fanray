@@ -45,6 +45,7 @@ namespace UgovorOZakupuService
             services.AddScoped<IKupacMockRepository, KupacMockRepository>();
             services.AddScoped<ILicnostMockRepository, LicnostMockRepository>();
             services.AddScoped<IJavnoNadmetanjeMockRepository, JavnoNadmetanjeMockRepository>();
+            services.AddScoped<IUgovorHelper, UgovorHelper>();
             services.AddScoped<IAuthHelper, AuthHelper>();
             services.AddScoped<IKupacService, KupacService>();
             services.AddScoped<ILicnostService, LicnostService>();

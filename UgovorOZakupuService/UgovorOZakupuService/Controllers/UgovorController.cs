@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UgovorOZakupuService.Data;
 using UgovorOZakupuService.Entities;
+using UgovorOZakupuService.Helpers;
 using UgovorOZakupuService.Models;
 using UgovorOZakupuService.Services;
 
@@ -21,9 +22,7 @@ namespace UgovorOZakupuService.Controllers
         public class UgovorController : ControllerBase
         {
             private readonly IUgovorRepository UgovorRepository;
-            private readonly ITipGarancijeRepository TipGarancijeRepository;
-            private readonly IRokRepository RokRepository;
-            private readonly IDokumentRepository DokumentRepository;
+            private readonly IUgovorHelper UgovorHelper;
             private readonly LinkGenerator LinkGenerator;
             private readonly IMapper Mapper;
             private readonly IKupacService KupacService;
@@ -32,9 +31,7 @@ namespace UgovorOZakupuService.Controllers
 
             public UgovorController(
                 IUgovorRepository ugovorRepository, 
-                IDokumentRepository dokumentRepository,
-                IRokRepository rokRepository,
-                ITipGarancijeRepository tipGarancijeRepository,
+                IUgovorHelper ugovorHelper,
                 LinkGenerator linkGenerator, 
                 IMapper mapper,
                 IKupacService kupacService,
@@ -42,9 +39,7 @@ namespace UgovorOZakupuService.Controllers
                 ILoggerService loggerService)
             {
                 this.UgovorRepository = ugovorRepository;
-                this.DokumentRepository = dokumentRepository;
-                this.RokRepository = rokRepository;
-                this.TipGarancijeRepository = tipGarancijeRepository;
+                this.UgovorHelper = ugovorHelper;
                 this.LinkGenerator = linkGenerator;
                 this.Mapper = mapper;
                 this.KupacService = kupacService;
@@ -64,11 +59,9 @@ namespace UgovorOZakupuService.Controllers
                     return NoContent();
                 }
 
-                foreach (Ugovor u in ugovorList)
+                for (int i = 0; i < ugovorList.Count; i++)
                 {
-                    u.Dokument = DokumentRepository.GetDokumentById(u.DokumentID);
-                    u.Rok = RokRepository.GetRokById(u.RokID);
-                    u.TipGarancije = TipGarancijeRepository.GetTipGarancijeById(u.TipGarancijeID);
+                    ugovorList[i] = UgovorHelper.loadRepositories(ugovorList[i]);
                 }
 
                 List<UgovorDto> ugovorListDto = Mapper.Map<List<UgovorDto>>(ugovorList);
@@ -96,9 +89,7 @@ namespace UgovorOZakupuService.Controllers
                     return NotFound();
                 }
 
-                ugovor.Dokument = DokumentRepository.GetDokumentById(ugovor.DokumentID);
-                ugovor.Rok = RokRepository.GetRokById(ugovor.RokID);
-                ugovor.TipGarancije = TipGarancijeRepository.GetTipGarancijeById(ugovor.TipGarancijeID);
+                ugovor = UgovorHelper.loadRepositories(ugovor);
 
                 UgovorDto ugovorDto = Mapper.Map<UgovorDto>(ugovor);
 
