@@ -101,7 +101,7 @@ namespace KupacService.Controllers
                 PrijavljenKupac prijavljenKupac = Mapper.Map<PrijavljenKupac>(prijavljenKupacDto);
                 PrijavljenKupacConfirmationDto confirmation = PrijavljenKupacRepository.CreatePrijavljenKupac(prijavljenKupac);
 
-                string location = LinkGenerator.GetPathByAction("GetPrijavljen_KupacById", "Prijavljen_Kupac", new { prijavljenKupacId = confirmation.PrijavljenKupacId });
+                string location = LinkGenerator.GetPathByAction("GetPrijavljen_KupacById", "PrijavljenKupac", new { prijavljenKupacId = confirmation.PrijavljenKupacId });
 
                 LoggerService.createLogAsync("Kupac", "PrijavljenKupac", "POST", 201);
 

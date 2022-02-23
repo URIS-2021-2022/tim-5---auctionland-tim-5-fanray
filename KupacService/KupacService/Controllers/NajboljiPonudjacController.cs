@@ -100,7 +100,7 @@ namespace KupacService.Controllers
                 NajboljiPonudjac najboljiPonudjac = Mapper.Map<NajboljiPonudjac>(najboljiPonudjacDto);
                 NajboljiPonudjacConfirmationDto confirmation = NajboljiPonudjacRepository.CreateNajboljiPonudjac(najboljiPonudjac);
 
-                string location = LinkGenerator.GetPathByAction("GetNajbolji_PonudjacById", "Najbolji_Ponudjac", new { najboljiPonudjacId = confirmation.NajboljiPonudjacId });
+                string location = LinkGenerator.GetPathByAction("GetNajbolji_PonudjacById", "NajboljiPonudjac", new { najboljiPonudjacId = confirmation.NajboljiPonudjacId });
 
                 LoggerService.createLogAsync("Kupac", "NajboljiPonudjac", "POST", 201);
 
